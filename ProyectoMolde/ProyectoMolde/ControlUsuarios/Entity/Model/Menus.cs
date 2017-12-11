@@ -23,6 +23,7 @@ namespace ControlUsuarios.Entity.Model
         public string nombreMenu { get; set; }
         public Nullable<int> aplicacionWebId { get; set; }
         public int usuarioId { get; set; }
+        public string estado { get; set; }
     
         public virtual AplicacionesWeb AplicacionesWeb { get; set; }
         public virtual ICollection<Formularios> Formularios { get; set; }

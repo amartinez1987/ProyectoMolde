@@ -96,6 +96,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Controller\IFACTORY.cs" />
+    <Compile Include="Entity\Controller\ISTATEUsuarios.cs" />
+    <Compile Include="Entity\Controller\ISTATEUsuarios_Activo.cs" />
+    <Compile Include="Entity\Controller\ISTATEUsuarios_Bloqueado.cs" />
+    <Compile Include="Entity\Controller\ISTATEUsuarios_Inactivo.cs" />
+    <Compile Include="Entity\Controller\UsuariosController.cs" />
     <Compile Include="Entity\Model\AplicacionesWeb.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
@@ -156,10 +162,8 @@
     <Compile Include="Entity\Model\Personas.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Model\Result.cs" />
     <Compile Include="Entity\Model\sexos.cs">
-      <DependentUpon>MoldeEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entity\Model\sysdiagrams.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Model\Usuarios.cs">
@@ -168,14 +172,13 @@
     <Compile Include="Entity\Model\UsuariosOperacionesFormulario.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Model\UsuariosViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entity\Controller\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

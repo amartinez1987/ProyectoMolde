@@ -3,12 +3,13 @@ go
 USE [MoldeTrasabilidad]
 GO
 /****** Object:  Table [dbo].[AplicacionesWeb]    Script Date: 11/12/2017 9:44:19 ******/
-CREATE TABLE [dbo].[AplicacionesWeb](
+CREATE TABLE [dbo].[AplicacionesWeb]
+(
 	[id] [int]  NOT NULL,
 	[nombre] [varchar](1000) NOT NULL,
 	[descripcion] [varchar](800) NOT NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('') 
@@ -20,7 +21,7 @@ CREATE TABLE [dbo].[Barrios]
 	[nombre] [varchar](100) NULL,
 	[municipioId] [int] NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('') 
@@ -35,7 +36,7 @@ CREATE TABLE [dbo].[ControlAplicacion]
 	[fechaFin] [varchar](800) NOT NULL,
 	[estado] [varchar](50) NOT NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('')
@@ -47,7 +48,7 @@ CREATE TABLE [dbo].[Departamentos]
 	[id] [int] NOT NULL,
 	[nombre] [varchar](100) NOT NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('')
@@ -60,7 +61,7 @@ CREATE TABLE [dbo].[DocumentosIdentidad]
 	[sigla] [varchar](10) NOT NULL,
 	[descripcion] [varchar](200) NOT NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('')
@@ -73,7 +74,7 @@ CREATE TABLE [dbo].[EstadosCivil]
 	[sigla] [varchar](50) NULL,
 	[descripcion] [varchar](100) NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('')
@@ -89,7 +90,7 @@ CREATE TABLE [dbo].[Formularios]
 	[menuId] [int] NOT NULL,
 	[esVisible] [bit] NOT NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('')
@@ -102,7 +103,7 @@ CREATE TABLE [dbo].[GruposSanguineo]
 	[sigla] [varchar](50) NOT NULL,
 	[descripcion] [varchar](100) NOT NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('') 
@@ -115,7 +116,7 @@ CREATE TABLE [dbo].[Menus]
 	[nombreMenu] [varchar](100) NOT NULL,
 	[aplicacionWebId] [int] NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('') 
@@ -128,7 +129,7 @@ CREATE TABLE [dbo].[Municipios]
 	[nombre] [varchar](100) NOT NULL,
 	[departamentoId] [int] NOT NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('') 
@@ -140,7 +141,7 @@ CREATE TABLE [dbo].[Operaciones]
 	[id] [int] NOT NULL,
 	[nombreOperacion] [varchar](1000) NOT NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('')
@@ -154,7 +155,7 @@ CREATE TABLE [dbo].[OperacionesFormulario]
 	[operacionId] [int] NULL,
 	[descripcion] [varchar](8000) NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('') 
@@ -168,7 +169,7 @@ CREATE TABLE [dbo].[Perfiles]
 	[descripcion] [varchar](8000) NOT NULL,
 	[estado] [varchar](50) NOT NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('') 
@@ -181,7 +182,7 @@ CREATE TABLE [dbo].[PerfilesOperacionesFormulario]
 	[operacionFormularioId] [int] NULL,
 	[perfilId] [int] NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('')
@@ -212,7 +213,7 @@ CREATE TABLE [dbo].[Personas]
 	[telefonoFijo] [int] NOT NULL,
 	[telefonoCelular] [int] NOT NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('')
@@ -225,7 +226,7 @@ CREATE TABLE [dbo].[sexos]
 	[sigla] [varchar](50) NOT NULL,
 	[descripcion] [varchar](100) NOT NULL,
 	[usuarioId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('') 
@@ -241,7 +242,7 @@ CREATE TABLE [dbo].[Usuarios]
 	[estado] [varchar](50) NULL,
 	[usuarioId] [int] NULL,
 	[perfilId] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('')
@@ -254,7 +255,7 @@ CREATE TABLE [dbo].[UsuariosOperacionesFormulario]
 	[usuarioId] [int] NOT NULL,
 	[operacionFormularioId] [int] NOT NULL,
 	[usuarioIdApl] [int] NOT NULL,
-  [idTrasabilidad] IDENTITY(1,1) not null,
+  [idTrasabilidad] [int] IDENTITY(1,1) not null,
   [userNameBd] [varchar](100) not null,
   [fechaHora] [datetime] not null default(getdate()),
   [operacion] [varchar](100) not null default('')

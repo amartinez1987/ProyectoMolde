@@ -1,0 +1,10 @@
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ControlUsuarios\obj\Debug\ControlUsuarios.csprojResolveAssemblyReference.cache
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ControlUsuarios\bin\ControlUsuarios.dll.config
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ControlUsuarios\bin\ControlUsuarios.dll
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ControlUsuarios\bin\ControlUsuarios.pdb
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ControlUsuarios\bin\EntityFramework.dll
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ControlUsuarios\bin\EntityFramework.SqlServer.dll
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ControlUsuarios\bin\EntityFramework.xml
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ControlUsuarios\bin\EntityFramework.SqlServer.xml
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ControlUsuarios\obj\Debug\ControlUsuarios.dll
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ControlUsuarios\obj\Debug\ControlUsuarios.pdb
