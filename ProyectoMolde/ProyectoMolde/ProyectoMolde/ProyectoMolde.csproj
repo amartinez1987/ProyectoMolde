@@ -106,6 +106,7 @@
     <Content Include="bootstrapLibrerias\vendor\font-awesome\scss\_spinning.scss" />
     <Content Include="bootstrapLibrerias\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="bootstrapLibrerias\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="Forms\index.aspx" />
     <Content Include="Js\configAjax.js" />
     <Content Include="WebMethods\login.aspx" />
     <None Include="Web.Debug.config">
@@ -219,6 +220,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Usuarios\frmLogin.aspx.cs">
       <DependentUpon>frmLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -1,4 +1,15 @@
 ﻿var host = "http://" + window.location.host;
+var usuarioId = 0;
+
+function setLocalStorageNavegator(clave , valor)
+{
+    localStorage.setItem(clave, valor);
+}
+
+function getLocalStorageNavegator(clave)
+{
+    return  localStorage.getItem(clave);
+}
 
 function enviarComoParametros(url, objeto, functionResult)
 {
@@ -19,17 +30,17 @@ function enviarComoParametros(url, objeto, functionResult)
     });    
 }
 
-function getParamsValues(objeto)
-{
-    var arrayParams ="{";
-    for (var atributo in objeto)
+    function getParamsValues(objeto)
     {
-        if (objeto.hasOwnProperty(atributo))
+        var arrayParams ="{";
+        for (var atributo in objeto)
         {
-            arrayParams += atributo + ':' + JSON.stringify(objeto[atributo]) + ',';
+            if (objeto.hasOwnProperty(atributo))
+            {
+                arrayParams += atributo + ':' + JSON.stringify(objeto[atributo]) + ',';
+            }
         }
+        arrayParams = arrayParams.substring(0, arrayParams.length - 1);
+        arrayParams += "}";
+        return arrayParams;  
     }
-    arrayParams = arrayParams.substring(0, arrayParams.length - 1);
-    arrayParams += "}";
-    return arrayParams;  
-}

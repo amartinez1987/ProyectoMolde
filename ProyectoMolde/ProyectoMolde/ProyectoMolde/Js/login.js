@@ -52,7 +52,10 @@ function OnSuccessLogin(response)
     {
         //  tipoAlerta('Se ha enviado un correo para activar el usuario.', 'success');
         //redireccionar a pagina de inicio
-        alert("Ingresando");
+        setLocalStorageNavegator("usuarioId", response.id);
+        var redireccion = host + "/Forms/index.aspx";
+        console.log(redireccion);
+        location.href = redireccion;
         return;
     }
 }
