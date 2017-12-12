@@ -40,7 +40,7 @@ namespace ServiciosMetodos
 
             if (From == "")
             {
-                msg.From = new MailAddress("sipra@coosalud.com", "Molde", System.Text.Encoding.UTF8);
+                msg.From = new MailAddress("anibalmartinez87@hotmail.com", "Molde", System.Text.Encoding.UTF8);
             }
             else
             {
@@ -58,7 +58,6 @@ namespace ServiciosMetodos
             try
             {
                 client.Send(msg);
-
             }
             catch (System.Net.Mail.SmtpException ex)
             {

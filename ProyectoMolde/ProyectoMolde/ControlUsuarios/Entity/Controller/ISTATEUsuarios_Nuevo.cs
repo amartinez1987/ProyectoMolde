@@ -21,11 +21,14 @@ namespace ControlUsuarios.Entity.Controller
                 return resul;
             }
 
+            if (existeRegistro(registro.nombreUsuario))
+            {
+                return new Result { error = "El correo ya esta registrado.", id = registro.id, tipoAlerta = "warning" };                
+            }
+
             registro.usuarioId = 1; //usuario por Defecto cuando se crea por la aplicacion.
             registro.perfilId = 1;//Perfil por defecto cuando se crea por la aplicacion.
             registro.clave =  Encriptado.EncriptarCadena(registro.clave);
-            
-            
 
             using (MoldeEntities entity = new MoldeEntities())
             {
@@ -34,16 +37,13 @@ namespace ControlUsuarios.Entity.Controller
                 {
                     entity.SaveChanges();
                     new Mail().EnviarEmail(registro.nombreUsuario, "Activar Cuenta", "");
-                    return new Result { error = resul.error, id = registro.id };
+                    return new Result { error = "", id = registro.id, tipoAlerta = "success" };
                 }
                 catch (Exception e)
                 {
                     return new Result { error = e.Message, id = 0 };
                 }
-            }
-
-            
-        
+            }        
         }
 
         public Result Editar(ref Usuarios registro)
@@ -53,6 +53,7 @@ namespace ControlUsuarios.Entity.Controller
             resul.tipoAlerta = "Info";
             return resul;
         }
+
         public Result Inactivar(ref Usuarios registro)
         {
             Result resul = new Result();
@@ -60,6 +61,7 @@ namespace ControlUsuarios.Entity.Controller
             resul.tipoAlerta = "Info";
             return resul;
         }
+
         public Result ValidarUsuario(ref Usuarios registro)
         {
             Result resul = new Result();
@@ -98,6 +100,16 @@ namespace ControlUsuarios.Entity.Controller
         {
             // Return true if strIn is in valid e-mail format.
             return Regex.IsMatch(strIn,@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
+        }
+
+        public static bool existeRegistro(string nombreUsuario)
+        {
+            using (MoldeEntities entity = new MoldeEntities())
+            {
+                if (entity.Usuarios.Where(x => x.nombreUsuario == nombreUsuario).Count() > 0)
+                    return true;
+                return false;
+            }
         }
     }
 }

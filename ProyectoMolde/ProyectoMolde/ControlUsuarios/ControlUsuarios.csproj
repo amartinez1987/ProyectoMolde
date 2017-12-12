@@ -71,6 +71,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MoldeEntity.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Entity\Controller\BienvenidoMolde.html" />
     <Content Include="Entity\Model\MoldeEntity.edmx.diagram">
       <DependentUpon>MoldeEntity.edmx</DependentUpon>
     </Content>

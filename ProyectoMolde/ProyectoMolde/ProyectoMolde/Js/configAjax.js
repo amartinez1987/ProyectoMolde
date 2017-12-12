@@ -3,8 +3,7 @@
 function enviarComoParametros(url, objeto, functionResult)
 {
     var urlComplete = host + url;
-    dataParams = getParamsValues(objeto);
-    console.log(dataParams);
+    dataParams = getParamsValues(objeto);    
     $.ajax(
     {
         type: "POST",

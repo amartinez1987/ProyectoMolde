@@ -14,9 +14,7 @@ $("#btnRegistrarse").click
     {        
         usuario.nombreUsuario = $("#nombreUsuario").val();
         usuario.clave = $("#clave").val();
-        usuario.confirmarClave = $("#confirmarClave").val();
-        usuario.usuario = new Object();
-        usuario.usuario.id = 0;        
+        usuario.confirmarClave = $("#confirmarClave").val();             
         var url = "/WebMethods/login.aspx/registrarUsuarioParams";
         enviarComoParametros(url, usuario, OnSuccess);
     }
@@ -24,13 +22,8 @@ $("#btnRegistrarse").click
 
 function OnSuccess(response)
 {
-    if (response.error != null)
-    {
-        tipoAlerta(response.error, response.tipoAlerta);
-        return;
-    }
-
-    if (response.error != '')
+    console.log(response);
+    if ((response.error == null ? "" : response.error) != "")
     {
         tipoAlerta(response.error, response.tipoAlerta);
         return;
