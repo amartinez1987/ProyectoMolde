@@ -13,6 +13,7 @@ namespace ControlUsuarios.Entity.Controller
     {
 
         private const string nombreEstado = "Nuevo";
+
         public Result NuevoSinDatosPersona(ref Usuarios registro)
         {
             Result resul = validarAtributos(registro);
@@ -23,27 +24,28 @@ namespace ControlUsuarios.Entity.Controller
 
             if (existeRegistro(registro.nombreUsuario))
             {
-                return new Result { error = "El correo ya esta registrado.", id = registro.id, tipoAlerta = "warning" };                
+                return new Result { error = "El correo ya esta registrado.", id = registro.id, tipoAlerta = "warning" };
             }
 
             registro.usuarioId = 1; //usuario por Defecto cuando se crea por la aplicacion.
             registro.perfilId = 1;//Perfil por defecto cuando se crea por la aplicacion.
-            registro.clave =  Encriptado.EncriptarCadena(registro.clave);
-
+            registro.clave = Encriptado.EncriptarCadena(registro.clave);
+            registro.estado = "Nuevo";
             using (MoldeEntities entity = new MoldeEntities())
             {
                 entity.Usuarios.Add(registro);
                 try
                 {
                     entity.SaveChanges();
-                    new Mail().EnviarEmail(registro.nombreUsuario, "Activar Cuenta", "");
+                    string plantilla = PlantillasMolde.getBienvenidosMolde(registro.nombreUsuario, registro.clave);
+                    new Mail().EnviarEmail(registro.nombreUsuario, "Activar Cuenta", plantilla);
                     return new Result { error = "", id = registro.id, tipoAlerta = "success" };
                 }
                 catch (Exception e)
                 {
-                    return new Result { error = e.Message, id = 0 };
+                    return new Result { error = e.Message, id = 0, tipoAlerta = "warning" };
                 }
-            }        
+            }
         }
 
         public Result Editar(ref Usuarios registro)
@@ -66,6 +68,7 @@ namespace ControlUsuarios.Entity.Controller
         {
             Result resul = new Result();
             resul.error = "No se puede realizar esta operación en el estado actual del registro";
+            resul.tipoAlerta = "Info";
             return resul;
         }
 
@@ -77,13 +80,13 @@ namespace ControlUsuarios.Entity.Controller
         }
 
         private static Result validarAtributos(Usuarios registro)
-        {   
+        {
             if (registro.nombreUsuario == "")
             {
                 return new Result() { error = "Digite un correo valido.", tipoAlerta = "warning" };
             }
 
-            if (!IsValidEmail(registro.nombreUsuario ))
+            if (!IsValidEmail(registro.nombreUsuario))
             {
                 return new Result() { error = "Digite un correo valido.", tipoAlerta = "warning" };
             }
@@ -99,7 +102,7 @@ namespace ControlUsuarios.Entity.Controller
         public static bool IsValidEmail(string strIn)
         {
             // Return true if strIn is in valid e-mail format.
-            return Regex.IsMatch(strIn,@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
+            return Regex.IsMatch(strIn, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
         }
 
         public static bool existeRegistro(string nombreUsuario)
@@ -109,6 +112,33 @@ namespace ControlUsuarios.Entity.Controller
                 if (entity.Usuarios.Where(x => x.nombreUsuario == nombreUsuario).Count() > 0)
                     return true;
                 return false;
+            }
+        }
+
+        public Result Activar(ref Usuarios registro)
+        {
+            Result resul = validarAtributos(registro);
+            if (resul.error != null && resul.error != "")
+            {
+                return resul;
+            }
+
+            using (MoldeEntities entity = new MoldeEntities())
+            {
+                int usuariosId = registro.id;
+                registro.estado = "Activo";
+                Usuarios registroEditar = entity.Usuarios.Where(x => x.id == usuariosId).SingleOrDefault();
+                
+                entity.Entry(registroEditar).CurrentValues.SetValues(registro);
+                try
+                {
+                    entity.SaveChanges();
+                    return new Result { error = "", id = registro.id, tipoAlerta = "success" };
+                }
+                catch (Exception e)
+                {
+                    return new Result { error = e.Message, id = 0, tipoAlerta = "warning" };
+                }
             }
         }
     }

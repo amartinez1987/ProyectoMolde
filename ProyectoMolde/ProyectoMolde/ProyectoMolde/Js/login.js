@@ -4,7 +4,11 @@ var usuario = new Object();
 $("#btnIngresar").click
 (
     function ()
-    {       
+    {
+        usuario.nombreUsuario = $("#nombreUsuario").val();
+        usuario.clave = $("#clave").val();        
+        var url = "/WebMethods/login.aspx/AutenticarUsuario";
+        enviarComoParametros(url, usuario, OnSuccessLogin);
     }
 );
 
@@ -32,6 +36,23 @@ function OnSuccess(response)
     if (response.error == '')
     {
         tipoAlerta('Se ha enviado un correo para activar el usuario.', 'success');
+        return;
+    }
+}
+
+function OnSuccessLogin(response)
+{
+    console.log(response);
+    if ((response.error == null ? "" : response.error) != "") {
+        tipoAlerta(response.error, response.tipoAlerta);
+        return;
+    }
+
+    if (response.error == '')
+    {
+        //  tipoAlerta('Se ha enviado un correo para activar el usuario.', 'success');
+        //redireccionar a pagina de inicio
+        alert("Ingresando");
         return;
     }
 }

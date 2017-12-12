@@ -51,10 +51,10 @@
                         <form role="form" id="frmLogin">
                             <fieldset>
                                 <div class="form-group">
-                                    <input id="txtCorreo" onblur="" class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input id="nombreUsuario" onblur="" class="form-control" placeholder="E-mail" name="nombreUsuario" type="email" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input id="txtContrasena" class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input id="clave" class="form-control" placeholder="Password" name="clave" type="password" value="">
                                 </div>
                                 <div class="checkbox">
                                     <label>
@@ -91,9 +91,11 @@
     <script src="../../bootstrapLibrerias/dist/js/sb-admin-2.min.js"></script>
     
     <!-- FunctionsJs -->    
-    <script src="../../Js/login.js"></script>  
-                          
-   <script src="../../Js/cajasTexto.js"></script>
+    <script src="../../Js/configAjax.js"></script> 
+
+    <script src="../../Js/cajasTexto.js"></script>
+
+    <script src="../../Js/login.js"></script>      
 
     </form>
 </body>

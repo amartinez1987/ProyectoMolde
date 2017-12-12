@@ -9,6 +9,7 @@ namespace ControlUsuarios.Entity.Controller
 {
     public class UsuariosController
     {
+        
         public static List<UsuariosViewModel> getListaUsuarios()
         {
             using (MoldeEntities entity = new MoldeEntities())
@@ -19,15 +20,28 @@ namespace ControlUsuarios.Entity.Controller
             }
         }
 
-        public static UsuariosViewModel getUsuarios()
+        public static UsuariosViewModel getUsuarioViewModelPorNombre(string nombreUsuario)
         {
             using (MoldeEntities entity = new MoldeEntities())
             {   
                     var l = from usuarios in entity.Usuarios
+                            where usuarios.nombreUsuario.ToLower() == nombreUsuario.ToLower()
                             select new UsuariosViewModel { id = usuarios.id, idPersona = usuarios.idPersona, usuarioId = usuarios.usuarioId, perfilId = usuarios.perfilId, nombreUsuario = usuarios.nombreUsuario, clave = usuarios.clave, estado = usuarios.estado };
                     return l.SingleOrDefault();                
             }
         }
+
+        public static Usuarios getUsuarioPorNombre(string nombreUsuario)
+        {
+            using (MoldeEntities entity = new MoldeEntities())
+            {
+                var l = from usuarios in entity.Usuarios
+                        where usuarios.nombreUsuario.ToLower() == nombreUsuario.ToLower()
+                        select usuarios;
+                return l.SingleOrDefault();
+            }
+        }
+
 
         public static Result guardarUsuarios(Usuarios registro)
         {
