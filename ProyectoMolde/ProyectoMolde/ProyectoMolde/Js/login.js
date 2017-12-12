@@ -1,35 +1,44 @@
-﻿$("#btnIngresar").click
+﻿//atributos del objecto Usuario
+var usuario = new Object();
+
+$("#btnIngresar").click
 (
     function ()
-    {
-        console.log($("#txtCorreo").val());
-        console.log($("#txtContrasena").val());
+    {       
     }
 );
 
 $("#btnRegistrarse").click
 (
     function ()
-    {
-        console.log($('#frmRegistrarse'));
-        console.log($('#frmRegistrarse').serializeObject());
+    {        
+        usuario.nombreUsuario = $("#nombreUsuario").val();
+        usuario.clave = $("#clave").val();
+        usuario.confirmarClave = $("#confirmarClave").val();
+        usuario.usuario = new Object();
+        usuario.usuario.id = 0;        
+        var url = "/WebMethods/login.aspx/registrarUsuarioParams";
+        enviarComoParametros(url, usuario, OnSuccess);
     }
 );
 
-
-$('#txtCorreo').blur(function ()
-{    
-    caracteresCorreoValido($('#txtCorreo').val())
-});
-
-// funcion para validar el correo
-function caracteresCorreoValido(email)
+function OnSuccess(response)
 {
-    var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
-   
-    if (caract.test(email) == false)
-    {   
-        tipoAlerta('Ingreso', 'warning');
+    if (response.error != null)
+    {
+        tipoAlerta(response.error, response.tipoAlerta);
+        return;
+    }
+
+    if (response.error != '')
+    {
+        tipoAlerta(response.error, response.tipoAlerta);
+        return;
+    }
+
+    if (response.error == '')
+    {
+        tipoAlerta('Se ha enviado un correo para activar el usuario.', 'success');
+        return;
     }
 }
-

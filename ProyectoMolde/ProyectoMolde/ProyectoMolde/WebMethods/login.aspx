@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="ProyectoMolde.WebMethod.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="ProyectoMolde.WebMethods.login" %>
 
 <!DOCTYPE html>
 
@@ -8,10 +8,8 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
+    <form id="form1" runat="server">   
     </form>
+   
 </body>
 </html>

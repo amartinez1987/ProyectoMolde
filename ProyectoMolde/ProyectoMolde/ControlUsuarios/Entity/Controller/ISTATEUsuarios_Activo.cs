@@ -10,29 +10,43 @@ namespace ControlUsuarios.Entity.Controller
     public class ISTATEUsuarios_Activo : ISTATEUsuarios
     {
         private const string nombreEstado = "Activo";
-        public Result Nuevo(ref Usuarios registro)
+        public Result NuevoSinDatosPersona(ref Usuarios registro)
         {
             Result resul = new Result();
             resul.error = "No se puede realizar esta operación en el estado actual del registro";
+            resul.tipoAlerta = "Info";
             return resul;
         }
         public Result Editar(ref Usuarios registro)
         {
             Result resul = new Result();
             resul.error = "No se puede realizar esta operación en el estado actual del registro";
+            resul.tipoAlerta = "Info";
             return resul;
         }
         public Result Inactivar(ref Usuarios registro)
         {
             Result resul = new Result();
             resul.error = "No se puede realizar esta operación en el estado actual del registro";
+            resul.tipoAlerta = "Info";
             return resul;
         }
         public Result ValidarUsuario(ref Usuarios registro)
         {
             Result resul = new Result();
             resul.error = "No se puede realizar esta operación en el estado actual del registro";
+            resul.tipoAlerta = "Info";
             return resul;
         }
+
+        public Result RegistrarUsuarioCorreoClave(ref Usuarios registro)
+        {
+            Result resul = new Result();
+            resul.error = "No se puede realizar esta operación en el estado actual del registro";
+            resul.tipoAlerta = "Info";
+            return resul;
+        }
+
+     
     }
 }

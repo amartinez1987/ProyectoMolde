@@ -9,5 +9,6 @@ namespace ControlUsuarios.Entity.Model
     {
     public    int id { set; get; }
     public    string error { set; get; }
+    public string tipoAlerta { set; get; }
     }
 }

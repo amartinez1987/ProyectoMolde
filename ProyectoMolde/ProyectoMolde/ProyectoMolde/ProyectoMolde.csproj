@@ -106,7 +106,8 @@
     <Content Include="bootstrapLibrerias\vendor\font-awesome\scss\_spinning.scss" />
     <Content Include="bootstrapLibrerias\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="bootstrapLibrerias\vendor\font-awesome\scss\_variables.scss" />
-    <Content Include="WebMethod\login.aspx" />
+    <Content Include="Js\configAjax.js" />
+    <Content Include="WebMethods\login.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -233,11 +234,11 @@
       <DependentUpon>frmRegistrarse.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebMethod\login.aspx.cs">
+    <Compile Include="WebMethods\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebMethod\login.aspx.designer.cs">
+    <Compile Include="WebMethods\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
   </ItemGroup>

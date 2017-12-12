@@ -1,0 +1,5 @@
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ServiciosMetodos\bin\ServiciosMetodos.dll.config
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ServiciosMetodos\bin\ServiciosMetodos.dll
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ServiciosMetodos\bin\ServiciosMetodos.pdb
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ServiciosMetodos\obj\Debug\ServiciosMetodos.dll
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ServiciosMetodos\obj\Debug\ServiciosMetodos.pdb

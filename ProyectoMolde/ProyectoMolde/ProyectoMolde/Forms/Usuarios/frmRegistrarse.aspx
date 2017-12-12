@@ -33,7 +33,7 @@
 
 </head>
 <body>
-    <form id="form1" runat="server">
+    
            <div class="container">
                 <div   id="boxMessages"  class="row" style="position:absolute; text-align:left; left:70%">
         </div>
@@ -44,21 +44,23 @@
                         <h3 class="panel-title">Please Sign In</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" id="frmRegistrarse" >
+                      <form runat="server" role="form" id="frmRegistrarse">  
                             <fieldset>
                                 <div class="form-group">
-                                    <input id="txtCorreo" class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input id="nombreUsuario" class="form-control" placeholder="E-mail" name="nombreUsuario" type="email" autofocus/>
                                 </div>
                                 <div class="form-group">
-                                    <input id="txtContrasena" class="form-control" placeholder="Constraseña" name="password" type="password" value="">
+                                    <input id="clave" class="form-control" placeholder="Constraseña" name="clave" type="password" value=""  autofocus/>
                                 </div>
                                 <div class="form-group">
-                                    <input id="txtConfirmContrasena" class="form-control" placeholder="Confirmar Constraseña" name="password" type="password" value="">
+                                    <input id="confirmarClave" class="form-control" placeholder="Confirmar Constraseña" name="confirmarClave" type="password" value=""  autofocus/>
                                 </div>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <div id="btnRegistrarse" class="btn btn-lg btn-success btn-block">Registrase</div>
+                                <div class="form-group">
+                                <!-- Change this to a button or input when using this as a form -->                                
+                                    <div id="btnRegistrarse" class="btn btn-lg btn-success btn-block">Registrase</div>
+                                </div>
                                 <br />
-                                <a  class=" fa fa-sign-in" href="frmLogin.aspx"> Inicio Sessión</a>
+                                <a class=" fa fa-sign-in" href="frmLogin.aspx"> Inicio Sessión</a>
                             </fieldset>
                         </form>
                     </div>
@@ -82,10 +84,15 @@
     <!-- Custom Theme JavaScript -->
     <script src="../../bootstrapLibrerias/dist/js/sb-admin-2.min.js"></script>
     
-    <!-- FunctionsJs -->    
+    <!-- FunctionsJs -->  
+    
+    <script src="../../Js/configAjax.js"></script> 
+
+    <script src="../../Js/cajasTexto.js"></script>
+
     <script src="../../Js/login.js"></script>       
              
-    <script src="../../Js/cajasTexto.js"></script>
-    </form>
+    
+    
 </body>
 </html>

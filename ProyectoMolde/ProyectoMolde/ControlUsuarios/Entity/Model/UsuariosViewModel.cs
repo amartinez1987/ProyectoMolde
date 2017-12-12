@@ -15,6 +15,7 @@ namespace ControlUsuarios.Entity.Model
         public int perfilId { get; set; }
         public string nombreUsuario { get; set; }
         public string clave { get; set; }
+        public string confirmarClave { get; set; }
         public string estado { get; set; }
     }
 }

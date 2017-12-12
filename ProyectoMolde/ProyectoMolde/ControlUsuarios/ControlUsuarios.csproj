@@ -101,6 +101,7 @@
     <Compile Include="Entity\Controller\ISTATEUsuarios_Activo.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios_Bloqueado.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios_Inactivo.cs" />
+    <Compile Include="Entity\Controller\ISTATEUsuarios_Nuevo.cs" />
     <Compile Include="Entity\Controller\UsuariosController.cs" />
     <Compile Include="Entity\Model\AplicacionesWeb.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
@@ -178,7 +179,15 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServiciosMetodos\ServiciosMetodos.csproj">
+      <Project>{623c80b9-9b8a-47a6-8029-80f2fee2c478}</Project>
+      <Name>ServiciosMetodos</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -6,6 +6,8 @@ namespace ControlUsuarios.Entity.Controller
         {
             switch (state)
             {
+                case "Nuevo":
+                    return new ISTATEUsuarios_Nuevo();
                 case "Activo":
                     return new ISTATEUsuarios_Activo();
                 case "Inactivo":

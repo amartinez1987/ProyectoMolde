@@ -1,10 +1,12 @@
 C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ProyectoMolde.dll.config
 C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ProyectoMolde.dll
 C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ProyectoMolde.pdb
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ControlUsuarios.dll
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ServiciosMetodos.dll
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\EntityFramework.dll
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ControlUsuarios.pdb
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ServiciosMetodos.pdb
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\EntityFramework.xml
 C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\obj\Debug\ProyectoMolde.csprojResolveAssemblyReference.cache
 C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\obj\Debug\ProyectoMolde.dll
 C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\obj\Debug\ProyectoMolde.pdb
-C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ControlUsuarios.dll
-C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\EntityFramework.dll
-C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ControlUsuarios.pdb
-C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\EntityFramework.xml

@@ -103,6 +103,7 @@ namespace ControlUsuarios.Entity.Controller
             }
             return new Result() ;
         }
+
         public static bool existeRegistro(int usuariosId)
         {
             using (MoldeEntities entity = new MoldeEntities())

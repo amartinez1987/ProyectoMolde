@@ -10,7 +10,7 @@ namespace ControlUsuarios.Entity.Controller
     public interface ISTATEUsuarios
     {
 
-         Result Nuevo(ref Usuarios registro);
+         Result NuevoSinDatosPersona(ref Usuarios registro);
 
 
          Result Editar(ref Usuarios registro);
@@ -20,6 +20,8 @@ namespace ControlUsuarios.Entity.Controller
 
 
          Result ValidarUsuario(ref Usuarios registro);
+
+         Result RegistrarUsuarioCorreoClave(ref Usuarios registro);
 
     }
 }

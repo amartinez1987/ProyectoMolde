@@ -21,7 +21,6 @@
         <EntityTypeShape EntityType="MoldeModel.PerfilesOperacionesFormulario" Width="1.5" PointX="9.75" PointY="16.625" />
         <EntityTypeShape EntityType="MoldeModel.Personas" Width="1.5" PointX="5.25" PointY="1.125" />
         <EntityTypeShape EntityType="MoldeModel.sexos" Width="1.5" PointX="3" PointY="7.25" />
-        <EntityTypeShape EntityType="MoldeModel.Usuarios" Width="1.5" PointX="7.5" PointY="3.125" />
         <EntityTypeShape EntityType="MoldeModel.UsuariosOperacionesFormulario" Width="1.5" PointX="9.75" PointY="3.5" />
         <AssociationConnector Association="MoldeModel.FK_Menus_AplicacionesWeb" />
         <AssociationConnector Association="MoldeModel.FK_Personas_Barrios1" />
@@ -37,8 +36,9 @@
         <AssociationConnector Association="MoldeModel.FK_PerfilesOperacionesFormulario_OperacionesFormulario" />
         <AssociationConnector Association="MoldeModel.FK_UsuariosOperacionesFormulario_OperacionesFormulario" />
         <AssociationConnector Association="MoldeModel.FK_PerfilesOperacionesFormulario_Perfiles" />
-        <AssociationConnector Association="MoldeModel.FK_Usuarios_Perfiles" />
         <AssociationConnector Association="MoldeModel.FK_Personas_sexos" />
+        <EntityTypeShape EntityType="MoldeModel.Usuarios" Width="1.5" PointX="7.5" PointY="4" />
+        <AssociationConnector Association="MoldeModel.FK_Usuarios_Perfiles" />
         <AssociationConnector Association="MoldeModel.FK_Usuarios_Personas" />
         <AssociationConnector Association="MoldeModel.FK_UsuariosOperacionesFormulario_Usuarios" />
       </Diagram>
