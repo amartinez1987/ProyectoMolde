@@ -10,3 +10,15 @@ C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMol
 C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\obj\Debug\ProyectoMolde.csprojResolveAssemblyReference.cache
 C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\obj\Debug\ProyectoMolde.dll
 C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\obj\Debug\ProyectoMolde.pdb
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ProyectoMolde.dll.config
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ProyectoMolde.dll
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ProyectoMolde.pdb
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ControlUsuarios.dll
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\EntityFramework.dll
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ServiciosMetodos.dll
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ControlUsuarios.pdb
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\EntityFramework.xml
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ServiciosMetodos.pdb
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\obj\Debug\ProyectoMolde.csprojResolveAssemblyReference.cache
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\obj\Debug\ProyectoMolde.dll
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\obj\Debug\ProyectoMolde.pdb

@@ -3,3 +3,9 @@ C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ServiciosMe
 C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ServiciosMetodos\bin\ServiciosMetodos.pdb
 C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ServiciosMetodos\obj\Debug\ServiciosMetodos.dll
 C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\ServiciosMetodos\obj\Debug\ServiciosMetodos.pdb
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ServiciosMetodos\bin\ServiciosMetodos.dll.config
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ServiciosMetodos\bin\ServiciosMetodos.dll
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ServiciosMetodos\bin\ServiciosMetodos.pdb
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ServiciosMetodos\obj\Debug\ServiciosMetodos.csprojResolveAssemblyReference.cache
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ServiciosMetodos\obj\Debug\ServiciosMetodos.dll
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ServiciosMetodos\obj\Debug\ServiciosMetodos.pdb

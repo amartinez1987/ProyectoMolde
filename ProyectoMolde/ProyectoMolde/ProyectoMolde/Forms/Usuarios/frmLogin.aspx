@@ -75,9 +75,8 @@
             
     </div>
 
-    
-
-    <!-- jQuery -->
+    </form>
+     <!-- jQuery -->
     <script src="../../bootstrapLibrerias/vendor/jquery/jquery.min.js"></script>
     
 
@@ -96,7 +95,5 @@
     <script src="../../Js/cajasTexto.js"></script>
 
     <script src="../../Js/login.js"></script>      
-
-    </form>
 </body>
 </html>
