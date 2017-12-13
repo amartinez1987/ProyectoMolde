@@ -47,7 +47,7 @@ namespace ControlUsuarios.Entity.Controller
         {
             List<string> listaMenu = new List<string>();
 
-            List<UsuariosOperacionesFormulario> lUof = entity.Usuarios.Find(usuarioId).UsuariosOperacionesFormulario.Where(x => x.OperacionesFormulario.Formularios.Menus.AplicacionesWeb.nombre == aplicacion).OrderBy(x=>x.OperacionesFormulario.Formularios.Menus.id).ToList();
+            Usuarios u = entity.Usuarios.Find(usuarioId);
 
             return null;
         }
