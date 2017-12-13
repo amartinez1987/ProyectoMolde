@@ -27,6 +27,7 @@ namespace ControlUsuarios.Entity.Model
         public bool esVisible { get; set; }
         public int usuarioId { get; set; }
         public string estados { get; set; }
+        public string iconOpcion { get; set; }
     
         public virtual Menus Menus { get; set; }
         public virtual ICollection<OperacionesFormulario> OperacionesFormulario { get; set; }

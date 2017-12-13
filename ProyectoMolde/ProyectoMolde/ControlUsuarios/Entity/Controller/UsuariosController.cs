@@ -9,6 +9,7 @@ namespace ControlUsuarios.Entity.Controller
 {
     public class UsuariosController
     {
+        MoldeEntities entity = new MoldeEntities();
         
         public static List<UsuariosViewModel> getListaUsuarios()
         {
@@ -40,6 +41,17 @@ namespace ControlUsuarios.Entity.Controller
                         select usuarios;
                 return l.SingleOrDefault();
             }
+        }
+
+        public  List<string> getMenuUsuarioPorId(int usuarioId)
+        {
+            
+                var l = from usuarios in entity.Usuarios
+                        where usuarios.id == usuarioId
+                        select usuarios;
+
+                return null;
+           
         }
 
 

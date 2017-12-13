@@ -1,5 +1,6 @@
 ﻿var host = "http://" + window.location.host;
 var usuarioId = 0;
+var aplicacion = "Molde";
 
 function setLocalStorageNavegator(clave , valor)
 {

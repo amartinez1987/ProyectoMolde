@@ -65,6 +65,7 @@
     <EntitySetMapping Name="Formularios">
       <EntityTypeMapping TypeName="MoldeModel.Formularios">
         <MappingFragment StoreEntitySet="Formularios">
+          <ScalarProperty Name="iconOpcion" ColumnName="iconOpcion" />
           <ScalarProperty Name="estados" ColumnName="estados" />
           <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
           <ScalarProperty Name="esVisible" ColumnName="esVisible" />
@@ -89,6 +90,7 @@
     <EntitySetMapping Name="Menus">
       <EntityTypeMapping TypeName="MoldeModel.Menus">
         <MappingFragment StoreEntitySet="Menus">
+          <ScalarProperty Name="icon" ColumnName="icon" />
           <ScalarProperty Name="estado" ColumnName="estado" />
           <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
           <ScalarProperty Name="aplicacionWebId" ColumnName="aplicacionWebId" />
@@ -186,16 +188,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UsuariosOperacionesFormulario">
-      <EntityTypeMapping TypeName="MoldeModel.UsuariosOperacionesFormulario">
-        <MappingFragment StoreEntitySet="UsuariosOperacionesFormulario">
-          <ScalarProperty Name="usuarioIdApl" ColumnName="usuarioIdApl" />
-          <ScalarProperty Name="operacionFormularioId" ColumnName="operacionFormularioId" />
-          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Usuarios">
       <EntityTypeMapping TypeName="MoldeModel.Usuarios">
         <MappingFragment StoreEntitySet="Usuarios">
@@ -205,6 +197,16 @@
           <ScalarProperty Name="idPersona" ColumnName="idPersona" />
           <ScalarProperty Name="clave" ColumnName="clave" />
           <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuariosOperacionesFormulario">
+      <EntityTypeMapping TypeName="MoldeModel.UsuariosOperacionesFormulario">
+        <MappingFragment StoreEntitySet="UsuariosOperacionesFormulario">
+          <ScalarProperty Name="usuarioIdApl" ColumnName="usuarioIdApl" />
+          <ScalarProperty Name="operacionFormularioId" ColumnName="operacionFormularioId" />
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

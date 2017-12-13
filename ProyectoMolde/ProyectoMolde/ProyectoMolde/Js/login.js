@@ -49,13 +49,19 @@ function OnSuccessLogin(response)
     }
 
     if (response.error == '')
-    {
-        //  tipoAlerta('Se ha enviado un correo para activar el usuario.', 'success');
-        //redireccionar a pagina de inicio
+    {        
         setLocalStorageNavegator("usuarioId", response.id);
-        var redireccion = host + "/Forms/index.aspx";
-        console.log(redireccion);
+        var redireccion = host + "/Forms/index.aspx";        
         location.href = redireccion;
         return;
     }
+}
+
+function getListaMenuPerfilUsuario()
+{
+    usuario.nombreUsuario = $("#nombreUsuario").val();
+    usuario.clave = $("#clave").val();
+    usuario.confirmarClave = $("#confirmarClave").val();
+    var url = "/WebMethods/usuario.aspx/getListaMenuUsuario";
+    enviarComoParametros(url, usuario, OnSuccessListUsuario);
 }
