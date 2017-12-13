@@ -43,14 +43,14 @@ namespace ControlUsuarios.Entity.Controller
             }
         }
 
-        public  List<string> getMenuUsuarioPorId(int usuarioId)
+        public  List<string> getMenuUsuarioPorId(int usuarioId, string aplicacion)
         {
-            
-                var l = from usuarios in entity.Usuarios
-                        where usuarios.id == usuarioId
-                        select usuarios;
+            List<string> listaMenu = new List<string>();
 
-                return null;
+            var l = from usuarios in entity.Usuarios
+                    where usuarios.usuarioId == usuarioId 
+                    select new Menus(){   } ;
+            return null;
            
         }
 
