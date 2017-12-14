@@ -65,6 +65,7 @@
     <EntitySetMapping Name="Formularios">
       <EntityTypeMapping TypeName="MoldeModel.Formularios">
         <MappingFragment StoreEntitySet="Formularios">
+          <ScalarProperty Name="indexVisibilidad" ColumnName="indexVisibilidad" />
           <ScalarProperty Name="iconOpcion" ColumnName="iconOpcion" />
           <ScalarProperty Name="estados" ColumnName="estados" />
           <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
@@ -90,6 +91,7 @@
     <EntitySetMapping Name="Menus">
       <EntityTypeMapping TypeName="MoldeModel.Menus">
         <MappingFragment StoreEntitySet="Menus">
+          <ScalarProperty Name="indexVisibilidad" ColumnName="indexVisibilidad" />
           <ScalarProperty Name="icon" ColumnName="icon" />
           <ScalarProperty Name="estado" ColumnName="estado" />
           <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />

@@ -165,6 +165,7 @@
     <Property Name="usuarioId" Type="Int32" Nullable="false" />
     <Property Name="estados" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="iconOpcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="indexVisibilidad" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Menus" Relationship="MoldeModel.FK_Formularios_Menus" FromRole="Formularios" ToRole="Menus" />
     <NavigationProperty Name="OperacionesFormulario" Relationship="MoldeModel.FK_OperacionesFormulario_Formularios" FromRole="Formularios" ToRole="OperacionesFormulario" />
   </EntityType>
@@ -188,6 +189,7 @@
     <Property Name="usuarioId" Type="Int32" Nullable="false" />
     <Property Name="estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="icon" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="indexVisibilidad" Type="Int32" Nullable="false" />
     <NavigationProperty Name="AplicacionesWeb" Relationship="MoldeModel.FK_Menus_AplicacionesWeb" FromRole="Menus" ToRole="AplicacionesWeb" />
     <NavigationProperty Name="Formularios" Relationship="MoldeModel.FK_Formularios_Menus" FromRole="Menus" ToRole="Formularios" />
   </EntityType>

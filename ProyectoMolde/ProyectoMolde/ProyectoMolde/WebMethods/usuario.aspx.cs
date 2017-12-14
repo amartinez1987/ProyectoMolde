@@ -1,4 +1,5 @@
 ﻿using ControlUsuarios.Entity.Controller;
+using ControlUsuarios.Entity.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,10 @@ namespace ProyectoMolde.WebMethods
         }
 
         [WebMethod]
-        public static string getListaMenuUsuario(int usuarioId)
+        public static Result getListaMenuUsuario(int usuarioId)
         {
             UsuariosController uc = new UsuariosController();
-
-            return "";
+            return uc.getMenuUsuarioPorId(usuarioId, "Molde");
         }
 
     }

@@ -12,7 +12,7 @@ namespace TestProyect
         public void TestMethod1()
         {
             UsuariosController uc = new UsuariosController();
-            uc.getMenuUsuarioPorId(2, "Molde");
+            uc.getMenuUsuarioPorId(15, "Molde");
         }
 
         

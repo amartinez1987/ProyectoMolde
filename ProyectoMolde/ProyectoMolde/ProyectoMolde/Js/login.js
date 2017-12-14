@@ -51,17 +51,31 @@ function OnSuccessLogin(response)
     if (response.error == '')
     {        
         setLocalStorageNavegator("usuarioId", response.id);
-        var redireccion = host + "/Forms/index.aspx";        
+        var redireccion = host + "/Forms/index.aspx?usuarioId=" + response.id;
         location.href = redireccion;
         return;
     }
 }
 
 function getListaMenuPerfilUsuario()
-{
-    usuario.nombreUsuario = $("#nombreUsuario").val();
-    usuario.clave = $("#clave").val();
-    usuario.confirmarClave = $("#confirmarClave").val();
+{   
+    usuario.usuarioId = getLocalStorageNavegator("usuarioId");
     var url = "/WebMethods/usuario.aspx/getListaMenuUsuario";
     enviarComoParametros(url, usuario, OnSuccessListUsuario);
+}
+
+function OnSuccessListUsuario(response)
+{
+    console.log(response);
+    if ((response.error == null ? "" : response.error) != "")
+    {
+        tipoAlerta(response.error, response.tipoAlerta);
+        return;
+    }
+
+    if (response.error == '')
+    {   
+        $("#listaMenu").html(response.getCadena);
+        return;
+    }
 }

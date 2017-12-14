@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using ControlUsuarios.Entity.Model;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ControlUsuarios.Entity.Controller
 {
     public class UsuariosController
     {
         MoldeEntities entity = new MoldeEntities();
-        
+
         public static List<UsuariosViewModel> getListaUsuarios()
         {
             using (MoldeEntities entity = new MoldeEntities())
@@ -24,11 +25,11 @@ namespace ControlUsuarios.Entity.Controller
         public static UsuariosViewModel getUsuarioViewModelPorNombre(string nombreUsuario)
         {
             using (MoldeEntities entity = new MoldeEntities())
-            {   
-                    var l = from usuarios in entity.Usuarios
-                            where usuarios.nombreUsuario.ToLower() == nombreUsuario.ToLower()
-                            select new UsuariosViewModel { id = usuarios.id, idPersona = usuarios.idPersona, usuarioId = usuarios.usuarioId, perfilId = usuarios.perfilId, nombreUsuario = usuarios.nombreUsuario, clave = usuarios.clave, estado = usuarios.estado };
-                    return l.SingleOrDefault();                
+            {
+                var l = from usuarios in entity.Usuarios
+                        where usuarios.nombreUsuario.ToLower() == nombreUsuario.ToLower()
+                        select new UsuariosViewModel { id = usuarios.id, idPersona = usuarios.idPersona, usuarioId = usuarios.usuarioId, perfilId = usuarios.perfilId, nombreUsuario = usuarios.nombreUsuario, clave = usuarios.clave, estado = usuarios.estado };
+                return l.SingleOrDefault();
             }
         }
 
@@ -43,19 +44,50 @@ namespace ControlUsuarios.Entity.Controller
             }
         }
 
-        public  List<string> getMenuUsuarioPorId(int usuarioId, string aplicacion)
+        public Result getMenuUsuarioPorId(int usuarioId, string aplicacion)
         {
-            List<string> listaMenu = new List<string>();
+            string listaMenu = "";
+            try
+            {
 
-            Usuarios u = entity.Usuarios.Find(usuarioId);
+                Usuarios u = entity.Usuarios.FirstOrDefault(x => x.id == usuarioId);
+                if (u.UsuariosOperacionesFormulario.Count != 0)
+                {
+                    List<Menus> lM = (from luofe in u.UsuariosOperacionesFormulario
+                                      where luofe.OperacionesFormulario.Formularios.Menus.AplicacionesWeb.nombre == aplicacion && luofe.OperacionesFormulario.Formularios.esVisible == true
+                                      orderby luofe.OperacionesFormulario.Formularios.Menus.indexVisibilidad
+                                      group luofe by new { luofe.OperacionesFormulario.Formularios.Menus } into gF
+                                      select gF.Key.Menus).ToList();
 
-            return null;
+                    foreach (Menus m in lM)
+                    {
+                        listaMenu += "<li>";
+                        listaMenu += string.Format("<a href=\"#\"><i class=\"{0}\"></i>{1}<span class=\"fa arrow\"></span></a>", m.icon, m.nombreMenu);
+                        listaMenu += "<ul class=\"nav nav-second-level\">";
+                        foreach (Formularios f in m.Formularios)
+                        {
+                            listaMenu += "<li>";
+                            listaMenu += string.Format("<a href=\"{0}\">{1}</a>", f.urlFormulario, f.nombreMostrar);
+                            listaMenu += "</li>";
+                        }
+                        listaMenu += "</ul>";
+                        listaMenu += "</li>";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return new Result() { error = ex.Message, tipoAlerta = "danger" };
+            }
+
+            return new Result() { getCadena = listaMenu, error = "" };
         }
 
 
         public static Result guardarUsuarios(Usuarios registro)
         {
-            Result result =  validarAtributos(registro);
+            Result result = validarAtributos(registro);
             if (result.error != null && result.error != "")
             {
                 return result;
@@ -124,7 +156,7 @@ namespace ControlUsuarios.Entity.Controller
             {
                 return new Result() { error = "Texto Validación" };
             }
-            return new Result() ;
+            return new Result();
         }
 
         public static bool existeRegistro(int usuariosId)

@@ -68,6 +68,7 @@
     <Property Name="usuarioId" Type="int" Nullable="false" />
     <Property Name="estados" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="iconOpcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="indexVisibilidad" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="GruposSanguineo">
     <Key>
@@ -88,6 +89,7 @@
     <Property Name="usuarioId" Type="int" Nullable="false" />
     <Property Name="estado" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="icon" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="indexVisibilidad" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Municipios">
     <Key>
