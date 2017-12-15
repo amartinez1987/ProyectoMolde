@@ -14,12 +14,12 @@ namespace ProyectoMolde.WebMethods
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         [WebMethod]
         public static Result getListaMenuUsuario(int usuarioId)
-        {
+        {  
             UsuariosController uc = new UsuariosController();
             return uc.getMenuUsuarioPorId(usuarioId, "Molde");
         }

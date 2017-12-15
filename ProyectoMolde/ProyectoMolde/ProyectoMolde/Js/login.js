@@ -50,8 +50,7 @@ function OnSuccessLogin(response)
 
     if (response.error == '')
     {        
-        setLocalStorageNavegator("usuarioId", response.id);
-        console.log(getCookie('usuarioId'));
+        setLocalStorageNavegator("usuarioId", response.id);        
         var redireccion = host + "/Forms/index.aspx";
         window.location.replace(redireccion);
         
@@ -77,9 +76,7 @@ function OnSuccessListUsuario(response)
 
     if (response.error == '')
     {   
-        //  $("#side-menu").html(response.getCadena) ;
-        setLocalStorageNavegator("usuarioId", response.id);
-        console.log(getCookie('usuarioId'));
+        //$("#side-menu").html(response.getCadena);       
         return;
     }
 }

@@ -1,3 +1,5 @@
+
+GO
 USE MOLDE
 GO
 INSERT INTO AplicacionesWeb (
@@ -338,16 +340,6 @@ INSERT INTO OperacionesFormulario (
   ,1   -- usuarioId - int
 )
 GO
-INSERT INTO UsuariosOperacionesFormulario (
-   usuarioId
-  ,operacionFormularioId
-  ,usuarioIdApl
-) VALUES (
-   1   -- usuarioId - int
-  ,1   -- operacionFormularioId - int
-  ,1   -- usuarioIdApl - int
-)
-GO
 INSERT INTO Perfiles (
    nombrePerfil
   ,descripcion
@@ -358,6 +350,16 @@ INSERT INTO Perfiles (
   ,'M'  -- descripcion - varchar(8000)
   ,'Activo'  -- estado - varchar(50)
   ,1   -- usuarioId - int
+)
+GO
+INSERT INTO UsuariosOperacionesFormulario (
+   usuarioId
+  ,operacionFormularioId
+  ,usuarioIdApl
+) VALUES (
+   1   -- usuarioId - int
+  ,1   -- operacionFormularioId - int
+  ,1   -- usuarioIdApl - int
 )
 go
 select * from  UsuariosOperacionesFormulario

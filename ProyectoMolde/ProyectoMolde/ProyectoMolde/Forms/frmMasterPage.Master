@@ -135,7 +135,28 @@
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
-                            <asp:Label ID="lblListaMenu" runat="server" ></asp:Label>
+                            <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Herramientas<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="flot.html">Flot Charts</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html">Morris.js Charts</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                           <%  int usuarioId = 0;
+                               if (Session["usuarioId"] != null)
+                               {
+                                   int.TryParse(Session["usuarioId"].ToString(), out usuarioId);
+                                   ControlUsuarios.Entity.Controller.UsuariosController uc = new ControlUsuarios.Entity.Controller.UsuariosController();
+
+                                   string listaMenu = uc.getMenuUsuarioPorId(usuarioId, "Molde").getCadena;
+                                   %>
+                                  <%= listaMenu %>
+                               <% } %>
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->

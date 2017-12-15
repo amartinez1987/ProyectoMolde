@@ -24,9 +24,9 @@ namespace ProyectoMolde.WebMethods
         [WebMethod]
         public static Result registrarUsuarioParams(string nombreUsuario, string clave, string confirmarClave)
         {
-            if (clave != confirmarClave) 
+            if (clave != confirmarClave)
             {
-                return new Result() { id = 0, error = "Las claves no coinciden.", tipoAlerta = "warning" }; 
+                return new Result() { id = 0, error = "Las claves no coinciden.", tipoAlerta = "warning" };
             }
             Usuarios u = new Usuarios();
             u.nombreUsuario = nombreUsuario.Trim();
@@ -35,11 +35,11 @@ namespace ProyectoMolde.WebMethods
             return r;
         }
 
-        [WebMethod]
+        [WebMethod(EnableSession=true)]
         public static Result AutenticarUsuario(string nombreUsuario, string clave)
         {
             Usuarios u = UsuariosController.getUsuarioPorNombre(nombreUsuario);
-            
+
             if (u == null)
             {
                 return new Result() { error = "Nombre de usuario Invalido.", tipoAlerta = "warning" };
@@ -54,13 +54,18 @@ namespace ProyectoMolde.WebMethods
                     return new Result() { error = "La clave no coincide con la del correo.", tipoAlerta = "warning" };
                 }
 
-                return IFACTORY.createUsuarios(u.estado).Activar(ref u);
+                Result r = IFACTORY.createUsuarios(u.estado).Activar(ref u);
+                if (r.error == "") { HttpContext.Current.Session["usuarioId"] = r.id; }
+                return r;
+                
             }
-            else 
+            else
             {
-                return IFACTORY.createUsuarios(u.estado).ValidarUsuario(ref u);
+                Result r = IFACTORY.createUsuarios(u.estado).ValidarUsuario(ref u);
+                if (r.error == "") { HttpContext.Current.Session["usuarioId"] = r.id; }
+                return r;
             }
-            
+
         }
     }
 }
