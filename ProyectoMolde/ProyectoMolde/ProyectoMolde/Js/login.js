@@ -51,8 +51,10 @@ function OnSuccessLogin(response)
     if (response.error == '')
     {        
         setLocalStorageNavegator("usuarioId", response.id);
-        var redireccion = host + "/Forms/index.aspx?usuarioId=" + response.id;
-        location.href = redireccion;
+        console.log(getCookie('usuarioId'));
+        var redireccion = host + "/Forms/index.aspx";
+        window.location.replace(redireccion);
+        
         return;
     }
 }
@@ -75,7 +77,9 @@ function OnSuccessListUsuario(response)
 
     if (response.error == '')
     {   
-        $("#listaMenu").html(response.getCadena);
+        //  $("#side-menu").html(response.getCadena) ;
+        setLocalStorageNavegator("usuarioId", response.id);
+        console.log(getCookie('usuarioId'));
         return;
     }
 }

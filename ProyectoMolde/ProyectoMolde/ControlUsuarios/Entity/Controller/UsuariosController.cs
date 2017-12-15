@@ -66,9 +66,12 @@ namespace ControlUsuarios.Entity.Controller
                         listaMenu += "<ul class=\"nav nav-second-level\">";
                         foreach (Formularios f in m.Formularios)
                         {
-                            listaMenu += "<li>";
-                            listaMenu += string.Format("<a href=\"{0}\">{1}</a>", f.urlFormulario, f.nombreMostrar);
-                            listaMenu += "</li>";
+                            if( u.UsuariosOperacionesFormulario.Where( x=>x.OperacionesFormulario.formularioId == f.id  ).Count() != 0 )
+                            {
+                                listaMenu += "<li>";
+                                listaMenu += string.Format("<a href=\"{0}\">{1}</a>", f.urlFormulario, f.nombreMostrar);
+                                listaMenu += "</li>";
+                            }
                         }
                         listaMenu += "</ul>";
                         listaMenu += "</li>";
@@ -81,7 +84,7 @@ namespace ControlUsuarios.Entity.Controller
                 return new Result() { error = ex.Message, tipoAlerta = "danger" };
             }
 
-            return new Result() { getCadena = listaMenu, error = "" };
+            return new Result() { id = usuarioId,getCadena = listaMenu, error = "" };
         }
 
 

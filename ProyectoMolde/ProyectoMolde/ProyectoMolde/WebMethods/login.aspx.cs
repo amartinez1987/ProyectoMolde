@@ -39,11 +39,13 @@ namespace ProyectoMolde.WebMethods
         public static Result AutenticarUsuario(string nombreUsuario, string clave)
         {
             Usuarios u = UsuariosController.getUsuarioPorNombre(nombreUsuario);
-            u.clave = clave;
+            
             if (u == null)
             {
                 return new Result() { error = "Nombre de usuario Invalido.", tipoAlerta = "warning" };
             }
+
+            u.clave = clave;
 
             if (u.estado == "Nuevo")
             {
