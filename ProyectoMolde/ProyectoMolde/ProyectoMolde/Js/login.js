@@ -75,8 +75,9 @@ function OnSuccessListUsuario(response)
     }
 
     if (response.error == '')
-    {   
-        //$("#side-menu").html(response.getCadena);       
-        return;
+    {
+        //var contentId = document.getElementById("contentId");
+        //contentId.innerHTML = (response.getCadena);
+        //return;
     }
 }

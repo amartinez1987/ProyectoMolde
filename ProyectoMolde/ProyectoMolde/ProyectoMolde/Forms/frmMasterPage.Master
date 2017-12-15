@@ -19,9 +19,6 @@
     <!-- Custom CSS -->
     <link href="../bootstrapLibrerias/dist/css/sb-admin-2.min.css" rel="stylesheet" />
 
-    <!-- Morris Charts CSS -->
-    <link href="../bootstrapLibrerias/vendor/morrisjs/morris.css" rel="stylesheet" />
-
     <!-- Custom Fonts -->
     <link href="../bootstrapLibrerias/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
@@ -133,30 +130,21 @@
                 <!-- /.navbar-top-links -->
 
                 <div class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
+                    <div class="sidebar-nav navbar-collapse" id="contentId">
                         <ul class="nav" id="side-menu">
                             <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Herramientas<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="flot.html">Flot Charts</a>
-                                </li>
-                                <li>
-                                    <a href="morris.html">Morris.js Charts</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                           <%  int usuarioId = 0;
-                               if (Session["usuarioId"] != null)
-                               {
-                                   int.TryParse(Session["usuarioId"].ToString(), out usuarioId);
-                                   ControlUsuarios.Entity.Controller.UsuariosController uc = new ControlUsuarios.Entity.Controller.UsuariosController();
-
-                                   string listaMenu = uc.getMenuUsuarioPorId(usuarioId, "Molde").getCadena;
-                                   %>
-                                  <%= listaMenu %>
-                               <% } %>
+                                <a href="index.html"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
+                            </li>
+                            <%  int usuarioId = 0;
+                                string listaMenu = "";
+                                if (Session["usuarioId"] != null)
+                                {
+                                    int.TryParse(Session["usuarioId"].ToString(), out usuarioId);
+                                    ControlUsuarios.Entity.Controller.UsuariosController uc = new ControlUsuarios.Entity.Controller.UsuariosController();
+                                    listaMenu = uc.getMenuUsuarioPorId(usuarioId, "Molde").getCadena;
+                                }
+                            %>
+                            <%= listaMenu %>
                         </ul>
                     </div>
                     <!-- /.sidebar-collapse -->
@@ -180,16 +168,11 @@
 
         </div>
     </form>
-     
     <!-- jQuery -->
     <script src="../bootstrapLibrerias/vendor/jquery/jquery.min.js"></script>
-    
-    
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../bootstrapLibrerias/vendor/bootstrap/js/bootstrap.min.js"></script>
-    
-   
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../bootstrapLibrerias/vendor/metisMenu/metisMenu.min.js"></script>
@@ -198,15 +181,11 @@
     <script src="../bootstrapLibrerias/dist/js/sb-admin-2.min.js"></script>
 
     <!-- FunctionsJs -->
-    
-    <script src="../Js/configAjax.js"></script>    
+    <script src="../Js/configAjax.js"></script>
     <script src="../Js/cajasTexto.js"></script>
     <script src="../Js/login.js"></script>
 
-    <script>
-        getListaMenuPerfilUsuario();
-    </script> 
 
-   
+
 </body>
 </html>
