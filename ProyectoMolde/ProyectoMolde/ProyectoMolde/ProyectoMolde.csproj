@@ -108,8 +108,11 @@
     <Content Include="bootstrapLibrerias\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="bootstrapLibrerias\vendor\font-awesome\scss\_variables.scss" />
     <Content Include="bootstrapLibrerias\UrlBosstrap.xml" />
+    <Content Include="bootstrapLibrerias\vendor\jquery\jquery.dataTables.min.css" />
     <Content Include="Forms\index.aspx" />
+    <Content Include="Forms\frmListaAplicacionesWeb.aspx" />
     <Content Include="Js\configAjax.js" />
+    <Content Include="Js\Forms\AplicacionesWeb.js" />
     <Content Include="WebMethods\login.aspx" />
     <Content Include="Forms\frmMasterPage.Master" />
     <Content Include="WebMethods\usuario.aspx" />
@@ -237,6 +240,13 @@
     </Compile>
     <Compile Include="Forms\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmListaAplicacionesWeb.aspx.cs">
+      <DependentUpon>frmListaAplicacionesWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmListaAplicacionesWeb.aspx.designer.cs">
+      <DependentUpon>frmListaAplicacionesWeb.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Usuarios\frmLogin.aspx.cs">
       <DependentUpon>frmLogin.aspx</DependentUpon>

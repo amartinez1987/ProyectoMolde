@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -97,6 +98,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Controller\AplicacionesWebController.cs" />
     <Compile Include="Entity\Controller\IFACTORY.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios_Activo.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="Entity\Model\AplicacionesWeb.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Model\AplicacionesWebViewModel.cs" />
     <Compile Include="Entity\Model\Barrios.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>

@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Inicio Sessió<</title>
+    <title>Inicio Sesi&oacute;n</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../bootstrapLibrerias/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">        

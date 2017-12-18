@@ -24,5 +24,12 @@ namespace ProyectoMolde.WebMethods
             return uc.getMenuUsuarioPorId(usuarioId, "Molde");
         }
 
+        [WebMethod(EnableSession = true)]
+        public static Result loginOut(int usuarioId)
+        {
+            HttpContext.Current.Session.RemoveAll();
+            return new Result() { error="", getCadena="", id =0, tipoAlerta="" };
+        }
+
     }
 }

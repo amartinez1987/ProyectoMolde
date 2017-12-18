@@ -24,6 +24,34 @@ $("#btnRegistrarse").click
     }
 );
 
+$("#btnLogOut").click
+(
+    function ()
+    {
+        usuario.usuarioId = getLocalStorageNavegator("usuarioId");
+        localStorage.myPageDataArr = undefined;
+        var url = "/WebMethods/usuario.aspx/loginOut";
+        enviarComoParametros(url, usuario, OnSuccessLoginOut);
+    }
+);
+
+function OnSuccessLoginOut(response)
+{
+    console.log(response);
+    if ((response.error == null ? "" : response.error) != "") {
+        tipoAlerta(response.error, response.tipoAlerta);
+        return;
+    }
+
+    if (response.error == '')
+    {
+        var redireccion = host + "/Forms/Usuarios/frmLogin.aspx";
+        window.location.replace(redireccion);
+        return;
+    }
+}
+
+
 function OnSuccess(response)
 {
     console.log(response);
@@ -58,26 +86,23 @@ function OnSuccessLogin(response)
     }
 }
 
-function getListaMenuPerfilUsuario()
-{   
+
+
+function getListaMenuPerfilUsuario() {
     usuario.usuarioId = getLocalStorageNavegator("usuarioId");
     var url = "/WebMethods/usuario.aspx/getListaMenuUsuario";
     enviarComoParametros(url, usuario, OnSuccessListUsuario);
 }
 
-function OnSuccessListUsuario(response)
-{
+function OnSuccessListUsuario(response) {
     console.log(response);
-    if ((response.error == null ? "" : response.error) != "")
-    {
-        tipoAlerta(response.error, response.tipoAlerta);
+    if ((response.error == null ? "" : response.error) != "") {
         return;
     }
 
-    if (response.error == '')
-    {
-        //var contentId = document.getElementById("contentId");
-        //contentId.innerHTML = (response.getCadena);
-        //return;
+    if (response.error == '') {
+        $("#menu").html(response.getCadena);        
+        $('#menu').metisMenu();
+        return;
     }
 }

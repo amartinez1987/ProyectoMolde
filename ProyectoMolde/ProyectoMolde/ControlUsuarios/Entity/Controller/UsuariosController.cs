@@ -49,7 +49,6 @@ namespace ControlUsuarios.Entity.Controller
             string listaMenu = "";
             try
             {
-
                 Usuarios u = entity.Usuarios.FirstOrDefault(x => x.id == usuarioId);
                 if (u.UsuariosOperacionesFormulario.Count != 0)
                 {
@@ -58,13 +57,13 @@ namespace ControlUsuarios.Entity.Controller
                                       orderby luofe.OperacionesFormulario.Formularios.Menus.indexVisibilidad
                                       group luofe by new { luofe.OperacionesFormulario.Formularios.Menus } into gF
                                       select gF.Key.Menus).ToList();
+
                     
                     foreach (Menus m in lM)
-                    {
-                        
+                    {                        
                         listaMenu += "<li>";
-                        listaMenu += string.Format("<a href=\"#\"><i class=\"{0}\"></i>{1}<span class=\"fa arrow\"></span></a>", m.icon, m.nombreMenu);
-                        listaMenu += "<ul class=\"nav nav-second-level\" aria-expanded=\"false\" style=\"height: 0px;\">";
+                        listaMenu += string.Format("<a href=\"#\"><i class=\"{0}\"></i>{1}<span class=\"glyphicon arrow\"></span></a>", m.icon, m.nombreMenu);
+                        listaMenu += "<ul class=\"nav nav-second-level\">";
                         foreach (Formularios f in m.Formularios)
                         {
                             if (u.UsuariosOperacionesFormulario.Where(x => x.OperacionesFormulario.formularioId == f.id).Count() != 0)
@@ -77,7 +76,6 @@ namespace ControlUsuarios.Entity.Controller
                         listaMenu += "</ul>";
                         listaMenu += "</li>";
                     }
-                    
                 }
             }
             catch (Exception ex)
