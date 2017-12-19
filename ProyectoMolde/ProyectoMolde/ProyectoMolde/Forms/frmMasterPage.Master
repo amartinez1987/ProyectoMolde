@@ -21,6 +21,7 @@
 
     <!-- Jquery Datatable -->
     <link href="../bootstrapLibrerias/vendor/jquery/jquery.dataTables.min.css" rel="stylesheet">
+   
 
     <!-- DataTables Responsive CSS -->
     <link href="../bootstrapLibrerias/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
@@ -150,6 +151,7 @@
     <script src="../bootstrapLibrerias/vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src=".../bootstrapLibrerias/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="../bootstrapLibrerias/vendor/datatables-responsive/dataTables.responsive.js"></script>
+    
    
 
     <!-- Custom Theme JavaScript -->

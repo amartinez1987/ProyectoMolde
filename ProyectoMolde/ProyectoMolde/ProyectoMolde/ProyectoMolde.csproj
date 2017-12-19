@@ -108,11 +108,14 @@
     <Content Include="bootstrapLibrerias\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="bootstrapLibrerias\vendor\font-awesome\scss\_variables.scss" />
     <Content Include="bootstrapLibrerias\UrlBosstrap.xml" />
+    <Content Include="bootstrapLibrerias\vendor\jquery\dataTables.scroller.min.js" />
     <Content Include="bootstrapLibrerias\vendor\jquery\jquery.dataTables.min.css" />
+    <Content Include="bootstrapLibrerias\vendor\jquery\scroller.dataTables.min.css" />
     <Content Include="Forms\index.aspx" />
     <Content Include="Forms\frmListaAplicacionesWeb.aspx" />
     <Content Include="Js\configAjax.js" />
     <Content Include="Js\Forms\AplicacionesWeb.js" />
+    <Content Include="WebMethods\aplicacionesWeb.aspx" />
     <Content Include="WebMethods\login.aspx" />
     <Content Include="Forms\frmMasterPage.Master" />
     <Content Include="WebMethods\usuario.aspx" />
@@ -263,6 +266,13 @@
       <DependentUpon>frmRegistrarse.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebMethods\aplicacionesWeb.aspx.cs">
+      <DependentUpon>aplicacionesWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebMethods\aplicacionesWeb.aspx.designer.cs">
+      <DependentUpon>aplicacionesWeb.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebMethods\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

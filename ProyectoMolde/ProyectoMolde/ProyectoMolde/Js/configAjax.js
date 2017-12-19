@@ -2,21 +2,20 @@
 var usuarioId = 0;
 var aplicacion = "Molde";
 
-function setLocalStorageNavegator(clave , valor)
-{
+function setLocalStorageNavegator(clave, valor) {
     localStorage.setItem(clave, valor);
-   
+
 }
 
-function getLocalStorageNavegator(clave)
-{
-    return  localStorage.getItem(clave);
+function getLocalStorageNavegator(clave) {
+    return localStorage.getItem(clave);
 }
 
-function enviarComoParametros(url, objeto, functionResult)
-{
+function enviarComoParametros(url, objeto, functionResult) {
     var urlComplete = host + url;
-    dataParams = getParamsValues(objeto);    
+    dataParams = getParamsValues(objeto);
+    console.log(objeto);
+    console.log(dataParams);
     $.ajax(
     {
         type: "POST",
@@ -25,16 +24,17 @@ function enviarComoParametros(url, objeto, functionResult)
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         async: true,
-        success: function (result)
-        {
+        success: function (result) {
             return functionResult(result.d)
         }
-    });    
+    });
 }
 
 function getParamsValues(objeto)
 {
-    var arrayParams ="{";
+    var arrayParams = "";
+    arrayParams = "{";
+    var arrayParams = "{";
     for (var atributo in objeto)
     {
         if (objeto.hasOwnProperty(atributo))
@@ -44,5 +44,12 @@ function getParamsValues(objeto)
     }
     arrayParams = arrayParams.substring(0, arrayParams.length - 1);
     arrayParams += "}";
-    return arrayParams;  
+
+    if (arrayParams == "}")
+    {
+        arrayParams = "";
+    }
+
+
+    return arrayParams;
 }
