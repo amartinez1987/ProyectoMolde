@@ -42,7 +42,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server">         
         <div id="wrapper">
 
             <!-- Navigation -->
@@ -124,9 +124,7 @@
 
             <div id="page-wrapper">
                 <div class="row">
-                    <div class="col-lg-12">
-
-                        <h1 class="page-header">Dashboard</h1>
+                    <div class="col-lg-12">                        
                         <asp:ContentPlaceHolder ID="contenPlaceDocument" runat="server">
                         </asp:ContentPlaceHolder>
                     </div>

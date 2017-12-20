@@ -29,8 +29,7 @@ namespace ProyectoMolde.WebMethods
             {
                 lst = AplicacionesWebController.getListaAplicacionesWeb();
                 totalRegistros = lst.Count();
-                totalAExtraer = (lst.Count() - registroPartida) < totalAExtraer ? (lst.Count() - registroPartida) : totalAExtraer;
-                
+                totalAExtraer = (lst.Count() - registroPartida) < totalAExtraer ? (lst.Count() - registroPartida) : totalAExtraer;                
             }
             catch (Exception e)
             {
