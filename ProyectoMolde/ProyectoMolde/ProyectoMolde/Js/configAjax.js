@@ -14,8 +14,6 @@ function getLocalStorageNavegator(clave) {
 function enviarComoParametros(url, objeto, functionResult) {
     var urlComplete = host + url;
     dataParams = getParamsValues(objeto);
-    console.log(objeto);
-    console.log(dataParams);
     $.ajax(
     {
         type: "POST",

@@ -20,24 +20,24 @@ namespace ProyectoMolde.WebMethods
         }
 
         [WebMethod]
-        public static Result getListaAplicacionesWeb(int registroInicial, int registroFinal)
+        public static Result getListaAplicacionesWeb(int registroPartida, int totalAExtraer)
         {
             
-            int totalRegistros = 0;
-            int totalRegistrosFiltrados = 0;
+            int totalRegistros = 0;            
             List<AplicacionesWebViewModel> lst = new List<AplicacionesWebViewModel>();
             try
             {
                 lst = AplicacionesWebController.getListaAplicacionesWeb();
                 totalRegistros = lst.Count();
-                totalRegistrosFiltrados = lst.GetRange(registroFinal, registroFinal).Count();                
+                totalAExtraer = (lst.Count() - registroPartida) < totalAExtraer ? (lst.Count() - registroPartida) : totalAExtraer;
+                
             }
             catch (Exception e)
             {
                 return new Result() { error = e.Message, id = 0, tipoAlerta = "warning" };
             }
 
-            return new Result() { error = "", getCadena = new JavaScriptSerializer().Serialize(lst.GetRange(registroFinal, registroFinal)) , totalRegistros = totalRegistros, totalRegistrosFiltrados = totalRegistrosFiltrados};
+            return new Result() { error = "", getCadena = new JavaScriptSerializer().Serialize(lst.GetRange(registroPartida, totalAExtraer)), totalRegistros = totalRegistros};
         }
     }
 }
