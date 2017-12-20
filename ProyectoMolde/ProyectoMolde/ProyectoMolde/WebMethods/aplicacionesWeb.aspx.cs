@@ -22,18 +22,22 @@ namespace ProyectoMolde.WebMethods
         [WebMethod]
         public static Result getListaAplicacionesWeb(int registroInicial, int registroFinal)
         {
-            string ListAplicacionesWeb = "";
+            
+            int totalRegistros = 0;
+            int totalRegistrosFiltrados = 0;
+            List<AplicacionesWebViewModel> lst = new List<AplicacionesWebViewModel>();
             try
             {
-                List<AplicacionesWebViewModel> lst = AplicacionesWebController.getListaAplicacionesWeb();
-                ListAplicacionesWeb = new JavaScriptSerializer().Serialize(lst.GetRange(registroFinal, registroFinal));
+                lst = AplicacionesWebController.getListaAplicacionesWeb();
+                totalRegistros = lst.Count();
+                totalRegistrosFiltrados = lst.GetRange(registroFinal, registroFinal).Count();                
             }
             catch (Exception e)
             {
                 return new Result() { error = e.Message, id = 0, tipoAlerta = "warning" };
             }
 
-            return new Result() { error = "", getCadena = ListAplicacionesWeb };
+            return new Result() { error = "", getCadena = new JavaScriptSerializer().Serialize(lst.GetRange(registroFinal, registroFinal)) , totalRegistros = totalRegistros, totalRegistrosFiltrados = totalRegistrosFiltrados};
         }
     }
 }

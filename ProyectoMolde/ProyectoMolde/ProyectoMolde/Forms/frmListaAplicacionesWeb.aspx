@@ -18,10 +18,8 @@
                  <thead>
             <tr>
                 <th>ID</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>ZIP / Post code</th>
-                <th>Country</th>
+                <th>nombre</th>
+                <th>descripcion</th>               
             </tr>
         </thead>
             </table>

@@ -19,26 +19,16 @@ $("#btnAplicacionWeb_Nuevo").click
     }
 );
 
-function getListaAplicacionesWeb()
+function getListaAplicacionesWeb(registroInicial, registroFinal, callbackFucntion)
 {
-
+    aplicacionesWeb.registroInicial = registroInicial;
+    aplicacionesWeb.registroFinal = registroFinal;
     var url = "/WebMethods/aplicacionesWeb.aspx/getListaAplicacionesWeb";
-    enviarComoParametros(url, aplicacionesWeb, onSuccesListAplicacionesWeb);
+    enviarComoParametros(url, aplicacionesWeb, callbackFucntion);
 }
 
-function onSuccesListAplicacionesWeb(response)
-{
-    console.log('respuesta');
-    console.log(response);
-    if ((response.error == null ? "" : response.error) != "")
-    {
-        tipoAlerta(response.error, response.tipoAlerta);
-        return;
-    }
 
-    if (response.error == '')
-    {
-        $('#gridListaAplicacionesWeb').DataTable({
+  $('#gridListaAplicacionesWeb').DataTable({
             serverSide: true,
             ordering: false,
             searching: false,
@@ -46,27 +36,40 @@ function onSuccesListAplicacionesWeb(response)
             {
                 console.log(data);
                 var out = [];
+                var lstAplicacionesWeb;
+                var registroInicial = 0;
+                var registroFinal = 0;
+                
+                getListaAplicacionesWeb(data.start, data.start + data.length, function (response)
+                {                    
+                    console.log(response);
+                    if ((response.error == null ? "" : response.error) != "")
+                    {
+                        tipoAlerta(response.error, response.tipoAlerta);
+                        return;
+                    }
 
-                for (var i = data.start, ien = data.start + data.length ; i < ien ; i++)
+                    if (response.error == '')
+                    {
+                        lstAplicacionesWeb = response.getCadena
+                        registroInicial = response.registroInicial;
+                        registroFinal = response.registroFinal;
+                        return;
+                    }
+                })
+
+                for (var i in lstAplicacionesWeb)
                 {
-                  out.push([i + '-1', i + '-2', i + '-3', i + '-4', i + '-5']);
-               }
+                    out.push([i.id, i.nombre, i.descripcion]);
+                }
 
-                setTimeout(function () {
-                    callback({
-                        draw: data.draw,
-                        data: out,
-                        recordsTotal: 5000000,
-                        recordsFiltered: 5000000
-                    });
-                }, 50);
-            },
-            scrollY: 200,
-            scroller: {
-                loadingIndicator: true
+                callback(
+                {
+                    draw: data.draw,
+                    data: out,
+                    recordsTotal: registroInicial,
+                    recordsFiltered: registroFinal
+                });
             }
         });
-        return;
-    }
-}
 

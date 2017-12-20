@@ -12,5 +12,6 @@ namespace ControlUsuarios.Entity.Model
     public string tipoAlerta { set; get; }
     public string getCadena { set; get; }
     public int totalRegistros{ set; get; }
+    public int totalRegistrosFiltrados { set; get; }
     }
 }
