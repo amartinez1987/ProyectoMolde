@@ -112,12 +112,12 @@
     <Content Include="bootstrapLibrerias\vendor\jquery\jquery.dataTables.min.css" />
     <Content Include="bootstrapLibrerias\vendor\jquery\scroller.dataTables.min.css" />
     <Content Include="Forms\frmAplicacionesWeb.ascx" />
+    <Content Include="Forms\frmAplicacionesWeb_Editar.aspx" />
     <Content Include="Forms\frmAplicacionesWeb_Nuevo.aspx" />
     <Content Include="Forms\index.aspx" />
     <Content Include="Forms\frmListaAplicacionesWeb.aspx" />
     <Content Include="Js\configAjax.js" />
     <Content Include="Js\Forms\AplicacionesWeb.js" />
-    <Content Include="Js\Forms\AplicacionesWeb_OperacionForms.js" />
     <Content Include="WebMethods\aplicacionesWeb.aspx" />
     <Content Include="WebMethods\login.aspx" />
     <Content Include="Forms\frmMasterPage.Master" />
@@ -240,6 +240,13 @@
     </Compile>
     <Compile Include="Forms\frmAplicacionesWeb.ascx.designer.cs">
       <DependentUpon>frmAplicacionesWeb.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAplicacionesWeb_Editar.aspx.cs">
+      <DependentUpon>frmAplicacionesWeb_Editar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmAplicacionesWeb_Editar.aspx.designer.cs">
+      <DependentUpon>frmAplicacionesWeb_Editar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmAplicacionesWeb_Nuevo.aspx.cs">
       <DependentUpon>frmAplicacionesWeb_Nuevo.aspx</DependentUpon>

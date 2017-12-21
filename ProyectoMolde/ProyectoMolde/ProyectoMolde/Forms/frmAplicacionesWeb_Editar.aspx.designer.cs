@@ -10,15 +10,15 @@
 namespace ProyectoMolde.Forms {
     
     
-    public partial class frmAplicacionesWeb {
+    public partial class frmAplicacionesWeb_Editar {
         
         /// <summary>
-        /// Control lblIdAplicacionWeb.
+        /// Control frmAplicacionesWeb.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblIdAplicacionWeb;
+        protected global::ProyectoMolde.Forms.frmAplicacionesWeb frmAplicacionesWeb;
     }
 }

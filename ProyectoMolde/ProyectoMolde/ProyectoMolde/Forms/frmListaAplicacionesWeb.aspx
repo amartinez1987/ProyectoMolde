@@ -23,8 +23,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>nombre</th>
-                                <th>descripcion</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
                             </tr>
                         </thead>
                     </table>
@@ -55,4 +55,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footerScripst" runat="server">
     <script src="../Js/Forms/AplicacionesWeb.js"></script>    
+    <script>
+        cargarListaAplicacionesWeb();
+    </script>
 </asp:Content>

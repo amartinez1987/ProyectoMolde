@@ -1,11 +1,16 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmAplicacionesWeb.ascx.cs" Inherits="ProyectoMolde.Forms.frmAplicacionesWeb" %>
 <div class="row">
     <div class="col-sm-6">
-        <asp:Label ID="lblNombreAplicacionWeb" runat="server" Text="Nombre" Width="90%"></asp:Label>
-        <asp:TextBox ID="txtNombreAplicacionWeb" runat="server" Width="90%"></asp:TextBox>
+        <label id="lblNombreAplicacionWeb">Nombre</label>
+        <input id="txtNombreAplicacionWeb" class="form-control">
     </div>
     <div class="col-sm-6">
-        <asp:Label ID="lblDescripcion" runat="server" Text="Descripcion" Width="90%"></asp:Label>
-        <asp:TextBox ID="txtDescripcion" runat="server" Width="90%"></asp:TextBox>
+        <label id="lblDescripcionAplicacionWeb">Descripción</label>
+        <input id="txtDescripcionAplicacionWeb" class="form-control">
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <label runat="server" id="lblIdAplicacionWeb"></label>
     </div>
 </div>

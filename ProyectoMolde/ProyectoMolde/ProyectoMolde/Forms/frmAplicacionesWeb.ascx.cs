@@ -10,8 +10,12 @@ namespace ProyectoMolde.Forms
     public partial class frmAplicacionesWeb : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
+        {         
         }
+
+        public System.Web.UI.HtmlControls.HtmlGenericControl getlblIdAplicacionWeb()
+        {
+            return lblIdAplicacionWeb;
+        }        
     }
 }
