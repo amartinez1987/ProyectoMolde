@@ -11,7 +11,7 @@
             </div>
             <div class="panel-body">
                 <div class=" col-sm-5 col-md-5 col-lg-1">
-                    <a href='#' data-toggle='modal' data-load-url='frmAplicacionesWeb_Nuevo.aspx' data-target='#myModal' type="button" class="btn btn-default">Nuevo</a>
+                    <button data-load-url='' id="btnAplicacionWeb_Nuevo" type="button" class="btn btn-default">Nuevo</button>
                 </div>
             </div>
             <br />
@@ -35,7 +35,7 @@
         </div>
     </div>
     <!-- /.row -->
-    <div class="row">      
+    <div class="row">
         <div id="myModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -43,7 +43,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 id="lblTitutloPopModal" class="modal-title"></h4>
                     </div>
-                    <div class="modal-body">
+                    <div id="modalUrl" class="modal-body">
                         <p>Loading...</p>
                     </div>
                     <div class="modal-footer">
@@ -52,9 +52,10 @@
                 </div>
             </div>
         </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footerScripst" runat="server">
-    <script src="../Js/Forms/AplicacionesWeb.js"></script>    
+    <script src="../Js/Forms/AplicacionesWeb.js"></script>
     <script>
         cargarListaAplicacionesWeb();
     </script>

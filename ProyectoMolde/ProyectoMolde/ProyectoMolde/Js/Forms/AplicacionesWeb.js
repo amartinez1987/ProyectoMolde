@@ -1,20 +1,22 @@
 ﻿//atributos del objecto aplicacionesWeb
 var aplicacionesWeb = new Object();
+var operacion = new Object();
 
-$('#myModal').on('show.bs.modal', function (e)
-{
-    var loadurl = $(e.relatedTarget).data('load-url');
-    console.log(e.relatedTarget);
-    if (loadurl.includes("Editar"))
-    {
-        $('#lblTitutloPopModal').text("Editar ApliacionWeb");
-    }
-    else
-    {
-        $('#lblTitutloPopModal').text("Nueva ApliacionWeb");
-    }    
-    $(this).find('.modal-body').load(loadurl);
+$("#btnAplicacionWeb_Nuevo").click(function ()
+{ 
+    $('#modalUrl').load('frmAplicacionesWeb_Nuevo.aspx');
+    $('#lblTitutloPopModal').html('Nueva Aplicación Web');
+    $("#myModal").modal("show");
 });
+
+
+function btnAplicacionesWeb_Editar(id) 
+{    
+    $('#modalUrl').load('frmAplicacionesWeb_Editar.aspx?id=' + id);
+    $('#lblTitutloPopModal').html('Editar Aplicación Web');
+    $("#myModal").modal("show");
+}
+
 
 function btnAplicacionesWeb_Eliminar(id)
 {
@@ -45,7 +47,7 @@ function getListaAplicacionesWeb(registroPartida, totalAExtraer, callbackFucntio
 
 function validarCampos()
 {
-
+    
 }
 
 function cargarListaAplicacionesWeb()
@@ -82,7 +84,7 @@ function cargarListaAplicacionesWeb()
                     totalRegistrosFiltrados = response.totalRegistrosFiltrados;
                     for (var i = 0; i < lstAplicacionesWeb.length; i++)
                     {
-                        var etiquetaEditar = "<a href='#'id='btnAplicacionWebEditar' data-toggle='modal' data-load-url='frmAplicacionesWeb_Editar.aspx?id=" + lstAplicacionesWeb[i].id + "' data-target='#myModal' class='fa fa-edit'><a>";
+                        var etiquetaEditar = "<a  onclick = 'btnAplicacionesWeb_Editar(" + lstAplicacionesWeb[i].id + ")'  class='fa fa-edit'><a>";
                         var etiquetaEliminar = "<a  class='fa fa-minus' onclick='btnAplicacionesWeb_Eliminar(" + lstAplicacionesWeb[i].id + ")'><a>";
                         out.push([etiquetaEditar + etiquetaEliminar, lstAplicacionesWeb[i].nombre, lstAplicacionesWeb[i].descripcion]);
                     }
