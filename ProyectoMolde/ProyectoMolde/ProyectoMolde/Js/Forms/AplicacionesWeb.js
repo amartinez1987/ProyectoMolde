@@ -1,17 +1,12 @@
 ﻿//atributos del objecto aplicacionesWeb
 var aplicacionesWeb = new Object();
-var enviado = false;
-$('#croosModal').click( function ()
-{
-    console.log(enviado);
-    if (enviado) { return; }
-    enviado = true;
 
-   cargarListaAplicacionesWeb();
-   setTimeout(function () { $("#myModal").modal('hide'); enviado = false;} , 50);
-   
-   
-})
+
+function croosModalClick()
+{
+    cargarListaAplicacionesWeb();
+    setTimeout(function () { $("#myModal").modal('hide'); enviado = false; }, 50);
+}
 
 
 $("#btnAplicacionWeb_Nuevo").click(function ()
@@ -20,6 +15,21 @@ $("#btnAplicacionWeb_Nuevo").click(function ()
     $('#lblTitutloPopModal').html('Nueva Aplicación Web');
     $("#myModal").modal("show");
 });
+
+function btnAplicacionWeb_GuardarClick()
+{
+   
+    if (validarCampos())
+    {            
+        aplicacionesWeb.id = 0;
+        aplicacionesWeb.nombre = $('#txtNombreAplicacionWeb').val() ;
+        aplicacionesWeb.descripcion = $('#txtDescripcionAplicacionWeb').val();
+        aplicacionesWeb.usuarioId = getLocalStorageNavegator("usuarioId");
+        var url = "/WebMethods/aplicacionesWeb.aspx/guardar";
+        enviarComoParametros(url, aplicacionesWeb, OnSuccesSaveAplicacionWeb);
+    }
+   
+}
 
 
 function btnAplicacionesWeb_Editar(id) 
@@ -34,21 +44,6 @@ function btnAplicacionesWeb_Eliminar(id)
 {
     alert(id);
 }
-
-$('#btnAplicacionWeb_Guardar').click(
-    function ()
-    {
-        if (validarCampos())
-        {            
-            aplicacionesWeb.id = 0;
-            aplicacionesWeb.nombre = $('#txtNombreAplicacionWeb').val() ;
-            aplicacionesWeb.descripcion = $('#txtDescripcionAplicacionWeb').val();
-            aplicacionesWeb.usuarioId = getLocalStorageNavegator("usuarioId");
-            var url = "/WebMethods/aplicacionesWeb.aspx/guardar";
-            enviarComoParametros(url, aplicacionesWeb, OnSuccesSaveAplicacionWeb);
-        }
-    }
-);
 
 function OnSuccesSaveAplicacionWeb(response)
 {
@@ -68,8 +63,8 @@ function OnSuccesSaveAplicacionWeb(response)
     
 }
 
-$('#btnAplicacionWeb_Editar').click(
-    function ()
+
+function btnAplicacionWeb_EditarClick()
     {
         if (validarCampos())
         {
@@ -81,7 +76,7 @@ $('#btnAplicacionWeb_Editar').click(
             enviarComoParametros(url, aplicacionesWeb, OnSuccesSaveAplicacionWeb);
         }
     }
-);
+
 
 function getListaAplicacionesWeb(registroPartida, totalAExtraer, callbackFucntion)
 {

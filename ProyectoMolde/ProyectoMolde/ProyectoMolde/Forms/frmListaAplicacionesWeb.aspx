@@ -40,7 +40,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header alert-info">
-                        <button id="croosModal" type="button" class="close" >X</button>
+                        <a id="croosModal" onclick="croosModalClick()" type="button" class="close" >X</a>
                         <h4 id="lblTitutloPopModal" class="modal-title"></h4>
                     </div>
                     <div id="modalUrl" class="modal-body">
@@ -57,6 +57,6 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="footerScripst" runat="server">
     <script src="../Js/Forms/AplicacionesWeb.js"></script>
     <script>
-        cargarListaAplicacionesWeb();
+        cargarListaAplicacionesWeb();       
     </script>
 </asp:Content>

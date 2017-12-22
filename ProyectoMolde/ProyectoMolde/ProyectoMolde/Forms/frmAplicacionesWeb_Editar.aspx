@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenPlaceDocument" runat="server">
     <uc1:frmAplicacionesWeb runat="server" ID="frmAplicacionesWeb" />
     <br />
-    <a id="btnAplicacionWeb_Editar" class="btn btn-success">Editar</a>
+    <a id="btnAplicacionWeb_Editar" onclick="btnAplicacionWeb_EditarClick()" class="btn btn-success">Editar</a>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceFoot" runat="server">
 </asp:Content>
