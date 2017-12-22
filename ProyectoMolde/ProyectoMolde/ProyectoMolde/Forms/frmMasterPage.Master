@@ -16,12 +16,12 @@
     <!-- MetisMenu CSS -->
     <link href="../bootstrapLibrerias/vendor/metisMenu/metisMenu.min.css" rel="stylesheet" />
 
-     <!-- DataTables CSS -->
+    <!-- DataTables CSS -->
     <link href="../bootstrapLibrerias/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- Jquery Datatable -->
     <link href="../bootstrapLibrerias/vendor/jquery/jquery.dataTables.min.css" rel="stylesheet">
-   
+
 
     <!-- DataTables Responsive CSS -->
     <link href="../bootstrapLibrerias/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
@@ -42,9 +42,10 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">         
+    <form id="form1" runat="server">
         <div id="wrapper">
-
+            <div id="boxMessages" class="row" style="position: absolute; text-align: left; left: 70%; top:10%; z-index:2">
+            </div>
             <!-- Navigation -->
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
@@ -124,7 +125,7 @@
 
             <div id="page-wrapper">
                 <div class="row">
-                    <div class="col-lg-12">                        
+                    <div class="col-lg-12">
                         <asp:ContentPlaceHolder ID="contenPlaceDocument" runat="server">
                         </asp:ContentPlaceHolder>
                     </div>
@@ -145,12 +146,12 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../bootstrapLibrerias/vendor/metisMenu/metisMenu.min.js"></script>
 
-     <!-- DataTables JavaScript -->
+    <!-- DataTables JavaScript -->
     <script src="../bootstrapLibrerias/vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script src=".../bootstrapLibrerias/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="../bootstrapLibrerias/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="../bootstrapLibrerias/vendor/datatables-responsive/dataTables.responsive.js"></script>
-    
-   
+
+
 
     <!-- Custom Theme JavaScript -->
     <script src="../bootstrapLibrerias/dist/js/sb-admin-2.min.js"></script>

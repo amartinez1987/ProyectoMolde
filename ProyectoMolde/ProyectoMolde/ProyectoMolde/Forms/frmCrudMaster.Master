@@ -9,7 +9,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <div   id="boxMessages"  class="row" style="position:absolute; text-align:left; left:70%; z-index:2">
+    <div   id="boxMessagesCrud"  class="row" style="position:absolute; text-align:left; left:70%; z-index:2">
         </div>
     <form id="form1" runat="server">
         <div>

@@ -40,7 +40,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header alert-info">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <button id="croosModal" type="button" class="close" >X</button>
                         <h4 id="lblTitutloPopModal" class="modal-title"></h4>
                     </div>
                     <div id="modalUrl" class="modal-body">

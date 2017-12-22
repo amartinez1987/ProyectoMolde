@@ -48,11 +48,11 @@ namespace ControlUsuarios.Entity.Controller
                     try
                     {
                         entity.SaveChanges();
-                        return new Result { error = "" };
+                        return new Result { error = ""};
                     }
                     catch (Exception e)
                     {
-                        return new Result { error = e.Message, id = 0 };
+                        return new Result { error = e.Message, id = 0 , tipoAlerta="warning"};
                     }
                 }
                 else
@@ -65,29 +65,24 @@ namespace ControlUsuarios.Entity.Controller
                     }
                     catch (Exception e)
                     {
-                        return new Result { error = e.Message, id = 0 };
+                        return new Result { error = e.Message, id = 0 , tipoAlerta="warning"};
                     }
                 }
             }
         }
 
         private static Result validarAtributos(AplicacionesWeb registro)
-        {
-            if (registro.id == 0)
-            {
-                return new Result { error = "Texto Validación" };
-            }
+        {            
             if (registro.nombre == "")
             {
-                return new Result { error = "Texto Validación" };
+                return new Result { error = "el atributo nombre no debe ir vacío.", tipoAlerta = "warning" };
             }
             if (registro.descripcion == "")
             {
-                return new Result { error = "Texto Validación" };
+                return new Result { error = "el atributo descripción no debe ir vacío.", tipoAlerta = "warning" };
             }
 
             return new Result() { error = "" };
-
         }
         public static bool existeRegistro(int aplicacioneswebId)
         {

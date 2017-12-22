@@ -20,23 +20,54 @@ namespace ProyectoMolde.WebMethods
         }
 
         [WebMethod]
-        public static Result getListaAplicacionesWeb(int registroPartida, int totalAExtraer)
+        public static Result getListaAplicacionesWeb(int registroPartida, int totalAExtraer, int usuarioId)
         {
-            
-            int totalRegistros = 0;            
+            Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
+            if (r.error != "")
+            {
+                return r;
+            }
+
+            int totalRegistros = 0;
             List<AplicacionesWebViewModel> lst = new List<AplicacionesWebViewModel>();
             try
             {
                 lst = AplicacionesWebController.getListaAplicacionesWeb();
                 totalRegistros = lst.Count();
-                totalAExtraer = (lst.Count() - registroPartida) < totalAExtraer ? (lst.Count() - registroPartida) : totalAExtraer;                
+                totalAExtraer = (lst.Count() - registroPartida) < totalAExtraer ? (lst.Count() - registroPartida) : totalAExtraer;
             }
             catch (Exception e)
             {
                 return new Result() { error = e.Message, id = 0, tipoAlerta = "warning" };
             }
 
-            return new Result() { error = "", getCadena = new JavaScriptSerializer().Serialize(lst.GetRange(registroPartida, totalAExtraer)), totalRegistros = totalRegistros};
+            return new Result() { error = "", getCadena = new JavaScriptSerializer().Serialize(lst.GetRange(registroPartida, totalAExtraer)), totalRegistros = totalRegistros };
+        }
+
+
+        [WebMethod(EnableSession= true)]
+        public static Result guardar(int id, string nombre, string descripcion, int usuarioId)
+        {
+            Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
+            if (r.error != "")
+            {
+                return r;
+            }
+            AplicacionesWeb aw = new AplicacionesWeb();
+
+            aw.id = id;
+            aw.nombre = nombre;
+            aw.descripcion = descripcion;
+            aw.usuarioId = usuarioId;
+
+            try
+            {
+                return AplicacionesWebController.guardarAplicacionesWeb(aw);
+            }
+            catch (Exception ex)
+            {
+                return new Result() { error = ex.Message, id = 0, tipoAlerta = "warning" };
+            }
         }
     }
 }

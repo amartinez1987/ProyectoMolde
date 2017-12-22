@@ -14,12 +14,17 @@ namespace ProyectoMolde.WebMethods
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-        [WebMethod]
+        [WebMethod(EnableSession = true)]
         public static Result getListaMenuUsuario(int usuarioId)
-        {  
+        {
+            Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
+            if (r.error != "")
+            {
+                return r;
+            }
             UsuariosController uc = new UsuariosController();
             return uc.getMenuUsuarioPorId(usuarioId, "Molde");
         }
@@ -28,7 +33,7 @@ namespace ProyectoMolde.WebMethods
         public static Result loginOut(int usuarioId)
         {
             HttpContext.Current.Session.RemoveAll();
-            return new Result() { error="", getCadena="", id =0, tipoAlerta="" };
+            return new Result() { error = "", getCadena = "", id = 0, tipoAlerta = "" };
         }
 
     }

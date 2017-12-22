@@ -39,7 +39,7 @@ function OnSuccessLoginOut(response)
 {
     console.log(response);
     if ((response.error == null ? "" : response.error) != "") {
-        tipoAlerta(response.error, response.tipoAlerta);
+        tipoAlerta(response.error, response.tipoAlerta, "#boxMessages");
         return;
     }
 
@@ -54,25 +54,25 @@ function OnSuccessLoginOut(response)
 
 function OnSuccess(response)
 {
-    console.log(response);
+    
     if ((response.error == null ? "" : response.error) != "")
     {
-        tipoAlerta(response.error, response.tipoAlerta);
+        tipoAlerta(response.error, response.tipoAlerta, "#boxMessages");
         return;
     }
 
     if (response.error == '')
     {
-        tipoAlerta('Se ha enviado un correo para activar el usuario.', 'success');
+        tipoAlerta('Se ha enviado un correo para activar el usuario.', 'success', "#boxMessages");
         return;
     }
 }
 
 function OnSuccessLogin(response)
 {
-    console.log(response);
+    
     if ((response.error == null ? "" : response.error) != "") {
-        tipoAlerta(response.error, response.tipoAlerta);
+        tipoAlerta(response.error, response.tipoAlerta, "#boxMessages");
         return;
     }
 
@@ -95,8 +95,10 @@ function getListaMenuPerfilUsuario() {
 }
 
 function OnSuccessListUsuario(response) {
-    console.log(response);
-    if ((response.error == null ? "" : response.error) != "") {
+    
+    if ((response.error == null ? "" : response.error) != "")
+    {
+        tipoAlerta(response.error, response.tipoAlerta, "#boxMessages");
         return;
     }
 

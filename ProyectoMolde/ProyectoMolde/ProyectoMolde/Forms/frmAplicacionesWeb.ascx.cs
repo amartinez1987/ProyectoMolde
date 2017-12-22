@@ -12,7 +12,6 @@ namespace ProyectoMolde.Forms
         protected void Page_Load(object sender, EventArgs e)
         {         
         }
-
         public System.Web.UI.HtmlControls.HtmlGenericControl getlblIdAplicacionWeb()
         {
             return lblIdAplicacionWeb;
