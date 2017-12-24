@@ -11,7 +11,7 @@ namespace ControlUsuarios.Entity.Controller
     public class AplicacionesWebController
     {
         public static List<AplicacionesWebViewModel> getListaAplicacionesWeb()
-        {
+        {            
             using (MoldeEntities entity = new MoldeEntities())
             {
                 var l = from aplicacionesweb in entity.AplicacionesWeb
@@ -33,7 +33,9 @@ namespace ControlUsuarios.Entity.Controller
 
         public static Result guardarAplicacionesWeb(AplicacionesWeb registro)
         {
-            Result result = validarAtributos(registro);
+            Result result = new Result() { error = "" };
+
+            result = validarAtributos(registro);
             if (result.error != null && result.error != "")
             {
                 return result;
@@ -43,6 +45,13 @@ namespace ControlUsuarios.Entity.Controller
             {
                 if (existeRegistro(registro.id))
                 {
+                    result = ValidateSession.validarOperacionesForm("aplicacionesWeb", "Nuevo", registro.usuarioId);
+
+                    if (result.error != null && result.error != "")
+                    {
+                        return result;
+                    }
+
                     int aplicacioneswebId = registro.id;
                     AplicacionesWeb registroEditar = entity.AplicacionesWeb.Where(x => x.id == aplicacioneswebId).SingleOrDefault();
                     entity.Entry(registroEditar).CurrentValues.SetValues(registro);
@@ -58,6 +67,13 @@ namespace ControlUsuarios.Entity.Controller
                 }
                 else
                 {
+                    result = ValidateSession.validarOperacionesForm("aplicacionesWeb", "Editar", registro.usuarioId);
+
+                    if (result.error != null && result.error != "")
+                    {
+                        return result;
+                    }
+
                     entity.AplicacionesWeb.Add(registro);
                     try
                     {
@@ -92,6 +108,15 @@ namespace ControlUsuarios.Entity.Controller
             {
                 if (existeRegistro(aplicacioneswebId))
                 {
+                    Result result = new Result() { error = "" };
+
+                    result = ValidateSession.validarOperacionesForm("aplicacionesWeb", "Eliminar", usuarioId);
+
+                    if (result.error != null && result.error != "")
+                    {
+                        return result;
+                    }
+
                     AplicacionesWeb registroEliminar = entity.AplicacionesWeb.Where(x => x.id == aplicacioneswebId).SingleOrDefault();
                     entity.AplicacionesWeb.Remove(registroEliminar);
                     MoldeTrasabilidad.trasabilidadObject((registroEliminar as object), "AplicacionesWeb","Eliminado", usuarioId,"AplicacionMolde");

@@ -27,5 +27,21 @@ namespace ControlUsuarios.Entity.Controller
 
             return new Result() { error = "" };
         }
+
+        public static Result validarOperacionesForm(string nombreformulario, string operacion, int usuarioId)
+        {
+            using (MoldeEntities entity = new MoldeEntities())
+            {
+                Usuarios u = from usuarios in entity.Usuarios
+                        where usuarios.id == usuarioId
+                        select;
+                if (u.UsuariosOperacionesFormulario.Where(x => x.OperacionesFormulario.Formularios.nombreFormulario == nombreformulario && x.OperacionesFormulario.Operaciones.nombreOperacion == operacion).Count() > 0)
+                {
+                    return new Result() { error = ""};
+                }                
+            }
+
+            return new Result() { error = "Usted no tiene habilitada esta operación.", tipoAlerta = "warning" };
+        }
     }
 }
