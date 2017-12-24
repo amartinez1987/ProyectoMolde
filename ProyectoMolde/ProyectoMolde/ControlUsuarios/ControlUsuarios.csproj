@@ -105,6 +105,7 @@
     <Compile Include="Entity\Controller\ISTATEUsuarios_Bloqueado.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios_Inactivo.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios_Nuevo.cs" />
+    <Compile Include="Entity\Controller\MoldeTrasabilidad.cs" />
     <Compile Include="Entity\Controller\UsuariosController.cs" />
     <Compile Include="Entity\Controller\ValidateSession.cs" />
     <Compile Include="Entity\Model\AplicacionesWeb.cs">

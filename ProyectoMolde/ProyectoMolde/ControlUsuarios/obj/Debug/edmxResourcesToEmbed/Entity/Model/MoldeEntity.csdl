@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="MoldeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="MoldeEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="AplicacionesWeb" EntityType="MoldeModel.AplicacionesWeb" />
     <EntitySet Name="Barrios" EntityType="MoldeModel.Barrios" />
     <EntitySet Name="ControlAplicacion" EntityType="MoldeModel.ControlAplicacion" />
     <EntitySet Name="Departamentos" EntityType="MoldeModel.Departamentos" />
@@ -19,10 +18,6 @@
     <EntitySet Name="sexos" EntityType="MoldeModel.sexos" />
     <EntitySet Name="Usuarios" EntityType="MoldeModel.Usuarios" />
     <EntitySet Name="UsuariosOperacionesFormulario" EntityType="MoldeModel.UsuariosOperacionesFormulario" />
-    <AssociationSet Name="FK_Menus_AplicacionesWeb" Association="MoldeModel.FK_Menus_AplicacionesWeb">
-      <End Role="AplicacionesWeb" EntitySet="AplicacionesWeb" />
-      <End Role="Menus" EntitySet="Menus" />
-    </AssociationSet>
     <AssociationSet Name="FK_Personas_Barrios1" Association="MoldeModel.FK_Personas_Barrios1">
       <End Role="Barrios" EntitySet="Barrios" />
       <End Role="Personas" EntitySet="Personas" />
@@ -91,17 +86,12 @@
       <End Role="Usuarios" EntitySet="Usuarios" />
       <End Role="UsuariosOperacionesFormulario" EntitySet="UsuariosOperacionesFormulario" />
     </AssociationSet>
+    <EntitySet Name="AplicacionesWeb" EntityType="MoldeModel.AplicacionesWeb" />
+    <AssociationSet Name="FK_Menus_AplicacionesWeb" Association="MoldeModel.FK_Menus_AplicacionesWeb">
+      <End Role="AplicacionesWeb" EntitySet="AplicacionesWeb" />
+      <End Role="Menus" EntitySet="Menus" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="AplicacionesWeb">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombre" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
-    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="800" FixedLength="false" Unicode="false" />
-    <Property Name="usuarioId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Menus" Relationship="MoldeModel.FK_Menus_AplicacionesWeb" FromRole="AplicacionesWeb" ToRole="Menus" />
-  </EntityType>
   <EntityType Name="Barrios">
     <Key>
       <PropertyRef Name="id" />
@@ -190,8 +180,8 @@
     <Property Name="estado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="icon" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="indexVisibilidad" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="AplicacionesWeb" Relationship="MoldeModel.FK_Menus_AplicacionesWeb" FromRole="Menus" ToRole="AplicacionesWeb" />
     <NavigationProperty Name="Formularios" Relationship="MoldeModel.FK_Formularios_Menus" FromRole="Menus" ToRole="Formularios" />
+    <NavigationProperty Name="AplicacionesWeb" Relationship="MoldeModel.FK_Menus_AplicacionesWeb" FromRole="Menus" ToRole="AplicacionesWeb" />
   </EntityType>
   <EntityType Name="Municipios">
     <Key>
@@ -322,18 +312,6 @@
     <NavigationProperty Name="OperacionesFormulario" Relationship="MoldeModel.FK_UsuariosOperacionesFormulario_OperacionesFormulario" FromRole="UsuariosOperacionesFormulario" ToRole="OperacionesFormulario" />
     <NavigationProperty Name="Usuarios" Relationship="MoldeModel.FK_UsuariosOperacionesFormulario_Usuarios" FromRole="UsuariosOperacionesFormulario" ToRole="Usuarios" />
   </EntityType>
-  <Association Name="FK_Menus_AplicacionesWeb">
-    <End Type="MoldeModel.AplicacionesWeb" Role="AplicacionesWeb" Multiplicity="0..1" />
-    <End Type="MoldeModel.Menus" Role="Menus" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AplicacionesWeb">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Menus">
-        <PropertyRef Name="aplicacionWebId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Personas_Barrios1">
     <End Type="MoldeModel.Barrios" Role="Barrios" Multiplicity="0..1" />
     <End Type="MoldeModel.Personas" Role="Personas" Multiplicity="*" />
@@ -535,6 +513,28 @@
       </Principal>
       <Dependent Role="UsuariosOperacionesFormulario">
         <PropertyRef Name="usuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="AplicacionesWeb">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" Nullable="false" MaxLength="800" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Menus" Relationship="MoldeModel.FK_Menus_AplicacionesWeb" FromRole="AplicacionesWeb" ToRole="Menus" />
+  </EntityType>
+  <Association Name="FK_Menus_AplicacionesWeb">
+    <End Type="MoldeModel.AplicacionesWeb" Role="AplicacionesWeb" Multiplicity="0..1" />
+    <End Type="MoldeModel.Menus" Role="Menus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AplicacionesWeb">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Menus">
+        <PropertyRef Name="aplicacionWebId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

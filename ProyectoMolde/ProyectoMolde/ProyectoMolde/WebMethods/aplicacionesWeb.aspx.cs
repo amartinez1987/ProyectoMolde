@@ -69,5 +69,26 @@ namespace ProyectoMolde.WebMethods
                 return new Result() { error = ex.Message, id = 0, tipoAlerta = "warning" };
             }
         }
+
+
+        [WebMethod(EnableSession = true)]
+        public static Result eliminar(int id, int usuarioId)
+        {
+            Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
+            if (r.error != "")
+            {
+                return r;
+            }           
+
+            try
+            {
+                return AplicacionesWebController.eliminarAplicacionesWeb(id, usuarioId);
+            }
+            catch (Exception ex)
+            {
+                return new Result() { error = ex.Message, id = 0, tipoAlerta = "warning" };
+            }
+        }
+
     }
 }

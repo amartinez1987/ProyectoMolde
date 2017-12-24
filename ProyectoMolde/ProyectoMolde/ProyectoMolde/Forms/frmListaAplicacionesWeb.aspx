@@ -11,7 +11,7 @@
             </div>
             <div class="panel-body">
                 <div class=" col-sm-5 col-md-5 col-lg-1">
-                    <button data-load-url='' id="btnAplicacionWeb_Nuevo" type="button" class="btn btn-default">Nuevo</button>
+                    <button  id="btnAplicacionesWeb_Nuevo" onclick="btnAplicacionesWeb_NuevoClick()" type="button" class="btn btn-default">Nuevo</button>
                 </div>
             </div>
             <br />
@@ -34,25 +34,7 @@
             </div>
         </div>
     </div>
-    <!-- /.row -->
-    <div class="row">
-        <div id="myModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header alert-info">
-                        <a id="croosModal" onclick="croosModalClick()" type="button" class="close" >X</a>
-                        <h4 id="lblTitutloPopModal" class="modal-title"></h4>
-                    </div>
-                    <div id="modalUrl" class="modal-body">
-                        <p>Loading...</p>
-                    </div>
-                    <div class="modal-footer">
-                        Molde 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- /.row -->    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footerScripst" runat="server">
     <script src="../Js/Forms/AplicacionesWeb.js"></script>

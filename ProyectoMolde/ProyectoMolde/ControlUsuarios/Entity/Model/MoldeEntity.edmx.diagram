@@ -5,7 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="01ea6939dee24bb784c6c0ac0a415d0f" Name="Diagram1">
-        <EntityTypeShape EntityType="MoldeModel.AplicacionesWeb" Width="1.5" PointX="0.75" PointY="24.875" />
         <EntityTypeShape EntityType="MoldeModel.Barrios" Width="1.5" PointX="3" PointY="10" />
         <EntityTypeShape EntityType="MoldeModel.ControlAplicacion" Width="1.5" PointX="7.75" PointY="7.75" />
         <EntityTypeShape EntityType="MoldeModel.Departamentos" Width="1.5" PointX="0.75" PointY="3.625" />
@@ -23,7 +22,6 @@
         <EntityTypeShape EntityType="MoldeModel.sexos" Width="1.5" PointX="3" PointY="18.25" />
         <EntityTypeShape EntityType="MoldeModel.Usuarios" Width="1.5" PointX="7.5" PointY="3.125" />
         <EntityTypeShape EntityType="MoldeModel.UsuariosOperacionesFormulario" Width="1.5" PointX="9.75" PointY="3.5" />
-        <AssociationConnector Association="MoldeModel.FK_Menus_AplicacionesWeb" />
         <AssociationConnector Association="MoldeModel.FK_Personas_Barrios1" />
         <AssociationConnector Association="MoldeModel.FK_Municipios_Departamentos2" />
         <AssociationConnector Association="MoldeModel.FK_Personas_DocumentosIdentidad" />
@@ -41,6 +39,8 @@
         <AssociationConnector Association="MoldeModel.FK_Personas_sexos" />
         <AssociationConnector Association="MoldeModel.FK_Usuarios_Personas" />
         <AssociationConnector Association="MoldeModel.FK_UsuariosOperacionesFormulario_Usuarios" />
+        <EntityTypeShape EntityType="MoldeModel.AplicacionesWeb" Width="1.5" PointX="0.75" PointY="24.875" />
+        <AssociationConnector Association="MoldeModel.FK_Menus_AplicacionesWeb" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,53 +1,52 @@
 ﻿//atributos del objecto aplicacionesWeb
 var aplicacionesWeb = new Object();
 
+function cargarDatos(aplicacionWeb)
+{    
+    $('#PanelIDAplicacionesWeb').show();
+    $('#txtIdAplicacionesWeb').val(aplicacionWeb.id);
+    $('#txtNombreAplicacionesWeb').val(aplicacionWeb.nombre);
+    $('#txtDescripcionAplicacionesWeb').val(aplicacionWeb.descripcion);
+}
 
 function croosModalClick()
 {
-    cargarListaAplicacionesWeb();
-    setTimeout(function () { $("#myModal").modal('hide'); enviado = false; }, 50);
+    cargarListaAplicacionesWeb();    
 }
 
-
-$("#btnAplicacionWeb_Nuevo").click(function ()
-{ 
-    $('#modalUrl').load('frmAplicacionesWeb_Nuevo.aspx');
-    $('#lblTitutloPopModal').html('Nueva Aplicación Web');
-    $("#myModal").modal("show");
-});
-
-function btnAplicacionWeb_GuardarClick()
+function btnAplicacionesWeb_NuevoClick()
 {
-   
+    loadUrlModal('Nueva Aplicación Web', 'frmAplicacionesWeb_Nuevo.aspx', croosModalClick);
+}
+
+function btnAplicacionesWeb_GuardarClick()
+{   
     if (validarCampos())
     {            
         aplicacionesWeb.id = 0;
-        aplicacionesWeb.nombre = $('#txtNombreAplicacionWeb').val() ;
-        aplicacionesWeb.descripcion = $('#txtDescripcionAplicacionWeb').val();
+        aplicacionesWeb.nombre = $('#txtNombreAplicacionesWeb').val() ;
+        aplicacionesWeb.descripcion = $('#txtDescripcionAplicacionesWeb').val();
         aplicacionesWeb.usuarioId = getLocalStorageNavegator("usuarioId");
         var url = "/WebMethods/aplicacionesWeb.aspx/guardar";
-        enviarComoParametros(url, aplicacionesWeb, OnSuccesSaveAplicacionWeb);
+        enviarComoParametros(url, aplicacionesWeb, OnSuccesSaveAplicacionesWeb);
+    }   
+}
+
+function btnAplicacionesWeb_EditarClick()
+{
+    if (validarCampos())
+    {
+        aplicacionesWeb.id = $('#txtIdAplicacionesWeb').val();
+        aplicacionesWeb.nombre = $('#txtNombreAplicacionesWeb').val();
+        aplicacionesWeb.descripcion = $('#txtDescripcionAplicacionesWeb').val();
+        aplicacionesWeb.usuarioId = getLocalStorageNavegator("usuarioId");
+        var url = "/WebMethods/aplicacionesWeb.aspx/guardar";
+        enviarComoParametros(url, aplicacionesWeb, OnSuccesSaveAplicacionesWeb);
     }
-   
 }
 
-
-function btnAplicacionesWeb_Editar(id) 
-{    
-    $('#modalUrl').load('frmAplicacionesWeb_Editar.aspx?id=' + id);
-    $('#lblTitutloPopModal').html('Editar Aplicación Web');
-    $("#myModal").modal("show");
-}
-
-
-function btnAplicacionesWeb_Eliminar(id)
+function OnSuccesSaveAplicacionesWeb(response)
 {
-    alert(id);
-}
-
-function OnSuccesSaveAplicacionWeb(response)
-{
-    
     if ((response.error == null ? "" : response.error) != "")
     {
         tipoAlerta(response.error, response.tipoAlerta, "#boxMessagesCrud");
@@ -56,27 +55,52 @@ function OnSuccesSaveAplicacionWeb(response)
 
     if (response.error == '')
     {
-        tipoAlerta('Registro Guardado con exito', 'success', "#boxMessagesCrud");        
+        tipoAlerta('Registro Guardado con exito', 'success', "#boxMessagesCrud");
         return;
     }
-
-    
 }
 
 
-function btnAplicacionWeb_EditarClick()
+function btnAplicacionesWeb_Editar(id)
+{
+    loadUrlModal('Editar Aplicación Web', ('frmAplicacionesWeb_Editar.aspx?id=' + id), croosModalClick);
+}
+
+function btnAplicacionesWeb_Eliminar(id)
+{
+    // get txn id from current table row
+    var heading = 'Eliminar Registro';
+    var question = '¿Desea eliminar el registro?.';
+    var cancelButtonTxt = 'No';
+    var okButtonTxt = 'Yes';
+
+    var callback = function ()
     {
-        if (validarCampos())
-        {
-            aplicacionesWeb.id = $('#lblIdAplicacionWeb').val();
-            aplicacionesWeb.nombre = $('#txtNombreAplicacionWeb').val();
-            aplicacionesWeb.descripcion = $('#txtDescripcionAplicacionWeb').val();
-            aplicacionesWeb.usuarioId = getLocalStorageNavegator("usuarioId");
-            var url = "/WebMethods/aplicacionesWeb.aspx/guardar";
-            enviarComoParametros(url, aplicacionesWeb, OnSuccesSaveAplicacionWeb);
-        }
+        aplicacionesWeb.id = id;
+        aplicacionesWeb.usuarioId = getLocalStorageNavegator("usuarioId");
+        var url = "/WebMethods/aplicacionesWeb.aspx/eliminar";
+        enviarComoParametros(url, aplicacionesWeb, OnSuccesDeleteAplicacionesWeb);
+    };
+
+    confirm(heading, question, cancelButtonTxt, okButtonTxt, callback);
+}
+
+
+function OnSuccesDeleteAplicacionesWeb(response)
+{
+    if ((response.error == null ? "" : response.error) != "")
+    {
+        tipoAlerta(response.error, response.tipoAlerta, "#boxMessages");
+        return;
     }
 
+    if (response.error == '')
+    {
+        tipoAlerta('Registro Eliminado con Exito.', 'success', "#boxMessages");
+        cargarListaAplicacionesWeb();
+        return;
+    }
+}
 
 function getListaAplicacionesWeb(registroPartida, totalAExtraer, callbackFucntion)
 {
@@ -89,13 +113,13 @@ function getListaAplicacionesWeb(registroPartida, totalAExtraer, callbackFucntio
 
 function validarCampos()
 {
-    if ($('#txtNombreAplicacionWeb').val()=='')
+    if ($('#txtNombreAplicacionesWeb').val()=='')
     {
         tipoAlerta('El campo nombre no puede ir vacío.', 'warning', "#boxMessagesCrud");
         return false;
     }
 
-    if ($('#txtDescripcionAplicacionWeb').val()=='')
+    if ($('#txtDescripcionAplicacionesWeb').val()=='')
     {
         tipoAlerta('El campo descripción no puede ir vacío.', 'warning', "#boxMessagesCrud");
         return false;

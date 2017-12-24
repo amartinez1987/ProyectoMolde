@@ -20,11 +20,12 @@ namespace ControlUsuarios.Entity.Controller
             }
         }
 
-        public static AplicacionesWebViewModel getAplicacionesWeb()
+        public static AplicacionesWebViewModel getAplicacionesWeb(int id)
         {
             using (MoldeEntities entity = new MoldeEntities())
             {
                 var l = from aplicacionesweb in entity.AplicacionesWeb
+                        where aplicacionesweb.id == id
                         select new AplicacionesWebViewModel { id = aplicacionesweb.id, nombre = aplicacionesweb.nombre, descripcion = aplicacionesweb.descripcion };
                 return l.SingleOrDefault();
             }
@@ -48,11 +49,11 @@ namespace ControlUsuarios.Entity.Controller
                     try
                     {
                         entity.SaveChanges();
-                        return new Result { error = ""};
+                        return new Result { error = "" };
                     }
                     catch (Exception e)
                     {
-                        return new Result { error = e.Message, id = 0 , tipoAlerta="warning"};
+                        return new Result { error = e.Message, id = 0, tipoAlerta = "warning" };
                     }
                 }
                 else
@@ -65,14 +66,14 @@ namespace ControlUsuarios.Entity.Controller
                     }
                     catch (Exception e)
                     {
-                        return new Result { error = e.Message, id = 0 , tipoAlerta="warning"};
+                        return new Result { error = e.Message, id = 0, tipoAlerta = "warning" };
                     }
                 }
             }
         }
 
         private static Result validarAtributos(AplicacionesWeb registro)
-        {            
+        {
             if (registro.nombre == "")
             {
                 return new Result { error = "el atributo nombre no debe ir vacío.", tipoAlerta = "warning" };
@@ -84,6 +85,31 @@ namespace ControlUsuarios.Entity.Controller
 
             return new Result() { error = "" };
         }
+
+        public static Result eliminarAplicacionesWeb(int aplicacioneswebId, int usuarioId)
+        {
+            using (MoldeEntities entity = new MoldeEntities())
+            {
+                if (existeRegistro(aplicacioneswebId))
+                {
+                    AplicacionesWeb registroEliminar = entity.AplicacionesWeb.Where(x => x.id == aplicacioneswebId).SingleOrDefault();
+                    entity.AplicacionesWeb.Remove(registroEliminar);
+                    MoldeTrasabilidad.trasabilidadObject((registroEliminar as object), "AplicacionesWeb","Eliminado", usuarioId,"AplicacionMolde");
+                    try
+                    {
+                        entity.SaveChanges();
+                        return new Result { error = "" };
+                    }
+                    catch (Exception e)
+                    {
+                        return new Result { error = e.Message, id = 0, tipoAlerta = "warning" };
+                    }
+                }
+            }
+            return new Result { error = "" };
+        }
+
+
         public static bool existeRegistro(int aplicacioneswebId)
         {
             using (MoldeEntities entity = new MoldeEntities())

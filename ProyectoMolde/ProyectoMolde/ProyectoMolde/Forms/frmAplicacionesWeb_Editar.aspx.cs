@@ -11,9 +11,7 @@ namespace ProyectoMolde.Forms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string aplicacionWebId = Request.QueryString["id"];                        
-            frmAplicacionesWeb.getlblIdAplicacionWeb().InnerText = aplicacionWebId;
-            frmAplicacionesWeb.getlblIdAplicacionWeb().Visible = false;
+
         }
     }
 }
