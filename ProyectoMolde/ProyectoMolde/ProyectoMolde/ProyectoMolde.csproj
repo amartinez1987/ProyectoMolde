@@ -119,6 +119,7 @@
     <Content Include="Js\configAjax.js" />
     <Content Include="Js\Forms\AplicacionesWeb.js" />
     <Content Include="WebMethods\aplicacionesWeb.aspx" />
+    <Content Include="WebMethods\departamentos.aspx" />
     <Content Include="WebMethods\login.aspx" />
     <Content Include="Forms\frmMasterPage.Master" />
     <Content Include="WebMethods\usuario.aspx" />
@@ -304,6 +305,13 @@
     </Compile>
     <Compile Include="WebMethods\aplicacionesWeb.aspx.designer.cs">
       <DependentUpon>aplicacionesWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebMethods\departamentos.aspx.cs">
+      <DependentUpon>departamentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebMethods\departamentos.aspx.designer.cs">
+      <DependentUpon>departamentos.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebMethods\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

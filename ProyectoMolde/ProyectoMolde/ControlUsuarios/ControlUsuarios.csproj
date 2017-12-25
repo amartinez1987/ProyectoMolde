@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\Controller\AplicacionesWebController.cs" />
+    <Compile Include="Entity\Controller\DepartamentosController.cs" />
     <Compile Include="Entity\Controller\IFACTORY.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios_Activo.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Entity\Model\Departamentos.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Model\DepartamentosViewModel.cs" />
     <Compile Include="Entity\Model\DocumentosIdentidad.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>

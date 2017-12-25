@@ -66,9 +66,6 @@ function confirm(heading, question, cancelButtonTxt, okButtonTxt, callback)
 };  
 /* END Generic Confirm func */
 
-
-
-
 function loadUrlModal(heading, url, fucntionOnClickCross) {
     $('#modalForm').remove();
     var modalUrl =
