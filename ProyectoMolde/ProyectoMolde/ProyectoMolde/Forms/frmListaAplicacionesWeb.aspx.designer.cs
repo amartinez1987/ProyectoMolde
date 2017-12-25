@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProyectoMolde.Forms.OperacionesFormulario {
+namespace ProyectoMolde.Forms {
     
     
     public partial class frmListaAplicacionesWeb {

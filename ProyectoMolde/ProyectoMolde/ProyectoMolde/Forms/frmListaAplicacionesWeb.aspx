@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/frmMasterPage.Master" AutoEventWireup="true" CodeBehind="frmListaAplicacionesWeb.aspx.cs" Inherits="ProyectoMolde.Forms.OperacionesFormulario.frmListaAplicacionesWeb" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forms/frmMasterPage.Master" AutoEventWireup="true" CodeBehind="frmListaAplicacionesWeb.aspx.cs" Inherits="ProyectoMolde.Forms.frmListaAplicacionesWeb" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

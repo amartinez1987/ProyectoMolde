@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProyectoMolde.WebMethods {
-    
-    
-    public partial class departamentos {
-        
+namespace ProyectoMolde.WebMethods
+{
+
+
+    public partial class departamentos
+    {
+
         /// <summary>
         /// Control form1.
         /// </summary>
