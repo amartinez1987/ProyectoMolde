@@ -1,4 +1,4 @@
-﻿//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // <generado automáticamente>
 //     Este código fue generado por una herramienta.
 //
@@ -7,9 +7,9 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProyectoMolde.Forms
-{
-    public partial class frmListaAplicacionesWeb
-    {
+namespace ProyectoMolde.Forms {
+    
+    
+    public partial class frmListaDepartamentos {
     }
 }

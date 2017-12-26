@@ -114,6 +114,10 @@
     <Content Include="Forms\frmAplicacionesWeb.ascx" />
     <Content Include="Forms\frmAplicacionesWeb_Editar.aspx" />
     <Content Include="Forms\frmAplicacionesWeb_Nuevo.aspx" />
+    <Content Include="Forms\frmDepartamentos.ascx" />
+    <Content Include="Forms\frmDepartamentos_Editar.aspx" />
+    <Content Include="Forms\frmDepartamentos_Nuevo.aspx" />
+    <Content Include="Forms\frmListaDepartamentos.aspx" />
     <Content Include="Forms\index.aspx" />
     <Content Include="Forms\frmListaAplicacionesWeb.aspx" />
     <Content Include="Js\configAjax.js" />
@@ -262,6 +266,34 @@
     </Compile>
     <Compile Include="Forms\frmCrudMaster.Master.designer.cs">
       <DependentUpon>frmCrudMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDepartamentos.ascx.cs">
+      <DependentUpon>frmDepartamentos.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDepartamentos.ascx.designer.cs">
+      <DependentUpon>frmDepartamentos.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDepartamentos_Editar.aspx.cs">
+      <DependentUpon>frmDepartamentos_Editar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDepartamentos_Editar.aspx.designer.cs">
+      <DependentUpon>frmDepartamentos_Editar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDepartamentos_Nuevo.aspx.cs">
+      <DependentUpon>frmDepartamentos_Nuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDepartamentos_Nuevo.aspx.designer.cs">
+      <DependentUpon>frmDepartamentos_Nuevo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmListaDepartamentos.aspx.cs">
+      <DependentUpon>frmListaDepartamentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmListaDepartamentos.aspx.designer.cs">
+      <DependentUpon>frmListaDepartamentos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmMasterPage.Master.cs">
       <DependentUpon>frmMasterPage.Master</DependentUpon>

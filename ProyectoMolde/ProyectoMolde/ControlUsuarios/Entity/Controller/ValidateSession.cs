@@ -32,10 +32,11 @@ namespace ControlUsuarios.Entity.Controller
         {
             using (MoldeEntities entity = new MoldeEntities())
             {
-                Usuarios u = from usuarios in entity.Usuarios
-                        where usuarios.id == usuarioId
-                        select;
-                if (u.UsuariosOperacionesFormulario.Where(x => x.OperacionesFormulario.Formularios.nombreFormulario == nombreformulario && x.OperacionesFormulario.Operaciones.nombreOperacion == operacion).Count() > 0)
+                var u = from usuarios in entity.Usuarios
+                             where usuarios.id == usuarioId
+                             select usuarios;
+
+                if (u.FirstOrDefault().UsuariosOperacionesFormulario.Where(x => x.OperacionesFormulario.Formularios.nombreFormulario == nombreformulario && x.OperacionesFormulario.Operaciones.nombreOperacion == operacion).Count() > 0)
                 {
                     return new Result() { error = ""};
                 }                

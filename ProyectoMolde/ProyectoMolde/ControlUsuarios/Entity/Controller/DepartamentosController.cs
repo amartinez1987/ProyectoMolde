@@ -19,11 +19,12 @@ namespace ControlUsuarios.Entity.Controller
             }
         }
 
-        public static DepartamentosViewModel getDepartamentos()
+        public static DepartamentosViewModel getDepartamentos(int id)
         {
             using (MoldeEntities entity = new MoldeEntities())
             {
                 var l = from departamentos in entity.Departamentos
+                        where departamentos.id == id
                         select new DepartamentosViewModel { id = departamentos.id, usuarioId = departamentos.usuarioId, nombre = departamentos.nombre };
                 return l.SingleOrDefault();
             }
