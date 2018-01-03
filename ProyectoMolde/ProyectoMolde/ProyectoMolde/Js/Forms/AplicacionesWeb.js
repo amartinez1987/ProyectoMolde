@@ -106,7 +106,7 @@ function getListaAplicacionesWeb(registroPartida, totalAExtraer, callbackFucntio
 {
     aplicacionesWeb.registroPartida = registroPartida;
     aplicacionesWeb.totalAExtraer = totalAExtraer;
-    aplicacionesWeb.usuarioId = getLocalStorageNavegator("usuarioId");;
+    aplicacionesWeb.usuarioId = getLocalStorageNavegator("usuarioId");
     var url = "/WebMethods/aplicacionesWeb.aspx/getListaAplicacionesWeb";
     enviarComoParametros(url, aplicacionesWeb, callbackFucntion);
 }

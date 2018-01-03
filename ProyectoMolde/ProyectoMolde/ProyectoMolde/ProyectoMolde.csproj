@@ -121,6 +121,7 @@
     <Content Include="Forms\index.aspx" />
     <Content Include="Forms\frmListaAplicacionesWeb.aspx" />
     <Content Include="Js\configAjax.js" />
+    <Content Include="Js\Forms\Departamentos.js" />
     <Content Include="Js\Forms\AplicacionesWeb.js" />
     <Content Include="WebMethods\aplicacionesWeb.aspx" />
     <Content Include="WebMethods\departamentos.aspx" />

@@ -43,7 +43,7 @@ namespace ControlUsuarios.Entity.Controller
             {
                 if (existeRegistro(registro.id))
                 {
-                    result = ValidateSession.validarOperacionesForm("Departamentos", "Nuevo", registro.usuarioId);
+                    result = ValidateSession.validarOperacionesForm("Departamentos", "Editar", registro.usuarioId);
                     if (result.error != null && result.error != "")
                     {
                         return result;
@@ -63,7 +63,7 @@ namespace ControlUsuarios.Entity.Controller
                 }
                 else
                 {
-                    result = ValidateSession.validarOperacionesForm("Departamentos", "Editar", registro.usuarioId);
+                    result = ValidateSession.validarOperacionesForm("Departamentos", "Nuevo", registro.usuarioId);
                     if (result.error != null && result.error != "")
                     {
                         return result;

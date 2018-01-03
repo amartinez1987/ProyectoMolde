@@ -21,9 +21,7 @@
                     <table id="gridListaDepartamentos" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>id</th>
-                                <th>usuarioId</th>
+                                <th>#</th>                                
                                 <th>nombre</th>
                             </tr>
                         </thead>
