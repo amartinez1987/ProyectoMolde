@@ -15,6 +15,13 @@ namespace TestProyect
             uc.getMenuUsuarioPorId(15, "Molde");
         }
 
-        
+        [Fact]
+        public void TestMethod2()
+        {
+            MenusController mc = new MenusController();
+            mc.inactivarMenus(3,3);
+        }
+
+
     }
 }

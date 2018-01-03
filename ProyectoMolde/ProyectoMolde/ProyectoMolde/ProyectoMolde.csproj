@@ -110,6 +110,7 @@
     <Content Include="bootstrapLibrerias\UrlBosstrap.xml" />
     <Content Include="bootstrapLibrerias\vendor\jquery\dataTables.scroller.min.js" />
     <Content Include="bootstrapLibrerias\vendor\jquery\jquery.dataTables.min.css" />
+    <Content Include="bootstrapLibrerias\vendor\jquery\jquery.dataTables.min.js" />
     <Content Include="bootstrapLibrerias\vendor\jquery\scroller.dataTables.min.css" />
     <Content Include="Forms\frmAplicacionesWeb.ascx" />
     <Content Include="Forms\frmAplicacionesWeb_Editar.aspx" />
@@ -118,15 +119,21 @@
     <Content Include="Forms\frmDepartamentos_Editar.aspx" />
     <Content Include="Forms\frmDepartamentos_Nuevo.aspx" />
     <Content Include="Forms\frmListaDepartamentos.aspx" />
+    <Content Include="Forms\frmListaMenus.aspx" />
+    <Content Include="Forms\frmMenus.ascx" />
+    <Content Include="Forms\frmMenus_Editar.aspx" />
+    <Content Include="Forms\frmMenus_Nuevo.aspx" />
     <Content Include="Forms\index.aspx" />
     <Content Include="Forms\frmListaAplicacionesWeb.aspx" />
     <Content Include="Js\configAjax.js" />
     <Content Include="Js\Forms\Departamentos.js" />
     <Content Include="Js\Forms\AplicacionesWeb.js" />
+    <Content Include="Js\Forms\Menus.js" />
     <Content Include="WebMethods\aplicacionesWeb.aspx" />
     <Content Include="WebMethods\departamentos.aspx" />
     <Content Include="WebMethods\login.aspx" />
     <Content Include="Forms\frmMasterPage.Master" />
+    <Content Include="WebMethods\menus.aspx" />
     <Content Include="WebMethods\usuario.aspx" />
     <Content Include="Forms\frmCrudMaster.Master" />
     <None Include="Web.Debug.config">
@@ -296,12 +303,40 @@
     <Compile Include="Forms\frmListaDepartamentos.aspx.designer.cs">
       <DependentUpon>frmListaDepartamentos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmListaMenus.aspx.cs">
+      <DependentUpon>frmListaMenus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmListaMenus.aspx.designer.cs">
+      <DependentUpon>frmListaMenus.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmMasterPage.Master.cs">
       <DependentUpon>frmMasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\frmMasterPage.Master.designer.cs">
       <DependentUpon>frmMasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMenus.ascx.cs">
+      <DependentUpon>frmMenus.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMenus.ascx.designer.cs">
+      <DependentUpon>frmMenus.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMenus_Editar.aspx.cs">
+      <DependentUpon>frmMenus_Editar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMenus_Editar.aspx.designer.cs">
+      <DependentUpon>frmMenus_Editar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMenus_Nuevo.aspx.cs">
+      <DependentUpon>frmMenus_Nuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMenus_Nuevo.aspx.designer.cs">
+      <DependentUpon>frmMenus_Nuevo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -352,6 +387,13 @@
     </Compile>
     <Compile Include="WebMethods\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebMethods\menus.aspx.cs">
+      <DependentUpon>menus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebMethods\menus.aspx.designer.cs">
+      <DependentUpon>menus.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebMethods\usuario.aspx.cs">
       <DependentUpon>usuario.aspx</DependentUpon>

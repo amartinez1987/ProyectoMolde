@@ -106,6 +106,7 @@
     <Compile Include="Entity\Controller\ISTATEUsuarios_Bloqueado.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios_Inactivo.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios_Nuevo.cs" />
+    <Compile Include="Entity\Controller\MenusController.cs" />
     <Compile Include="Entity\Controller\MoldeTrasabilidad.cs" />
     <Compile Include="Entity\Controller\UsuariosController.cs" />
     <Compile Include="Entity\Controller\ValidateSession.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Entity\Model\Menus.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Model\MenusViewModel.cs" />
     <Compile Include="Entity\Model\MoldeEntity.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
