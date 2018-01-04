@@ -1,9 +1,12 @@
 //atributos del objecto menus
 var menus = new Object();
+
 function cargarDatos(menus) {
     $('#PanelIDMenus').show();
+    $('#PanelEstadoMenus').show();
     $('#txtIdMenus').val(menus.id);
     $('#txtaplicacionWebIdMenus').val(menus.aplicacionWebId);
+    $('#txtDescripcionAplicacionWeb').val(menus.nombreAplicacionWeb);
     $('#txtusuarioIdMenus').val(menus.usuarioId);
     $('#txtindexVisibilidadMenus').val(menus.indexVisibilidad);
     $('#txtnombreMenuMenus').val(menus.nombreMenu);
@@ -98,10 +101,7 @@ function getListaMenus(registroPartida, totalAExtraer, callbackFucntion) {
 }
 function validarCampos() {
 
-    if ($('#txtIdmenus').val() == 0) {
-        tipoAlerta('El campo id no puede ir vacío.', 'warning', "#boxMessagesCrud");
-        return false;
-    };
+   
 
     if ($('#txtaplicacionWebIdMenus').val() == 0) {
         tipoAlerta('El campo aplicacionWebId no puede ir vacío.', 'warning', "#boxMessagesCrud");
@@ -118,10 +118,7 @@ function validarCampos() {
         return false;
     };
 
-    if ($('#txtestadoMenus').val() == 0) {
-        tipoAlerta('El campo estado no puede ir vacío.', 'warning', "#boxMessagesCrud");
-        return false;
-    };
+   
 
     if ($('#txticonMenus').val() == 0) {
         tipoAlerta('El campo icon no puede ir vacío.', 'warning', "#boxMessagesCrud");
@@ -166,7 +163,7 @@ function cargarListaMenus() {
                     totalRegistrosFiltrados = response.totalRegistrosFiltrados;
                     for (var i = 0; i < lstMenus.length; i++) {
                         var etiquetaEditar = "<a onclick='btnMenus_Editar(" + lstMenus[i].id + ")'  class='fa fa-edit'><a>";
-                        var etiquetaEliminar = " <a class='fa fa-minus' onclick='btnMenus_Eliminar(" + lstMenus[i].id + ")'><a>";                        
+                        var etiquetaEliminar = " <a class='fa fa-minus' onclick='btnMenus_Eliminar(" + lstMenus[i].id + ")'><a>";
                         out.push([etiquetaEditar + etiquetaEliminar, lstMenus[i].nombreMenu, lstMenus[i].nombreAplicacionWeb, lstMenus[i].indexVisibilidad, lstMenus[i].estado, lstMenus[i].icon]);
                     }
 
@@ -181,4 +178,45 @@ function cargarListaMenus() {
             });
         }
     });
+}
+
+function btnOpenHelp(campoIdReturn, campoDescripReturn)
+{    
+    help.tabla = 'AplicacionesWeb';
+    help.header = 'Listado';
+    help.columnas = ['id', 'nombre'];
+    help.prefiltros = [];
+    help.campoIdReturn = campoIdReturn;
+    help.campoDescripReturn = campoDescripReturn;
+    loadHelp('Help', cargarTabla());
+}
+
+function leaveHelp(campoDescripReturn )
+{
+    help.tabla = 'AplicacionesWeb';
+    help.valorBuscar = $("#txtaplicacionWebIdMenus").val();
+    help.campoDescripReturn = campoDescripReturn;    
+    getHelp();
+}
+
+
+function getHelp()
+{    
+    help.usuarioId = getLocalStorageNavegator("usuarioId");
+    var url = "/WebMethods/help.aspx/getHelp";
+    enviarComoParametros(url, help, OnSuccesHelp);
+}
+
+function OnSuccesHelp(response)
+{
+    if ((response.error == null ? "" : response.error) != "")
+    {
+        tipoAlerta(response.error, response.tipoAlerta, "#boxMessagesCrud");
+        return;
+    }
+    if (response.error == '')
+    {
+        $(help.campoDescripReturn).val( eval("(" + response.getCadena + ")").nombre );
+        return;
+    }
 }

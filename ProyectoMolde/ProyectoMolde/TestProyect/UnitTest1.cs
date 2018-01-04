@@ -1,4 +1,5 @@
 ﻿using ControlUsuarios.Entity.Controller;
+using ProyectoMolde.WebMethods;
 using System;
 using System.Linq;
 using Xunit;
@@ -20,6 +21,13 @@ namespace TestProyect
         {
             MenusController mc = new MenusController();
             mc.inactivarMenus(3,3);
+        }
+
+        [Fact]
+        public void TestMethod3()
+        {
+    
+          var ob =  help.getListaHelp("Departamentos",new string[] { }, "",0,10,3);
         }
 
 

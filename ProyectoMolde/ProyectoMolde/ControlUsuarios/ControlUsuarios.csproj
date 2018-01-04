@@ -100,6 +100,7 @@
   <ItemGroup>
     <Compile Include="Entity\Controller\AplicacionesWebController.cs" />
     <Compile Include="Entity\Controller\DepartamentosController.cs" />
+    <Compile Include="Entity\Controller\helpController.cs" />
     <Compile Include="Entity\Controller\IFACTORY.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios_Activo.cs" />

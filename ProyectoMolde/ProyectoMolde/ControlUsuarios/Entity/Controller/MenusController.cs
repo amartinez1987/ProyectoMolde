@@ -25,10 +25,11 @@ namespace ControlUsuarios.Entity.Controller
 
         }
 
-        public MenusViewModel getMenus()
+        public MenusViewModel getMenus(int id)
         {
 
             var l = from menus in entity.Menus
+                    where menus.id == id
                     select new MenusViewModel { id = menus.id, aplicacionWebId = menus.aplicacionWebId, nombreAplicacionWeb = menus.AplicacionesWeb.nombre, usuarioId = menus.usuarioId, indexVisibilidad = menus.indexVisibilidad, nombreMenu = menus.nombreMenu, estado = menus.estado, icon = menus.icon };
             return l.SingleOrDefault();
 

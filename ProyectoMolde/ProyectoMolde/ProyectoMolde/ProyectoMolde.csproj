@@ -129,8 +129,10 @@
     <Content Include="Js\Forms\Departamentos.js" />
     <Content Include="Js\Forms\AplicacionesWeb.js" />
     <Content Include="Js\Forms\Menus.js" />
+    <Content Include="Js\frmHelp.js" />
     <Content Include="WebMethods\aplicacionesWeb.aspx" />
     <Content Include="WebMethods\departamentos.aspx" />
+    <Content Include="WebMethods\help.aspx" />
     <Content Include="WebMethods\login.aspx" />
     <Content Include="Forms\frmMasterPage.Master" />
     <Content Include="WebMethods\menus.aspx" />
@@ -380,6 +382,13 @@
     </Compile>
     <Compile Include="WebMethods\departamentos.aspx.designer.cs">
       <DependentUpon>departamentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebMethods\help.aspx.cs">
+      <DependentUpon>help.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebMethods\help.aspx.designer.cs">
+      <DependentUpon>help.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebMethods\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

@@ -54,6 +54,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -103,6 +104,10 @@
     <ProjectReference Include="..\ControlUsuarios\ControlUsuarios.csproj">
       <Project>{9f78fe9a-f4bf-4dab-a5d5-41285f7527a2}</Project>
       <Name>ControlUsuarios</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProyectoMolde\ProyectoMolde.csproj">
+      <Project>{4945e521-4f09-4c6d-8db8-2843c2692291}</Project>
+      <Name>ProyectoMolde</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

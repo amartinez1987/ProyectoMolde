@@ -66,11 +66,11 @@ function confirm(heading, question, cancelButtonTxt, okButtonTxt, callback)
 };  
 /* END Generic Confirm func */
 
-function loadUrlModal(heading, url, fucntionOnClickCross) {
+function loadUrlModal(heading, url, fucntionOnClickCross) {    
     $('#modalForm').remove();
     var modalUrl =
       $('<div id ="modalForm" class="modal fade">' +
-          '<div class="modal-dialog">' +
+          '<div class="modal-dialog modal-lg">' +
              '<div class="modal-content">' +
                 '<div class="modal-header alert-info">' +
                     '<a id="croosModal" type="button" class="close" >X</a>' +
@@ -101,5 +101,8 @@ function loadUrlModal(heading, url, fucntionOnClickCross) {
     modalUrl.modal('show');
 
 };
+
+
+
 
 

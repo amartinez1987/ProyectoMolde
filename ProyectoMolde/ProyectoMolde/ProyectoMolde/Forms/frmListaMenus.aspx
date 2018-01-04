@@ -22,11 +22,11 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>nombreMenu</th>
-                        <th>nombreAplicacionWeb</th>
-                        <th>indexVisibilidad</th>
-                        <th>estado</th>
-                        <th>icon</th>
+                        <th>Nombre Menu</th>
+                        <th>Nombre Aplicación</th>
+                        <th>Index Visibilidad</th>
+                        <th>Estado</th>
+                        <th>Icono</th>
                     </tr>
                 </thead>
             </table>

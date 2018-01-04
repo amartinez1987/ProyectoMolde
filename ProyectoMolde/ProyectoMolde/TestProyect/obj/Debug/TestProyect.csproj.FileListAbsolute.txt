@@ -46,3 +46,5 @@ F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\TestProyect\bin\Debug
 F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\TestProyect\obj\Debug\TestProyect.csprojResolveAssemblyReference.cache
 F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\TestProyect\obj\Debug\TestProyect.dll
 F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\TestProyect\obj\Debug\TestProyect.pdb
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\TestProyect\bin\Debug\ProyectoMolde.dll
+F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\TestProyect\bin\Debug\ProyectoMolde.pdb
