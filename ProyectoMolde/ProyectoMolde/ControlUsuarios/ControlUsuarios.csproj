@@ -100,6 +100,7 @@
   <ItemGroup>
     <Compile Include="Entity\Controller\AplicacionesWebController.cs" />
     <Compile Include="Entity\Controller\DepartamentosController.cs" />
+    <Compile Include="Entity\Controller\FormulariosController.cs" />
     <Compile Include="Entity\Controller\helpController.cs" />
     <Compile Include="Entity\Controller\IFACTORY.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios.cs" />
@@ -134,6 +135,7 @@
     <Compile Include="Entity\Model\Formularios.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Model\FormulariosViewModel.cs" />
     <Compile Include="Entity\Model\GruposSanguineo.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>

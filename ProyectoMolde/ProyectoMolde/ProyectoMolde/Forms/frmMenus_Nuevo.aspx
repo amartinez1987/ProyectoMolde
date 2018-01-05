@@ -10,6 +10,6 @@
     <a id="btnMenus_Guardar" onclick="btnMenus_GuardarClick()" class="btn btn-success">Guardar</a>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceFoot" runat="server">
-    <script src="../Js/Forms/Menus.js"></script>    
-    <script src="../Js/frmHelp.js"></script>
+    <script src="../Js/Forms/Menus.js"></script>  
+     <script src="../Js/frmHelp.js"></script>     
 </asp:Content>

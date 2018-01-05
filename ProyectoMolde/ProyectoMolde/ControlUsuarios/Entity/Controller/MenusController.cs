@@ -10,31 +10,23 @@ namespace ControlUsuarios.Entity.Controller
     public class MenusController
     {
         MoldeEntities entity = new MoldeEntities();
-
         public MoldeEntities getMoldeEntity()
         {
             return entity;
         }
-
         public List<MenusViewModel> getListaMenus()
         {
-
             var l = from menus in entity.Menus
-                    select new MenusViewModel { id = menus.id, aplicacionWebId = menus.aplicacionWebId, nombreAplicacionWeb = menus.AplicacionesWeb.nombre ,usuarioId = menus.usuarioId, indexVisibilidad = menus.indexVisibilidad, nombreMenu = menus.nombreMenu, estado = menus.estado, icon = menus.icon };
+                    select new MenusViewModel { id = menus.id, aplicacionWebId = menus.aplicacionWebId, nombreAplicacionWeb = menus.AplicacionesWeb.nombre, usuarioId = menus.usuarioId, indexVisibilidad = menus.indexVisibilidad, nombreMenu = menus.nombreMenu, estado = menus.estado, icon = menus.icon };
             return l.ToList();
-
         }
-
         public MenusViewModel getMenus(int id)
         {
-
             var l = from menus in entity.Menus
                     where menus.id == id
                     select new MenusViewModel { id = menus.id, aplicacionWebId = menus.aplicacionWebId, nombreAplicacionWeb = menus.AplicacionesWeb.nombre, usuarioId = menus.usuarioId, indexVisibilidad = menus.indexVisibilidad, nombreMenu = menus.nombreMenu, estado = menus.estado, icon = menus.icon };
             return l.SingleOrDefault();
-
         }
-
         public Result guardarMenus(Menus registro)
         {
             Result result = new Result() { error = "" };
@@ -43,7 +35,6 @@ namespace ControlUsuarios.Entity.Controller
             {
                 return result;
             }
-
 
             if (existeRegistro(registro.id))
             {
@@ -72,6 +63,7 @@ namespace ControlUsuarios.Entity.Controller
                 {
                     return result;
                 }
+                registro.estado = "Activo";
                 entity.Menus.Add(registro);
                 try
                 {
@@ -85,10 +77,8 @@ namespace ControlUsuarios.Entity.Controller
             }
 
         }
-
         private Result validarAtributos(Menus registro)
         {
-
             if (registro.aplicacionWebId == 0)
             {
                 return new Result { error = "Seleccione una Aplicación Web Valida.", tipoAlerta = "warning" };
@@ -105,18 +95,14 @@ namespace ControlUsuarios.Entity.Controller
 
             return new Result() { error = "" };
         }
-
         public bool existeRegistro(int menusId)
         {
-
             if (entity.Menus.Where(x => x.id == menusId).Count() > 0)
                 return true;
             return false;
-
         }
         public Result inactivarMenus(int menusId, int usuarioId)
         {
-
             if (existeRegistro(menusId))
             {
                 Result result = new Result() { error = "" };
@@ -128,6 +114,33 @@ namespace ControlUsuarios.Entity.Controller
 
                 Menus registroInactivar = entity.Menus.Where(x => x.id == menusId).SingleOrDefault();
                 registroInactivar.estado = "Inactivo";
+                try
+                {
+                    entity.SaveChanges();
+                    return new Result { error = result.error, id = menusId };
+                }
+                catch (Exception e)
+                {
+                    return new Result { error = e.Message, id = 0, tipoAlerta = "warning" };
+                }
+            }
+
+            return new Result { error = "" };
+        }
+
+        public Result activarrMenus(int menusId, int usuarioId)
+        {
+            if (existeRegistro(menusId))
+            {
+                Result result = new Result() { error = "" };
+                result = ValidateSession.validarOperacionesForm("Menus", "Activar", usuarioId);
+                if (result.error != null && result.error != "")
+                {
+                    return result;
+                }
+
+                Menus registroInactivar = entity.Menus.Where(x => x.id == menusId).SingleOrDefault();
+                registroInactivar.estado = "Activo";
                 try
                 {
                     entity.SaveChanges();

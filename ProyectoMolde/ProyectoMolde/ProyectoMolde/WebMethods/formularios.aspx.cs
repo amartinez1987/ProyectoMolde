@@ -11,14 +11,14 @@ using System.Web;
 
 namespace ProyectoMolde.WebMethods
 {
-    public partial class menus : System.Web.UI.Page
+    public partial class formularios : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
         }
 
         [WebMethod]
-        public static Result getListaMenus(int registroPartida, int totalAExtraer, int usuarioId)
+        public static Result getListaFormularios(int registroPartida, int totalAExtraer, int usuarioId)
         {
             Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
             if (r.error != "")
@@ -26,11 +26,11 @@ namespace ProyectoMolde.WebMethods
                 return r;
             }
             int totalRegistros = 0;
-            List<MenusViewModel> lst = new List<MenusViewModel>();
+            List<FormulariosViewModel> lst = new List<FormulariosViewModel>();
             try
             {
-                MenusController mc = new MenusController();
-                lst = mc.getListaMenus();
+                FormulariosController fc = new FormulariosController();
+                lst = fc.getListaFormularios();
                 totalRegistros = lst.Count();
                 totalAExtraer = (lst.Count() - registroPartida) < totalAExtraer ? (lst.Count() - registroPartida) : totalAExtraer;
             }
@@ -42,25 +42,28 @@ namespace ProyectoMolde.WebMethods
         }
 
         [WebMethod(EnableSession = true)]
-        public static Result guardar(int id, int? aplicacionWebId, int usuarioId, int indexVisibilidad, string nombreMenu, string estado, string icon)
+        public static Result guardar(int id, int menuId, int usuarioId, int indexVisibilidad, bool esVisible, string nombreFormulario, string urlFormulario, string nombreMostrar, string estados, string iconOpcion)
         {
             Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
             if (r.error != "")
             {
                 return r;
             }
-            Menus objEntity = new Menus();
+            Formularios objEntity = new Formularios();
             objEntity.id = id;
-            objEntity.aplicacionWebId = aplicacionWebId;
+            objEntity.menuId = menuId;
             objEntity.usuarioId = usuarioId;
             objEntity.indexVisibilidad = indexVisibilidad;
-            objEntity.nombreMenu = nombreMenu;
-            objEntity.estado = estado;
-            objEntity.icon = icon;
+            objEntity.esVisible = esVisible;
+            objEntity.nombreFormulario = nombreFormulario;
+            objEntity.urlFormulario = urlFormulario;
+            objEntity.nombreMostrar = nombreMostrar;
+            objEntity.estados = estados;
+            objEntity.iconOpcion = iconOpcion;
             try
             {
-                MenusController mc = new MenusController();
-                return mc.guardarMenus(objEntity);
+                FormulariosController fc = new FormulariosController();
+                return fc.guardarFormularios(objEntity);
             }
             catch (Exception ex)
             {
@@ -68,7 +71,7 @@ namespace ProyectoMolde.WebMethods
             }
         }
         [WebMethod(EnableSession = true)]
-        public static Result eliminar(int id, int usuarioId)
+        public static Result inactivar(int id, int usuarioId)
         {
             Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
             if (r.error != "")
@@ -78,8 +81,8 @@ namespace ProyectoMolde.WebMethods
 
             try
             {
-                MenusController mc = new MenusController();
-                return mc.inactivarMenus(id, usuarioId);
+                FormulariosController fc = new FormulariosController();
+                return fc.inactivarFormularios(id, usuarioId);
             }
             catch (Exception ex)
             {
@@ -97,8 +100,8 @@ namespace ProyectoMolde.WebMethods
 
             try
             {
-                MenusController mc = new MenusController();
-                return mc.activarrMenus(id, usuarioId);
+                FormulariosController fc = new FormulariosController();
+                return fc.activarFormularios(id, usuarioId);
             }
             catch (Exception ex)
             {

@@ -53,7 +53,10 @@ namespace ControlUsuarios.Entity.Controller
                 if (u.UsuariosOperacionesFormulario.Count != 0)
                 {
                     List<Menus> lM = (from luofe in u.UsuariosOperacionesFormulario
-                                      where luofe.OperacionesFormulario.Formularios.Menus.AplicacionesWeb.nombre == aplicacion && luofe.OperacionesFormulario.Formularios.esVisible == true
+                                      where luofe.OperacionesFormulario.Formularios.Menus.AplicacionesWeb.nombre == aplicacion &&
+                                            luofe.OperacionesFormulario.Formularios.esVisible == true &&
+                                            luofe.OperacionesFormulario.Formularios.Menus.estado == "Activo"
+                                            
                                       orderby luofe.OperacionesFormulario.Formularios.Menus.indexVisibilidad
                                       group luofe by new { luofe.OperacionesFormulario.Formularios.Menus } into gF
                                       select gF.Key.Menus).ToList();
@@ -66,7 +69,7 @@ namespace ControlUsuarios.Entity.Controller
                         listaMenu += "<ul class=\"nav nav-second-level\">";
                         foreach (Formularios f in m.Formularios)
                         {
-                            if (u.UsuariosOperacionesFormulario.Where(x => x.OperacionesFormulario.formularioId == f.id).Count() != 0)
+                            if (u.UsuariosOperacionesFormulario.Where(x => x.OperacionesFormulario.formularioId == f.id && x.OperacionesFormulario.Formularios.estados=="Activo").Count() != 0)
                             {
                                 listaMenu += "<li>";
                                 listaMenu += string.Format("<a href=\"{0}\">{1}</a>", f.urlFormulario, f.nombreMostrar);

@@ -84,9 +84,12 @@ function cargarListaHelp() {
     } else
     {
         table.on('dblclick', 'tr', function ()
-        {            
-            $(help.campoIdReturn).val($(this)[0].cells[0].childNodes[0].data);
-            $(help.campoDescripReturn).val($(this)[0].cells[1].childNodes[0].data);            
+        {
+            console.log(help);
+            $(help.campoIdReturn).val($(this).find('td')[0].innerText);
+            $(help.campoReturnView).val($(this).find('td')[0].innerText);
+            $(help.campoDescripReturn).val($(this).find('td')[1].innerText);
+            
             $('#modalHelp').modal('toggle');
         });
     }

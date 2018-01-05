@@ -6,6 +6,7 @@ function cargarDatos(menus) {
     $('#PanelEstadoMenus').show();
     $('#txtIdMenus').val(menus.id);
     $('#txtaplicacionWebIdMenus').val(menus.aplicacionWebId);
+    $('#txtaplicacionWebvVerMenus').val(menus.aplicacionWebId);
     $('#txtDescripcionAplicacionWeb').val(menus.nombreAplicacionWeb);
     $('#txtusuarioIdMenus').val(menus.usuarioId);
     $('#txtindexVisibilidadMenus').val(menus.indexVisibilidad);
@@ -67,7 +68,7 @@ function btnMenus_Editar(id) {
 
 function btnMenus_Eliminar(id) {
     // get txn id from current table row
-    var heading = 'Eliminar Registro';
+    var heading = 'Inactivar Registro';
     var question = '¿Desea eliminar el registro?.';
     var cancelButtonTxt = 'No';
     var okButtonTxt = 'Yes';
@@ -86,7 +87,43 @@ function OnSuccesDeleteMenus(response) {
         return;
     }
     if (response.error == '') {
-        tipoAlerta('Registro Eliminado con Exito.', 'success', "#boxMessages");
+        tipoAlerta('Registro Inactivado con Exito.', 'success', "#boxMessages");
+        cargarListaMenus();
+        return;
+    }
+}
+
+function btnMenus_Activar(id)
+{
+    // get txn id from current table row
+    var heading = 'Activar Registro';
+    var question = '¿Desea Activar el registro?.';
+    var cancelButtonTxt = 'No';
+    var okButtonTxt = 'Yes';
+    var callback = function ()
+    {
+        
+        menus.id = id;
+        menus.usuarioId = getLocalStorageNavegator("usuarioId");
+        console.log(menus);
+        var url = "/WebMethods/menus.aspx/activar";
+        enviarComoParametros(url, menus, OnSuccesActivarMenus);
+    }
+    confirm(heading, question, cancelButtonTxt, okButtonTxt, callback);
+
+}
+
+function OnSuccesActivarMenus(response)
+{
+    if ((response.error == null ? "" : response.error) != "")
+    {
+        tipoAlerta(response.error, response.tipoAlerta, "#boxMessages");
+        return;
+    }
+
+    if (response.error == '')
+    {
+        tipoAlerta('Registro Activado con Exito.', 'success', "#boxMessages");
         cargarListaMenus();
         return;
     }
@@ -164,7 +201,8 @@ function cargarListaMenus() {
                     for (var i = 0; i < lstMenus.length; i++) {
                         var etiquetaEditar = "<a onclick='btnMenus_Editar(" + lstMenus[i].id + ")'  class='fa fa-edit'><a>";
                         var etiquetaEliminar = " <a class='fa fa-minus' onclick='btnMenus_Eliminar(" + lstMenus[i].id + ")'><a>";
-                        out.push([etiquetaEditar + etiquetaEliminar, lstMenus[i].nombreMenu, lstMenus[i].nombreAplicacionWeb, lstMenus[i].indexVisibilidad, lstMenus[i].estado, lstMenus[i].icon]);
+                        var etiquetaActivar = " <a class='fa fa-check' onclick='btnMenus_Activar(" + lstMenus[i].id + ")'><a>";
+                        out.push([etiquetaEditar + etiquetaEliminar+ etiquetaActivar, lstMenus[i].nombreMenu, lstMenus[i].nombreAplicacionWeb, lstMenus[i].indexVisibilidad, lstMenus[i].estado, lstMenus[i].icon]);
                     }
 
                     setTimeout(callback(
@@ -180,22 +218,25 @@ function cargarListaMenus() {
     });
 }
 
-function btnOpenHelp(campoIdReturn, campoDescripReturn)
+function btnOpenHelp(campoIdReturn,campoReturnView, campoDescripReturn)
 {    
     help.tabla = 'AplicacionesWeb';
     help.header = 'Listado';
     help.columnas = ['id', 'nombre'];
     help.prefiltros = [];
     help.campoIdReturn = campoIdReturn;
-    help.campoDescripReturn = campoDescripReturn;
+    help.campoReturnView = campoReturnView;
+    help.campoDescripReturn = campoDescripReturn;    
     loadHelp('Help', cargarTabla());
 }
 
-function leaveHelp(campoDescripReturn )
+function leaveHelp(campoIdReturn, campoDescripReturn)
 {
     help.tabla = 'AplicacionesWeb';
-    help.valorBuscar = $("#txtaplicacionWebIdMenus").val();
-    help.campoDescripReturn = campoDescripReturn;    
+    help.valorBuscar = $("#txtaplicacionWebvVerMenus").val();
+    help.campoIdReturn = campoIdReturn;
+    help.campoDescripReturn = campoDescripReturn;
+    
     getHelp();
 }
 
@@ -216,7 +257,18 @@ function OnSuccesHelp(response)
     }
     if (response.error == '')
     {
-        $(help.campoDescripReturn).val( eval("(" + response.getCadena + ")").nombre );
+        try
+        {
+            var object = eval("(" + response.getCadena + ")");
+            $(help.campoDescripReturn).val(object.nombre);
+            $(help.campoIdReturn).val(object.id);
+        }
+        catch (e)
+        {
+            $(help.campoDescripReturn).val('');
+            $(help.campoIdReturn).val('');
+        }
+        
         return;
     }
 }

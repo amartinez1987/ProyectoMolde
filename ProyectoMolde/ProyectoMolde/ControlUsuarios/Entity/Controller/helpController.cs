@@ -30,6 +30,30 @@ namespace ControlUsuarios.Entity.Controller
                              select new AplicacionesWebViewModel { id = aplicacionesweb.id, nombre = aplicacionesweb.nombre, descripcion = aplicacionesweb.descripcion };
                     return la.ToList();
                     break;
+                case "Formularios":
+                    try
+                    {
+                        var l = from formularios in entity.Formularios
+                                select new FormulariosViewModel { id = formularios.id, menuId = formularios.menuId, nombreMenu = formularios.Menus.nombreMenu, usuarioId = formularios.usuarioId, indexVisibilidad = formularios.indexVisibilidad, esVisible = formularios.esVisible, nombreFormulario = formularios.nombreFormulario, urlFormulario = formularios.urlFormulario, nombreMostrar = formularios.nombreMostrar, estados = formularios.estados, iconOpcion = formularios.iconOpcion };
+                        return l.ToList();
+                    }
+                    catch (Exception e)
+                    {
+                        return new AplicacionesWebViewModel();
+                    }
+                    break;
+                case "Menus":
+                    try
+                    {
+                        var l = from menus in entity.Menus
+                                select new MenusViewModel { id = menus.id, aplicacionWebId = menus.aplicacionWebId, nombreAplicacionWeb = menus.AplicacionesWeb.nombre, usuarioId = menus.usuarioId, indexVisibilidad = menus.indexVisibilidad, nombreMenu = menus.nombreMenu, estado = menus.estado, icon = menus.icon };
+                        return l.ToList();
+                    }
+                    catch (Exception e)
+                    {
+                        return new AplicacionesWebViewModel();
+                    }
+                    break;
             }
             return new List<string>();
         }
@@ -61,6 +85,32 @@ namespace ControlUsuarios.Entity.Controller
                                  where aplicacionesweb.id == valBusId
                                  select new AplicacionesWebViewModel { id = aplicacionesweb.id, nombre = aplicacionesweb.nombre, descripcion = aplicacionesweb.descripcion };
                         return la.FirstOrDefault();
+                    }
+                    catch (Exception e)
+                    {
+                        return new AplicacionesWebViewModel();
+                    }
+                    break;
+                case "Formularios":
+                    try
+                    {
+                        var lf = from formularios in entity.Formularios
+                                where formularios.id == valBusId
+                                select new FormulariosViewModel { id = formularios.id, menuId = formularios.menuId, nombreMenu = formularios.Menus.nombreMenu, usuarioId = formularios.usuarioId, indexVisibilidad = formularios.indexVisibilidad, esVisible = formularios.esVisible, nombreFormulario = formularios.nombreFormulario, urlFormulario = formularios.urlFormulario, nombreMostrar = formularios.nombreMostrar, estados = formularios.estados, iconOpcion = formularios.iconOpcion };
+                        return lf.SingleOrDefault();
+                    }
+                    catch (Exception e)
+                    {
+                        return new AplicacionesWebViewModel();
+                    }
+                    break;
+                case "Menus":
+                    try
+                    {
+                        var l = from menus in entity.Menus
+                                where menus.id == valBusId
+                                select new MenusViewModel { id = menus.id, aplicacionWebId = menus.aplicacionWebId, nombreAplicacionWeb = menus.AplicacionesWeb.nombre, usuarioId = menus.usuarioId, indexVisibilidad = menus.indexVisibilidad, nombreMenu = menus.nombreMenu, estado = menus.estado, icon = menus.icon };
+                        return l.SingleOrDefault();
                     }
                     catch (Exception e)
                     {

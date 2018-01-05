@@ -18,9 +18,10 @@
         <br />
         <label id="lblaplicacionWebIdMenus">Aplicación Web Asociada</label>
         <div class="form-group input-group">
-            <input id="txtaplicacionWebIdMenus"onblur="leaveHelp('#txtDescripcionAplicacionWeb')"; type="text" class="form-control">
+            <input id="txtaplicacionWebvVerMenus"onblur="leaveHelp('#txtaplicacionWebIdMenus','#txtDescripcionAplicacionWeb')" type="text" class="form-control">
+            <input id="txtaplicacionWebIdMenus" hidden="hidden" type="text">
             <span class="input-group-btn">
-                <a id="btnHelp" onclick="btnOpenHelp('#txtaplicacionWebIdMenus','#txtDescripcionAplicacionWeb')" class="btn btn-default" type="button">
+                <a id="btnHelp" onclick="btnOpenHelp('#txtaplicacionWebIdMenus','#txtaplicacionWebvVerMenus' ,'#txtDescripcionAplicacionWeb')" class="btn btn-default" type="button">
                     <i class="fa fa-search"></i>
                 </a>
             </span>
