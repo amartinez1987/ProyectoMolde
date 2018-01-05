@@ -124,9 +124,13 @@
     <Content Include="Forms\frmListaDepartamentos.aspx" />
     <Content Include="Forms\frmListaFormularios.aspx" />
     <Content Include="Forms\frmListaMenus.aspx" />
+    <Content Include="Forms\frmListaOperaciones.aspx" />
     <Content Include="Forms\frmMenus.ascx" />
     <Content Include="Forms\frmMenus_Editar.aspx" />
     <Content Include="Forms\frmMenus_Nuevo.aspx" />
+    <Content Include="Forms\frmOperaciones.ascx" />
+    <Content Include="Forms\frmOperaciones_Editar.aspx" />
+    <Content Include="Forms\frmOperaciones_Nuevo.aspx" />
     <Content Include="Forms\index.aspx" />
     <Content Include="Forms\frmListaAplicacionesWeb.aspx" />
     <Content Include="Js\configAjax.js" />
@@ -134,6 +138,7 @@
     <Content Include="Js\Forms\AplicacionesWeb.js" />
     <Content Include="Js\Forms\Formularios.js" />
     <Content Include="Js\Forms\Menus.js" />
+    <Content Include="Js\Forms\Operaciones.js" />
     <Content Include="Js\frmHelp.js" />
     <Content Include="WebMethods\aplicacionesWeb.aspx" />
     <Content Include="WebMethods\departamentos.aspx" />
@@ -142,6 +147,7 @@
     <Content Include="WebMethods\login.aspx" />
     <Content Include="Forms\frmMasterPage.Master" />
     <Content Include="WebMethods\menus.aspx" />
+    <Content Include="WebMethods\operaciones.aspx" />
     <Content Include="WebMethods\usuario.aspx" />
     <Content Include="Forms\frmCrudMaster.Master" />
     <None Include="Web.Debug.config">
@@ -346,6 +352,13 @@
     <Compile Include="Forms\frmListaMenus.aspx.designer.cs">
       <DependentUpon>frmListaMenus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmListaOperaciones.aspx.cs">
+      <DependentUpon>frmListaOperaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmListaOperaciones.aspx.designer.cs">
+      <DependentUpon>frmListaOperaciones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmMasterPage.Master.cs">
       <DependentUpon>frmMasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -373,6 +386,27 @@
     </Compile>
     <Compile Include="Forms\frmMenus_Nuevo.aspx.designer.cs">
       <DependentUpon>frmMenus_Nuevo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOperaciones.ascx.cs">
+      <DependentUpon>frmOperaciones.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOperaciones.ascx.designer.cs">
+      <DependentUpon>frmOperaciones.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOperaciones_Editar.aspx.cs">
+      <DependentUpon>frmOperaciones_Editar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOperaciones_Editar.aspx.designer.cs">
+      <DependentUpon>frmOperaciones_Editar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOperaciones_Nuevo.aspx.cs">
+      <DependentUpon>frmOperaciones_Nuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmOperaciones_Nuevo.aspx.designer.cs">
+      <DependentUpon>frmOperaciones_Nuevo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -444,6 +478,13 @@
     </Compile>
     <Compile Include="WebMethods\menus.aspx.designer.cs">
       <DependentUpon>menus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebMethods\operaciones.aspx.cs">
+      <DependentUpon>operaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebMethods\operaciones.aspx.designer.cs">
+      <DependentUpon>operaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebMethods\usuario.aspx.cs">
       <DependentUpon>usuario.aspx</DependentUpon>
