@@ -10,25 +10,31 @@
                 Listado Formularios
             </div>
             <div class="panel-body">
-                <div class="col-sm-5 col-md-5 col-lg-1">
-                    <button id="btnFormularios_Nuevo" onclick="btnFormularios_NuevoClick()" type="button" class="btn btn-default">Nuevo</button>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <button id="btnFormularios_Nuevo" onclick="btnFormularios_NuevoClick()" type="button" class="btn btn-default">Nuevo</button>                        
+                    </div>
+                    <div class="col-sm-6">                        
+                        <input id="txtSearch" type="text" placeholder="Search"/>
+                        <a type="button" onclick="btnOnSearch()" class="fa fa-search"></a>
+                    </div>
                 </div>
             </div>
             <br />
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-sm-12">
                     <table id="gridListaFormularios" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>#</th>    
-                                <th>#</th>                                
+                                <th>#</th>
+                                <th>#</th>
                                 <th>Nombre Formulario</th>
                                 <th>Nombre Mostrar</th>
-                                <th>Menu Asociado</th>                                
-                                <th>Url Formulario</th>                                
+                                <th>Menu Asociado</th>
+                                <th>Url Formulario</th>
                                 <th>Es Visible</th>
-                                <th>Estados</th>                                
+                                <th>Estados</th>
                             </tr>
                         </thead>
                     </table>
@@ -42,6 +48,6 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="footerScripst" runat="server">
     <script src="../Js/Forms/Formularios.js"></script>
     <script>
-        cargarListaFormularios();
+        cargarListaFormularios();        
     </script>
 </asp:Content>

@@ -128,7 +128,8 @@ function OnSuccesActivarFormularios(response) {
     }
 }
 
-function getListaFormularios(registroPartida, totalAExtraer, callbackFucntion) {
+function getListaFormularios(valorBuscado, registroPartida, totalAExtraer, callbackFucntion) {
+    formularios.valorBuscado = valorBuscado;
     formularios.registroPartida = registroPartida;
     formularios.totalAExtraer = totalAExtraer;
     formularios.usuarioId = getLocalStorageNavegator("usuarioId");
@@ -168,7 +169,7 @@ function validarCampos()
 
 function cargarListaFormularios() {
     table = $('#gridListaFormularios');
-
+       
     if ($.fn.dataTable.isDataTable(table)) {
         table.DataTable();
     }
@@ -190,7 +191,7 @@ function cargarListaFormularios() {
             var totalRegistros = 0;
             var totalRegistrosFiltrados = 0;
 
-            getListaFormularios(data.start, data.length, function (response) {
+            getListaFormularios($("#txtSearch").val(), data.start, data.length, function (response) {
                 if ((response.error == null ? "" : response.error) != "") {
                     tipoAlerta(response.error, response.tipoAlerta, "#boxMessages");
                     return;
@@ -204,7 +205,8 @@ function cargarListaFormularios() {
                         var etiquetaEditar = "<a onclick='btnFormularios_Editar(" + lstFormularios[i].id + ")'  class='fa fa-edit'><a>";
                         var etiquetaInactivar = " <a class='fa fa-minus' onclick='btnFormularios_Inactivar(" + lstFormularios[i].id + ")'><a>";
                         var etiquetaActivar = " <a class='fa fa-check' onclick='btnFormularios_Activar(" + lstFormularios[i].id + ")'><a>";
-                        out.push(["",etiquetaEditar + etiquetaInactivar + etiquetaActivar, lstFormularios[i].nombreFormulario, lstFormularios[i].nombreMostrar, lstFormularios[i].nombreMenu, lstFormularios[i].urlFormulario, lstFormularios[i].esVisible, lstFormularios[i].estados]);
+                        var etiquetaOperacionFormularios= " <a class='fa fa-gears' onclick='btnFormularios_Operaciones(" + lstFormularios[i].id + ")'><a>";
+                        out.push(["",etiquetaEditar + etiquetaInactivar + etiquetaActivar+etiquetaOperacionFormularios, lstFormularios[i].nombreFormulario, lstFormularios[i].nombreMostrar, lstFormularios[i].nombreMenu, lstFormularios[i].urlFormulario, lstFormularios[i].esVisible, lstFormularios[i].estados]);
                     }
 
                     setTimeout(callback(
@@ -218,6 +220,7 @@ function cargarListaFormularios() {
             });
         }
     });
+   
 }
 
 
@@ -266,4 +269,15 @@ function OnSuccesHelp(response) {
 
         return;
     }
+}
+
+
+function btnOnSearch()
+{   
+    cargarListaFormularios();
+}
+
+function btnFormularios_Operaciones(id)
+{    
+    loadUrlModal('Operaciones Formulario', ('frmOperacionesFormulario.aspx?id=' + id), croosModalClick);
 }

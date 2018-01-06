@@ -69,7 +69,7 @@ namespace ControlUsuarios.Entity.Controller
                         listaMenu += "<ul class=\"nav nav-second-level\">";
                         foreach (Formularios f in m.Formularios)
                         {
-                            if (u.UsuariosOperacionesFormulario.Where(x => x.OperacionesFormulario.formularioId == f.id && x.OperacionesFormulario.Formularios.estados=="Activo").Count() != 0)
+                            if (u.UsuariosOperacionesFormulario.Where(x => x.OperacionesFormulario.formularioId == f.id && x.OperacionesFormulario.Formularios.estados=="Activo" && x.OperacionesFormulario.Formularios.esVisible == true).Count() != 0)
                             {
                                 listaMenu += "<li>";
                                 listaMenu += string.Format("<a href=\"{0}\">{1}</a>", f.urlFormulario, f.nombreMostrar);

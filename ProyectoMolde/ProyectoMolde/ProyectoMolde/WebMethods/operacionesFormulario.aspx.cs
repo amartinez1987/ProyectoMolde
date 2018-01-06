@@ -11,47 +11,27 @@ using System.Web;
 
 namespace ProyectoMolde.WebMethods
 {
-    public partial class operaciones : System.Web.UI.Page
+    public partial class operacionesFormulario : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
         }
 
         [WebMethod]
-        public static Result getListaOperaciones(int registroPartida, int totalAExtraer, int usuarioId)
+        public static Result getListaOperacionesDelFormulario(int id, int usuarioId)
         {
             Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
             if (r.error != "")
             {
                 return r;
             }
-            int totalRegistros = 0;
-            List<OperacionesViewModel> lst = new List<OperacionesViewModel>();
+           
+            List<OperacionesFormularioViewModel> lst = new List<OperacionesFormularioViewModel>();
             try
             {
-                lst = OperacionesController.getListaOperaciones();
-                totalRegistros = lst.Count();
-                totalAExtraer = (lst.Count() - registroPartida) < totalAExtraer ? (lst.Count() - registroPartida) : totalAExtraer;
-            }
-            catch (Exception e)
-            {
-                return new Result() { error = e.Message, id = 0, tipoAlerta = "warning" };
-            }
-            return new Result() { error = "", getCadena = new JavaScriptSerializer().Serialize(lst.GetRange(registroPartida, totalAExtraer)), totalRegistros = totalRegistros };
-        }
-
-        public static Result getListaOperacionesSinParametros( int usuarioId)
-        {
-            Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
-            if (r.error != "")
-            {
-                return r;
-            }
-            int totalRegistros = 0;
-            List<OperacionesViewModel> lst = new List<OperacionesViewModel>();
-            try
-            {
-                lst = OperacionesController.getListaOperaciones();
+                OperacionesFormularioController opfc = new OperacionesFormularioController();
+                lst = opfc.getListaOperacionesFormulario(id);
+           
             }
             catch (Exception e)
             {
@@ -60,30 +40,53 @@ namespace ProyectoMolde.WebMethods
             return new Result() { error = "", getCadena = new JavaScriptSerializer().Serialize(lst)};
         }
 
-
-        [WebMethod(EnableSession = true)]
-        public static Result guardar(int id, int usuarioId, string nombreOperacion)
+        [WebMethod]
+        public static Result getListaNoOperacionesFormulario(int id, int usuarioId)
         {
             Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
             if (r.error != "")
             {
                 return r;
             }
-            Operaciones objEntity = new Operaciones();
-            objEntity.id = id;
-            objEntity.usuarioId = usuarioId;
-            objEntity.nombreOperacion = nombreOperacion;
+
+            List<OperacionesViewModel> lst = new List<OperacionesViewModel>();
             try
             {
-                return OperacionesController.guardarOperaciones(objEntity);
+                OperacionesFormularioController opfc = new OperacionesFormularioController();
+                lst = opfc.getListaNoOperacionesFormulario(id);
+
+            }
+            catch (Exception e)
+            {
+                return new Result() { error = e.Message, id = 0, tipoAlerta = "warning" };
+            }
+            return new Result() { error = "", getCadena = new JavaScriptSerializer().Serialize(lst) };
+        }
+
+
+        [WebMethod(EnableSession = true)]
+        public static Result guardar(OperacionesFormulario[] operacionesFormulario, int usuarioId)
+        {
+            Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
+            if (r.error != "")
+            {
+                return r;
+            }
+           
+            try
+            {
+                OperacionesFormularioController opfc = new OperacionesFormularioController();
+                return opfc.guardarOperacionesFormulario(operacionesFormulario, usuarioId);
             }
             catch (Exception ex)
             {
                 return new Result() { error = ex.Message, id = 0, tipoAlerta = "warning" };
             }
         }
+
+
         [WebMethod(EnableSession = true)]
-        public static Result eliminar(int id, int usuarioId)
+        public static Result eliminar(int[] id, int usuarioId)
         {
             Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
             if (r.error != "")
@@ -93,7 +96,8 @@ namespace ProyectoMolde.WebMethods
 
             try
             {
-                return OperacionesController.eliminarOperaciones(id, usuarioId);
+                OperacionesFormularioController opfc = new OperacionesFormularioController();
+                return opfc.eliminarOperacionesFormulario(id, usuarioId);
             }
             catch (Exception ex)
             {

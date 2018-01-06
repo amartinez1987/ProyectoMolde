@@ -18,7 +18,7 @@ namespace ProyectoMolde.WebMethods
         }
 
         [WebMethod]
-        public static Result getListaFormularios(int registroPartida, int totalAExtraer, int usuarioId)
+        public static Result getListaFormularios(string valorBuscado, int registroPartida, int totalAExtraer, int usuarioId)
         {
             Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
             if (r.error != "")
@@ -30,7 +30,7 @@ namespace ProyectoMolde.WebMethods
             try
             {
                 FormulariosController fc = new FormulariosController();
-                lst = fc.getListaFormularios();
+                lst = fc.getListaFormularios(valorBuscado);
                 totalRegistros = lst.Count();
                 totalAExtraer = (lst.Count() - registroPartida) < totalAExtraer ? (lst.Count() - registroPartida) : totalAExtraer;
             }

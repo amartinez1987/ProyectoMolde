@@ -111,6 +111,7 @@
     <Compile Include="Entity\Controller\MenusController.cs" />
     <Compile Include="Entity\Controller\MoldeTrasabilidad.cs" />
     <Compile Include="Entity\Controller\OperacionesController.cs" />
+    <Compile Include="Entity\Controller\OperacionesFormularioController.cs" />
     <Compile Include="Entity\Controller\UsuariosController.cs" />
     <Compile Include="Entity\Controller\ValidateSession.cs" />
     <Compile Include="Entity\Model\AplicacionesWeb.cs">
@@ -168,6 +169,7 @@
     <Compile Include="Entity\Model\OperacionesFormulario.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Model\OperacionesFormularioViewModel.cs" />
     <Compile Include="Entity\Model\OperacionesViewModel.cs" />
     <Compile Include="Entity\Model\Perfiles.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>

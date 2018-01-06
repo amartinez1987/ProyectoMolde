@@ -19,6 +19,8 @@ namespace ControlUsuarios.Entity.Controller
             }
         }
 
+      
+
         public static OperacionesViewModel getOperaciones(int id)
         {
             using (MoldeEntities entity = new MoldeEntities())
@@ -80,6 +82,15 @@ namespace ControlUsuarios.Entity.Controller
                     }
                 }
             }
+        }
+
+        internal static OperacionesViewModel getViewModel(Operaciones o)
+        {
+            OperacionesViewModel op = new OperacionesViewModel();
+            op.id = o.id;
+            op.nombreOperacion = o.nombreOperacion;
+            op.usuarioId = o.usuarioId;
+            return op;
         }
 
         private static Result validarAtributos(Operaciones registro)

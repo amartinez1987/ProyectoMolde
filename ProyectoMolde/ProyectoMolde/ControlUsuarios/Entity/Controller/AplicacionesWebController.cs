@@ -10,8 +10,9 @@ namespace ControlUsuarios.Entity.Controller
 {
     public class AplicacionesWebController
     {
+        
         public static List<AplicacionesWebViewModel> getListaAplicacionesWeb()
-        {            
+        {
             using (MoldeEntities entity = new MoldeEntities())
             {
                 var l = from aplicacionesweb in entity.AplicacionesWeb
@@ -92,11 +93,11 @@ namespace ControlUsuarios.Entity.Controller
         {
             if (registro.nombre == "")
             {
-                return new Result { error = "el atributo nombre no debe ir vacío.", tipoAlerta = "warning" };
+                return new Result { error = "El nombre no debe ir vacío.", tipoAlerta = "warning" };
             }
             if (registro.descripcion == "")
             {
-                return new Result { error = "el atributo descripción no debe ir vacío.", tipoAlerta = "warning" };
+                return new Result { error = "La descripción no debe ir vacío.", tipoAlerta = "warning" };
             }
 
             return new Result() { error = "" };
@@ -119,7 +120,7 @@ namespace ControlUsuarios.Entity.Controller
 
                     AplicacionesWeb registroEliminar = entity.AplicacionesWeb.Where(x => x.id == aplicacioneswebId).SingleOrDefault();
                     entity.AplicacionesWeb.Remove(registroEliminar);
-                    MoldeTrasabilidad.trasabilidadObject((registroEliminar as object), "AplicacionesWeb","Eliminado", usuarioId,"AplicacionMolde");
+                    MoldeTrasabilidad.trasabilidadObject((registroEliminar as object), "AplicacionesWeb", "Eliminado", usuarioId, "AplicacionMolde");
                     try
                     {
                         entity.SaveChanges();

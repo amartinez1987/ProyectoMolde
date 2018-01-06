@@ -30,6 +30,13 @@ namespace TestProyect
           var ob =  help.getListaHelp("Departamentos",new string[] { }, "",0,10,3);
         }
 
+        [Fact]
+        public void TestMethod4()
+        {
+
+            var ob = new OperacionesFormularioController().getListaNoOperacionesFormulario(8);
+        }
+
 
     }
 }

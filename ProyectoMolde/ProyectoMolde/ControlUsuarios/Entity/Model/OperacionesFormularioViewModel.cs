@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace ControlUsuarios.Entity.Model
 {
-    public class OperacionesViewModel
+    public class OperacionesFormularioViewModel
     {
-        public int id { get; set; }
-        public int usuarioId { get; set; }
-        public string nombreOperacion { get; set; }
+        
 
+        public int id { get; set; }
+        public int? formularioId { get; set; }
+        public int? operacionId { get; set; }
+        public string nombreOperacion { get; set; }
+        public int usuarioId { get; set; }
+        public string descripcion { get; set; }
     }
 }
