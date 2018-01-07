@@ -18,7 +18,17 @@ namespace ControlUsuarios.Entity.Controller
         {
 
             var l = from operacionesformulario in entity.OperacionesFormulario
-                    select new OperacionesFormularioViewModel { id = operacionesformulario.id, formularioId = operacionesformulario.formularioId, operacionId = operacionesformulario.operacionId, usuarioId = operacionesformulario.usuarioId, descripcion = operacionesformulario.descripcion };
+                    select new OperacionesFormularioViewModel
+                    {
+                        id = operacionesformulario.id,
+                        formularioId = operacionesformulario.formularioId,
+                        operacionId = operacionesformulario.operacionId,
+                        usuarioId = operacionesformulario.usuarioId,
+                        descripcion = operacionesformulario.descripcion,
+                        nombreOperacion = operacionesformulario.Operaciones.nombreOperacion,
+                        nombreFormulario = operacionesformulario.Formularios.nombreFormulario
+
+                    };
             return l.ToList();
         }
 
@@ -27,7 +37,16 @@ namespace ControlUsuarios.Entity.Controller
 
             var l = from operacionesformulario in entity.OperacionesFormulario
                     where operacionesformulario.formularioId == formularioId
-                    select new OperacionesFormularioViewModel { id = operacionesformulario.id, formularioId = operacionesformulario.formularioId, operacionId = operacionesformulario.operacionId, nombreOperacion = operacionesformulario.Operaciones.nombreOperacion, usuarioId = operacionesformulario.usuarioId, descripcion = operacionesformulario.descripcion };
+                    select new OperacionesFormularioViewModel
+                    {
+                        id = operacionesformulario.id,
+                        formularioId = operacionesformulario.formularioId,
+                        operacionId = operacionesformulario.operacionId,
+                        nombreOperacion = operacionesformulario.Operaciones.nombreOperacion,
+                        usuarioId = operacionesformulario.usuarioId,
+                        descripcion = operacionesformulario.descripcion,
+                        nombreFormulario = operacionesformulario.Formularios.nombreFormulario
+                    };
             return l.ToList();
         }
 
@@ -50,24 +69,56 @@ namespace ControlUsuarios.Entity.Controller
             }
 
             List<OperacionesViewModel> lstOpViewModel = new List<OperacionesViewModel>();
-               
+
             foreach (Operaciones op in lstO)
             {
-                lstOpViewModel.Add( OperacionesController.getViewModel(op));
+                lstOpViewModel.Add(OperacionesController.getViewModel(op));
             }
 
             return lstOpViewModel;
         }
-
 
         public OperacionesFormularioViewModel getOperacionesFormulario(int id)
         {
 
             var l = from operacionesformulario in entity.OperacionesFormulario
                     where operacionesformulario.id == id
-                    select new OperacionesFormularioViewModel { id = operacionesformulario.id, formularioId = operacionesformulario.formularioId, operacionId = operacionesformulario.operacionId, usuarioId = operacionesformulario.usuarioId, descripcion = operacionesformulario.descripcion };
+                    select new OperacionesFormularioViewModel
+                    {
+                        id = operacionesformulario.id,
+                        formularioId = operacionesformulario.formularioId,
+                        operacionId = operacionesformulario.operacionId,
+                        usuarioId = operacionesformulario.usuarioId,
+                        descripcion = operacionesformulario.descripcion,
+                        nombreOperacion = operacionesformulario.Operaciones.nombreOperacion,
+                        nombreFormulario = operacionesformulario.Formularios.nombreFormulario
+                    };
             return l.SingleOrDefault();
 
+        }
+
+        public List<OperacionesFormulario> getOperacionesFormularioEntity(int id)
+        {
+
+            var l = from operacionesformulario in entity.OperacionesFormulario
+                    where operacionesformulario.formularioId == id
+                    select operacionesformulario;
+            return l.ToList();
+
+        }
+
+        public static OperacionesFormularioViewModel getViewModel(OperacionesFormulario opF)
+        {
+            return new OperacionesFormularioViewModel()
+            {
+                id = opF.id,
+                formularioId = opF.formularioId,
+                operacionId = opF.operacionId,
+                nombreOperacion = opF.Operaciones.nombreOperacion,
+                descripcion = opF.descripcion,
+                usuarioId = opF.usuarioId,
+                nombreFormulario = opF.Formularios.nombreFormulario
+            };
         }
 
         public Result guardarOperacionesFormulario(OperacionesFormulario registro)
@@ -103,6 +154,24 @@ namespace ControlUsuarios.Entity.Controller
         public Result guardarOperacionesFormulario(OperacionesFormulario[] registro, int usuarioId)
         {
             Result result = new Result() { error = "" };
+            int formularioId = 0;
+            if (registro.Count() > 0)
+            {
+                formularioId = registro[0].formularioId.Value;
+            }
+
+            List<OperacionesFormulario> lstOpFor = getOperacionesFormularioEntity(formularioId);
+            foreach (OperacionesFormulario opfR in lstOpFor)
+            {
+                result.error += eliminarOperacionesFormulario(opfR.id, usuarioId).error;
+            }
+
+            if (result.error != null && result.error != "")
+            {
+                result.tipoAlerta = "warning";
+                return result;
+            }
+
             foreach (OperacionesFormulario opf in registro)
             {
                 string nombreFormulario = new FormulariosController().getFormularios(opf.formularioId.Value).nombreFormulario;
@@ -168,21 +237,5 @@ namespace ControlUsuarios.Entity.Controller
             return new Result { error = "" };
         }
 
-        public Result eliminarOperacionesFormulario(int[] operacionesformularioId, int usuarioId)
-        {
-            Result result = new Result() { error = "" };
-            foreach (int operacionFormularioId in operacionesformularioId)
-            {
-                result.error += eliminarOperacionesFormulario(operacionesformularioId, usuarioId);
-            }
-
-            if (result.error != null && result.error != "")
-            {
-                result.tipoAlerta = "warning";
-                return result;
-            }
-
-            return new Result { error = "" };
-        }
     }
 }

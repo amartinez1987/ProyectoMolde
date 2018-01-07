@@ -145,6 +145,7 @@ namespace ControlUsuarios.Entity.Controller
                 }
                 Formularios registroInactivar= entity.Formularios.Where(x => x.id == formulariosId).SingleOrDefault();
                 registroInactivar.estados = "Inactivo";
+                registroInactivar.usuarioId = usuarioId;
                 try
                 {
                     entity.SaveChanges();
@@ -171,6 +172,7 @@ namespace ControlUsuarios.Entity.Controller
                 }
                 Formularios registroActivar = entity.Formularios.Where(x => x.id == formulariosId).SingleOrDefault();
                 registroActivar.estados = "Activo";
+                registroActivar.usuarioId = usuarioId;
                 try
                 {
                     entity.SaveChanges();

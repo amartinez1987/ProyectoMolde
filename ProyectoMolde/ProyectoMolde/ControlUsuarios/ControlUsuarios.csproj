@@ -112,6 +112,7 @@
     <Compile Include="Entity\Controller\MoldeTrasabilidad.cs" />
     <Compile Include="Entity\Controller\OperacionesController.cs" />
     <Compile Include="Entity\Controller\OperacionesFormularioController.cs" />
+    <Compile Include="Entity\Controller\PerfilesOperacionesFormularioController.cs" />
     <Compile Include="Entity\Controller\UsuariosController.cs" />
     <Compile Include="Entity\Controller\ValidateSession.cs" />
     <Compile Include="Entity\Model\AplicacionesWeb.cs">
@@ -174,9 +175,12 @@
     <Compile Include="Entity\Model\Perfiles.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Controller\PerfilesController.cs" />
     <Compile Include="Entity\Model\PerfilesOperacionesFormulario.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Model\PerfilesOperacionesFormularioViewModel.cs" />
+    <Compile Include="Entity\Model\PerfilesViewModel.cs" />
     <Compile Include="Entity\Model\Personas.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>

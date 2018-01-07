@@ -32,14 +32,22 @@ namespace ControlUsuarios.Entity.Controller
         {
             using (MoldeEntities entity = new MoldeEntities())
             {
-                var u = from usuarios in entity.Usuarios
-                             where usuarios.id == usuarioId
-                             select usuarios;
-
-                if (u.FirstOrDefault().UsuariosOperacionesFormulario.Where(x => x.OperacionesFormulario.Formularios.nombreFormulario == nombreformulario && x.OperacionesFormulario.Operaciones.nombreOperacion == operacion).Count() > 0)
+                try
                 {
-                    return new Result() { error = ""};
-                }                
+                    var u = from usuarios in entity.Usuarios
+                            where usuarios.id == usuarioId
+                            select usuarios;
+
+                    if (u.FirstOrDefault().UsuariosOperacionesFormulario.Where(x => x.OperacionesFormulario.Formularios.nombreFormulario == nombreformulario && x.OperacionesFormulario.Operaciones.nombreOperacion == operacion).Count() > 0)
+                    {
+                        return new Result() { error = "" };
+                    }
+                }
+                catch (Exception)
+                {
+                    return new Result() { error = "Usted no tiene habilitada esta operación.", tipoAlerta = "warning" };
+                }
+                                
             }
 
             return new Result() { error = "Usted no tiene habilitada esta operación.", tipoAlerta = "warning" };

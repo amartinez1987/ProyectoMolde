@@ -114,6 +114,7 @@ namespace ControlUsuarios.Entity.Controller
 
                 Menus registroInactivar = entity.Menus.Where(x => x.id == menusId).SingleOrDefault();
                 registroInactivar.estado = "Inactivo";
+                registroInactivar.usuarioId = usuarioId;
                 try
                 {
                     entity.SaveChanges();
@@ -141,6 +142,7 @@ namespace ControlUsuarios.Entity.Controller
 
                 Menus registroInactivar = entity.Menus.Where(x => x.id == menusId).SingleOrDefault();
                 registroInactivar.estado = "Activo";
+                registroInactivar.usuarioId = usuarioId;
                 try
                 {
                     entity.SaveChanges();

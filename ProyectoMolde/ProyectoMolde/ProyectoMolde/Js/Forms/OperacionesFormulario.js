@@ -40,13 +40,34 @@ function OnSuccesListaOperaciones(response)
 function btnOperacionesFormulario_GuardarClick()
 {
 
-        //operacionesFormulario.id = 0;
-        //operacionesFormulario.formularioId = $('#txtformularioIdOperacionesFormulario').val();
-        //operacionesFormulario.operacionId = $('#txtoperacionIdOperacionesFormulario').val();
-        //operacionesFormulario.usuarioId = getLocalStorageNavegator("usuarioId");
-        //operacionesFormulario.descripcion = $('#txtdescripcionOperacionesFormulario').val();
-        //var url = "/WebMethods/operacionesFormulario.aspx/guardar";
-        //enviarComoParametros(url, operacionesFormulario, OnSuccesSaveOperacionesFormulario);
+    // get txn id from current table row
+    var heading = 'Guardar Registro';
+    var question = '¿Esta seguro realizar esta acci&oacute;n?. NOTA: Todos los usuarios y perfiles que tengan esa operacion sera removida, y se asiganran las nuevas operaciones.';
+    var cancelButtonTxt = 'No';
+    var okButtonTxt = 'Yes';
+    var callback = function ()
+    {
+        var lstOperacionesFormulario = new Array();
+        for (var x = 0; x < $("#lstBox2")[0].options.length; x++) {
+            var oF = new Object();
+            oF.id = 0;
+            oF.formularioId = operacionesFormulario.id;
+            oF.operacionId = $("#lstBox2")[0].options[x].value;
+            oF.usuarioId = getLocalStorageNavegator("usuarioId");
+            lstOperacionesFormulario.push(oF);
+        }
+
+        var paramObjectOf = new Object();
+        paramObjectOf.operacionesFormulario = lstOperacionesFormulario;
+        paramObjectOf.usuarioId = getLocalStorageNavegator("usuarioId");
+
+        var url = "/WebMethods/operacionesFormulario.aspx/guardar";
+        enviarComoParametros(url, paramObjectOf, OnSuccesSaveOperacionesFormulario);
+    }
+    confirm(heading, question, cancelButtonTxt, okButtonTxt, callback);
+
+    
+    
 
 }
 
