@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace ProyectoMolde.Forms
 {
-public partial class frmListaEstadosCivil : System.Web.UI.Page
-{
-protected void Page_Load(object sender, EventArgs e)
-{
-}
-}
+    public partial class frmListaEstadosCivil : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+        }
+    }
 }

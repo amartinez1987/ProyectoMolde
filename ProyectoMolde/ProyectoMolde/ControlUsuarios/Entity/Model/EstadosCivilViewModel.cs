@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ControlUsuarios.Entity.Model
 {
-public class EstadosCivilViewModel
-{
-public int id{get;set;}
-public int usuarioId{get;set;}
-public string sigla{get;set;}
-public string descripcion{get;set;}
-}
+    public class EstadosCivilViewModel
+    {
+        public int id { get; set; }
+        public int usuarioId { get; set; }
+        public string sigla { get; set; }
+        public string descripcion { get; set; }
+    }
 }
