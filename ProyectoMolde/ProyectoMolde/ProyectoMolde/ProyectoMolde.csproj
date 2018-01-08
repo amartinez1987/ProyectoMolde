@@ -118,9 +118,9 @@
     <Content Include="Forms\frmDepartamentos.ascx" />
     <Content Include="Forms\frmDepartamentos_Editar.aspx" />
     <Content Include="Forms\frmDepartamentos_Nuevo.aspx" />
-    <Content Include="Forms\frmDocumentosIdentidad.ascx" />
-    <Content Include="Forms\frmDocumentosIdentidad_Editar.aspx" />
-    <Content Include="Forms\frmDocumentosIdentidad_Nuevo.aspx" />
+    <Content Include="Forms\frmEstadosCivil.ascx" />
+    <Content Include="Forms\frmEstadosCivil_Editar.aspx" />
+    <Content Include="Forms\frmEstadosCivil_Nuevo.aspx" />
     <Content Include="Forms\frmFormularios.ascx" />
     <Content Include="Forms\frmFormularios_Editar.aspx" />
     <Content Include="Forms\frmFormularios_Nuevo.aspx" />
@@ -128,7 +128,7 @@
     <Content Include="Forms\frmGruposSanguineo_Editar.aspx" />
     <Content Include="Forms\frmGruposSanguineo_Nuevo.aspx" />
     <Content Include="Forms\frmListaDepartamentos.aspx" />
-    <Content Include="Forms\frmListaDocumentosIdentidad.aspx" />
+    <Content Include="Forms\frmListaEstadosCivil.aspx" />
     <Content Include="Forms\frmListaFormularios.aspx" />
     <Content Include="Forms\frmListaGruposSanguineo.aspx" />
     <Content Include="Forms\frmListaMenus.aspx" />
@@ -154,7 +154,7 @@
     <Content Include="Js\configAjax.js" />
     <Content Include="Js\Forms\Departamentos.js" />
     <Content Include="Js\Forms\AplicacionesWeb.js" />
-    <Content Include="Js\Forms\DocumentosIdentidad.js" />
+    <Content Include="Js\Forms\EstadosCivil.js" />
     <Content Include="Js\Forms\Formularios.js" />
     <Content Include="Js\Forms\GruposSanguineo.js" />
     <Content Include="Js\Forms\Menus.js" />
@@ -166,7 +166,7 @@
     <Content Include="Js\frmHelp.js" />
     <Content Include="WebMethods\aplicacionesWeb.aspx" />
     <Content Include="WebMethods\departamentos.aspx" />
-    <Content Include="WebMethods\documentosIdentidad.aspx" />
+    <Content Include="WebMethods\estadosCivil.aspx" />
     <Content Include="WebMethods\formularios.aspx" />
     <Content Include="WebMethods\gruposSanguineo.aspx" />
     <Content Include="WebMethods\help.aspx" />
@@ -340,26 +340,26 @@
     <Compile Include="Forms\frmDepartamentos_Nuevo.aspx.designer.cs">
       <DependentUpon>frmDepartamentos_Nuevo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmDocumentosIdentidad.ascx.cs">
-      <DependentUpon>frmDocumentosIdentidad.ascx</DependentUpon>
+    <Compile Include="Forms\frmEstadosCivil.ascx.cs">
+      <DependentUpon>frmEstadosCivil.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\frmDocumentosIdentidad.ascx.designer.cs">
-      <DependentUpon>frmDocumentosIdentidad.ascx</DependentUpon>
+    <Compile Include="Forms\frmEstadosCivil.ascx.designer.cs">
+      <DependentUpon>frmEstadosCivil.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmDocumentosIdentidad_Editar.aspx.cs">
-      <DependentUpon>frmDocumentosIdentidad_Editar.aspx</DependentUpon>
+    <Compile Include="Forms\frmEstadosCivil_Editar.aspx.cs">
+      <DependentUpon>frmEstadosCivil_Editar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\frmDocumentosIdentidad_Editar.aspx.designer.cs">
-      <DependentUpon>frmDocumentosIdentidad_Editar.aspx</DependentUpon>
+    <Compile Include="Forms\frmEstadosCivil_Editar.aspx.designer.cs">
+      <DependentUpon>frmEstadosCivil_Editar.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmDocumentosIdentidad_Nuevo.aspx.cs">
-      <DependentUpon>frmDocumentosIdentidad_Nuevo.aspx</DependentUpon>
+    <Compile Include="Forms\frmEstadosCivil_Nuevo.aspx.cs">
+      <DependentUpon>frmEstadosCivil_Nuevo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\frmDocumentosIdentidad_Nuevo.aspx.designer.cs">
-      <DependentUpon>frmDocumentosIdentidad_Nuevo.aspx</DependentUpon>
+    <Compile Include="Forms\frmEstadosCivil_Nuevo.aspx.designer.cs">
+      <DependentUpon>frmEstadosCivil_Nuevo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmFormularios.ascx.cs">
       <DependentUpon>frmFormularios.ascx</DependentUpon>
@@ -410,12 +410,12 @@
     <Compile Include="Forms\frmListaDepartamentos.aspx.designer.cs">
       <DependentUpon>frmListaDepartamentos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmListaDocumentosIdentidad.aspx.cs">
-      <DependentUpon>frmListaDocumentosIdentidad.aspx</DependentUpon>
+    <Compile Include="Forms\frmListaEstadosCivil.aspx.cs">
+      <DependentUpon>frmListaEstadosCivil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\frmListaDocumentosIdentidad.aspx.designer.cs">
-      <DependentUpon>frmListaDocumentosIdentidad.aspx</DependentUpon>
+    <Compile Include="Forms\frmListaEstadosCivil.aspx.designer.cs">
+      <DependentUpon>frmListaEstadosCivil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmListaFormularios.aspx.cs">
       <DependentUpon>frmListaFormularios.aspx</DependentUpon>
@@ -607,12 +607,12 @@
     <Compile Include="WebMethods\departamentos.aspx.designer.cs">
       <DependentUpon>departamentos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebMethods\documentosIdentidad.aspx.cs">
-      <DependentUpon>documentosIdentidad.aspx</DependentUpon>
+    <Compile Include="WebMethods\estadosCivil.aspx.cs">
+      <DependentUpon>estadosCivil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebMethods\documentosIdentidad.aspx.designer.cs">
-      <DependentUpon>documentosIdentidad.aspx</DependentUpon>
+    <Compile Include="WebMethods\estadosCivil.aspx.designer.cs">
+      <DependentUpon>estadosCivil.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebMethods\formularios.aspx.cs">
       <DependentUpon>formularios.aspx</DependentUpon>
