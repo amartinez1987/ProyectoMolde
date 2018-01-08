@@ -164,7 +164,7 @@
     <Property Name="telefonoCelular" Type="int" Nullable="false" />
     <Property Name="usuarioId" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="sexos">
+  <EntityType Name="Sexos">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -194,6 +194,18 @@
     <Property Name="operacionFormularioId" Type="int" Nullable="false" />
     <Property Name="usuarioIdApl" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK_dbo_Personas_Sexo">
+    <End Role="Sexos" Type="Self.Sexos" Multiplicity="1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sexos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="sexoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Formularios_Menus">
     <End Role="Menus" Type="Self.Menus" Multiplicity="1" />
     <End Role="Formularios" Type="Self.Formularios" Multiplicity="*" />
@@ -231,7 +243,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OperacionesFormulario_Formularios">
-    <End Role="Formularios" Type="Self.Formularios" Multiplicity="0..1" />
+    <End Role="Formularios" Type="Self.Formularios" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="OperacionesFormulario" Type="Self.OperacionesFormulario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Formularios">
@@ -243,7 +257,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OperacionesFormulario_Operaciones">
-    <End Role="Operaciones" Type="Self.Operaciones" Multiplicity="0..1" />
+    <End Role="Operaciones" Type="Self.Operaciones" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="OperacionesFormulario" Type="Self.OperacionesFormulario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Operaciones">
@@ -350,18 +366,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Personas_sexos">
-    <End Role="sexos" Type="Self.sexos" Multiplicity="1" />
-    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="sexos">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Personas">
-        <PropertyRef Name="sexoId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Usuarios_Perfiles">
     <End Role="Perfiles" Type="Self.Perfiles" Multiplicity="1" />
     <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
@@ -387,7 +391,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UsuariosOperacionesFormulario_OperacionesFormulario">
-    <End Role="OperacionesFormulario" Type="Self.OperacionesFormulario" Multiplicity="1" />
+    <End Role="OperacionesFormulario" Type="Self.OperacionesFormulario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="UsuariosOperacionesFormulario" Type="Self.UsuariosOperacionesFormulario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="OperacionesFormulario">
@@ -426,9 +432,13 @@
     <EntitySet Name="Perfiles" EntityType="Self.Perfiles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PerfilesOperacionesFormulario" EntityType="Self.PerfilesOperacionesFormulario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Personas" EntityType="Self.Personas" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sexos" EntityType="Self.sexos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sexos" EntityType="Self.Sexos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UsuariosOperacionesFormulario" EntityType="Self.UsuariosOperacionesFormulario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Personas_Sexo" Association="Self.FK_dbo_Personas_Sexo">
+      <End Role="Sexos" EntitySet="Sexos" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
     <AssociationSet Name="FK_Formularios_Menus" Association="Self.FK_Formularios_Menus">
       <End Role="Menus" EntitySet="Menus" />
       <End Role="Formularios" EntitySet="Formularios" />
@@ -479,10 +489,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_Personas_Municipios3" Association="Self.FK_Personas_Municipios3">
       <End Role="Municipios" EntitySet="Municipios" />
-      <End Role="Personas" EntitySet="Personas" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Personas_sexos" Association="Self.FK_Personas_sexos">
-      <End Role="sexos" EntitySet="sexos" />
       <End Role="Personas" EntitySet="Personas" />
     </AssociationSet>
     <AssociationSet Name="FK_Usuarios_Perfiles" Association="Self.FK_Usuarios_Perfiles">

@@ -48,7 +48,7 @@ namespace ControlUsuarios.Entity.Model
         public virtual GruposSanguineo GruposSanguineo { get; set; }
         public virtual Municipios Municipios { get; set; }
         public virtual Municipios Municipios1 { get; set; }
-        public virtual sexos sexos { get; set; }
+        public virtual Sexos Sexos { get; set; }
         public virtual ICollection<Usuarios> Usuarios { get; set; }
     }
 }

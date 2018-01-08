@@ -121,11 +121,16 @@
     <Content Include="Forms\frmFormularios.ascx" />
     <Content Include="Forms\frmFormularios_Editar.aspx" />
     <Content Include="Forms\frmFormularios_Nuevo.aspx" />
+    <Content Include="Forms\frmGruposSanguineo.ascx" />
+    <Content Include="Forms\frmGruposSanguineo_Editar.aspx" />
+    <Content Include="Forms\frmGruposSanguineo_Nuevo.aspx" />
     <Content Include="Forms\frmListaDepartamentos.aspx" />
     <Content Include="Forms\frmListaFormularios.aspx" />
+    <Content Include="Forms\frmListaGruposSanguineo.aspx" />
     <Content Include="Forms\frmListaMenus.aspx" />
     <Content Include="Forms\frmListaOperaciones.aspx" />
     <Content Include="Forms\frmListaPerfiles.aspx" />
+    <Content Include="Forms\frmListaSexos.aspx" />
     <Content Include="Forms\frmMenus.ascx" />
     <Content Include="Forms\frmMenus_Editar.aspx" />
     <Content Include="Forms\frmMenus_Nuevo.aspx" />
@@ -137,21 +142,27 @@
     <Content Include="Forms\frmPerfilesOperacionesFormulario.aspx" />
     <Content Include="Forms\frmPerfiles_Editar.aspx" />
     <Content Include="Forms\frmPerfiles_Nuevo.aspx" />
+    <Content Include="Forms\frmSexos.ascx" />
+    <Content Include="Forms\frmSexos_Editar.aspx" />
+    <Content Include="Forms\frmSexos_Nuevo.aspx" />
     <Content Include="Forms\index.aspx" />
     <Content Include="Forms\frmListaAplicacionesWeb.aspx" />
     <Content Include="Js\configAjax.js" />
     <Content Include="Js\Forms\Departamentos.js" />
     <Content Include="Js\Forms\AplicacionesWeb.js" />
     <Content Include="Js\Forms\Formularios.js" />
+    <Content Include="Js\Forms\GruposSanguineo.js" />
     <Content Include="Js\Forms\Menus.js" />
     <Content Include="Js\Forms\Operaciones.js" />
     <Content Include="Js\Forms\OperacionesFormulario.js" />
     <Content Include="Js\Forms\Perfiles.js" />
     <Content Include="Js\Forms\PerfilesOperacionesFormulario.js" />
+    <Content Include="Js\Forms\Sexos.js" />
     <Content Include="Js\frmHelp.js" />
     <Content Include="WebMethods\aplicacionesWeb.aspx" />
     <Content Include="WebMethods\departamentos.aspx" />
     <Content Include="WebMethods\formularios.aspx" />
+    <Content Include="WebMethods\gruposSanguineo.aspx" />
     <Content Include="WebMethods\help.aspx" />
     <Content Include="WebMethods\login.aspx" />
     <Content Include="Forms\frmMasterPage.Master" />
@@ -160,6 +171,7 @@
     <Content Include="WebMethods\operacionesFormulario.aspx" />
     <Content Include="WebMethods\perfiles.aspx" />
     <Content Include="WebMethods\perfilesOperacionesFormulario.aspx" />
+    <Content Include="WebMethods\sexos.aspx" />
     <Content Include="WebMethods\usuario.aspx" />
     <Content Include="Forms\frmCrudMaster.Master" />
     <None Include="Web.Debug.config">
@@ -343,6 +355,27 @@
     <Compile Include="Forms\frmFormularios_Nuevo.aspx.designer.cs">
       <DependentUpon>frmFormularios_Nuevo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmGruposSanguineo.ascx.cs">
+      <DependentUpon>frmGruposSanguineo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGruposSanguineo.ascx.designer.cs">
+      <DependentUpon>frmGruposSanguineo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmGruposSanguineo_Editar.aspx.cs">
+      <DependentUpon>frmGruposSanguineo_Editar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGruposSanguineo_Editar.aspx.designer.cs">
+      <DependentUpon>frmGruposSanguineo_Editar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmGruposSanguineo_Nuevo.aspx.cs">
+      <DependentUpon>frmGruposSanguineo_Nuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGruposSanguineo_Nuevo.aspx.designer.cs">
+      <DependentUpon>frmGruposSanguineo_Nuevo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmListaDepartamentos.aspx.cs">
       <DependentUpon>frmListaDepartamentos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -356,6 +389,13 @@
     </Compile>
     <Compile Include="Forms\frmListaFormularios.aspx.designer.cs">
       <DependentUpon>frmListaFormularios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmListaGruposSanguineo.aspx.cs">
+      <DependentUpon>frmListaGruposSanguineo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmListaGruposSanguineo.aspx.designer.cs">
+      <DependentUpon>frmListaGruposSanguineo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmListaMenus.aspx.cs">
       <DependentUpon>frmListaMenus.aspx</DependentUpon>
@@ -377,6 +417,13 @@
     </Compile>
     <Compile Include="Forms\frmListaPerfiles.aspx.designer.cs">
       <DependentUpon>frmListaPerfiles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmListaSexos.aspx.cs">
+      <DependentUpon>frmListaSexos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmListaSexos.aspx.designer.cs">
+      <DependentUpon>frmListaSexos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmMasterPage.Master.cs">
       <DependentUpon>frmMasterPage.Master</DependentUpon>
@@ -462,6 +509,27 @@
     <Compile Include="Forms\frmPerfiles_Nuevo.aspx.designer.cs">
       <DependentUpon>frmPerfiles_Nuevo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmSexos.ascx.cs">
+      <DependentUpon>frmSexos.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSexos.ascx.designer.cs">
+      <DependentUpon>frmSexos.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSexos_Editar.aspx.cs">
+      <DependentUpon>frmSexos_Editar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSexos_Editar.aspx.designer.cs">
+      <DependentUpon>frmSexos_Editar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSexos_Nuevo.aspx.cs">
+      <DependentUpon>frmSexos_Nuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSexos_Nuevo.aspx.designer.cs">
+      <DependentUpon>frmSexos_Nuevo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -512,6 +580,13 @@
     <Compile Include="WebMethods\formularios.aspx.designer.cs">
       <DependentUpon>formularios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebMethods\gruposSanguineo.aspx.cs">
+      <DependentUpon>gruposSanguineo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebMethods\gruposSanguineo.aspx.designer.cs">
+      <DependentUpon>gruposSanguineo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebMethods\help.aspx.cs">
       <DependentUpon>help.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -560,6 +635,13 @@
     </Compile>
     <Compile Include="WebMethods\perfilesOperacionesFormulario.aspx.designer.cs">
       <DependentUpon>perfilesOperacionesFormulario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebMethods\sexos.aspx.cs">
+      <DependentUpon>sexos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebMethods\sexos.aspx.designer.cs">
+      <DependentUpon>sexos.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebMethods\usuario.aspx.cs">
       <DependentUpon>usuario.aspx</DependentUpon>

@@ -38,10 +38,10 @@ namespace ControlUsuarios.Entity.Model
         public virtual DbSet<OperacionesFormulario> OperacionesFormulario { get; set; }
         public virtual DbSet<Perfiles> Perfiles { get; set; }
         public virtual DbSet<PerfilesOperacionesFormulario> PerfilesOperacionesFormulario { get; set; }
-        public virtual DbSet<Personas> Personas { get; set; }
-        public virtual DbSet<sexos> sexos { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<UsuariosOperacionesFormulario> UsuariosOperacionesFormulario { get; set; }
         public virtual DbSet<AplicacionesWeb> AplicacionesWeb { get; set; }
+        public virtual DbSet<Personas> Personas { get; set; }
+        public virtual DbSet<Sexos> Sexos { get; set; }
     }
 }

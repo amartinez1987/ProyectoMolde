@@ -18,29 +18,29 @@
         <EntityTypeShape EntityType="MoldeModel.OperacionesFormulario" Width="2.25" PointX="7.5" PointY="23.125" />
         <EntityTypeShape EntityType="MoldeModel.Perfiles" Width="1.5" PointX="5.25" PointY="9.375" />
         <EntityTypeShape EntityType="MoldeModel.PerfilesOperacionesFormulario" Width="1.5" PointX="9.75" PointY="16.625" />
-        <EntityTypeShape EntityType="MoldeModel.Personas" Width="1.5" PointX="5.25" PointY="1.125" />
-        <EntityTypeShape EntityType="MoldeModel.sexos" Width="1.5" PointX="3" PointY="18.25" />
         <EntityTypeShape EntityType="MoldeModel.Usuarios" Width="1.5" PointX="7.5" PointY="3.125" />
         <EntityTypeShape EntityType="MoldeModel.UsuariosOperacionesFormulario" Width="1.5" PointX="9.75" PointY="3.5" />
-        <AssociationConnector Association="MoldeModel.FK_Personas_Barrios1" />
         <AssociationConnector Association="MoldeModel.FK_Municipios_Departamentos2" />
-        <AssociationConnector Association="MoldeModel.FK_Personas_DocumentosIdentidad" />
-        <AssociationConnector Association="MoldeModel.FK_Personas_EstadosCivil1" />
         <AssociationConnector Association="MoldeModel.FK_Formularios_Menus" />
         <AssociationConnector Association="MoldeModel.FK_OperacionesFormulario_Formularios" />
-        <AssociationConnector Association="MoldeModel.FK_Personas_GruposSanguineo1" />
-        <AssociationConnector Association="MoldeModel.FK_Personas_Municipios2" />
-        <AssociationConnector Association="MoldeModel.FK_Personas_Municipios3" />
         <AssociationConnector Association="MoldeModel.FK_OperacionesFormulario_Operaciones" />
         <AssociationConnector Association="MoldeModel.FK_PerfilesOperacionesFormulario_OperacionesFormulario" />
         <AssociationConnector Association="MoldeModel.FK_UsuariosOperacionesFormulario_OperacionesFormulario" />
         <AssociationConnector Association="MoldeModel.FK_PerfilesOperacionesFormulario_Perfiles" />
         <AssociationConnector Association="MoldeModel.FK_Usuarios_Perfiles" />
-        <AssociationConnector Association="MoldeModel.FK_Personas_sexos" />
-        <AssociationConnector Association="MoldeModel.FK_Usuarios_Personas" />
         <AssociationConnector Association="MoldeModel.FK_UsuariosOperacionesFormulario_Usuarios" />
         <EntityTypeShape EntityType="MoldeModel.AplicacionesWeb" Width="1.5" PointX="0.75" PointY="24.875" />
         <AssociationConnector Association="MoldeModel.FK_Menus_AplicacionesWeb" />
+        <EntityTypeShape EntityType="MoldeModel.Personas" Width="1.5" PointX="10.25" PointY="7" />
+        <EntityTypeShape EntityType="MoldeModel.Sexos" Width="1.5" PointX="8" PointY="11.5" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_Barrios1" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_DocumentosIdentidad" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_EstadosCivil1" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_GruposSanguineo1" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_Municipios2" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_Municipios3" />
+        <AssociationConnector Association="MoldeModel.FK_dbo_Personas_Sexo" />
+        <AssociationConnector Association="MoldeModel.FK_Usuarios_Personas" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

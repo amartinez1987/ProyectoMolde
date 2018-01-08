@@ -101,6 +101,7 @@
     <Compile Include="Entity\Controller\AplicacionesWebController.cs" />
     <Compile Include="Entity\Controller\DepartamentosController.cs" />
     <Compile Include="Entity\Controller\FormulariosController.cs" />
+    <Compile Include="Entity\Controller\GruposSanguineoController.cs" />
     <Compile Include="Entity\Controller\helpController.cs" />
     <Compile Include="Entity\Controller\IFACTORY.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Entity\Controller\OperacionesController.cs" />
     <Compile Include="Entity\Controller\OperacionesFormularioController.cs" />
     <Compile Include="Entity\Controller\PerfilesOperacionesFormularioController.cs" />
+    <Compile Include="Entity\Controller\SexosController.cs" />
     <Compile Include="Entity\Controller\UsuariosController.cs" />
     <Compile Include="Entity\Controller\ValidateSession.cs" />
     <Compile Include="Entity\Model\AplicacionesWeb.cs">
@@ -142,6 +144,7 @@
     <Compile Include="Entity\Model\GruposSanguineo.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Model\GruposSanguineoViewModel.cs" />
     <Compile Include="Entity\Model\Menus.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
@@ -185,9 +188,10 @@
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Model\Result.cs" />
-    <Compile Include="Entity\Model\sexos.cs">
+    <Compile Include="Entity\Model\Sexos.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Model\SexosViewModel.cs" />
     <Compile Include="Entity\Model\Usuarios.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>

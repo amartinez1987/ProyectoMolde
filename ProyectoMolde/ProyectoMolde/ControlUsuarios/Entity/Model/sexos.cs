@@ -12,9 +12,9 @@ namespace ControlUsuarios.Entity.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class sexos
+    public partial class Sexos
     {
-        public sexos()
+        public Sexos()
         {
             this.Personas = new HashSet<Personas>();
         }

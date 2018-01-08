@@ -28,7 +28,7 @@ namespace ControlUsuarios.Entity.Model
         public int perfilId { get; set; }
     
         public virtual Perfiles Perfiles { get; set; }
-        public virtual Personas Personas { get; set; }
         public virtual ICollection<UsuariosOperacionesFormulario> UsuariosOperacionesFormulario { get; set; }
+        public virtual Personas Personas { get; set; }
     }
 }
