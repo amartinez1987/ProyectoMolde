@@ -24,6 +24,7 @@ namespace ControlUsuarios.Entity.Model
         public Nullable<int> municipioId { get; set; }
         public int usuarioId { get; set; }
     
+        public virtual Municipios Municipios { get; set; }
         public virtual ICollection<Personas> Personas { get; set; }
     }
 }

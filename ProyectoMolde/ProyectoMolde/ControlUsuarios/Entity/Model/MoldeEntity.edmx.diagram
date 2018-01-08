@@ -5,7 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="01ea6939dee24bb784c6c0ac0a415d0f" Name="Diagram1">
-        <EntityTypeShape EntityType="MoldeModel.Barrios" Width="1.5" PointX="3" PointY="10" />
         <EntityTypeShape EntityType="MoldeModel.ControlAplicacion" Width="1.5" PointX="7.75" PointY="7.75" />
         <EntityTypeShape EntityType="MoldeModel.DocumentosIdentidad" Width="1.5" PointX="3" PointY="12.75" />
         <EntityTypeShape EntityType="MoldeModel.EstadosCivil" Width="1.5" PointX="3" PointY="15.5" />
@@ -30,17 +29,19 @@
         <AssociationConnector Association="MoldeModel.FK_Menus_AplicacionesWeb" />
         <EntityTypeShape EntityType="MoldeModel.Personas" Width="1.5" PointX="10.25" PointY="7" />
         <EntityTypeShape EntityType="MoldeModel.Sexos" Width="1.5" PointX="8" PointY="11.5" />
-        <AssociationConnector Association="MoldeModel.FK_Personas_Barrios1" />
         <AssociationConnector Association="MoldeModel.FK_Personas_DocumentosIdentidad" />
         <AssociationConnector Association="MoldeModel.FK_Personas_EstadosCivil1" />
         <AssociationConnector Association="MoldeModel.FK_Personas_GruposSanguineo1" />
         <AssociationConnector Association="MoldeModel.FK_dbo_Personas_Sexo" />
         <AssociationConnector Association="MoldeModel.FK_Usuarios_Personas" />
         <EntityTypeShape EntityType="MoldeModel.Departamentos" Width="1.5" PointX="0.75" PointY="3.625" />
-        <EntityTypeShape EntityType="MoldeModel.Municipios" Width="1.5" PointX="3" PointY="3.375" />
+        <EntityTypeShape EntityType="MoldeModel.Municipios" Width="1.5" PointX="3" PointY="3.125" />
         <AssociationConnector Association="MoldeModel.FK_Municipios_Departamentos2" />
         <AssociationConnector Association="MoldeModel.FK_Personas_Municipios2" />
         <AssociationConnector Association="MoldeModel.FK_Personas_Municipios3" />
+        <EntityTypeShape EntityType="MoldeModel.Barrios" Width="1.5" PointX="5.375" PointY="3.25" />
+        <AssociationConnector Association="MoldeModel.FK_Barrios_Municipios" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_Barrios1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

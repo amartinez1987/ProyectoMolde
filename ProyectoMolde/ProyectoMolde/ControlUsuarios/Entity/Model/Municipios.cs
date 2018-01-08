@@ -18,6 +18,7 @@ namespace ControlUsuarios.Entity.Model
         {
             this.Personas = new HashSet<Personas>();
             this.Personas1 = new HashSet<Personas>();
+            this.Barrios = new HashSet<Barrios>();
         }
     
         public int id { get; set; }
@@ -29,5 +30,6 @@ namespace ControlUsuarios.Entity.Model
         public virtual Departamentos Departamentos { get; set; }
         public virtual ICollection<Personas> Personas { get; set; }
         public virtual ICollection<Personas> Personas1 { get; set; }
+        public virtual ICollection<Barrios> Barrios { get; set; }
     }
 }

@@ -25,7 +25,6 @@ namespace ControlUsuarios.Entity.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Barrios> Barrios { get; set; }
         public virtual DbSet<ControlAplicacion> ControlAplicacion { get; set; }
         public virtual DbSet<DocumentosIdentidad> DocumentosIdentidad { get; set; }
         public virtual DbSet<EstadosCivil> EstadosCivil { get; set; }
@@ -43,5 +42,6 @@ namespace ControlUsuarios.Entity.Model
         public virtual DbSet<Sexos> Sexos { get; set; }
         public virtual DbSet<Departamentos> Departamentos { get; set; }
         public virtual DbSet<Municipios> Municipios { get; set; }
+        public virtual DbSet<Barrios> Barrios { get; set; }
     }
 }

@@ -42,7 +42,6 @@ namespace ControlUsuarios.Entity.Model
         public int telefonoCelular { get; set; }
         public int usuarioId { get; set; }
     
-        public virtual Barrios Barrios { get; set; }
         public virtual DocumentosIdentidad DocumentosIdentidad { get; set; }
         public virtual EstadosCivil EstadosCivil { get; set; }
         public virtual GruposSanguineo GruposSanguineo { get; set; }
@@ -50,5 +49,6 @@ namespace ControlUsuarios.Entity.Model
         public virtual ICollection<Usuarios> Usuarios { get; set; }
         public virtual Municipios Municipios { get; set; }
         public virtual Municipios Municipios1 { get; set; }
+        public virtual Barrios Barrios { get; set; }
     }
 }
