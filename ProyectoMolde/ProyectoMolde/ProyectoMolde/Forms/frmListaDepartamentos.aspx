@@ -22,7 +22,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>                                
-                                <th>nombre</th>
+                                <th>Nombre</th>
+                                <th>Còdigo Dane</th>
                             </tr>
                         </thead>
                     </table>

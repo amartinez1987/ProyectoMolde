@@ -24,6 +24,7 @@ namespace ControlUsuarios.Entity.Model
         public string nombre { get; set; }
         public int departamentoId { get; set; }
         public int usuarioId { get; set; }
+        public string codigoDane { get; set; }
     
         public virtual Departamentos Departamentos { get; set; }
         public virtual ICollection<Personas> Personas { get; set; }

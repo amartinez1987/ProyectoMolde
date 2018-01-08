@@ -4,6 +4,7 @@ function cargarDatos(departamentos) {
     $('#PanelIDDepartamentos').show();
     $('#txtIdDepartamentos').val(departamentos.id);    
     $('#txtnombreDepartamentos').val(departamentos.nombre);
+    $('#txtcodigoDaneDepartamentos').val(departamentos.codigoDane);
 }
 
 function croosModalClick() {
@@ -19,6 +20,7 @@ function btnDepartamentos_GuardarClick() {
         departamentos.id = 0;
         departamentos.usuarioId = getLocalStorageNavegator("usuarioId");
         departamentos.nombre = $('#txtnombreDepartamentos').val();
+        departamentos.codigoDane = $('#txtcodigoDaneDepartamentos').val();
         var url = "/WebMethods/departamentos.aspx/guardar";
         enviarComoParametros(url, departamentos, OnSuccesSaveDepartamentos);
     }
@@ -29,6 +31,7 @@ function btnDepartamentos_EditarClick() {
         departamentos.id = $('#txtIdDepartamentos').val();
         departamentos.usuarioId = getLocalStorageNavegator("usuarioId");
         departamentos.nombre = $('#txtnombreDepartamentos').val();
+        departamentos.codigoDane = $('#txtcodigoDaneDepartamentos').val();
         var url = "/WebMethods/departamentos.aspx/guardar";
         enviarComoParametros(url, departamentos, OnSuccesSaveDepartamentos);
     }
@@ -131,7 +134,7 @@ function cargarListaDepartamentos() {
                     for (var i = 0; i < lstDepartamentos.length; i++) {
                         var etiquetaEditar = "<a onclick='btnDepartamentos_Editar(" + lstDepartamentos[i].id + ")'  class='fa fa-edit'><a>";
                         var etiquetaEliminar = " <a class='fa fa-minus' onclick='btnDepartamentos_Eliminar(" + lstDepartamentos[i].id + ")'><a>";
-                        out.push([etiquetaEditar + etiquetaEliminar, lstDepartamentos[i].nombre, lstDepartamentos[i].descripcion]);
+                        out.push([etiquetaEditar + etiquetaEliminar, lstDepartamentos[i].nombre, lstDepartamentos[i].codigoDane]);
                     }
 
                     setTimeout(callback(

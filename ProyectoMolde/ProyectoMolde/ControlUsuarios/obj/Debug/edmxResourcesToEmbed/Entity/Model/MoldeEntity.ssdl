@@ -36,6 +36,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="usuarioId" Type="int" Nullable="false" />
+    <Property Name="codigoDane" Type="varchar" MaxLength="2" Nullable="false" />
   </EntityType>
   <EntityType Name="DocumentosIdentidad">
     <Key>
@@ -99,6 +100,7 @@
     <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="departamentoId" Type="int" Nullable="false" />
     <Property Name="usuarioId" Type="int" Nullable="false" />
+    <Property Name="codigoDane" Type="varchar" MaxLength="3" Nullable="false" />
   </EntityType>
   <EntityType Name="Operaciones">
     <Key>

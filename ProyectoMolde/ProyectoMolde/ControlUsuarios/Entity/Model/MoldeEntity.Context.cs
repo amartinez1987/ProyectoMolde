@@ -27,13 +27,11 @@ namespace ControlUsuarios.Entity.Model
     
         public virtual DbSet<Barrios> Barrios { get; set; }
         public virtual DbSet<ControlAplicacion> ControlAplicacion { get; set; }
-        public virtual DbSet<Departamentos> Departamentos { get; set; }
         public virtual DbSet<DocumentosIdentidad> DocumentosIdentidad { get; set; }
         public virtual DbSet<EstadosCivil> EstadosCivil { get; set; }
         public virtual DbSet<Formularios> Formularios { get; set; }
         public virtual DbSet<GruposSanguineo> GruposSanguineo { get; set; }
         public virtual DbSet<Menus> Menus { get; set; }
-        public virtual DbSet<Municipios> Municipios { get; set; }
         public virtual DbSet<Operaciones> Operaciones { get; set; }
         public virtual DbSet<OperacionesFormulario> OperacionesFormulario { get; set; }
         public virtual DbSet<Perfiles> Perfiles { get; set; }
@@ -43,5 +41,7 @@ namespace ControlUsuarios.Entity.Model
         public virtual DbSet<AplicacionesWeb> AplicacionesWeb { get; set; }
         public virtual DbSet<Personas> Personas { get; set; }
         public virtual DbSet<Sexos> Sexos { get; set; }
+        public virtual DbSet<Departamentos> Departamentos { get; set; }
+        public virtual DbSet<Municipios> Municipios { get; set; }
     }
 }

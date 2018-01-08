@@ -41,7 +41,7 @@ namespace ProyectoMolde.WebMethods
         }
 
         [WebMethod(EnableSession = true)]
-        public static Result guardar(int id, int usuarioId, string nombre)
+        public static Result guardar(int id, int usuarioId, string nombre, string codigoDane)
         {
             Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
             if (r.error != "")
@@ -52,6 +52,7 @@ namespace ProyectoMolde.WebMethods
             objEntity.id = id;
             objEntity.usuarioId = usuarioId;
             objEntity.nombre = nombre;
+            objEntity.codigoDane = codigoDane;
             try
             {
                 return DepartamentosController.guardarDepartamentos(objEntity);

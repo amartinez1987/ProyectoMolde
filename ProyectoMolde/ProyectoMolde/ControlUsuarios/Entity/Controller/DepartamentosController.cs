@@ -14,7 +14,7 @@ namespace ControlUsuarios.Entity.Controller
             using (MoldeEntities entity = new MoldeEntities())
             {
                 var l = from departamentos in entity.Departamentos
-                        select new DepartamentosViewModel { id = departamentos.id, usuarioId = departamentos.usuarioId, nombre = departamentos.nombre };
+                        select new DepartamentosViewModel { id = departamentos.id, usuarioId = departamentos.usuarioId, nombre = departamentos.nombre , codigoDane = departamentos.codigoDane };
                 return l.ToList();
             }
         }
@@ -25,7 +25,7 @@ namespace ControlUsuarios.Entity.Controller
             {
                 var l = from departamentos in entity.Departamentos
                         where departamentos.id == id
-                        select new DepartamentosViewModel { id = departamentos.id, usuarioId = departamentos.usuarioId, nombre = departamentos.nombre };
+                        select new DepartamentosViewModel { id = departamentos.id, usuarioId = departamentos.usuarioId, nombre = departamentos.nombre, codigoDane = departamentos.codigoDane };
                 return l.SingleOrDefault();
             }
         }
@@ -86,7 +86,12 @@ namespace ControlUsuarios.Entity.Controller
         {          
             if (registro.nombre == "")
             {
-                return new Result { error = "Texto Validación", tipoAlerta = "warning" };
+                return new Result { error = "Digite el nombre del departamento.", tipoAlerta = "warning" };
+            }
+
+            if (registro.codigoDane == "")
+            {
+                return new Result { error = "Digite el còdigo DANE del departamento.", tipoAlerta = "warning" };
             }
             return new Result() { error = "" };
         }

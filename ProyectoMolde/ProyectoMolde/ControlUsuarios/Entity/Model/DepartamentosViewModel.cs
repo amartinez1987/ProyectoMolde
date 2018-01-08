@@ -11,5 +11,6 @@ namespace ControlUsuarios.Entity.Model
         public int id { get; set; }
         public int usuarioId { get; set; }
         public string nombre { get; set; }
+        public string codigoDane { get; set; }
     }
 }
