@@ -136,12 +136,16 @@
     <Content Include="Forms\frmListaFormularios.aspx" />
     <Content Include="Forms\frmListaGruposSanguineo.aspx" />
     <Content Include="Forms\frmListaMenus.aspx" />
+    <Content Include="Forms\frmListaMunicipios.aspx" />
     <Content Include="Forms\frmListaOperaciones.aspx" />
     <Content Include="Forms\frmListaPerfiles.aspx" />
     <Content Include="Forms\frmListaSexos.aspx" />
     <Content Include="Forms\frmMenus.ascx" />
     <Content Include="Forms\frmMenus_Editar.aspx" />
     <Content Include="Forms\frmMenus_Nuevo.aspx" />
+    <Content Include="Forms\frmMunicipios.ascx" />
+    <Content Include="Forms\frmMunicipios_Editar.aspx" />
+    <Content Include="Forms\frmMunicipios_Nuevo.aspx" />
     <Content Include="Forms\frmOperaciones.ascx" />
     <Content Include="Forms\frmOperacionesFormulario.aspx" />
     <Content Include="Forms\frmOperaciones_Editar.aspx" />
@@ -163,6 +167,7 @@
     <Content Include="Js\Forms\Formularios.js" />
     <Content Include="Js\Forms\GruposSanguineo.js" />
     <Content Include="Js\Forms\Menus.js" />
+    <Content Include="Js\Forms\Municipios.js" />
     <Content Include="Js\Forms\Operaciones.js" />
     <Content Include="Js\Forms\OperacionesFormulario.js" />
     <Content Include="Js\Forms\Perfiles.js" />
@@ -179,6 +184,7 @@
     <Content Include="WebMethods\login.aspx" />
     <Content Include="Forms\frmMasterPage.Master" />
     <Content Include="WebMethods\menus.aspx" />
+    <Content Include="WebMethods\municipios.aspx" />
     <Content Include="WebMethods\operaciones.aspx" />
     <Content Include="WebMethods\operacionesFormulario.aspx" />
     <Content Include="WebMethods\perfiles.aspx" />
@@ -472,6 +478,13 @@
     <Compile Include="Forms\frmListaMenus.aspx.designer.cs">
       <DependentUpon>frmListaMenus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmListaMunicipios.aspx.cs">
+      <DependentUpon>frmListaMunicipios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmListaMunicipios.aspx.designer.cs">
+      <DependentUpon>frmListaMunicipios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmListaOperaciones.aspx.cs">
       <DependentUpon>frmListaOperaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -520,6 +533,27 @@
     </Compile>
     <Compile Include="Forms\frmMenus_Nuevo.aspx.designer.cs">
       <DependentUpon>frmMenus_Nuevo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMunicipios.ascx.cs">
+      <DependentUpon>frmMunicipios.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMunicipios.ascx.designer.cs">
+      <DependentUpon>frmMunicipios.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMunicipios_Editar.aspx.cs">
+      <DependentUpon>frmMunicipios_Editar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMunicipios_Editar.aspx.designer.cs">
+      <DependentUpon>frmMunicipios_Editar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMunicipios_Nuevo.aspx.cs">
+      <DependentUpon>frmMunicipios_Nuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMunicipios_Nuevo.aspx.designer.cs">
+      <DependentUpon>frmMunicipios_Nuevo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmOperaciones.ascx.cs">
       <DependentUpon>frmOperaciones.ascx</DependentUpon>
@@ -689,6 +723,13 @@
     </Compile>
     <Compile Include="WebMethods\menus.aspx.designer.cs">
       <DependentUpon>menus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebMethods\municipios.aspx.cs">
+      <DependentUpon>municipios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebMethods\municipios.aspx.designer.cs">
+      <DependentUpon>municipios.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebMethods\operaciones.aspx.cs">
       <DependentUpon>operaciones.aspx</DependentUpon>

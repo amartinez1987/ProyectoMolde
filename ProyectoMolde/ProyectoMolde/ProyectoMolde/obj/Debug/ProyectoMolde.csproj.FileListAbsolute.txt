@@ -22,3 +22,15 @@ F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\Ser
 F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\obj\Debug\ProyectoMolde.csprojResolveAssemblyReference.cache
 F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\obj\Debug\ProyectoMolde.dll
 F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\obj\Debug\ProyectoMolde.pdb
+D:\PROYECTO MOLDE\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ProyectoMolde.dll.config
+D:\PROYECTO MOLDE\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ProyectoMolde.dll
+D:\PROYECTO MOLDE\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ProyectoMolde.pdb
+D:\PROYECTO MOLDE\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ControlUsuarios.dll
+D:\PROYECTO MOLDE\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\EntityFramework.dll
+D:\PROYECTO MOLDE\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ServiciosMetodos.dll
+D:\PROYECTO MOLDE\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ControlUsuarios.pdb
+D:\PROYECTO MOLDE\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\EntityFramework.xml
+D:\PROYECTO MOLDE\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\bin\ServiciosMetodos.pdb
+D:\PROYECTO MOLDE\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\obj\Debug\ProyectoMolde.csprojResolveAssemblyReference.cache
+D:\PROYECTO MOLDE\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\obj\Debug\ProyectoMolde.dll
+D:\PROYECTO MOLDE\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\obj\Debug\ProyectoMolde.pdb

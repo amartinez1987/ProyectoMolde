@@ -1,16 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="MoldeModelStoreContainer" CdmEntityContainer="MoldeEntities">
-    <EntitySetMapping Name="Barrios">
-      <EntityTypeMapping TypeName="MoldeModel.Barrios">
-        <MappingFragment StoreEntitySet="Barrios">
-          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
-          <ScalarProperty Name="municipioId" ColumnName="municipioId" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ControlAplicacion">
       <EntityTypeMapping TypeName="MoldeModel.ControlAplicacion">
         <MappingFragment StoreEntitySet="ControlAplicacion">
@@ -210,6 +200,16 @@
           <ScalarProperty Name="codigoDane" ColumnName="codigoDane" />
           <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
           <ScalarProperty Name="departamentoId" ColumnName="departamentoId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Barrios">
+      <EntityTypeMapping TypeName="MoldeModel.Barrios">
+        <MappingFragment StoreEntitySet="Barrios">
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+          <ScalarProperty Name="municipioId" ColumnName="municipioId" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
