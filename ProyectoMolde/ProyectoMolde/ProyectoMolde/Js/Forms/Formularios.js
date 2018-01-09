@@ -232,6 +232,8 @@ function btnOpenHelp(campoIdReturn, campoReturnView, campoDescripReturn) {
     help.campoIdReturn = campoIdReturn;
     help.campoReturnView = campoReturnView;
     help.campoDescripReturn = campoDescripReturn;
+    help.atributoReturnDescripcion = "nombreMenu";
+    help.atributoReturnView = "id";
     loadHelp('Help', cargarTabla());
 }
 

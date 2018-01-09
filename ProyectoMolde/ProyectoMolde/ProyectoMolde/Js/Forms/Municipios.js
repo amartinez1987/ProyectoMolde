@@ -4,7 +4,7 @@ function cargarDatos(municipios) {
     $('#PanelIDMunicipios').show();
     $('#txtIdMunicipios').val(municipios.id);
     $('#txtdepartamentosIdMunicipios').val(municipios.departamentoId);
-    $('#txtdepartamentosVerMunicipios').val(municipios.departamentoId);
+    $('#txtdepartamentosVerMunicipios').val(municipios.codigoDaneDepartamento);
     $('#txtDescripcionDepartamentos').val(municipios.nombreDepartamento);      
     $('#txtnombreMunicipios').val(municipios.nombre);
     $('#txtcodigoDaneMunicipios').val(municipios.codigoDane);
@@ -170,11 +170,13 @@ function cargarListaMunicipios() {
 function btnOpenHelp(campoIdReturn, campoReturnView, campoDescripReturn) {
     help.tabla = 'Departamentos';
     help.header = 'Listado';
-    help.columnas = ['id', 'nombre', 'codigoDane'];
+    help.columnas = ['codigoDane', 'nombre', 'codigoDane'];
     help.prefiltros = [];
     help.campoIdReturn = campoIdReturn;
     help.campoReturnView = campoReturnView;
     help.campoDescripReturn = campoDescripReturn;
+    help.atributoReturnDescripcion = "nombre";
+    help.atributoReturnView = "codigoDane";
     loadHelp('Help', cargarTabla());
 }
 

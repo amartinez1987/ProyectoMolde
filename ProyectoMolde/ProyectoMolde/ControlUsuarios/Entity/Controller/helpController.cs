@@ -85,7 +85,7 @@ namespace ControlUsuarios.Entity.Controller
                     try
                     {
                         var ld = from departamentos in entity.Departamentos
-                                 where departamentos.id == valBusId || departamentos.nombre.Contains(valorBuscado) || departamentos.codigoDane.Contains(valorBuscado)
+                                 where departamentos.nombre.Contains(valorBuscado) || departamentos.codigoDane.Contains(valorBuscado)
                                  select new DepartamentosViewModel { id = departamentos.id, usuarioId = departamentos.usuarioId, nombre = departamentos.nombre, codigoDane = departamentos.codigoDane };
                         return ld.FirstOrDefault();
                     }

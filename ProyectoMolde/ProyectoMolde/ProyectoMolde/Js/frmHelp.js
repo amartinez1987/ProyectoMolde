@@ -86,10 +86,11 @@ function cargarListaHelp() {
         table.on('dblclick', 'tr', function ()
         {
             console.log(help);
-            $(help.campoIdReturn).val($(this).find('td')[0].innerText);
-            $(help.campoReturnView).val($(this).find('td')[0].innerText);
-            $(help.campoDescripReturn).val($(this).find('td')[1].innerText);
             
+            getObjectHelp($(this).find('td')[0].innerText);
+
+
+           
             $('#modalHelp').modal('toggle');
         });
     }
@@ -161,4 +162,19 @@ function getColumnasEtiqueta(columns) {
         columnaEtiqueta += '<th>' + columns[x] + '</th>'
     }
     return columnaEtiqueta;
+}
+
+function getObjectHelp(id)
+{    
+    help.valorBuscar = id;    
+    var url = "/WebMethods/help.aspx/getHelp";
+    enviarComoParametros(url, help, OnSuccesObjectHelp);
+}
+
+function OnSuccesObjectHelp(response)
+{    
+    object = eval("(" + response.getCadena + ")");
+    $(help.campoIdReturn).val(object.id);
+    $(help.campoReturnView).val(object[help.atributoReturnView]);
+    $(help.campoDescripReturn).val(object[help.atributoReturnDescripcion]);
 }

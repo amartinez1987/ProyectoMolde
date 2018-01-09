@@ -226,7 +226,9 @@ function btnOpenHelp(campoIdReturn,campoReturnView, campoDescripReturn)
     help.prefiltros = [];
     help.campoIdReturn = campoIdReturn;
     help.campoReturnView = campoReturnView;
-    help.campoDescripReturn = campoDescripReturn;    
+    help.campoDescripReturn = campoDescripReturn;
+    help.atributoReturnDescripcion = "nombre";
+    help.atributoReturnView = "id";
     loadHelp('Help', cargarTabla());
 }
 
@@ -236,6 +238,7 @@ function leaveHelp(campoIdReturn, campoDescripReturn)
     help.valorBuscar = $("#txtaplicacionWebvVerMenus").val();
     help.campoIdReturn = campoIdReturn;
     help.campoDescripReturn = campoDescripReturn;
+    
     
     getHelp();
 }
