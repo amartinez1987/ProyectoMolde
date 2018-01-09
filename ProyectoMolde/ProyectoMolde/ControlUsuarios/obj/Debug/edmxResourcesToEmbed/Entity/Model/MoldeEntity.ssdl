@@ -196,6 +196,18 @@
     <Property Name="operacionFormularioId" Type="int" Nullable="false" />
     <Property Name="usuarioIdApl" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK_Barrios_Municipios">
+    <End Role="Municipios" Type="Self.Municipios" Multiplicity="0..1" />
+    <End Role="Barrios" Type="Self.Barrios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Barrios">
+        <PropertyRef Name="municipioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_dbo_Personas_Sexo">
     <End Role="Sexos" Type="Self.Sexos" Multiplicity="1" />
     <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
@@ -437,6 +449,10 @@
     <EntitySet Name="Sexos" EntityType="Self.Sexos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UsuariosOperacionesFormulario" EntityType="Self.UsuariosOperacionesFormulario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Barrios_Municipios" Association="Self.FK_Barrios_Municipios">
+      <End Role="Municipios" EntitySet="Municipios" />
+      <End Role="Barrios" EntitySet="Barrios" />
+    </AssociationSet>
     <AssociationSet Name="FK_dbo_Personas_Sexo" Association="Self.FK_dbo_Personas_Sexo">
       <End Role="Sexos" EntitySet="Sexos" />
       <End Role="Personas" EntitySet="Personas" />

@@ -20,15 +20,31 @@ namespace ControlUsuarios.Entity.Controller
             switch (tabla)
             {
                 case "Departamentos":
-                    var ld = from departamentos in entity.Departamentos
-                             select new DepartamentosViewModel { id = departamentos.id, usuarioId = departamentos.usuarioId, nombre = departamentos.nombre };
-                    return ld.ToList();
+                    try
+                    {
+                        var l = from departamentos in entity.Departamentos
+                                where departamentos.nombre.Contains(textoBusqueda == "" ? departamentos.nombre : textoBusqueda) ||
+                                      departamentos.codigoDane.Contains(textoBusqueda == "" ? departamentos.codigoDane : textoBusqueda)
+                                select new DepartamentosViewModel { id = departamentos.id, usuarioId = departamentos.usuarioId, nombre = departamentos.nombre, codigoDane = departamentos.codigoDane };
+                        return l.ToList();
+                    }
+                    catch (Exception e)
+                    {
+                        return new DepartamentosViewModel();
+                    }
                     break;
                 case "AplicacionesWeb":
-                    var la = from aplicacionesweb in entity.AplicacionesWeb
-                             where aplicacionesweb.nombre.Contains(textoBusqueda == "" ? aplicacionesweb.nombre : textoBusqueda)
-                             select new AplicacionesWebViewModel { id = aplicacionesweb.id, nombre = aplicacionesweb.nombre, descripcion = aplicacionesweb.descripcion };
-                    return la.ToList();
+                    try
+                    {
+                        var la = from aplicacionesweb in entity.AplicacionesWeb
+                                 where aplicacionesweb.nombre.Contains(textoBusqueda == "" ? aplicacionesweb.nombre : textoBusqueda)
+                                 select new AplicacionesWebViewModel { id = aplicacionesweb.id, nombre = aplicacionesweb.nombre, descripcion = aplicacionesweb.descripcion };
+                        return la.ToList();
+                    }
+                    catch (Exception e)
+                    {
+                        return new AplicacionesWebViewModel();
+                    }
                     break;
                 case "Formularios":
                     try
@@ -39,7 +55,7 @@ namespace ControlUsuarios.Entity.Controller
                     }
                     catch (Exception e)
                     {
-                        return new AplicacionesWebViewModel();
+                        return new FormulariosViewModel();
                     }
                     break;
                 case "Menus":
@@ -51,7 +67,7 @@ namespace ControlUsuarios.Entity.Controller
                     }
                     catch (Exception e)
                     {
-                        return new AplicacionesWebViewModel();
+                        return new MenusViewModel();
                     }
                     break;
             }
@@ -69,8 +85,8 @@ namespace ControlUsuarios.Entity.Controller
                     try
                     {
                         var ld = from departamentos in entity.Departamentos
-                                 where departamentos.id == valBusId
-                                 select new DepartamentosViewModel { id = departamentos.id, usuarioId = departamentos.usuarioId, nombre = departamentos.nombre };
+                                 where departamentos.id == valBusId || departamentos.nombre.Contains(valorBuscado) || departamentos.codigoDane.Contains(valorBuscado)
+                                 select new DepartamentosViewModel { id = departamentos.id, usuarioId = departamentos.usuarioId, nombre = departamentos.nombre, codigoDane = departamentos.codigoDane };
                         return ld.FirstOrDefault();
                     }
                     catch (Exception e)
