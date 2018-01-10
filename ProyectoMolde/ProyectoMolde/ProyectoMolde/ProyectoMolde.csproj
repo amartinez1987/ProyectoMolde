@@ -115,6 +115,9 @@
     <Content Include="Forms\frmAplicacionesWeb.ascx" />
     <Content Include="Forms\frmAplicacionesWeb_Editar.aspx" />
     <Content Include="Forms\frmAplicacionesWeb_Nuevo.aspx" />
+    <Content Include="Forms\frmBarrios.ascx" />
+    <Content Include="Forms\frmBarrios_Editar.aspx" />
+    <Content Include="Forms\frmBarrios_Nuevo.aspx" />
     <Content Include="Forms\frmDepartamentos.ascx" />
     <Content Include="Forms\frmDepartamentos_Editar.aspx" />
     <Content Include="Forms\frmDepartamentos_Nuevo.aspx" />
@@ -130,6 +133,7 @@
     <Content Include="Forms\frmGruposSanguineo.ascx" />
     <Content Include="Forms\frmGruposSanguineo_Editar.aspx" />
     <Content Include="Forms\frmGruposSanguineo_Nuevo.aspx" />
+    <Content Include="Forms\frmListaBarrios.aspx" />
     <Content Include="Forms\frmListaDepartamentos.aspx" />
     <Content Include="Forms\frmListaDocumentosIdentidad.aspx" />
     <Content Include="Forms\frmListaEstadosCivil.aspx" />
@@ -160,6 +164,7 @@
     <Content Include="Forms\index.aspx" />
     <Content Include="Forms\frmListaAplicacionesWeb.aspx" />
     <Content Include="Js\configAjax.js" />
+    <Content Include="Js\Forms\Barrios.js" />
     <Content Include="Js\Forms\Departamentos.js" />
     <Content Include="Js\Forms\AplicacionesWeb.js" />
     <Content Include="Js\Forms\DocumentosIdentidad.js" />
@@ -175,6 +180,7 @@
     <Content Include="Js\Forms\Sexos.js" />
     <Content Include="Js\frmHelp.js" />
     <Content Include="WebMethods\aplicacionesWeb.aspx" />
+    <Content Include="WebMethods\barrios.aspx" />
     <Content Include="WebMethods\departamentos.aspx" />
     <Content Include="WebMethods\documentosIdentidad.aspx" />
     <Content Include="WebMethods\estadosCivil.aspx" />
@@ -324,6 +330,27 @@
     <Compile Include="Forms\frmAplicacionesWeb_Nuevo.aspx.designer.cs">
       <DependentUpon>frmAplicacionesWeb_Nuevo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmBarrios.ascx.cs">
+      <DependentUpon>frmBarrios.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBarrios.ascx.designer.cs">
+      <DependentUpon>frmBarrios.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBarrios_Editar.aspx.cs">
+      <DependentUpon>frmBarrios_Editar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBarrios_Editar.aspx.designer.cs">
+      <DependentUpon>frmBarrios_Editar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBarrios_Nuevo.aspx.cs">
+      <DependentUpon>frmBarrios_Nuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBarrios_Nuevo.aspx.designer.cs">
+      <DependentUpon>frmBarrios_Nuevo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmCrudMaster.Master.cs">
       <DependentUpon>frmCrudMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -435,6 +462,13 @@
     </Compile>
     <Compile Include="Forms\frmGruposSanguineo_Nuevo.aspx.designer.cs">
       <DependentUpon>frmGruposSanguineo_Nuevo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmListaBarrios.aspx.cs">
+      <DependentUpon>frmListaBarrios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmListaBarrios.aspx.designer.cs">
+      <DependentUpon>frmListaBarrios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmListaDepartamentos.aspx.cs">
       <DependentUpon>frmListaDepartamentos.aspx</DependentUpon>
@@ -667,6 +701,13 @@
     </Compile>
     <Compile Include="WebMethods\aplicacionesWeb.aspx.designer.cs">
       <DependentUpon>aplicacionesWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebMethods\barrios.aspx.cs">
+      <DependentUpon>barrios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebMethods\barrios.aspx.designer.cs">
+      <DependentUpon>barrios.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebMethods\departamentos.aspx.cs">
       <DependentUpon>departamentos.aspx</DependentUpon>

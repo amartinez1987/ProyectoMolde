@@ -170,7 +170,7 @@ function cargarListaMunicipios() {
 function btnOpenHelp(campoIdReturn, campoReturnView, campoDescripReturn) {
     help.tabla = 'Departamentos';
     help.header = 'Listado';
-    help.columnas = ['codigoDane', 'nombre', 'codigoDane'];
+    help.columnas = ['codigoDane', 'nombre'];
     help.prefiltros = [];
     help.campoIdReturn = campoIdReturn;
     help.campoReturnView = campoReturnView;
