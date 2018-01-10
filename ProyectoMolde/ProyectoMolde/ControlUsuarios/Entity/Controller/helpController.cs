@@ -70,6 +70,19 @@ namespace ControlUsuarios.Entity.Controller
                         return new MenusViewModel();
                     }
                     break;
+                case "Municipios":
+                    try
+                    {
+                        var lf = from municipios in entity.Municipios
+                                 where municipios.nombre.Contains( textoBusqueda) || municipios.codigoDane.Contains(textoBusqueda) || municipios.Departamentos.codigoDane.Contains(textoBusqueda) || municipios.Departamentos.nombre.Contains(textoBusqueda)
+                                 select new MunicipiosViewModel { id = municipios.id, nombre = municipios.nombre, codigoDane = municipios.codigoDane, departamentoId = municipios.departamentoId, usuarioId = municipios.usuarioId, codigoDaneDepartamento = municipios.Departamentos.codigoDane, nombreDepartamento = municipios.Departamentos.nombre };
+                        return lf.ToList();
+                    }
+                    catch (Exception e)
+                    {
+                        return new MenusViewModel();
+                    }
+                    break;
             }
             return new List<string>();
         }
@@ -131,6 +144,19 @@ namespace ControlUsuarios.Entity.Controller
                     catch (Exception e)
                     {
                         return new AplicacionesWebViewModel();
+                    }
+                    break;
+                case "Municipios":
+                    try
+                    {
+                        var lf = from municipios in entity.Municipios
+                                 where (municipios.Departamentos.codigoDane+municipios.codigoDane).Contains(valorBuscado) || (municipios.Departamentos.nombre+municipios.nombre).Contains(valorBuscado)
+                                 select new MunicipiosViewModel { id = municipios.id, nombre = municipios.nombre, codigoDane = municipios.codigoDane, departamentoId = municipios.departamentoId, usuarioId = municipios.usuarioId, codigoDaneDepartamento = municipios.Departamentos.codigoDane, nombreDepartamento = municipios.Departamentos.nombre };
+                        return lf.SingleOrDefault();
+                    }
+                    catch (Exception e)
+                    {
+                        return new MenusViewModel();
                     }
                     break;
             }
