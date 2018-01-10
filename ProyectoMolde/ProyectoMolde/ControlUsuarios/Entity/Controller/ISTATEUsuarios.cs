@@ -12,6 +12,8 @@ namespace ControlUsuarios.Entity.Controller
 
          Result NuevoSinDatosPersona(ref Usuarios registro);
 
+         Result NuevoConDatosPersona(ref Usuarios registro);
+
          Result Editar(ref Usuarios registro);
 
          Result Inactivar(ref Usuarios registro);

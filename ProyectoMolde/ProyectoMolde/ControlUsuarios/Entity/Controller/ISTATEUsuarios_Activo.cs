@@ -19,6 +19,15 @@ namespace ControlUsuarios.Entity.Controller
             resul.tipoAlerta = "Info";
             return resul;
         }
+
+        public Result NuevoConDatosPersona(ref Usuarios registro)
+        {
+            Result resul = new Result();
+            resul.error = "No se puede realizar esta operación en el estado actual del registro";
+            resul.tipoAlerta = "Info";
+            return resul;
+        }
+
         public Result Editar(ref Usuarios registro)
         {
             Result resul = new Result();

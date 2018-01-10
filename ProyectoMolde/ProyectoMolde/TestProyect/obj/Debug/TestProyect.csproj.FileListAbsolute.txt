@@ -48,3 +48,5 @@ F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\TestProyect\obj\Debug
 F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\TestProyect\obj\Debug\TestProyect.pdb
 F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\TestProyect\bin\Debug\ProyectoMolde.dll
 F:\ProyectoMolde\ProyectoMolde\ProyectoMolde\ProyectoMolde\TestProyect\bin\Debug\ProyectoMolde.pdb
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\TestProyect\bin\Debug\ProyectoMolde.dll
+C:\Users\amartinez\Desktop\ProyectoMolde\ProyectoMolde\ProyectoMolde\TestProyect\bin\Debug\ProyectoMolde.pdb

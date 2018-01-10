@@ -118,6 +118,7 @@
     <Compile Include="Entity\Controller\OperacionesController.cs" />
     <Compile Include="Entity\Controller\OperacionesFormularioController.cs" />
     <Compile Include="Entity\Controller\PerfilesOperacionesFormularioController.cs" />
+    <Compile Include="Entity\Controller\PersonasController.cs" />
     <Compile Include="Entity\Controller\SexosController.cs" />
     <Compile Include="Entity\Controller\UsuariosController.cs" />
     <Compile Include="Entity\Controller\ValidateSession.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="Entity\Model\Personas.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Model\PersonasViewModel.cs" />
     <Compile Include="Entity\Model\Result.cs" />
     <Compile Include="Entity\Model\Sexos.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>

@@ -52,5 +52,7 @@ namespace ControlUsuarios.Entity.Controller
 
             return new Result() { error = "Usted no tiene habilitada esta operación.", tipoAlerta = "warning" };
         }
+
+    
     }
 }
