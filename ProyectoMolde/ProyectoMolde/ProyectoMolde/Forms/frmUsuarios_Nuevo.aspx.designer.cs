@@ -10,15 +10,15 @@
 namespace ProyectoMolde.Forms {
     
     
-    public partial class frmUsuarios {
+    public partial class frmUsuarios_Nuevo {
         
         /// <summary>
-        /// Control frmPersonas.
+        /// Control frmUsuarios.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::ProyectoMolde.Forms.frmPersonas frmPersonas;
+        protected global::ProyectoMolde.Forms.frmUsuarios frmUsuarios;
     }
 }

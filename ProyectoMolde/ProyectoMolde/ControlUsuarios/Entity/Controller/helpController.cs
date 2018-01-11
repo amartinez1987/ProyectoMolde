@@ -83,6 +83,20 @@ namespace ControlUsuarios.Entity.Controller
                         return new MenusViewModel();
                     }
                     break;
+                case "Perfiles":
+                    try
+                    {
+                        var l = from perfiles in entity.Perfiles
+                                where perfiles.nombrePerfil.Contains(textoBusqueda == "" ? perfiles.nombrePerfil : textoBusqueda)
+                                select new PerfilesViewModel { id = perfiles.id, usuarioId = perfiles.usuarioId, nombrePerfil = perfiles.nombrePerfil, descripcion = perfiles.descripcion, estado = perfiles.estado };
+                        return l.ToList();
+                    }
+                    catch (Exception e)
+                    {
+                        return new PerfilesViewModel();
+                    }
+                    break;
+
             }
             return new List<string>();
         }
@@ -157,6 +171,19 @@ namespace ControlUsuarios.Entity.Controller
                     catch (Exception e)
                     {
                         return new MenusViewModel();
+                    }
+                    break;
+                case "Perfiles":
+                    try
+                    {
+                        var l = from perfiles in entity.Perfiles
+                                where perfiles.id == valBusId
+                                select new PerfilesViewModel { id = perfiles.id, usuarioId = perfiles.usuarioId, nombrePerfil = perfiles.nombrePerfil, descripcion = perfiles.descripcion, estado = perfiles.estado };
+                        return l.SingleOrDefault();
+                    }
+                    catch (Exception e)
+                    {
+                        return new PerfilesViewModel();
                     }
                     break;
             }

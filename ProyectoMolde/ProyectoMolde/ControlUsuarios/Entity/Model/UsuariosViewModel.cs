@@ -19,9 +19,10 @@ namespace ControlUsuarios.Entity.Model
         public string confirmarClave { get; set; }
         public string estado { get; set; }
         //Datos Persona
-        public int documentoIdentidadId { get; set; }
+        public int? documentoIdentidadId { get; set; }
         public string siglaDocumentoIdentidad { get; set; }
-        public int municipioId { get; set; }
+        public string descripcionDocumentoIdentidad { get; set; }
+        public int? municipioId { get; set; }
         public string codigoDaneDepartamento { get; set; }
         public string nombreDepartamento { get; set; }
         public string codigoDaneMunicipio { get; set; }
@@ -41,11 +42,13 @@ namespace ControlUsuarios.Entity.Model
 
             }
         }
-        public int grupoSanguineoId { get; set; }
+        public int? grupoSanguineoId { get; set; }
         public string siglaGrupoSanguineo { get; set; }
-        public int sexoId { get; set; }
+        public string descripcionGrupoSanguineo { get; set; }
+        public int? sexoId { get; set; }
         public string siglaSexo { get; set; }
-        public int municipioExpedicionId { get; set; }
+        public string descripcionSexo { get; set; }
+        public int? municipioExpedicionId { get; set; }
         public string codigoDaneDepartamentoExpedicion { get; set; }
         public string nombreDepartamentoExpedicion { get; set; }
         public string codigoDaneMunicipioExpedicion { get; set; }
@@ -76,12 +79,12 @@ namespace ControlUsuarios.Entity.Model
                 return string.Format("[{0}] [{1}] [{2}]", nombreDepartamentoBarrio, nombreMunicipioBarrio, nombreoBarrio);
             }
         }
-        public int estatura { get; set; }
-        public int peso { get; set; }
-        public int estadoCivilId { get; set; }
+        public int? estatura { get; set; }
+        public int? peso { get; set; }
+        public int? estadoCivilId { get; set; }
         public string nombreEstadoCivil { get; set; }
-        public int telefonoFijo { get; set; }
-        public int telefonoCelular { get; set; }
+        public int? telefonoFijo { get; set; }
+        public int? telefonoCelular { get; set; }
         public string numeroDocumento { get; set; }
         public string primerNombre { get; set; }
         public string segundoNombre { get; set; }
@@ -96,5 +99,8 @@ namespace ControlUsuarios.Entity.Model
         }
         public string direcccion { get; set; }
         public string correo { get; set; }
+        public DateTime? fechaNacimiento { get; set; }
+        public DateTime? fechaExpedicionCedula { get; set; }
+        
     }
 }

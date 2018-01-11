@@ -61,7 +61,5 @@ namespace ProyectoMolde.WebMethods
             }
             return new Result() { error = "", getCadena = new JavaScriptSerializer().Serialize(lst.GetRange(registroPartida, totalAExtraer)), totalRegistros = totalRegistros };
         }
-
-
     }
 }

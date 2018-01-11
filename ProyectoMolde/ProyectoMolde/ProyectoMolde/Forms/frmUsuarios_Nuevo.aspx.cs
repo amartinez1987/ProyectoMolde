@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoMolde.Forms
 {
-    public partial class frmUsuarios : System.Web.UI.UserControl
+    public partial class frmUsuarios_Nuevo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

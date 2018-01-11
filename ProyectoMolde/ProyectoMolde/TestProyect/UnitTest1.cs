@@ -37,6 +37,13 @@ namespace TestProyect
             var ob = new OperacionesFormularioController().getListaNoOperacionesFormulario(8);
         }
 
+        [Fact]
+        public void TestMethod5()
+        {
+
+            var ob = new UsuariosController().getListaUsuarios("");
+        }
+
 
     }
 }

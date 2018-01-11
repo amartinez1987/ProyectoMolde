@@ -1,4 +1,5 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="frmFormularios.ascx.cs" Inherits="ProyectoMolde.Forms.frmFormularios" %>
+
 <div class="row">
     <div class="col-sm-12">
         <div id="PanelIDFormularios" hidden="hidden">
@@ -7,6 +8,7 @@
         </div>
     </div>
 </div>
+
 <div class="row">
     <div class="col-sm-12">
         <label id="lblnombreFormularioFormularios">nombreFormulario</label>
@@ -27,7 +29,6 @@
                 </a>
             </span>
         </div>
-
     </div>
     <div class="col-sm-6">
         <br />

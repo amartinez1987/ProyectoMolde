@@ -163,6 +163,8 @@
     <Content Include="Forms\frmSexos.ascx" />
     <Content Include="Forms\frmSexos_Editar.aspx" />
     <Content Include="Forms\frmSexos_Nuevo.aspx" />
+    <Content Include="Forms\frmUsuarios_Editar.aspx" />
+    <Content Include="Forms\frmUsuarios_Nuevo.aspx" />
     <Content Include="Forms\index.aspx" />
     <Content Include="Forms\frmListaAplicacionesWeb.aspx" />
     <Content Include="Forms\frmUsuarios.ascx" />
@@ -180,7 +182,9 @@
     <Content Include="Js\Forms\OperacionesFormulario.js" />
     <Content Include="Js\Forms\Perfiles.js" />
     <Content Include="Js\Forms\PerfilesOperacionesFormulario.js" />
+    <Content Include="Js\Forms\Personas.js" />
     <Content Include="Js\Forms\Sexos.js" />
+    <Content Include="Js\Forms\Usuarios.js" />
     <Content Include="Js\frmHelp.js" />
     <Content Include="WebMethods\aplicacionesWeb.aspx" />
     <Content Include="WebMethods\barrios.aspx" />
@@ -682,6 +686,20 @@
     </Compile>
     <Compile Include="Forms\frmSexos_Nuevo.aspx.designer.cs">
       <DependentUpon>frmSexos_Nuevo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUsuarios_Editar.aspx.cs">
+      <DependentUpon>frmUsuarios_Editar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUsuarios_Editar.aspx.designer.cs">
+      <DependentUpon>frmUsuarios_Editar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUsuarios_Nuevo.aspx.cs">
+      <DependentUpon>frmUsuarios_Nuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUsuarios_Nuevo.aspx.designer.cs">
+      <DependentUpon>frmUsuarios_Nuevo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

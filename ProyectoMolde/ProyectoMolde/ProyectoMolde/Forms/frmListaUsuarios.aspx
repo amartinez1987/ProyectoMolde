@@ -10,8 +10,12 @@
                 Listado Usuarios
             </div>
             <div class="panel-body">
-                <div class="col-sm-5 col-md-5 col-lg-1">
+                <div class="col-sm-6">
                     <button id="btnUsuarios_Nuevo" onclick="btnUsuarios_NuevoClick()" type="button" class="btn btn-default">Nuevo</button>
+                </div>
+                <div class="col-sm-6">
+                    <input id="txtSearch" type="text" placeholder="Search" />
+                    <a type="button" onclick="btnOnSearch()" class="fa fa-search"></a>
                 </div>
             </div>
             <br />
@@ -21,11 +25,11 @@
                     <table id="gridListaUsuarios" class="display" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>#</th>  
-                                <th>#</th>                                
+                                <th>#</th>
+                                <th>#</th>
                                 <th>Nombre Usuario</th>
-                                <th>Tipo Documento</th>                                
-                                <th>Nombre Completo</th>                                                                
+                                <th>Tipo Documento</th>
+                                <th>Nombre Completo</th>
                                 <th>Perfil</th>
                                 <th>Estado</th>
                             </tr>

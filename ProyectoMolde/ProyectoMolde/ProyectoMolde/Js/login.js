@@ -88,14 +88,14 @@ function OnSuccessLogin(response)
 
 
 
-function getListaMenuPerfilUsuario() {
+function getListaMenuPerfilUsuario() {    
     usuario.usuarioId = getLocalStorageNavegator("usuarioId");
     var url = "/WebMethods/usuario.aspx/getListaMenuUsuario";
     enviarComoParametros(url, usuario, OnSuccessListUsuario);
 }
 
 function OnSuccessListUsuario(response) {
-    
+
     if ((response.error == null ? "" : response.error) != "")
     {
         tipoAlerta(response.error, response.tipoAlerta, "#boxMessages");

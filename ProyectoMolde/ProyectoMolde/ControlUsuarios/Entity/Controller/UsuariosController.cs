@@ -19,8 +19,125 @@ namespace ControlUsuarios.Entity.Controller
 
         public List<UsuariosViewModel> getListaUsuarios(string valorBuscado)
         {
+            switch (valorBuscado)
+            {
+                case "":
+                    var l = from usuarios in entity.Usuarios
+                            select new UsuariosViewModel
+                            {
+                                id = usuarios.id,
+                                idPersona = usuarios.idPersona,
+                                usuarioId = usuarios.usuarioId,
+                                perfilId = usuarios.perfilId,
+                                nombreUsuario = usuarios.nombreUsuario,
+                                clave = usuarios.clave,
+                                estado = usuarios.estado,
+                                siglaDocumentoIdentidad = usuarios.Personas.DocumentosIdentidad.sigla,
+                                numeroDocumento = usuarios.Personas.numeroDocumento,
+                                barrioId = usuarios.Personas.barrioId,
+                                correo = usuarios.Personas.correo,
+                                direcccion = usuarios.Personas.direcccion,
+                                documentoIdentidadId = usuarios.Personas.documentoIdentidadId,
+                                estadoCivilId = usuarios.Personas.estadoCivilId,
+                                estatura = usuarios.Personas.estatura,
+                                grupoSanguineoId = usuarios.Personas.grupoSanguineoId,
+                                municipioExpedicionId = usuarios.Personas.municipioExpedicionId,
+                                municipioId = usuarios.Personas.municipioId,
+                                peso = usuarios.Personas.peso,
+                                primerApellido = usuarios.Personas.primerApellido,
+                                primerNombre = usuarios.Personas.primerNombre,
+                                segundoApellido = usuarios.Personas.segundoApellido,
+                                segundoNombre = usuarios.Personas.segundoNombre,
+                                sexoId = usuarios.Personas.sexoId,
+                                telefonoCelular = usuarios.Personas.telefonoCelular,
+                                telefonoFijo = usuarios.Personas.telefonoFijo,
+                                codigoDaneDepartamento = usuarios.Personas.Municipios.Departamentos.codigoDane,
+                                codigoDaneMunicipio = usuarios.Personas.Municipios.codigoDane,
+                                nombreDepartamento = usuarios.Personas.Municipios.Departamentos.nombre,
+                                nombreMunicipio = usuarios.Personas.Municipios.nombre,
+                                siglaGrupoSanguineo = usuarios.Personas.GruposSanguineo.sigla,
+                                siglaSexo = usuarios.Personas.Sexos.sigla,
+                                codigoDaneDepartamentoExpedicion = usuarios.Personas.Municipios1.Departamentos.codigoDane,
+                                codigoDaneMunicipioExpedicion = usuarios.Personas.Municipios1.codigoDane,
+                                nombreDepartamentoExpedicion = usuarios.Personas.Municipios1.Departamentos.nombre,
+                                nombreMunicipioExpedicion = usuarios.Personas.Municipios1.nombre,
+                                nombreDepartamentoBarrio = usuarios.Personas.Barrios.Municipios.Departamentos.nombre,
+                                nombreMunicipioBarrio = usuarios.Personas.Barrios.Municipios.nombre,
+                                nombreoBarrio = usuarios.Personas.Barrios.nombre,
+                                nombreEstadoCivil = usuarios.Personas.EstadosCivil.sigla,
+                                nombrePerfil = usuarios.Perfiles.nombrePerfil,
+                                descripcionDocumentoIdentidad = usuarios.Personas.DocumentosIdentidad.descripcion,
+                                descripcionGrupoSanguineo = usuarios.Personas.GruposSanguineo.descripcion,
+                                descripcionSexo = usuarios.Personas.Sexos.descripcion,
+                                fechaNacimiento = usuarios.Personas.fechaNacimiento,
+                                fechaExpedicionCedula = usuarios.Personas.fechaExpedicionCedula
+
+                            };
+                    return l.ToList();
+                    break;
+                default: var lu = from usuarios in entity.Usuarios
+                                  where usuarios.nombreUsuario.Contains(valorBuscado) || usuarios.Personas.primerNombre.Contains(valorBuscado) || usuarios.Personas.segundoNombre.Contains(valorBuscado) || usuarios.Personas.primerApellido.Contains(valorBuscado) || usuarios.Personas.segundoApellido.Contains(valorBuscado) || usuarios.Personas.numeroDocumento.Contains(valorBuscado)
+                                  select new UsuariosViewModel
+                                  {
+                                      id = usuarios.id,
+                                      idPersona = usuarios.idPersona,
+                                      usuarioId = usuarios.usuarioId,
+                                      perfilId = usuarios.perfilId,
+                                      nombreUsuario = usuarios.nombreUsuario,
+                                      clave = usuarios.clave,
+                                      estado = usuarios.estado,
+                                      siglaDocumentoIdentidad = usuarios.Personas.DocumentosIdentidad.sigla,
+                                      numeroDocumento = usuarios.Personas.numeroDocumento,
+                                      barrioId = usuarios.Personas.barrioId,
+                                      correo = usuarios.Personas.correo,
+                                      direcccion = usuarios.Personas.direcccion,
+                                      documentoIdentidadId = usuarios.Personas.documentoIdentidadId,
+                                      estadoCivilId = usuarios.Personas.estadoCivilId,
+                                      estatura = usuarios.Personas.estatura,
+                                      grupoSanguineoId = usuarios.Personas.grupoSanguineoId,
+                                      municipioExpedicionId = usuarios.Personas.municipioExpedicionId,
+                                      municipioId = usuarios.Personas.municipioId,
+                                      peso = usuarios.Personas.peso,
+                                      primerApellido = usuarios.Personas.primerApellido,
+                                      primerNombre = usuarios.Personas.primerNombre,
+                                      segundoApellido = usuarios.Personas.segundoApellido,
+                                      segundoNombre = usuarios.Personas.segundoNombre,
+                                      sexoId = usuarios.Personas.sexoId,
+                                      telefonoCelular = usuarios.Personas.telefonoCelular,
+                                      telefonoFijo = usuarios.Personas.telefonoFijo,
+                                      codigoDaneDepartamento = usuarios.Personas.Municipios.Departamentos.codigoDane,
+                                      codigoDaneMunicipio = usuarios.Personas.Municipios.codigoDane,
+                                      nombreDepartamento = usuarios.Personas.Municipios.Departamentos.nombre,
+                                      nombreMunicipio = usuarios.Personas.Municipios.nombre,
+                                      siglaGrupoSanguineo = usuarios.Personas.GruposSanguineo.sigla,
+                                      siglaSexo = usuarios.Personas.Sexos.sigla,
+                                      codigoDaneDepartamentoExpedicion = usuarios.Personas.Municipios1.Departamentos.codigoDane,
+                                      codigoDaneMunicipioExpedicion = usuarios.Personas.Municipios1.codigoDane,
+                                      nombreDepartamentoExpedicion = usuarios.Personas.Municipios1.Departamentos.nombre,
+                                      nombreMunicipioExpedicion = usuarios.Personas.Municipios1.nombre,
+                                      nombreDepartamentoBarrio = usuarios.Personas.Barrios.Municipios.Departamentos.nombre,
+                                      nombreMunicipioBarrio = usuarios.Personas.Barrios.Municipios.nombre,
+                                      nombreoBarrio = usuarios.Personas.Barrios.nombre,
+                                      nombreEstadoCivil = usuarios.Personas.EstadosCivil.sigla,
+                                      nombrePerfil = usuarios.Perfiles.nombrePerfil,
+                                      descripcionDocumentoIdentidad = usuarios.Personas.DocumentosIdentidad.descripcion,
+                                      descripcionGrupoSanguineo = usuarios.Personas.GruposSanguineo.descripcion,
+                                      descripcionSexo = usuarios.Personas.Sexos.descripcion,
+                                      fechaNacimiento = usuarios.Personas.fechaNacimiento,
+                                      fechaExpedicionCedula = usuarios.Personas.fechaExpedicionCedula
+
+                                  };
+                    return lu.ToList();
+                    break;
+            }
+
+        }
+
+        public UsuariosViewModel getUsuariosId(int id)
+        {
+
             var l = from usuarios in entity.Usuarios
-                    where usuarios.nombreUsuario.Contains(valorBuscado) || usuarios.Personas.primerNombre.Contains(valorBuscado) || usuarios.Personas.segundoNombre.Contains(valorBuscado) || usuarios.Personas.primerApellido.Contains(valorBuscado) || usuarios.Personas.segundoApellido.Contains(valorBuscado) || usuarios.Personas.numeroDocumento.Contains(valorBuscado)
+                    where usuarios.id == id
                     select new UsuariosViewModel
                     {
                         id = usuarios.id,
@@ -63,60 +180,13 @@ namespace ControlUsuarios.Entity.Controller
                         nombreMunicipioBarrio = usuarios.Personas.Barrios.Municipios.nombre,
                         nombreoBarrio = usuarios.Personas.Barrios.nombre,
                         nombreEstadoCivil = usuarios.Personas.EstadosCivil.sigla,
-                         nombrePerfil = usuarios.Perfiles.nombrePerfil
+                        nombrePerfil = usuarios.Perfiles.nombrePerfil,
+                        descripcionDocumentoIdentidad = usuarios.Personas.DocumentosIdentidad.descripcion,
+                        descripcionGrupoSanguineo = usuarios.Personas.GruposSanguineo.descripcion,
+                        descripcionSexo = usuarios.Personas.Sexos.descripcion,
+                        fechaNacimiento = usuarios.Personas.fechaNacimiento,
+                        fechaExpedicionCedula = usuarios.Personas.fechaExpedicionCedula
 
-                    };
-            return l.ToList();
-        }
-
-        public UsuariosViewModel getUsuariosId(int id)
-        {
-
-            var l = from usuarios in entity.Usuarios
-                    where usuarios.id == id
-                    select new UsuariosViewModel 
-                    {
-                        id = usuarios.id,
-                        idPersona = usuarios.idPersona,
-                        usuarioId = usuarios.usuarioId,
-                        perfilId = usuarios.perfilId,
-                        nombreUsuario = usuarios.nombreUsuario,
-                        clave = usuarios.clave,
-                        estado = usuarios.estado,
-                        siglaDocumentoIdentidad = usuarios.Personas.DocumentosIdentidad.sigla,
-                        numeroDocumento = usuarios.Personas.numeroDocumento,
-                        barrioId = usuarios.Personas.barrioId,
-                        correo = usuarios.Personas.correo,
-                        direcccion = usuarios.Personas.direcccion,
-                        documentoIdentidadId = usuarios.Personas.documentoIdentidadId,
-                        estadoCivilId = usuarios.Personas.estadoCivilId,
-                        estatura = usuarios.Personas.estatura,
-                        grupoSanguineoId = usuarios.Personas.grupoSanguineoId,
-                        municipioExpedicionId = usuarios.Personas.municipioExpedicionId,
-                        municipioId = usuarios.Personas.municipioId,
-                        peso = usuarios.Personas.peso,
-                        primerApellido = usuarios.Personas.primerApellido,
-                        primerNombre = usuarios.Personas.primerNombre,
-                        segundoApellido = usuarios.Personas.segundoApellido,
-                        segundoNombre = usuarios.Personas.segundoNombre,
-                        sexoId = usuarios.Personas.sexoId,
-                        telefonoCelular = usuarios.Personas.telefonoCelular,
-                        telefonoFijo = usuarios.Personas.telefonoFijo,
-                        codigoDaneDepartamento = usuarios.Personas.Municipios.Departamentos.codigoDane,
-                        codigoDaneMunicipio = usuarios.Personas.Municipios.codigoDane,
-                        nombreDepartamento = usuarios.Personas.Municipios.Departamentos.nombre,
-                        nombreMunicipio = usuarios.Personas.Municipios.nombre,
-                        siglaGrupoSanguineo = usuarios.Personas.GruposSanguineo.sigla,
-                        siglaSexo = usuarios.Personas.Sexos.sigla,
-                        codigoDaneDepartamentoExpedicion = usuarios.Personas.Municipios1.Departamentos.codigoDane,
-                        codigoDaneMunicipioExpedicion = usuarios.Personas.Municipios1.codigoDane,
-                        nombreDepartamentoExpedicion = usuarios.Personas.Municipios1.Departamentos.nombre,
-                        nombreMunicipioExpedicion = usuarios.Personas.Municipios1.nombre,
-                        nombreDepartamentoBarrio = usuarios.Personas.Barrios.Municipios.Departamentos.nombre,
-                        nombreMunicipioBarrio = usuarios.Personas.Barrios.Municipios.nombre,
-                        nombreoBarrio = usuarios.Personas.Barrios.nombre,
-                        nombreEstadoCivil = usuarios.Personas.EstadosCivil.sigla,
-                        nombrePerfil = usuarios.Perfiles.nombrePerfil
                     };
             return l.SingleOrDefault();
 
