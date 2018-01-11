@@ -105,7 +105,7 @@ function btnUsuarios_GuardarClick() {
         usuarios.fechaNacimiento = $('#txtfechaNacimientoPersonas').val();
         usuarios.fechaExpedicionCedula = $('#txtfechaExpedicionCedulaPersonas').val();
 
-        var url = "/WebMethods/usuarios.aspx/nuevo";
+        var url = "/WebMethods/usuario.aspx/nuevo";
         enviarComoParametros(url, usuarios, OnSuccesSaveUsuarios);
     }
 }
@@ -140,7 +140,7 @@ function btnUsuarios_EditarClick() {
         usuarios.fechaNacimiento = $('#txtfechaNacimientoPersonas').val();
         usuarios.fechaExpedicionCedula = $('#txtfechaExpedicionCedulaPersonas').val();
 
-        var url = "/WebMethods/usuarios.aspx/editar";
+        var url = "/WebMethods/usuario.aspx/editar";
         enviarComoParametros(url, usuarios, OnSuccesSaveUsuarios);
     }
 }

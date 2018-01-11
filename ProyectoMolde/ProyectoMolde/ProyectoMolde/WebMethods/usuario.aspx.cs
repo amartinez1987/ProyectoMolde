@@ -61,5 +61,26 @@ namespace ProyectoMolde.WebMethods
             }
             return new Result() { error = "", getCadena = new JavaScriptSerializer().Serialize(lst.GetRange(registroPartida, totalAExtraer)), totalRegistros = totalRegistros };
         }
+
+        [WebMethod]
+        public static Result nuevo(UsuariosViewModel usuario)
+        {
+            if (usuario.clave != usuario.confirmarClave)
+            {
+                return new Result() { id = 0, error = "Las claves no coinciden.", tipoAlerta = "warning" };
+            }
+
+            Usuarios u = new Usuarios();            
+            Result r = IFACTORY.createUsuarios("Nuevo").NuevoConDatosPersona(ref u);
+            return r;
+        }
+
+        [WebMethod]
+        public static Result editar(UsuariosViewModel usuario)
+        {
+            Usuarios u = new Usuarios();
+            Result r = IFACTORY.createUsuarios(u.estado).Editar(ref u);
+            return r;
+        }
     }
 }
