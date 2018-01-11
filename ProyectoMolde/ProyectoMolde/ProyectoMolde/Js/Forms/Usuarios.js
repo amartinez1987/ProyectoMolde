@@ -73,7 +73,7 @@ function btnUsuarios_NuevoClick() {
 function btnUsuarios_GuardarClick() {
     if (validarCampos()) {
         if ($('#txtclaveUsuarios').val() != $('#txtConfirmarclaveUsuarios').val()) {
-            tipoAlerta("La Constraseñas no coinciden", "warning", "#boxMessagesCrud");
+            tipoAlerta("La Constraseñas no coinciden", "warning", "#panelGuardar");
             return;
         }
 
@@ -147,12 +147,12 @@ function btnUsuarios_EditarClick() {
 
 function OnSuccesSaveUsuarios(response) {
     if ((response.error == null ? "" : response.error) != "") {
-        tipoAlerta(response.error, response.tipoAlerta, "#boxMessagesCrud");
+        tipoAlerta(response.error, response.tipoAlerta, "#panelGuardar");
         return;
     }
 
     if (response.error == '') {
-        tipoAlerta('Registro Guardado con exito', 'success', "#boxMessagesCrud");
+        tipoAlerta('Registro Guardado con exito', 'success', "#panelGuardar");
         return;
     }
 }
@@ -229,107 +229,107 @@ function getListaUsuarios(valorBuscado, registroPartida, totalAExtraer, callback
 function validarCampos() {
 
     if ($('#txtperfilIdUsuarios').val() == 0) {
-        tipoAlerta('El campo perfilId no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo perfilId no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtnombreUsuarioUsuarios').val() == "") {
-        tipoAlerta('El campo nombreUsuario no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo nombreUsuario no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtclaveUsuarios').val() == "") {
-        tipoAlerta('El campo clave no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo clave no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtdocumentoIdentidadIdPersonas').val() == 0) {
-        tipoAlerta('El campo documentoIdentidadId no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo documentoIdentidadId no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtmunicipioIdPersonas').val() == 0) {
-        tipoAlerta('El campo municipioId no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo municipioId no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtgrupoSanguineoIdPersonas').val() == 0) {
-        tipoAlerta('El campo grupoSanguineoId no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo grupoSanguineoId no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtsexoIdPersonas').val() == 0) {
-        tipoAlerta('El campo sexoId no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo sexoId no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtmunicipioExpedicionIdPersonas').val() == 0) {
-        tipoAlerta('El campo municipioExpedicionId no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo municipioExpedicionId no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtbarrioIdPersonas').val() == 0) {
-        tipoAlerta('El campo barrioId no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo barrioId no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtestaturaPersonas').val() == 0) {
-        tipoAlerta('El campo estatura no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo estatura no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtpesoPersonas').val() == 0) {
-        tipoAlerta('El campo peso no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo peso no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtestadoCivilIdPersonas').val() == 0) {
-        tipoAlerta('El campo estadoCivilId no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo estadoCivilId no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txttelefonoFijoPersonas').val() == "") {
-        tipoAlerta('El campo telefonoFijo no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo telefonoFijo no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txttelefonoCelularPersonas').val() == "") {
-        tipoAlerta('El campo telefonoCelular no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo telefonoCelular no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtnumeroDocumentoPersonas').val() == "") {
-        tipoAlerta('El campo numeroDocumento no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo numeroDocumento no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtprimerNombrePersonas').val() == "") {
-        tipoAlerta('El campo primerNombre no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo primerNombre no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtsegundoNombrePersonas').val() == "") {
-        tipoAlerta('El campo segundoNombre no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo segundoNombre no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtprimerApellidoPersonas').val() == "") {
-        tipoAlerta('El campo primerApellido no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo primerApellido no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtsegundoApellidoPersonas').val() == "") {
-        tipoAlerta('El campo segundoApellido no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo segundoApellido no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtdirecccionPersonas').val() == "") {
-        tipoAlerta('El campo direcccion no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo direcccion no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
     if ($('#txtcorreoPersonas').val() == "") {
-        tipoAlerta('El campo correo no puede ir vacío.', 'warning', "#boxMessagesCrud");
+        tipoAlerta('El campo correo no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
 
@@ -394,8 +394,6 @@ function btnOnSearch() {
     cargarListaUsuarios();
 }
 
-
-
 function btnOpenHelpPerfiles(campoIdReturn, campoReturnView, campoDescripReturn) {
     help.tabla = 'Perfiles';
     help.header = 'Listado';
@@ -414,6 +412,7 @@ function leaveHelpPerfiles(campoIdReturn, campoDescripReturn) {
     help.valorBuscar = $("#txtPerfilVerUsuarios").val();
     help.campoIdReturn = campoIdReturn;
     help.campoDescripReturn = campoDescripReturn;
+    help.prefiltros = [];
 
     getHelpPerfiles();
 }
@@ -445,3 +444,370 @@ function OnSuccesHelpPerfiles(response) {
     }
 }
 
+
+function btnOpenHelpDocumentoIdentidad(campoIdReturn, campoReturnView, campoDescripReturn) {
+    help.tabla = 'DocumentosIdentidad';
+    help.header = 'Listado';
+    help.columnas = [ 'sigla', 'descripcion'];
+    help.prefiltros = [];
+    help.campoIdReturn = campoIdReturn;
+    help.campoReturnView = campoReturnView;
+    help.campoDescripReturn = campoDescripReturn;
+    help.atributoReturnDescripcion = "descripcion";
+    help.atributoReturnView = "sigla";
+    loadHelp('Help', cargarTabla());
+}
+
+function leaveHelpDocumentoIdentidad(campoIdReturn, campoDescripReturn) {
+    help.tabla = 'DocumentosIdentidad';
+    help.valorBuscar = $("#txtdocumentoIdentidadVerPersonas").val();
+    help.campoIdReturn = campoIdReturn;
+    help.campoDescripReturn = campoDescripReturn;
+    help.prefiltros = [];
+
+    getHelpDocumentoIdentidad();
+}
+
+
+function getHelpDocumentoIdentidad() {
+    help.usuarioId = getLocalStorageNavegator("usuarioId");
+    var url = "/WebMethods/help.aspx/getHelp";
+    enviarComoParametros(url, help, OnSuccesHelpDocumentoIdentidad);
+}
+
+function OnSuccesHelpDocumentoIdentidad(response) {
+    if ((response.error == null ? "" : response.error) != "") {
+        tipoAlerta(response.error, response.tipoAlerta, "#boxMessagesCrud");
+        return;
+    }
+    if (response.error == '') {
+        try {
+            var object = eval("(" + response.getCadena + ")");
+            $(help.campoDescripReturn).val(object.descripcion);
+            $(help.campoIdReturn).val(object.id);
+        }
+        catch (e) {
+            $(help.campoDescripReturn).val('');
+            $(help.campoIdReturn).val('');
+        }
+
+        return;
+    }
+}
+
+
+function btnOpenHelpMunicipioExpedicion(campoIdReturn, campoReturnView, campoDescripReturn) {
+    help.tabla = 'Municipios';
+    help.header = 'Listado';
+    help.columnas = ['codigoDaneDepartamentoMunicipio', 'nombreDepartamentoMunicipio'];
+    help.prefiltros = [];
+    help.campoIdReturn = campoIdReturn;
+    help.campoReturnView = campoReturnView;
+    help.campoDescripReturn = campoDescripReturn;
+    help.atributoReturnDescripcion = "nombreDepartamentoMunicipio";
+    help.atributoReturnView = "codigoDaneDepartamentoMunicipio";
+    loadHelp('Help', cargarTabla());
+}
+
+function leaveHelpMunicipioExpedicion(campoIdReturn, campoDescripReturn) {
+    help.tabla = 'Municipios';
+    help.valorBuscar = $("#txtmunicipioExpedicionVerPersonas").val();
+    help.campoIdReturn = campoIdReturn;
+    help.campoDescripReturn = campoDescripReturn;
+    help.prefiltros = [];
+
+    getHelpMunicipioExpedicion();
+}
+
+
+function getHelpMunicipioExpedicion() {
+    help.usuarioId = getLocalStorageNavegator("usuarioId");
+    var url = "/WebMethods/help.aspx/getHelp";
+    enviarComoParametros(url, help, OnSuccesHelpMunicipioExpedicion);
+}
+
+function OnSuccesHelpMunicipioExpedicion(response) {
+    if ((response.error == null ? "" : response.error) != "") {
+        tipoAlerta(response.error, response.tipoAlerta, "#boxMessagesCrud");
+        return;
+    }
+    if (response.error == '') {
+        try {
+            var object = eval("(" + response.getCadena + ")");
+            $(help.campoDescripReturn).val(object.nombreDepartamentoMunicipio);
+            $(help.campoIdReturn).val(object.id);
+        }
+        catch (e) {
+            $(help.campoDescripReturn).val('');
+            $(help.campoIdReturn).val('');
+        }
+
+        return;
+    }
+}
+
+function btnOpenHelpSexo(campoIdReturn, campoReturnView, campoDescripReturn) {
+    help.tabla = 'Sexos';
+    help.header = 'Listado';
+    help.columnas = ['sigla', 'descripcion'];
+    help.prefiltros = [];
+    help.campoIdReturn = campoIdReturn;
+    help.campoReturnView = campoReturnView;
+    help.campoDescripReturn = campoDescripReturn;
+    help.atributoReturnDescripcion = "descripcion";
+    help.atributoReturnView = "sigla";
+    loadHelp('Help', cargarTabla());
+}
+
+function leaveHelpSexo(campoIdReturn, campoDescripReturn) {
+    help.tabla = 'Sexos';
+    help.valorBuscar = $("#txtSexoVerPersonas").val();
+    help.campoIdReturn = campoIdReturn;
+    help.campoDescripReturn = campoDescripReturn;
+    help.prefiltros = [];
+
+    getHelpSexo();
+}
+
+
+function getHelpSexo() {
+    help.usuarioId = getLocalStorageNavegator("usuarioId");
+    var url = "/WebMethods/help.aspx/getHelp";
+    enviarComoParametros(url, help, OnSuccesHelpSexo);
+}
+
+function OnSuccesHelpSexo(response) {
+    if ((response.error == null ? "" : response.error) != "") {
+        tipoAlerta(response.error, response.tipoAlerta, "#boxMessagesCrud");
+        return;
+    }
+    if (response.error == '') {
+        try {
+            var object = eval("(" + response.getCadena + ")");
+            $(help.campoDescripReturn).val(object.descripcion);
+            $(help.campoIdReturn).val(object.id);
+        }
+        catch (e) {
+            $(help.campoDescripReturn).val('');
+            $(help.campoIdReturn).val('');
+        }
+
+        return;
+    }
+}
+
+
+function btnOpenHelpGrupoSanguineo(campoIdReturn, campoReturnView, campoDescripReturn) {
+    help.tabla = 'GruposSanguineo';
+    help.header = 'Listado';
+    help.columnas = ['sigla', 'descripcion'];
+    help.prefiltros = [];
+    help.campoIdReturn = campoIdReturn;
+    help.campoReturnView = campoReturnView;
+    help.campoDescripReturn = campoDescripReturn;
+    help.atributoReturnDescripcion = "descripcion";
+    help.atributoReturnView = "sigla";
+    loadHelp('Help', cargarTabla());
+}
+
+function leaveHelpGrupoSanguineo(campoIdReturn, campoDescripReturn) {
+    help.tabla = 'GruposSanguineo';
+    help.valorBuscar = $("#txtgrupoSanguineoVerPersonas").val();
+    help.campoIdReturn = campoIdReturn;
+    help.campoDescripReturn = campoDescripReturn;
+    help.prefiltros = [];
+
+    getHelpGrupoSanguineo();
+}
+
+
+function getHelpGrupoSanguineo() {
+    help.usuarioId = getLocalStorageNavegator("usuarioId");
+    var url = "/WebMethods/help.aspx/getHelp";
+    enviarComoParametros(url, help, OnSuccesHelpGrupoSanguineo);
+}
+
+function OnSuccesHelpGrupoSanguineo(response) {
+    if ((response.error == null ? "" : response.error) != "") {
+        tipoAlerta(response.error, response.tipoAlerta, "#boxMessagesCrud");
+        return;
+    }
+    if (response.error == '') {
+        try {
+            var object = eval("(" + response.getCadena + ")");
+            $(help.campoDescripReturn).val(object.descripcion);
+            $(help.campoIdReturn).val(object.id);
+        }
+        catch (e) {
+            $(help.campoDescripReturn).val('');
+            $(help.campoIdReturn).val('');
+        }
+
+        return;
+    }
+}
+
+
+function btnOpenHelpMunicipio(campoIdReturn, campoReturnView, campoDescripReturn) {
+    help.tabla = 'Municipios';
+    help.header = 'Listado';
+    help.columnas = ['codigoDaneDepartamentoMunicipio', 'nombreDepartamentoMunicipio'];
+    help.prefiltros = [];
+    help.campoIdReturn = campoIdReturn;
+    help.campoReturnView = campoReturnView;
+    help.campoDescripReturn = campoDescripReturn;
+    help.atributoReturnDescripcion = "nombreDepartamentoMunicipio";
+    help.atributoReturnView = "codigoDaneDepartamentoMunicipio";
+    loadHelp('Help', cargarTabla());
+}
+
+function leaveHelpMunicipio(campoIdReturn, campoDescripReturn) {
+    help.tabla = 'Municipios';
+    help.valorBuscar = $("#txtmunicipioVerPersona").val();
+    help.campoIdReturn = campoIdReturn;
+    help.campoDescripReturn = campoDescripReturn;
+    help.prefiltros = [];
+
+    getHelpMunicipio();
+}
+
+
+function getHelpMunicipio() {
+    help.usuarioId = getLocalStorageNavegator("usuarioId");
+    var url = "/WebMethods/help.aspx/getHelp";
+    enviarComoParametros(url, help, OnSuccesHelpMunicipio);
+}
+
+function OnSuccesHelpMunicipio(response) {
+    if ((response.error == null ? "" : response.error) != "") {
+        tipoAlerta(response.error, response.tipoAlerta, "#boxMessagesCrud");
+        return;
+    }
+    if (response.error == '') {
+        try {
+            var object = eval("(" + response.getCadena + ")");
+            $(help.campoDescripReturn).val(object.nombreDepartamentoMunicipio);
+            $(help.campoIdReturn).val(object.id);
+        }
+        catch (e) {
+            $(help.campoDescripReturn).val('');
+            $(help.campoIdReturn).val('');
+        }
+
+        return;
+    }
+}
+
+
+function btnOpenHelpBarrio(campoIdReturn, campoReturnView, campoDescripReturn) {
+    help.tabla = 'Barrios';
+    help.header = 'Listado';
+    help.columnas = ['id', 'nombre', 'codigoDaneDepartamentoMunicipio', 'nombreDepartamentoMunicipio'];
+    if ($('#txtmunicipioIdPersonas').val() == 0)
+    {
+        tipoAlerta('Seleccione un municipio.', 'danger', "#panelMunicipio");
+        return false;
+    };
+    help.prefiltros = [$("#txtmunicipioIdPersonas").val()];
+    help.campoIdReturn = campoIdReturn;
+    help.campoReturnView = campoReturnView;
+    help.campoDescripReturn = campoDescripReturn;
+    help.atributoReturnDescripcion = "nombre";
+    help.atributoReturnView = "id";
+    loadHelp('Help', cargarTabla());
+}
+
+function leaveHelpBarrio(campoIdReturn, campoDescripReturn) {
+    help.tabla = 'Barrios';
+    help.valorBuscar = $("#txtbarrioVerPersonas").val();
+    help.campoIdReturn = campoIdReturn;
+    help.campoDescripReturn = campoDescripReturn;
+
+    if ($('#txtmunicipioIdPersonas').val() == 0) {
+        tipoAlerta('Seleccione un municipio.', 'warning', "#boxMessagesCrud");
+        return false;
+    };
+
+    help.prefiltros = [$("#txtmunicipioIdPersonas").val()];
+    
+    getHelpBarrio();
+}
+
+
+function getHelpBarrio() {
+    help.usuarioId = getLocalStorageNavegator("usuarioId");
+    console.log(help);
+    var url = "/WebMethods/help.aspx/getHelp";
+    enviarComoParametros(url, help, OnSuccesHelpBarrio);
+}
+
+function OnSuccesHelpBarrio(response) {
+    if ((response.error == null ? "" : response.error) != "") {
+        tipoAlerta(response.error, response.tipoAlerta, "#boxMessagesCrud");
+        return;
+    }
+    if (response.error == '') {
+        try {
+            var object = eval("(" + response.getCadena + ")");
+            $(help.campoDescripReturn).val(object.nombre);
+            $(help.campoIdReturn).val(object.id);
+        }
+        catch (e) {
+            $(help.campoDescripReturn).val('');
+            $(help.campoIdReturn).val('');
+        }
+
+        return;
+    }
+}
+
+
+function btnOpenHelpEstadoCivil(campoIdReturn, campoReturnView, campoDescripReturn) {
+    help.tabla = 'EstadosCivil';
+    help.header = 'Listado';
+    help.columnas = ['sigla', 'descripcion'];
+    help.prefiltros = [];
+    help.campoIdReturn = campoIdReturn;
+    help.campoReturnView = campoReturnView;
+    help.campoDescripReturn = campoDescripReturn;
+    help.atributoReturnDescripcion = "descripcion";
+    help.atributoReturnView = "sigla";
+    loadHelp('Help', cargarTabla());
+}
+
+function leaveHelpEstadoCivil(campoIdReturn, campoDescripReturn) {
+    help.tabla = 'EstadosCivil';
+    help.valorBuscar = $("#txtestadoCivilVerPersonas").val();
+    help.campoIdReturn = campoIdReturn;
+    help.campoDescripReturn = campoDescripReturn;
+    help.prefiltros = [];
+
+    getHelpEstadoCivil();
+}
+
+
+function getHelpEstadoCivil() {
+    help.usuarioId = getLocalStorageNavegator("usuarioId");
+    var url = "/WebMethods/help.aspx/getHelp";
+    enviarComoParametros(url, help, OnSuccesHelpEstadoCivil);
+}
+
+function OnSuccesHelpEstadoCivil(response) {
+    if ((response.error == null ? "" : response.error) != "") {
+        tipoAlerta(response.error, response.tipoAlerta, "#boxMessagesCrud");
+        return;
+    }
+    if (response.error == '') {
+        try {
+            var object = eval("(" + response.getCadena + ")");
+            $(help.campoDescripReturn).val(object.descripcion);
+            $(help.campoIdReturn).val(object.id);
+        }
+        catch (e) {
+            $(help.campoDescripReturn).val('');
+            $(help.campoIdReturn).val('');
+        }
+
+        return;
+    }
+}

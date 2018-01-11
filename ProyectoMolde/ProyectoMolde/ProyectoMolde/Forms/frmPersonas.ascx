@@ -14,10 +14,10 @@
         <br />
         <label id="lbldocumentoIdentidadIdPersonas">Documento identidad</label>
         <div class="form-group input-group">
-            <input id="txtdocumentoIdentidadVerPersonas" onblur="leaveHelp('#txtdocumentoIdentidadIdPersonas','#txtDescripcionDocumentoIdentidad')" type="text" class="form-control">
+            <input id="txtdocumentoIdentidadVerPersonas" onblur="leaveHelpDocumentoIdentidad('#txtdocumentoIdentidadIdPersonas','#txtDescripcionDocumentoIdentidad')" type="text" class="form-control">
             <input id="txtdocumentoIdentidadIdPersonas" type="text" hidden="hidden">
             <span class="input-group-btn">
-                <a onclick="btnOpenHelp('#txtdocumentoIdentidadIdPersonas','#txtdocumentoIdentidadVerPersonas' ,'#txtDescripcionDocumentoIdentidad')" class="btn btn-default" type="button">
+                <a onclick="btnOpenHelpDocumentoIdentidad('#txtdocumentoIdentidadIdPersonas','#txtdocumentoIdentidadVerPersonas' ,'#txtDescripcionDocumentoIdentidad')" class="btn btn-default" type="button">
                     <i class="fa fa-search"></i>
                 </a>
             </span>
@@ -72,10 +72,10 @@
         <br />
         <label id="lblmunicipioExpedicionIdPersonas">Municipio Expedicion Cedula</label>
         <div class="form-group input-group">
-            <input id="txtmunicipioExpedicionVerPersonas" onblur="leaveHelp('#txtmunicipioExpedicionIdPersonas','#txtDescripcionMunicipioExpedicion')" type="text" class="form-control">
+            <input id="txtmunicipioExpedicionVerPersonas" onblur="leaveHelpMunicipioExpedicion('#txtmunicipioExpedicionIdPersonas','#txtDescripcionMunicipioExpedicion')" type="text" class="form-control">
             <input id="txtmunicipioExpedicionIdPersonas" type="text" hidden="hidden">
             <span class="input-group-btn">
-                <a onclick="btnOpenHelp('#txtmunicipioExpedicionIdPersonas','#txtmunicipioExpedicionVerPersonas' ,'#txtDescripcionMunicipioExpedicion')" class="btn btn-default" type="button">
+                <a onclick="btnOpenHelpMunicipioExpedicion('#txtmunicipioExpedicionIdPersonas','#txtmunicipioExpedicionVerPersonas' ,'#txtDescripcionMunicipioExpedicion')" class="btn btn-default" type="button">
                     <i class="fa fa-search"></i>
                 </a>
             </span>
@@ -100,10 +100,10 @@
         <br />
         <label id="lblsexoIdPersonas">Sexo</label>
         <div class="form-group input-group">
-            <input id="txtSexoVerPersonas" onblur="leaveHelp('#txtsexoIdPersonas','#txtDescripcionSexo')" type="text" class="form-control">
+            <input id="txtSexoVerPersonas" onblur="leaveHelpSexo('#txtsexoIdPersonas','#txtDescripcionSexo')" type="text" class="form-control">
             <input id="txtsexoIdPersonas" type="text" hidden="hidden">
             <span class="input-group-btn">
-                <a onclick="btnOpenHelp('#txtsexoIdPersonas','#txtSexoVerPersonas' ,'#txtDescripcionSexo')" class="btn btn-default" type="button">
+                <a onclick="btnOpenHelpSexo('#txtsexoIdPersonas','#txtSexoVerPersonas' ,'#txtDescripcionSexo')" class="btn btn-default" type="button">
                     <i class="fa fa-search"></i>
                 </a>
             </span>
@@ -118,10 +118,10 @@
         <br />
         <label id="lblgrupoSanguineoIdPersonas">Grupo Sanguineo</label>
         <div class="form-group input-group">
-            <input id="txtgrupoSanguineoVerPersonas" onblur="leaveHelp('#txtgrupoSanguineoIdPersonas','#txtDescripcionGrupoSanguineo')" type="text" class="form-control">
+            <input id="txtgrupoSanguineoVerPersonas" onblur="leaveHelpGrupoSanguineo('#txtgrupoSanguineoIdPersonas','#txtDescripcionGrupoSanguineo')" type="text" class="form-control">
             <input id="txtgrupoSanguineoIdPersonas" type="text" hidden="hidden">
             <span class="input-group-btn">
-                <a onclick="btnOpenHelp('#txtgrupoSanguineoIdPersonas','#txtgrupoSanguineoVerPersonas' ,'#txtDescripcionGrupoSanguineo')" class="btn btn-default" type="button">
+                <a onclick="btnOpenHelpGrupoSanguineo('#txtgrupoSanguineoIdPersonas','#txtgrupoSanguineoVerPersonas' ,'#txtDescripcionGrupoSanguineo')" class="btn btn-default" type="button">
                     <i class="fa fa-search"></i>
                 </a>
             </span>
@@ -135,14 +135,14 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6" >
         <br />
         <label id="lblmunicipioIdPersonas">Municipio Recidencia</label>
-        <div class="form-group input-group">
-            <input id="txtmunicipioVerPersona" onblur="leaveHelp('#txtmunicipioIdPersonas','#txtDescripcionMunicipio')" type="text" class="form-control">
+        <div id="panelMunicipio" class="form-group input-group">
+            <input id="txtmunicipioVerPersona" onblur="leaveHelpMunicipio('#txtmunicipioIdPersonas','#txtDescripcionMunicipio')" type="text" class="form-control">
             <input id="txtmunicipioIdPersonas" type="text" hidden="hidden">
             <span class="input-group-btn">
-                <a onclick="btnOpenHelp('#txtmunicipioIdPersonas','#txtmunicipioVerPersona' ,'#txtDescripcionMunicipio')" class="btn btn-default" type="button">
+                <a onclick="btnOpenHelpMunicipio('#txtmunicipioIdPersonas','#txtmunicipioVerPersona' ,'#txtDescripcionMunicipio')" class="btn btn-default" type="button">
                     <i class="fa fa-search"></i>
                 </a>
             </span>
@@ -160,10 +160,10 @@
         <br />
         <label id="lblbarrioIdPersonas">Barrio</label>
         <div class="form-group input-group">
-            <input id="txtbarrioVerPersonas" onblur="leaveHelp('#txtbarrioIdPersonas','#txtDescripcionBarrio')" type="text" class="form-control">
+            <input id="txtbarrioVerPersonas" onblur="leaveHelpBarrio('#txtbarrioIdPersonas','#txtDescripcionBarrio')" type="text" class="form-control">
             <input id="txtbarrioIdPersonas" type="text" hidden="hidden">
             <span class="input-group-btn">
-                <a onclick="btnOpenHelp('#txtbarrioIdPersonas','#txtbarrioVerPersonas' ,'#txtDescripcionBarrio')" class="btn btn-default" type="button">
+                <a onclick="btnOpenHelpBarrio('#txtbarrioIdPersonas','#txtbarrioVerPersonas' ,'#txtDescripcionBarrio')" class="btn btn-default" type="button">
                     <i class="fa fa-search"></i>
                 </a>
             </span>
@@ -199,10 +199,10 @@
         <br />
         <label id="lblestadoCivilIdPersonas">Estado Civil</label>
         <div class="form-group input-group">
-            <input id="txtestadoCivilVerPersonas" onblur="leaveHelp('#txtestadoCivilIdPersonas','#txtDescripcioneEstadoCivi')" type="text" class="form-control">
+            <input id="txtestadoCivilVerPersonas" onblur="leaveHelpEstadoCivil('#txtestadoCivilIdPersonas','#txtDescripcioneEstadoCivi')" type="text" class="form-control">
             <input id="txtestadoCivilIdPersonas" type="text" hidden="hidden">
             <span class="input-group-btn">
-                <a id="btnHelp" onclick="btnOpenHelp('#txtestadoCivilIdPersonas','#txtestadoCivilVerPersonas' ,'#txtDescripcioneEstadoCivi')" class="btn btn-default" type="button">
+                <a id="btnHelp" onclick="btnOpenHelpEstadoCivil('#txtestadoCivilIdPersonas','#txtestadoCivilVerPersonas' ,'#txtDescripcioneEstadoCivi')" class="btn btn-default" type="button">
                     <i class="fa fa-search"></i>
                 </a>
             </span>

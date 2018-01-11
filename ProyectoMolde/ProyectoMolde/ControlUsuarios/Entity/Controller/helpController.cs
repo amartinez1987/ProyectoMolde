@@ -30,7 +30,7 @@ namespace ControlUsuarios.Entity.Controller
                     }
                     catch (Exception e)
                     {
-                        return new DepartamentosViewModel();
+                        return new List<DepartamentosViewModel>();
                     }
                     break;
                 case "AplicacionesWeb":
@@ -43,7 +43,7 @@ namespace ControlUsuarios.Entity.Controller
                     }
                     catch (Exception e)
                     {
-                        return new AplicacionesWebViewModel();
+                        return new List<AplicacionesWebViewModel>();
                     }
                     break;
                 case "Formularios":
@@ -55,7 +55,7 @@ namespace ControlUsuarios.Entity.Controller
                     }
                     catch (Exception e)
                     {
-                        return new FormulariosViewModel();
+                        return new List<FormulariosViewModel>();
                     }
                     break;
                 case "Menus":
@@ -67,20 +67,20 @@ namespace ControlUsuarios.Entity.Controller
                     }
                     catch (Exception e)
                     {
-                        return new MenusViewModel();
+                        return new List<MenusViewModel>();
                     }
                     break;
                 case "Municipios":
                     try
                     {
                         var lf = from municipios in entity.Municipios
-                                 where municipios.nombre.Contains( textoBusqueda) || municipios.codigoDane.Contains(textoBusqueda) || municipios.Departamentos.codigoDane.Contains(textoBusqueda) || municipios.Departamentos.nombre.Contains(textoBusqueda)
+                                 where municipios.nombre.Contains(textoBusqueda) || municipios.codigoDane.Contains(textoBusqueda) || municipios.Departamentos.codigoDane.Contains(textoBusqueda) || municipios.Departamentos.nombre.Contains(textoBusqueda)
                                  select new MunicipiosViewModel { id = municipios.id, nombre = municipios.nombre, codigoDane = municipios.codigoDane, departamentoId = municipios.departamentoId, usuarioId = municipios.usuarioId, codigoDaneDepartamento = municipios.Departamentos.codigoDane, nombreDepartamento = municipios.Departamentos.nombre };
                         return lf.ToList();
                     }
                     catch (Exception e)
                     {
-                        return new MenusViewModel();
+                        return new List<MunicipiosViewModel>();
                     }
                     break;
                 case "Perfiles":
@@ -93,7 +93,73 @@ namespace ControlUsuarios.Entity.Controller
                     }
                     catch (Exception e)
                     {
-                        return new PerfilesViewModel();
+                        return new List<PerfilesViewModel>();
+                    }
+                    break;
+                case "DocumentosIdentidad":
+                    try
+                    {
+                        var l = from documentosidentidad in entity.DocumentosIdentidad
+                                where documentosidentidad.sigla.Contains(textoBusqueda == "" ? documentosidentidad.sigla : textoBusqueda)
+                                select new DocumentosIdentidadViewModel { id = documentosidentidad.id, usuarioId = documentosidentidad.usuarioId, sigla = documentosidentidad.sigla, descripcion = documentosidentidad.descripcion };
+                        return l.ToList();
+                    }
+                    catch (Exception e)
+                    {
+                        return new List<DocumentosIdentidadViewModel>();
+                    }
+                    break;
+                case "Sexos":
+                    try
+                    {
+                        var l = from sexos in entity.Sexos
+                                where sexos.sigla.Contains(textoBusqueda == "" ? sexos.sigla : textoBusqueda)
+                                select new SexosViewModel { id = sexos.id, usuarioId = sexos.usuarioId, sigla = sexos.sigla, descripcion = sexos.descripcion };
+                        return l.ToList();
+                    }
+                    catch (Exception e)
+                    {
+                        return new List<SexosViewModel>();
+                    }
+                    break;
+                case "GruposSanguineo":
+                    try
+                    {
+                        var l = from grupossanguineo in entity.GruposSanguineo
+                                where grupossanguineo.sigla.Contains(textoBusqueda == "" ? grupossanguineo.sigla : textoBusqueda)
+                                select new GruposSanguineoViewModel { id = grupossanguineo.id, usuarioId = grupossanguineo.usuarioId, sigla = grupossanguineo.sigla, descripcion = grupossanguineo.descripcion };
+                        return l.ToList();
+                    }
+                    catch (Exception e)
+                    {
+                        return new List<GruposSanguineoViewModel>();
+                    }
+                    break;
+                case "Barrios":
+                    try
+                    {
+                        int municipioId = int.Parse(prefiltros[0]);
+                        var l = from barrios in entity.Barrios
+                                where barrios.municipioId == municipioId && ((barrios.Municipios.Departamentos.nombre + " " + barrios.Municipios.nombre).Contains(textoBusqueda == "" ? (barrios.Municipios.Departamentos.nombre + " " + barrios.Municipios.nombre) : textoBusqueda) || (barrios.Municipios.Departamentos.codigoDane + barrios.Municipios.codigoDane).Contains(textoBusqueda == "" ? (barrios.Municipios.Departamentos.codigoDane + barrios.Municipios.codigoDane) : textoBusqueda) || barrios.nombre.Contains(textoBusqueda == "" ? barrios.nombre : textoBusqueda))
+                                select new BarriosViewModel { id = barrios.id, municipioId = barrios.municipioId, usuarioId = barrios.usuarioId, nombre = barrios.nombre, codigoDaneDepartamento = barrios.Municipios.Departamentos.codigoDane, codigoDaneMunicipio = barrios.Municipios.codigoDane, nombreDepartamento = barrios.Municipios.Departamentos.nombre, nombreMunicipio = barrios.Municipios.nombre };
+                        return l.ToList();
+                    }
+                    catch (Exception e)
+                    {
+                        return new List<BarriosViewModel>();
+                    }
+                    break;
+                case "EstadosCivil":
+                    try
+                    {
+                        var l = from estadoscivil in entity.EstadosCivil
+                                where estadoscivil.sigla.Contains(textoBusqueda==""?estadoscivil.sigla:textoBusqueda)
+                                select new EstadosCivilViewModel { id = estadoscivil.id, usuarioId = estadoscivil.usuarioId, sigla = estadoscivil.sigla, descripcion = estadoscivil.descripcion };
+                        return l.ToList();
+                    }
+                    catch (Exception e)
+                    {
+                        return new List<BarriosViewModel>();
                     }
                     break;
 
@@ -101,7 +167,7 @@ namespace ControlUsuarios.Entity.Controller
             return new List<string>();
         }
 
-        public object getObject(string tabla, string valorBuscado)
+        public object getObject(string tabla, string valorBuscado, string[] prefiltros)
         {
             int valBusId = 0;
             int.TryParse(valorBuscado, out valBusId);
@@ -138,13 +204,13 @@ namespace ControlUsuarios.Entity.Controller
                     try
                     {
                         var lf = from formularios in entity.Formularios
-                                where formularios.id == valBusId
-                                select new FormulariosViewModel { id = formularios.id, menuId = formularios.menuId, nombreMenu = formularios.Menus.nombreMenu, usuarioId = formularios.usuarioId, indexVisibilidad = formularios.indexVisibilidad, esVisible = formularios.esVisible, nombreFormulario = formularios.nombreFormulario, urlFormulario = formularios.urlFormulario, nombreMostrar = formularios.nombreMostrar, estados = formularios.estados, iconOpcion = formularios.iconOpcion };
+                                 where formularios.id == valBusId
+                                 select new FormulariosViewModel { id = formularios.id, menuId = formularios.menuId, nombreMenu = formularios.Menus.nombreMenu, usuarioId = formularios.usuarioId, indexVisibilidad = formularios.indexVisibilidad, esVisible = formularios.esVisible, nombreFormulario = formularios.nombreFormulario, urlFormulario = formularios.urlFormulario, nombreMostrar = formularios.nombreMostrar, estados = formularios.estados, iconOpcion = formularios.iconOpcion };
                         return lf.SingleOrDefault();
                     }
                     catch (Exception e)
                     {
-                        return new AplicacionesWebViewModel();
+                        return new FormulariosViewModel();
                     }
                     break;
                 case "Menus":
@@ -157,20 +223,20 @@ namespace ControlUsuarios.Entity.Controller
                     }
                     catch (Exception e)
                     {
-                        return new AplicacionesWebViewModel();
+                        return new MenusViewModel();
                     }
                     break;
                 case "Municipios":
                     try
                     {
                         var lf = from municipios in entity.Municipios
-                                 where (municipios.Departamentos.codigoDane+municipios.codigoDane).Contains(valorBuscado) || (municipios.Departamentos.nombre+municipios.nombre).Contains(valorBuscado)
+                                 where (municipios.Departamentos.codigoDane + municipios.codigoDane).Contains(valorBuscado) || (municipios.Departamentos.nombre + municipios.nombre).Contains(valorBuscado)
                                  select new MunicipiosViewModel { id = municipios.id, nombre = municipios.nombre, codigoDane = municipios.codigoDane, departamentoId = municipios.departamentoId, usuarioId = municipios.usuarioId, codigoDaneDepartamento = municipios.Departamentos.codigoDane, nombreDepartamento = municipios.Departamentos.nombre };
                         return lf.SingleOrDefault();
                     }
                     catch (Exception e)
                     {
-                        return new MenusViewModel();
+                        return new MunicipiosViewModel();
                     }
                     break;
                 case "Perfiles":
@@ -186,6 +252,73 @@ namespace ControlUsuarios.Entity.Controller
                         return new PerfilesViewModel();
                     }
                     break;
+                case "DocumentosIdentidad":
+                    try
+                    {
+                        var l = from documentosidentidad in entity.DocumentosIdentidad
+                                where documentosidentidad.sigla.Contains(valorBuscado == "" ? documentosidentidad.sigla : valorBuscado)
+                                select new DocumentosIdentidadViewModel { id = documentosidentidad.id, usuarioId = documentosidentidad.usuarioId, sigla = documentosidentidad.sigla, descripcion = documentosidentidad.descripcion };
+                        return l.SingleOrDefault();
+                    }
+                    catch (Exception e)
+                    {
+                        return new DocumentosIdentidadViewModel();
+                    }
+                    break;
+                case "Sexos":
+                    try
+                    {
+                        var l = from sexos in entity.Sexos
+                                where sexos.sigla.Contains(valorBuscado == "" ? sexos.sigla : valorBuscado)
+                                select new SexosViewModel { id = sexos.id, usuarioId = sexos.usuarioId, sigla = sexos.sigla, descripcion = sexos.descripcion };
+                        return l.SingleOrDefault();
+                    }
+                    catch (Exception e)
+                    {
+                        return new SexosViewModel();
+                    }
+                    break;
+                case "GruposSanguineo":
+                    try
+                    {
+                        var l = from grupossanguineo in entity.GruposSanguineo
+                                where grupossanguineo.sigla.Contains(valorBuscado == "" ? grupossanguineo.sigla : valorBuscado)
+                                select new GruposSanguineoViewModel { id = grupossanguineo.id, usuarioId = grupossanguineo.usuarioId, sigla = grupossanguineo.sigla, descripcion = grupossanguineo.descripcion };
+                        return l.SingleOrDefault();
+                    }
+                    catch (Exception e)
+                    {
+                        return new GruposSanguineoViewModel();
+                    }
+                    break;
+                case "Barrios":
+                    try
+                    {
+                        int municipioId = int.Parse(prefiltros[0]);
+                        var l = from barrios in entity.Barrios
+                                where barrios.municipioId == municipioId && barrios.id == valBusId
+                                select new BarriosViewModel { id = barrios.id, municipioId = barrios.municipioId, usuarioId = barrios.usuarioId, nombre = barrios.nombre, codigoDaneDepartamento = barrios.Municipios.Departamentos.codigoDane, codigoDaneMunicipio = barrios.Municipios.codigoDane, nombreDepartamento = barrios.Municipios.Departamentos.nombre, nombreMunicipio = barrios.Municipios.nombre };
+                        return l.SingleOrDefault();
+                    }
+                    catch (Exception e)
+                    {
+                        return new BarriosViewModel();
+                    }
+                    break;
+                case "EstadosCivil":
+                    try
+                    {
+                        var l = from estadoscivil in entity.EstadosCivil
+                                where estadoscivil.sigla.Contains(valorBuscado == "" ? estadoscivil.sigla : valorBuscado)
+                                select new EstadosCivilViewModel { id = estadoscivil.id, usuarioId = estadoscivil.usuarioId, sigla = estadoscivil.sigla, descripcion = estadoscivil.descripcion };
+                        return l.SingleOrDefault();
+                    }
+                    catch (Exception e)
+                    {
+                        return new BarriosViewModel();
+                    }
+                    break;
+
             }
             return new List<string>();
         }

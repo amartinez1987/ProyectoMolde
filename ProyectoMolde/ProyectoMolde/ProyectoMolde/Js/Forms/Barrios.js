@@ -179,6 +179,7 @@ function leaveHelp(campoIdReturn, campoDescripReturn) {
     help.valorBuscar = $("#txtMunicipiosVerBarrios").val();
     help.campoIdReturn = campoIdReturn;
     help.campoDescripReturn = campoDescripReturn;
+    help.prefiltros = [];
 
     getHelp();
 }

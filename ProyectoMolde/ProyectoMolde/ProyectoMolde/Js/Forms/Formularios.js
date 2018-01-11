@@ -242,6 +242,7 @@ function leaveHelp(campoIdReturn, campoDescripReturn) {
     help.valorBuscar = $("#txtmenuVerFormularios").val();
     help.campoIdReturn = campoIdReturn;
     help.campoDescripReturn = campoDescripReturn;
+    help.prefiltros = [];
 
     getHelp();
 }

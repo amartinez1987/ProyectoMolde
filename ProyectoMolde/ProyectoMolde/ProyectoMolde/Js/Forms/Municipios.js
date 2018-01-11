@@ -185,6 +185,7 @@ function leaveHelp(campoIdReturn, campoDescripReturn) {
     help.valorBuscar = $("#txtdepartamentosVerMunicipios").val();
     help.campoIdReturn = campoIdReturn;
     help.campoDescripReturn = campoDescripReturn;
+    help.prefiltros = [];
 
     getHelp();
 }
