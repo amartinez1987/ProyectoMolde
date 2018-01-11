@@ -144,6 +144,7 @@
     <Content Include="Forms\frmListaOperaciones.aspx" />
     <Content Include="Forms\frmListaPerfiles.aspx" />
     <Content Include="Forms\frmListaSexos.aspx" />
+    <Content Include="Forms\frmListaUsuarios.aspx" />
     <Content Include="Forms\frmMenus.ascx" />
     <Content Include="Forms\frmMenus_Editar.aspx" />
     <Content Include="Forms\frmMenus_Nuevo.aspx" />
@@ -158,11 +159,13 @@
     <Content Include="Forms\frmPerfilesOperacionesFormulario.aspx" />
     <Content Include="Forms\frmPerfiles_Editar.aspx" />
     <Content Include="Forms\frmPerfiles_Nuevo.aspx" />
+    <Content Include="Forms\frmPersonas.ascx" />
     <Content Include="Forms\frmSexos.ascx" />
     <Content Include="Forms\frmSexos_Editar.aspx" />
     <Content Include="Forms\frmSexos_Nuevo.aspx" />
     <Content Include="Forms\index.aspx" />
     <Content Include="Forms\frmListaAplicacionesWeb.aspx" />
+    <Content Include="Forms\frmUsuarios.ascx" />
     <Content Include="Js\configAjax.js" />
     <Content Include="Js\Forms\Barrios.js" />
     <Content Include="Js\Forms\Departamentos.js" />
@@ -540,6 +543,13 @@
     <Compile Include="Forms\frmListaSexos.aspx.designer.cs">
       <DependentUpon>frmListaSexos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmListaUsuarios.aspx.cs">
+      <DependentUpon>frmListaUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmListaUsuarios.aspx.designer.cs">
+      <DependentUpon>frmListaUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmMasterPage.Master.cs">
       <DependentUpon>frmMasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -645,6 +655,13 @@
     <Compile Include="Forms\frmPerfiles_Nuevo.aspx.designer.cs">
       <DependentUpon>frmPerfiles_Nuevo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmPersonas.ascx.cs">
+      <DependentUpon>frmPersonas.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPersonas.ascx.designer.cs">
+      <DependentUpon>frmPersonas.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSexos.ascx.cs">
       <DependentUpon>frmSexos.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -693,6 +710,13 @@
     </Compile>
     <Compile Include="Forms\Usuarios\frmRegistrarse.aspx.designer.cs">
       <DependentUpon>frmRegistrarse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUsuarios.ascx.cs">
+      <DependentUpon>frmUsuarios.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUsuarios.ascx.designer.cs">
+      <DependentUpon>frmUsuarios.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebMethods\aplicacionesWeb.aspx.cs">

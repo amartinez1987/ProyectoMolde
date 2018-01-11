@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -35,6 +36,32 @@ namespace ProyectoMolde.WebMethods
             HttpContext.Current.Session.RemoveAll();
             return new Result() { error = "", getCadena = "", id = 0, tipoAlerta = "" };
         }
+
+
+        [WebMethod]
+        public static Result getListaUsuarios(string valorBuscado, int registroPartida, int totalAExtraer, int usuarioId)
+        {
+            Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
+            if (r.error != "")
+            {
+                return r;
+            }
+            int totalRegistros = 0;
+            List<UsuariosViewModel> lst = new List<UsuariosViewModel>();
+            try
+            {
+                UsuariosController uc = new UsuariosController();
+                lst = uc.getListaUsuarios(valorBuscado);
+                totalRegistros = lst.Count();
+                totalAExtraer = (lst.Count() - registroPartida) < totalAExtraer ? (lst.Count() - registroPartida) : totalAExtraer;
+            }
+            catch (Exception e)
+            {
+                return new Result() { error = e.Message, id = 0, tipoAlerta = "warning" };
+            }
+            return new Result() { error = "", getCadena = new JavaScriptSerializer().Serialize(lst.GetRange(registroPartida, totalAExtraer)), totalRegistros = totalRegistros };
+        }
+
 
     }
 }
