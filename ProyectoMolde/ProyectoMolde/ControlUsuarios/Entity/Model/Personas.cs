@@ -34,21 +34,21 @@ namespace ControlUsuarios.Entity.Model
         public int municipioExpedicionId { get; set; }
         public Nullable<int> barrioId { get; set; }
         public string direcccion { get; set; }
-        public int estatura { get; set; }
-        public int peso { get; set; }
+        public decimal estatura { get; set; }
+        public decimal peso { get; set; }
         public string correo { get; set; }
         public int estadoCivilId { get; set; }
-        public int telefonoFijo { get; set; }
-        public int telefonoCelular { get; set; }
+        public long telefonoFijo { get; set; }
+        public long telefonoCelular { get; set; }
         public int usuarioId { get; set; }
     
+        public virtual Barrios Barrios { get; set; }
         public virtual DocumentosIdentidad DocumentosIdentidad { get; set; }
         public virtual EstadosCivil EstadosCivil { get; set; }
         public virtual GruposSanguineo GruposSanguineo { get; set; }
-        public virtual Sexos Sexos { get; set; }
-        public virtual ICollection<Usuarios> Usuarios { get; set; }
         public virtual Municipios Municipios { get; set; }
         public virtual Municipios Municipios1 { get; set; }
-        public virtual Barrios Barrios { get; set; }
+        public virtual Sexos Sexos { get; set; }
+        public virtual ICollection<Usuarios> Usuarios { get; set; }
     }
 }

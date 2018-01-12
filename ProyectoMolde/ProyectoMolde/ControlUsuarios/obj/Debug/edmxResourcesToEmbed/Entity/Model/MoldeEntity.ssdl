@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="MoldeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="MoldeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="AplicacionesWeb">
     <Key>
       <PropertyRef Name="id" />
@@ -158,12 +158,12 @@
     <Property Name="municipioExpedicionId" Type="int" Nullable="false" />
     <Property Name="barrioId" Type="int" />
     <Property Name="direcccion" Type="varchar" MaxLength="500" Nullable="false" />
-    <Property Name="estatura" Type="int" Nullable="false" />
-    <Property Name="peso" Type="int" Nullable="false" />
+    <Property Name="estatura" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="peso" Type="numeric" Precision="18" Scale="2" Nullable="false" />
     <Property Name="correo" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="estadoCivilId" Type="int" Nullable="false" />
-    <Property Name="telefonoFijo" Type="int" Nullable="false" />
-    <Property Name="telefonoCelular" Type="int" Nullable="false" />
+    <Property Name="telefonoFijo" Type="bigint" Nullable="false" />
+    <Property Name="telefonoCelular" Type="bigint" Nullable="false" />
     <Property Name="usuarioId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Sexos">

@@ -260,5 +260,52 @@ namespace ControlUsuarios.Entity.Controller
             return new Result() { id = usuarioId, getCadena = listaMenu, error = "" };
         }
 
+
+        public Usuarios getModel(UsuariosViewModel usuario)
+        {
+            DateTime f = new DateTime(1800, 01, 01);
+            if (usuario.fechaExpedicionCedula == null) { usuario.fechaExpedicionCedula = f; }
+            if (usuario.fechaNacimiento == null) { usuario.fechaNacimiento = f; }
+            if (usuario.peso == null) { usuario.peso = 0; }
+            if (usuario.barrioId == null) { usuario.barrioId = 0; }
+            if (usuario.documentoIdentidadId == null) { usuario.documentoIdentidadId = 0; }
+            if (usuario.estadoCivilId == null) { usuario.estadoCivilId = 0; }
+            if (usuario.estatura == null) { usuario.estatura = 0; }
+            if (usuario.grupoSanguineoId == null) { usuario.grupoSanguineoId = 0; }
+            if (usuario.municipioExpedicionId == null) { usuario.municipioExpedicionId = 0; }
+            if (usuario.municipioId == null) { usuario.municipioId = 0; }
+            if (usuario.sexoId == null) { usuario.sexoId = 0; }
+            if (usuario.telefonoCelular == null) { usuario.telefonoCelular = 0; }
+            if (usuario.telefonoFijo == null) { usuario.telefonoFijo = 0; }
+
+            Personas p = new Personas()
+            {
+                barrioId = usuario.barrioId,
+                correo = usuario.correo,
+                direcccion = usuario.correo,
+                documentoIdentidadId = usuario.documentoIdentidadId.Value,
+                estadoCivilId = usuario.estadoCivilId.Value,
+                estatura = usuario.estatura.Value,
+                fechaExpedicionCedula = usuario.fechaExpedicionCedula.Value,
+                fechaNacimiento = usuario.fechaNacimiento.Value,
+                grupoSanguineoId = usuario.grupoSanguineoId.Value,
+                id = usuario.idPersona.Value,
+                municipioExpedicionId = usuario.municipioExpedicionId.Value,
+                municipioId = usuario.municipioId.Value,
+                numeroDocumento = usuario.numeroDocumento,
+                peso = usuario.peso.Value,
+                primerApellido = usuario.primerApellido.TrimStart(' ').TrimEnd(' '),
+                primerNombre = usuario.primerNombre.TrimStart(' ').TrimEnd(' '),
+                segundoApellido = usuario.segundoApellido.TrimStart(' ').TrimEnd(' '),
+                segundoNombre = usuario.segundoNombre.TrimStart(' ').TrimEnd(' '),
+                sexoId = usuario.sexoId.Value,
+                telefonoCelular = usuario.telefonoCelular.Value,
+                telefonoFijo = usuario.telefonoFijo.Value
+            };
+
+            Usuarios u = new Usuarios() { clave = usuario.clave, estado = usuario.estado, id = usuario.id, idPersona = usuario.idPersona, nombreUsuario = usuario.nombreUsuario, perfilId = usuario.perfilId, usuarioId = usuario.usuarioId, Personas = p };
+            return u;
+            
+        }
     }
 }

@@ -70,7 +70,7 @@ namespace ProyectoMolde.WebMethods
                 return new Result() { id = 0, error = "Las claves no coinciden.", tipoAlerta = "warning" };
             }
 
-            Usuarios u = new Usuarios();            
+            Usuarios u = new UsuariosController().getModel(usuario);         
             Result r = IFACTORY.createUsuarios("Nuevo").NuevoConDatosPersona(ref u);
             return r;
         }

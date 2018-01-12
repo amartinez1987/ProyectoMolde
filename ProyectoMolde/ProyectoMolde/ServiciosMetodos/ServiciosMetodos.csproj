@@ -71,6 +71,7 @@
     <Compile Include="Encriptado.cs" />
     <Compile Include="LogController.cs" />
     <Compile Include="Mail.cs" />
+    <Compile Include="MetodosGenerales.cs" />
     <Compile Include="PlantillasMolde.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

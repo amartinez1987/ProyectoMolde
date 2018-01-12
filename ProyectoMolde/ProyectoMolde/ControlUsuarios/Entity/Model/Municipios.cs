@@ -16,9 +16,9 @@ namespace ControlUsuarios.Entity.Model
     {
         public Municipios()
         {
+            this.Barrios = new HashSet<Barrios>();
             this.Personas = new HashSet<Personas>();
             this.Personas1 = new HashSet<Personas>();
-            this.Barrios = new HashSet<Barrios>();
         }
     
         public int id { get; set; }
@@ -28,8 +28,8 @@ namespace ControlUsuarios.Entity.Model
         public string codigoDane { get; set; }
     
         public virtual Departamentos Departamentos { get; set; }
+        public virtual ICollection<Barrios> Barrios { get; set; }
         public virtual ICollection<Personas> Personas { get; set; }
         public virtual ICollection<Personas> Personas1 { get; set; }
-        public virtual ICollection<Barrios> Barrios { get; set; }
     }
 }

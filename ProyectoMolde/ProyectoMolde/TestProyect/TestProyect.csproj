@@ -109,6 +109,10 @@
       <Project>{4945e521-4f09-4c6d-8db8-2843c2692291}</Project>
       <Name>ProyectoMolde</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ServiciosMetodos\ServiciosMetodos.csproj">
+      <Project>{623c80b9-9b8a-47a6-8029-80f2fee2c478}</Project>
+      <Name>ServiciosMetodos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

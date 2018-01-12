@@ -1,4 +1,5 @@
 ﻿using ControlUsuarios.Entity.Controller;
+using ControlUsuarios.Entity.Model;
 using ProyectoMolde.WebMethods;
 using System;
 using System.Linq;
@@ -12,38 +13,69 @@ namespace TestProyect
         [Fact]
         public void TestMethod1()
         {
-            UsuariosController uc = new UsuariosController();
-            uc.getMenuUsuarioPorId(15, "Molde");
+            UsuariosViewModel uv = new UsuariosViewModel()
+            {
+                barrioId = 3
+                ,
+                clave = "123"
+                ,
+                confirmarClave = "123"
+                ,
+                correo = "ad@hotmail.com"
+                ,
+                direcccion = ""
+                ,
+                documentoIdentidadId = 2
+                ,
+                estado = ""
+                ,
+                estadoCivilId = 1
+                ,
+                estatura = 1
+                ,
+                fechaExpedicionCedula = new DateTime(2007, 09, 16)
+                ,
+                fechaNacimiento = new DateTime(1987,09,16)
+                ,
+                grupoSanguineoId = 1
+                ,
+                id = 0
+                ,
+                idPersona = 0
+                ,
+                municipioExpedicionId = 4
+                ,
+                municipioId = 4
+                ,
+                nombreUsuario = "a"
+                ,
+                numeroDocumento = "1142355"
+                ,
+                peso = 70
+                ,
+                perfilId = 0
+                ,
+                primerApellido = ""
+                ,
+                primerNombre = ""
+                ,
+                segundoApellido = ""
+                ,
+                segundoNombre = ""
+                ,
+                sexoId = 1
+                ,
+                telefonoCelular = 3104012200
+                ,
+                telefonoFijo = 6666666
+                ,
+                usuarioId = 1
+
+            };
+
+
+         Result r=   ProyectoMolde.WebMethods.usuario.nuevo(uv);
         }
-
-        [Fact]
-        public void TestMethod2()
-        {
-            MenusController mc = new MenusController();
-            mc.inactivarMenus(3,3);
-        }
-
-        [Fact]
-        public void TestMethod3()
-        {
-    
-          var ob =  help.getListaHelp("Departamentos",new string[] { }, "",0,10,3);
-        }
-
-        [Fact]
-        public void TestMethod4()
-        {
-
-            var ob = new OperacionesFormularioController().getListaNoOperacionesFormulario(8);
-        }
-
-        [Fact]
-        public void TestMethod5()
-        {
-
-            var ob = new UsuariosController().getListaUsuarios("");
-        }
-
 
     }
 }

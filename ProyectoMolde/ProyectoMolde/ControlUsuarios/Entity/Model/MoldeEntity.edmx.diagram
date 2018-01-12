@@ -27,21 +27,21 @@
         <AssociationConnector Association="MoldeModel.FK_UsuariosOperacionesFormulario_Usuarios" />
         <EntityTypeShape EntityType="MoldeModel.AplicacionesWeb" Width="1.5" PointX="0.75" PointY="24.875" />
         <AssociationConnector Association="MoldeModel.FK_Menus_AplicacionesWeb" />
-        <EntityTypeShape EntityType="MoldeModel.Personas" Width="1.5" PointX="10.25" PointY="7" />
         <EntityTypeShape EntityType="MoldeModel.Sexos" Width="1.5" PointX="8" PointY="11.5" />
-        <AssociationConnector Association="MoldeModel.FK_Personas_DocumentosIdentidad" />
-        <AssociationConnector Association="MoldeModel.FK_Personas_EstadosCivil1" />
-        <AssociationConnector Association="MoldeModel.FK_Personas_GruposSanguineo1" />
-        <AssociationConnector Association="MoldeModel.FK_dbo_Personas_Sexo" />
-        <AssociationConnector Association="MoldeModel.FK_Usuarios_Personas" />
         <EntityTypeShape EntityType="MoldeModel.Departamentos" Width="1.5" PointX="0.75" PointY="3.625" />
         <EntityTypeShape EntityType="MoldeModel.Municipios" Width="1.5" PointX="3" PointY="3.125" />
         <AssociationConnector Association="MoldeModel.FK_Municipios_Departamentos2" />
-        <AssociationConnector Association="MoldeModel.FK_Personas_Municipios2" />
-        <AssociationConnector Association="MoldeModel.FK_Personas_Municipios3" />
         <EntityTypeShape EntityType="MoldeModel.Barrios" Width="1.5" PointX="5.375" PointY="3.25" />
         <AssociationConnector Association="MoldeModel.FK_Barrios_Municipios" />
+        <EntityTypeShape EntityType="MoldeModel.Personas" Width="1.5" PointX="10.25" PointY="6.875" />
         <AssociationConnector Association="MoldeModel.FK_Personas_Barrios1" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_DocumentosIdentidad" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_EstadosCivil1" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_GruposSanguineo1" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_Municipios2" />
+        <AssociationConnector Association="MoldeModel.FK_Personas_Municipios3" />
+        <AssociationConnector Association="MoldeModel.FK_dbo_Personas_Sexo" />
+        <AssociationConnector Association="MoldeModel.FK_Usuarios_Personas" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
