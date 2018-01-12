@@ -51,8 +51,16 @@ namespace ControlUsuarios.Entity.Controller
 
         public Result NuevoConDatosPersona(ref Usuarios registro)
         {
-            Result resul = validarAtributosUsuarioPersona(registro);
+            Result resul = new Result();
 
+            resul = ValidateSession.validarOperacionesForm("Usuarios", "Nuevo", registro.usuarioId.Value);
+
+            if (resul.error != null && resul.error != "")
+            {
+                return resul;
+            }
+
+            resul = validarAtributosUsuarioPersona(registro);
             if (resul.error != null && resul.error != "")
             {
                 return resul;
@@ -61,13 +69,6 @@ namespace ControlUsuarios.Entity.Controller
             if (existeRegistro(registro.nombreUsuario))
             {
                 return new Result { error = "El usuario ya esta registrado.", id = registro.id, tipoAlerta = "warning" };
-            }
-
-            resul = ValidateSession.validarOperacionesForm("Usuarios", "Nuevo", registro.usuarioId.Value);
-
-            if (resul.error != null && resul.error != "")
-            {
-                return resul;
             }
 
             registro.clave = Encriptado.EncriptarCadena(registro.clave);
@@ -196,7 +197,7 @@ namespace ControlUsuarios.Entity.Controller
                     return new Result { error = "Seleccione el Barrio.", tipoAlerta = "warning" };
                 }
 
-                if ( entity.Barrios.Where(x=>x.id == registro.Personas.barrioId && x.municipioId == registro.Personas.municipioId).Count()==0 )
+                if (entity.Barrios.Where(x => x.id == registro.Personas.barrioId && x.municipioId == registro.Personas.municipioId).Count() == 0)
                 {
                     return new Result { error = "El barrio no existe en el municipio seleccionado.", tipoAlerta = "warning" };
                 }
@@ -231,7 +232,7 @@ namespace ControlUsuarios.Entity.Controller
                     return new Result { error = "Ingrese numero documento.", tipoAlerta = "warning" };
                 }
 
-                if (MetodosGenerales.validaSoloNumeros(registro.Personas.numeroDocumento))
+                if (!MetodosGenerales.validaSoloNumeros(registro.Personas.numeroDocumento))
                 {
                     return new Result { error = "El numero documento tiene un caracter no valido, letra o espacio.", tipoAlerta = "warning" };
                 }
@@ -244,11 +245,6 @@ namespace ControlUsuarios.Entity.Controller
                 if (MetodosGenerales.validaSoloLetras(registro.Personas.primerNombre))
                 {
                     return new Result { error = "Primer nombre tiene un caracter no valido.", tipoAlerta = "warning" };
-                }
-
-                if (registro.Personas.segundoNombre == "")
-                {
-                    return new Result { error = "Digite el segundo nombre.", tipoAlerta = "warning" };
                 }
 
                 if (MetodosGenerales.validaSoloLetras(registro.Personas.segundoNombre))
@@ -264,11 +260,6 @@ namespace ControlUsuarios.Entity.Controller
                 if (MetodosGenerales.validaSoloLetras(registro.Personas.primerApellido))
                 {
                     return new Result { error = "Primer apellido tiene un caracter no valido.", tipoAlerta = "warning" };
-                }
-
-                if (registro.Personas.segundoApellido == "")
-                {
-                    return new Result { error = "Digite el segundo apellido.", tipoAlerta = "warning" };
                 }
 
                 if (MetodosGenerales.validaSoloLetras(registro.Personas.segundoApellido))
@@ -336,5 +327,21 @@ namespace ControlUsuarios.Entity.Controller
                 }
             }
         }
+
+        public Result Inactivar(int usuarioId, int usuarioIdApli)
+        {
+            Result resul = new Result();
+            resul.error = "No se puede realizar esta operación en el estado actual del registro";
+            return resul;
+        }
+
+        public Result Activar(int usuarioId, int usuarioIdApli)
+        {
+            Result resul = new Result();
+            resul.error = "No se puede realizar esta operación en el estado actual del registro";
+            return resul;
+        }
+
+     
     }
 }

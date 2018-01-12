@@ -70,7 +70,7 @@ namespace ProyectoMolde.WebMethods
                 return new Result() { id = 0, error = "Las claves no coinciden.", tipoAlerta = "warning" };
             }
 
-            Usuarios u = new UsuariosController().getModel(usuario);         
+            Usuarios u = new UsuariosController().getModel(usuario);
             Result r = IFACTORY.createUsuarios("Nuevo").NuevoConDatosPersona(ref u);
             return r;
         }
@@ -78,8 +78,24 @@ namespace ProyectoMolde.WebMethods
         [WebMethod]
         public static Result editar(UsuariosViewModel usuario)
         {
-            Usuarios u = new Usuarios();
+            Usuarios u = new UsuariosController().getModel(usuario);
             Result r = IFACTORY.createUsuarios(u.estado).Editar(ref u);
+            return r;
+        }
+
+        [WebMethod]
+        public static Result inactivar(int id,  int usuarioId)
+        {
+            UsuariosViewModel u = new UsuariosController().getUsuariosId(id);
+            Result r = IFACTORY.createUsuarios(u.estado).Inactivar(id, usuarioId);
+            return r;
+        }
+
+        [WebMethod]
+        public static Result activar(int id, int usuarioId)
+        {
+            UsuariosViewModel u = new UsuariosController().getUsuariosId(id);
+            Result r = IFACTORY.createUsuarios(u.estado).Activar(id, usuarioId);
             return r;
         }
     }

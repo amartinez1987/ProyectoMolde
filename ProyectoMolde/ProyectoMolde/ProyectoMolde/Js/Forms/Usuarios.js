@@ -172,7 +172,7 @@ function btnUsuarios_Inactivar(id) {
     var callback = function () {
         usuarios.id = id;
         usuarios.usuarioId = getLocalStorageNavegator("usuarioId");
-        var url = "/WebMethods/usuarios.aspx/inactivar";
+        var url = "/WebMethods/usuario.aspx/inactivar";
         enviarComoParametros(url, usuarios, OnSuccesInactivarUsuarios);
     }
     confirm(heading, question, cancelButtonTxt, okButtonTxt, callback);
@@ -200,7 +200,7 @@ function btnUsuarios_Activar(id) {
     var callback = function () {
         usuarios.id = id;
         usuarios.usuarioId = getLocalStorageNavegator("usuarioId");
-        var url = "/WebMethods/usuarios.aspx/activar";
+        var url = "/WebMethods/usuario.aspx/activar";
         enviarComoParametros(url, usuarios, OnSuccesActivarUsuarios);
     }
     confirm(heading, question, cancelButtonTxt, okButtonTxt, callback);
@@ -310,21 +310,11 @@ function validarCampos() {
         return false;
     };
 
-    if ($('#txtsegundoNombrePersonas').val() == "") {
-        tipoAlerta('El campo segundoNombre no puede ir vacío.', 'warning', "#panelGuardar");
-        return false;
-    };
-
     if ($('#txtprimerApellidoPersonas').val() == "") {
         tipoAlerta('El campo primerApellido no puede ir vacío.', 'warning', "#panelGuardar");
         return false;
     };
-
-    if ($('#txtsegundoApellidoPersonas').val() == "") {
-        tipoAlerta('El campo segundoApellido no puede ir vacío.', 'warning', "#panelGuardar");
-        return false;
-    };
-
+ 
     if ($('#txtdirecccionPersonas').val() == "") {
         tipoAlerta('El campo direcccion no puede ir vacío.', 'warning', "#panelGuardar");
         return false;

@@ -1,6 +1,6 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Forms/frmMasterPage.Master" AutoEventWireup="true" CodeBehind="frmListaUsuarios.aspx.cs" Inherits="ProyectoMolde.Forms.frmListaUsuarios" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenPlaceDocument" runat="server">
     <br />

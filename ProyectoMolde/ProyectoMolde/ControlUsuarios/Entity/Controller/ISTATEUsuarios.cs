@@ -16,9 +16,13 @@ namespace ControlUsuarios.Entity.Controller
 
          Result Editar(ref Usuarios registro);
 
-         Result Inactivar(ref Usuarios registro);
+         Result Inactivar(int usuarioId, int usuarioIdApli);
+
+         Result Activar(int usuarioId, int usuarioIdApli);
 
          Result Activar(ref Usuarios registro);
+
+         Result Inactivar(ref Usuarios registro);
 
          Result ValidarUsuario(ref Usuarios registro);
 

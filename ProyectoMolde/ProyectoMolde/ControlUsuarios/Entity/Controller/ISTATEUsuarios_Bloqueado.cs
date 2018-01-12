@@ -33,7 +33,16 @@ namespace ControlUsuarios.Entity.Controller
             resul.tipoAlerta = "Info";
             return resul;
         }
+
         public Result Inactivar(ref Usuarios registro)
+        {
+            Result resul = new Result();
+            resul.error = "No se puede realizar esta operación en el estado actual del registro";
+            resul.tipoAlerta = "Info";
+            return resul;
+        }
+
+        public Result Inactivar(int usuarioId, int usuarioIdApli)
         {
             Result resul = new Result();
             resul.error = "No se puede realizar esta operación en el estado actual del registro";
@@ -56,8 +65,17 @@ namespace ControlUsuarios.Entity.Controller
             return resul;
         }
 
+        public Result Activar(int usuarioId, int usuarioIdApli)
+        {
+            Result resul = new Result();
+            resul.error = "No se puede realizar esta operación en el estado actual del registro";
+            resul.tipoAlerta = "Info";
+            return resul;
+        }
+
         public Result Activar(ref Usuarios registro)
         {
+
             Result resul = new Result();
             resul.error = "No se puede realizar esta operación en el estado actual del registro";
             resul.tipoAlerta = "Info";

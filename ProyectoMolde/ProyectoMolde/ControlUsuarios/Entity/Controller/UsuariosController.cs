@@ -277,6 +277,7 @@ namespace ControlUsuarios.Entity.Controller
             if (usuario.sexoId == null) { usuario.sexoId = 0; }
             if (usuario.telefonoCelular == null) { usuario.telefonoCelular = 0; }
             if (usuario.telefonoFijo == null) { usuario.telefonoFijo = 0; }
+            if (usuario.idPersona == null) { usuario.idPersona = 0; }
 
             Personas p = new Personas()
             {
