@@ -51,6 +51,7 @@ namespace ControlUsuarios.Entity.Controller
 
                 Usuarios registroEditar = entity.Usuarios.Where(x => x.id == usuariosId).SingleOrDefault();
                 entity.Entry(registroEditar).CurrentValues.SetValues(registro);
+                registroEditar.Personas = registro.Personas;
                 try
                 {
                     entity.SaveChanges();

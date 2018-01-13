@@ -208,5 +208,5 @@ function cargarListaPerfiles() {
 
 
 function btnPerfiles_Operaciones(id,nombrePerfil) {
-    loadUrlModal('Operaciones Perfil ' + nombrePerfil, ('frmPerfilesOperacionesFormulario.aspx?id=' + id), croosModalClick);
+    loadUrlModal('Operaciones Perfil ' + nombrePerfil, ('frmPerfilesOperacionesFormulario.aspx?id=' + id), croosModalClick, ' style="height: 500px; overflow-y: scroll;" ');
 }

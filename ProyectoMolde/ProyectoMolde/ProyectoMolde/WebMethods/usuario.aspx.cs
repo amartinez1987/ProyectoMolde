@@ -65,37 +65,58 @@ namespace ProyectoMolde.WebMethods
         [WebMethod]
         public static Result nuevo(UsuariosViewModel usuario)
         {
+            Result r = ValidateSession.validarSession(usuario.id, HttpContext.Current.Session["usuarioId"]);
+            if (r.error != "")
+            {
+                return r;
+            }
+
             if (usuario.clave != usuario.confirmarClave)
             {
                 return new Result() { id = 0, error = "Las claves no coinciden.", tipoAlerta = "warning" };
             }
 
             Usuarios u = new UsuariosController().getModel(usuario);
-            Result r = IFACTORY.createUsuarios("Nuevo").NuevoConDatosPersona(ref u);
+            r = IFACTORY.createUsuarios("Nuevo").NuevoConDatosPersona(ref u);
             return r;
         }
 
         [WebMethod]
         public static Result editar(UsuariosViewModel usuario)
         {
+            Result r = ValidateSession.validarSession(usuario.id, HttpContext.Current.Session["usuarioId"]);
+            if (r.error != "")
+            {
+                return r;
+            }
             Usuarios u = new UsuariosController().getModel(usuario);
-            Result r = IFACTORY.createUsuarios(u.estado).Editar(ref u);
+            r = IFACTORY.createUsuarios(u.estado).Editar(ref u);
             return r;
         }
 
         [WebMethod]
-        public static Result inactivar(int id,  int usuarioId)
+        public static Result inactivar(int id, int usuarioId)
         {
+            Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
+            if (r.error != "")
+            {
+                return r;
+            }
             UsuariosViewModel u = new UsuariosController().getUsuariosId(id);
-            Result r = IFACTORY.createUsuarios(u.estado).Inactivar(id, usuarioId);
+            r = IFACTORY.createUsuarios(u.estado).Inactivar(id, usuarioId);
             return r;
         }
 
         [WebMethod]
         public static Result activar(int id, int usuarioId)
         {
+            Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
+            if (r.error != "")
+            {
+                return r;
+            }
             UsuariosViewModel u = new UsuariosController().getUsuariosId(id);
-            Result r = IFACTORY.createUsuarios(u.estado).Activar(id, usuarioId);
+            r = IFACTORY.createUsuarios(u.estado).Activar(id, usuarioId);
             return r;
         }
     }

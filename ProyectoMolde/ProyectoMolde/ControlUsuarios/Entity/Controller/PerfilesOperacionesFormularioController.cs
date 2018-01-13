@@ -37,6 +37,7 @@ namespace ControlUsuarios.Entity.Controller
 
             var l = from perfilesoperacionesformulario in entity.PerfilesOperacionesFormulario
                     where perfilesoperacionesformulario.perfilId == pefilId
+
                     select new PerfilesOperacionesFormularioViewModel
                     {
                         id = perfilesoperacionesformulario.id,
@@ -51,10 +52,13 @@ namespace ControlUsuarios.Entity.Controller
 
         }
 
-        public List<OperacionesFormularioViewModel> getListaNoOperacionesFormularioPerfil(int perfilId)
+        public List<OperacionesFormularioViewModel> getListaNoOperacionesFormularioPerfil(int perfilId, int aplicacionId = 0, int menuId = 0, string nombreFormulario = "")
         {
 
             var of = from operacionesFormulario in entity.OperacionesFormulario
+                     where operacionesFormulario.Formularios.nombreFormulario.Contains(nombreFormulario == "" ? operacionesFormulario.Formularios.nombreFormulario : nombreFormulario)
+                   && operacionesFormulario.Formularios.menuId == (menuId == 0 ? operacionesFormulario.Formularios.menuId : menuId)
+                   && operacionesFormulario.Formularios.Menus.aplicacionWebId == (aplicacionId == 0 ? operacionesFormulario.Formularios.Menus.aplicacionWebId : aplicacionId)
                      select operacionesFormulario;
 
             var ofp = from perfilesOperacionesFormulario in entity.PerfilesOperacionesFormulario

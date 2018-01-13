@@ -1,25 +1,12 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Forms/frmCrudMaster.Master" AutoEventWireup="true" CodeBehind="frmUsuarios_Editar.aspx.cs" Inherits="ProyectoMolde.Forms.frmUsuarios_Editar" %>
 
 <%@ Register Src="~/Forms/frmUsuarios.ascx" TagPrefix="uc1" TagName="frmUsuarios" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        .modal-dialog,
-        .modal-content {
-            /* 80% of window height */
-            height: 80%;
-        }
-
-        .modal-body {
-            /* 100% = dialog height, 120px = header + footer */
-            max-height: calc(100% - 100px);
-            overflow-y: scroll;
-        }
-    </style>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenPlaceDocument" runat="server">
     <uc1:frmUsuarios runat="server" ID="frmUsuarios" />
     <br />
-    <div id="panelGuardar">
+    <div id="panelGuardar" >
         </div>
         <a id="btnUsuarios_Editar" onclick="btnUsuarios_EditarClick()" class="btn btn-success">Editar</a>
     

@@ -66,7 +66,7 @@ function confirm(heading, question, cancelButtonTxt, okButtonTxt, callback)
 };  
 /* END Generic Confirm func */
 
-function loadUrlModal(heading, url, fucntionOnClickCross) {    
+function loadUrlModal(heading, url, fucntionOnClickCross, scroll) {    
     $('#modalForm').remove();
     var modalUrl =
       $('<div id ="modalForm" class="modal fade">' +
@@ -76,7 +76,7 @@ function loadUrlModal(heading, url, fucntionOnClickCross) {
                     '<a id="croosModal" type="button" class="close" >X</a>' +
                     '<h4  class="modal-title">' + heading + '</h4>' +
                 '</div>' +
-                '<div class="modal-body">' +
+                '<div class="modal-body"'+scroll+' >' +
                     '<p>Loading...</p>' +
                 '</div>' +
                 '<div class="modal-footer">' +

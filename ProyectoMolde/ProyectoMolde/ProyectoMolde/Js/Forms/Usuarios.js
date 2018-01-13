@@ -67,7 +67,7 @@ function croosModalClick() {
 }
 
 function btnUsuarios_NuevoClick() {
-    loadUrlModal('Nueva Usuarios', 'frmUsuarios_Nuevo.aspx', croosModalClick);
+    loadUrlModal('Nueva Usuarios', 'frmUsuarios_Nuevo.aspx', croosModalClick, ' style="height: 400px; overflow-y: scroll;" ');
 }
 
 function btnUsuarios_GuardarClick() {
@@ -160,7 +160,7 @@ function OnSuccesSaveUsuarios(response) {
 }
 
 function btnUsuarios_Editar(id) {
-    loadUrlModal('Editar Usuarios', ('frmUsuarios_Editar.aspx?id=' + id), croosModalClick);
+    loadUrlModal('Editar Usuarios', ('frmUsuarios_Editar.aspx?id=' + id), croosModalClick, ' style="height: 400px; overflow-y: scroll;" ');
 }
 
 function btnUsuarios_Inactivar(id) {

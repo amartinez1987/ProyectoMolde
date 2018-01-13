@@ -38,6 +38,63 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenPlaceDocument" runat="server">
+
+    <div class="row">
+        <div class="col-sm-6">
+            
+            <label id="lblaplicacionWebIdPerfilesOperacionesFormulario">Aplicación</label>
+            <div class="form-group input-group">
+                <input id="txtaplicacionWebvVerPerfilesOperacionesFormulario" onblur="leaveHelpAplicacionesWeb('#txtaplicacionWebIdPerfilesOperacionesFormulario','#txtDescripcionAplicacionWeb')" type="text" class="form-control">
+                <input id="txtaplicacionWebIdPerfilesOperacionesFormulario" hidden="hidden" type="text">
+                <span class="input-group-btn">
+                    <a onclick="btnOpenHelpAplicacionesWeb('#txtaplicacionWebIdPerfilesOperacionesFormulario','#txtaplicacionWebvVerPerfilesOperacionesFormulario' ,'#txtDescripcionAplicacionWeb')" class="btn btn-default" type="button">
+                        <i class="fa fa-search"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+           
+            <br />
+            <input id="txtDescripcionAplicacionWeb" type="text" disabled class="form-control">
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            
+            <label id="lblmenuIdPerfilesOperacionesFormulario">menuId</label>
+            <div class="form-group input-group">
+                <input id="txtmenuVerPerfilesOperacionesFormulario" onblur="leaveHelpMenu('#txtmenuIdPerfilesOperacionesFormulario','#txtDescripcionMenus')" type="text" class="form-control">
+                <input id="txtmenuIdPerfilesOperacionesFormulario" hidden="hidden" type="text">
+                <span class="input-group-btn">
+                    <a onclick="btnOpenHelpMenu('#txtmenuIdPerfilesOperacionesFormulario','#txtmenuVerPerfilesOperacionesFormulario' ,'#txtDescripcionMenus')" class="btn btn-default" type="button">
+                        <i class="fa fa-search"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            
+            <br />
+            <input id="txtDescripcionMenus" type="text" disabled class="form-control">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            
+            <label id="lblFormularioPerfilesOperacionesFormulario">Formulario</label>
+            <input id="txtnombreFormularioPerfilesOperacionesFormulario" type="text" class="form-control">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <button id="btnbuscar" onclick="btnBuscar()" type="button" class="btn btn-default">Buscar</button>
+        </div>
+    </div>
+
     <input id="txtIdOperacionesFormulario" hidden="hidden" type="text" />
     <div class="subject-info-box-1">
         Operaciones sin Asignar
@@ -114,11 +171,12 @@
         }(jQuery));
     </script>
     <script src="../Js/Forms/PerfilesOperacionesFormulario.js"></script>
+    <script src="../Js/frmHelp.js"></script>
     <script>
 <% string perfilesOperacionesFormularioIdString = Request.QueryString["id"];
         int perfilesOperacionesFormularioId = 0;
         int.TryParse(perfilesOperacionesFormularioIdString, out perfilesOperacionesFormularioId);
-        string jsonPerfilesOperacionesFormulario = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize( ControlUsuarios.Entity.Controller.PerfilesController.getPerfiles(perfilesOperacionesFormularioId)); %>
+        string jsonPerfilesOperacionesFormulario = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(ControlUsuarios.Entity.Controller.PerfilesController.getPerfiles(perfilesOperacionesFormularioId)); %>
         perfilesOperacionesFormulario = <%= jsonPerfilesOperacionesFormulario %>
         getListaOperacionesFormularioPerfiles(perfilesOperacionesFormulario.id);
         getListaOperacionesFormulario(perfilesOperacionesFormulario.id);
