@@ -82,15 +82,15 @@ namespace ProyectoMolde.WebMethods
         }
 
         [WebMethod]
-        public static Result editar(UsuariosViewModel usuario)
+        public static Result editar(UsuariosViewModel usuario,string modificaPerfil)
         {
-            Result r = ValidateSession.validarSession(usuario.id, HttpContext.Current.Session["usuarioId"]);
+            Result r = ValidateSession.validarSession(usuario.usuarioId.Value, HttpContext.Current.Session["usuarioId"]);
             if (r.error != "")
             {
                 return r;
             }
             Usuarios u = new UsuariosController().getModel(usuario);
-            r = IFACTORY.createUsuarios(u.estado).Editar(ref u);
+            r = IFACTORY.createUsuarios(u.estado).Editar(ref u, modificaPerfil);
             return r;
         }
 

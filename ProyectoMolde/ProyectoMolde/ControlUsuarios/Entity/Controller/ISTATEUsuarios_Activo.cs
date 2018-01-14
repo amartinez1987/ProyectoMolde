@@ -28,7 +28,7 @@ namespace ControlUsuarios.Entity.Controller
             return resul;
         }
 
-        public Result Editar(ref Usuarios registro)
+        public Result Editar(ref Usuarios registro, string tipoModificacionPerfil)
         {
             Result resul = new Result();
 
@@ -50,8 +50,55 @@ namespace ControlUsuarios.Entity.Controller
                 int usuariosId = registro.id;
 
                 Usuarios registroEditar = entity.Usuarios.Where(x => x.id == usuariosId).SingleOrDefault();
+                UsuariosOperacionesFormularioController uofc = new UsuariosOperacionesFormularioController();
+
+                int perfilId = registroEditar.perfilId;
+                int perfilIdN = registro.perfilId;
+                int usuarioId = registro.usuarioId.Value;
+
+                List<OperacionesFormulario> lstOf = entity.PerfilesOperacionesFormulario.Where(x => x.perfilId == perfilId).Select(x => x.OperacionesFormulario).ToList();
+                List<OperacionesFormulario> lstOfN = entity.PerfilesOperacionesFormulario.Where(x => x.perfilId == perfilIdN).Select(x => x.OperacionesFormulario).ToList();
+                List<UsuariosOperacionesFormulario> lstUopf = new List<UsuariosOperacionesFormulario>();
+
                 entity.Entry(registroEditar).CurrentValues.SetValues(registro);
-                registroEditar.Personas = registro.Personas;
+
+                switch (tipoModificacionPerfil)
+                {
+                    case "addPerfil":
+
+                        foreach (var item in lstOf)
+                        {
+                            lstUopf.Add(new UsuariosOperacionesFormulario() { id = 0, usuarioId = registro.id, operacionFormularioId = item.id, usuarioIdApl = registro.usuarioId.Value });
+                        }
+
+                        foreach (var item in lstOfN)
+                        {
+                            lstUopf.Add(new UsuariosOperacionesFormulario() { id = 0, usuarioId = registro.id, operacionFormularioId = item.id, usuarioIdApl = registro.usuarioId.Value });
+                        }
+
+                        uofc.guardarUsuariosOperacionesFormulario(lstUopf.ToArray(), usuarioId);
+
+                        break;
+                    case "replacePerfil":
+
+                        foreach (var item in lstOfN)
+                        {
+                            lstUopf.Add(new UsuariosOperacionesFormulario() { id = 0, usuarioId = registro.id, operacionFormularioId = item.id, usuarioIdApl = registro.usuarioId.Value });
+                        }
+
+                        uofc.guardarUsuariosOperacionesFormulario(lstUopf.ToArray(), usuarioId);
+                        break;
+                    default:                        
+                        registro.perfilId = perfilId;
+                        break;
+                }
+                PersonasController pc = new PersonasController();
+                if (pc.existeRegistro(registro.idPersona.Value))
+                {
+                    entity.Entry(registroEditar.Personas).CurrentValues.SetValues(registro.Personas); 
+                }
+                else { registroEditar.Personas = registro.Personas; }                
+
                 try
                 {
                     entity.SaveChanges();
@@ -76,7 +123,7 @@ namespace ControlUsuarios.Entity.Controller
         {
             using (MoldeEntities entity = new MoldeEntities())
             {
-                
+
                 if (existeRegistro(usuarioId))
                 {
                     Result result = new Result() { error = "" };
@@ -103,7 +150,7 @@ namespace ControlUsuarios.Entity.Controller
             return new Result { error = "" };
         }
 
-        
+
         public Result ValidarUsuario(ref Usuarios registro)
         {
             Result resul = validarAtributos(registro);

@@ -14,7 +14,7 @@ namespace ControlUsuarios.Entity.Controller
 
          Result NuevoConDatosPersona(ref Usuarios registro);
 
-         Result Editar(ref Usuarios registro);
+         Result Editar(ref Usuarios registro, string tipoModificacionPerfil);
 
          Result Inactivar(int usuarioId, int usuarioIdApli);
 

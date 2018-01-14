@@ -31,9 +31,19 @@ namespace ControlUsuarios.Entity.Controller
             registro.perfilId = 1;//Perfil por defecto cuando se crea por la aplicacion.
             registro.clave = Encriptado.EncriptarCadena(registro.clave);
             registro.estado = "Nuevo";
+
             using (MoldeEntities entity = new MoldeEntities())
             {
+                int perfilId = registro.perfilId;
+                List<OperacionesFormulario> lstOf = entity.PerfilesOperacionesFormulario.Where(x => x.perfilId == perfilId).Select(x => x.OperacionesFormulario).ToList();
+
+                foreach (var item in lstOf)
+                {
+                    registro.UsuariosOperacionesFormulario.Add(new UsuariosOperacionesFormulario() { id = 0, usuarioId = registro.id, operacionFormularioId = item.id, usuarioIdApl = registro.usuarioId.Value });
+                }
+
                 entity.Usuarios.Add(registro);
+
                 try
                 {
                     entity.SaveChanges();
@@ -75,6 +85,14 @@ namespace ControlUsuarios.Entity.Controller
             registro.estado = "Activo";
             using (MoldeEntities entity = new MoldeEntities())
             {
+                int perfilId = registro.perfilId;
+                List<OperacionesFormulario> lstOf = entity.PerfilesOperacionesFormulario.Where(x => x.perfilId == perfilId).Select(x => x.OperacionesFormulario).ToList();
+
+                foreach (var item in lstOf)
+                {
+                    registro.UsuariosOperacionesFormulario.Add(new UsuariosOperacionesFormulario() { id = 0, usuarioId = registro.id, operacionFormularioId = item.id, usuarioIdApl = registro.usuarioId.Value });
+                }
+
                 entity.Usuarios.Add(registro);
                 try
                 {
@@ -87,7 +105,7 @@ namespace ControlUsuarios.Entity.Controller
                 }
             }
         }
-        public Result Editar(ref Usuarios registro)
+        public Result Editar(ref Usuarios registro, string tipoModificacionPerfil)
         {
             Result resul = new Result();
             resul.error = "No se puede realizar esta operación en el estado actual del registro";
@@ -342,6 +360,6 @@ namespace ControlUsuarios.Entity.Controller
             return resul;
         }
 
-     
+
     }
 }

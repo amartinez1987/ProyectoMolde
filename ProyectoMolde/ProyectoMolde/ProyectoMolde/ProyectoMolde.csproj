@@ -186,6 +186,7 @@
     <Content Include="Js\Forms\Sexos.js" />
     <Content Include="Js\Forms\Usuarios.js" />
     <Content Include="Js\frmHelp.js" />
+    <Content Include="Js\funcionesJsGeneral.js" />
     <Content Include="WebMethods\aplicacionesWeb.aspx" />
     <Content Include="WebMethods\barrios.aspx" />
     <Content Include="WebMethods\departamentos.aspx" />

@@ -25,8 +25,8 @@ function cargarDatos(usuarios) {
     $('#txtDescripcionMunicipio').val(usuarios.nombreDepartamentoMunicipio);
 
     $('#txtgrupoSanguineoIdPersonas').val(usuarios.grupoSanguineoId);
-    $('#txtgrupoSanguineoIdPersonas').val(usuarios.siglaGrupoSanguineo);
-    $('#txtgrupoSanguineoIdPersonas').val(usuarios.descripcionGrupoSanguineo);
+    $('#txtgrupoSanguineoVerPersonas').val(usuarios.siglaGrupoSanguineo);
+    $('#txtDescripcionGrupoSanguineo').val(usuarios.descripcionGrupoSanguineo);
 
     $('#txtsexoIdPersonas').val(usuarios.sexoId);
     $('#txtSexoVerPersonas').val(usuarios.siglaSexo);
@@ -55,9 +55,9 @@ function cargarDatos(usuarios) {
     $('#txtprimerApellidoPersonas').val(usuarios.primerApellido);
     $('#txtsegundoApellidoPersonas').val(usuarios.segundoApellido);
     $('#txtdirecccionPersonas').val(usuarios.direcccion);
-    $('#txtcorreoPersonas').val(usuarios.correo);
-    $('#txtfechaNacimientoPersonas').val(usuarios.fechaNacimiento);
-    $('#txtfechaExpedicionCedulaPersonas').val(usuarios.fechaExpedicionCedula);
+    $('#txtcorreoPersonas').val(usuarios.correo);   
+    $('#txtfechaNacimientoPersonas').val(getDateString(usuarios.fechaNacimiento));
+    $('#txtfechaExpedicionCedulaPersonas').val(getDateString(usuarios.fechaExpedicionCedula));
 
 
 }
@@ -111,39 +111,58 @@ function btnUsuarios_GuardarClick() {
     }
 }
 
-function btnUsuarios_EditarClick() {
-    if (validarCampos()) {
-        usuarios.usuario = new Object();
-        usuarios.usuario.id = $('#txtIdUsuarios').val();
-        usuarios.usuario.idPersona = $('#txtIdPersonas').val();
-        usuarios.usuario.usuarioId = getLocalStorageNavegator("usuarioId");
-        usuarios.usuario.perfilId = $('#txtperfilIdUsuarios').val();
-        usuarios.usuario.nombreUsuario = $('#txtnombreUsuarioUsuarios').val();
-        usuarios.usuario.clave = $('#txtclaveUsuarios').val();
-        usuarios.usuario.estado = $('#txtestadoUsuarios').val();
-        usuarios.usuario.documentoIdentidadId = $('#txtdocumentoIdentidadIdPersonas').val();
-        usuarios.usuario.municipioId = $('#txtmunicipioIdPersonas').val();
-        usuarios.usuario.grupoSanguineoId = $('#txtgrupoSanguineoIdPersonas').val();
-        usuarios.usuario.sexoId = $('#txtsexoIdPersonas').val();
-        usuarios.usuario.municipioExpedicionId = $('#txtmunicipioExpedicionIdPersonas').val();
-        usuarios.usuario.barrioId = $('#txtbarrioIdPersonas').val();
-        usuarios.usuario.estatura = $('#txtestaturaPersonas').val();
-        usuarios.usuario.peso = $('#txtpesoPersonas').val();
-        usuarios.usuario.estadoCivilId = $('#txtestadoCivilIdPersonas').val();
-        usuarios.usuario.telefonoFijo = $('#txttelefonoFijoPersonas').val();
-        usuarios.usuario.telefonoCelular = $('#txttelefonoCelularPersonas').val();
-        usuarios.usuario.numeroDocumento = $('#txtnumeroDocumentoPersonas').val();
-        usuarios.usuario.primerNombre = $('#txtprimerNombrePersonas').val();
-        usuarios.usuario.segundoNombre = $('#txtsegundoNombrePersonas').val();
-        usuarios.usuario.primerApellido = $('#txtprimerApellidoPersonas').val();
-        usuarios.usuario.segundoApellido = $('#txtsegundoApellidoPersonas').val();
-        usuarios.usuario.direcccion = $('#txtdirecccionPersonas').val();
-        usuarios.usuario.correo = $('#txtcorreoPersonas').val();
-        usuarios.usuario.fechaNacimiento = $('#txtfechaNacimientoPersonas').val();
-        usuarios.usuario.fechaExpedicionCedula = $('#txtfechaExpedicionCedulaPersonas').val();
+function btnUsuarios_EditarClick()
+{
+    if (validarCampos())
+    {
 
-        var url = "/WebMethods/usuario.aspx/editar";
-        enviarComoParametros(url, usuarios, OnSuccesSaveUsuarios);
+        var heading = 'Editar Registro';
+        var question = '¿Como desea guardar el registro?.';
+        var cancelButtonTxt = 'Cancelar';
+        var okButtonSinPerfilTxt = 'Guardar sin Cambiar Perfil';
+        var okButtonAddPerfilTxt = 'Guardar y agregar opciones del perfil';
+        var okButtonReplacePerfilTxt = 'Remplazar perfil';
+
+        var callback = function (tipoModificacionPerfil)
+        {           
+            usuarios.usuario = new Object();
+            usuarios.usuario.id = $('#txtIdUsuarios').val();
+            usuarios.usuario.idPersona = $('#txtIdPersonas').val();
+            usuarios.usuario.usuarioId = getLocalStorageNavegator("usuarioId");
+            usuarios.usuario.perfilId = $('#txtperfilIdUsuarios').val();
+            usuarios.usuario.nombreUsuario = $('#txtnombreUsuarioUsuarios').val();
+            usuarios.usuario.clave = $('#txtclaveUsuarios').val();
+            usuarios.usuario.estado = $('#txtestadoUsuarios').val();
+            usuarios.usuario.documentoIdentidadId = $('#txtdocumentoIdentidadIdPersonas').val();
+            usuarios.usuario.municipioId = $('#txtmunicipioIdPersonas').val();
+            usuarios.usuario.grupoSanguineoId = $('#txtgrupoSanguineoIdPersonas').val();
+            usuarios.usuario.sexoId = $('#txtsexoIdPersonas').val();
+            usuarios.usuario.municipioExpedicionId = $('#txtmunicipioExpedicionIdPersonas').val();
+            usuarios.usuario.barrioId = $('#txtbarrioIdPersonas').val();
+            usuarios.usuario.estatura = $('#txtestaturaPersonas').val();
+            usuarios.usuario.peso = $('#txtpesoPersonas').val();
+            usuarios.usuario.estadoCivilId = $('#txtestadoCivilIdPersonas').val();
+            usuarios.usuario.telefonoFijo = $('#txttelefonoFijoPersonas').val();
+            usuarios.usuario.telefonoCelular = $('#txttelefonoCelularPersonas').val();
+            usuarios.usuario.numeroDocumento = $('#txtnumeroDocumentoPersonas').val();
+            usuarios.usuario.primerNombre = $('#txtprimerNombrePersonas').val();
+            usuarios.usuario.segundoNombre = $('#txtsegundoNombrePersonas').val();
+            usuarios.usuario.primerApellido = $('#txtprimerApellidoPersonas').val();
+            usuarios.usuario.segundoApellido = $('#txtsegundoApellidoPersonas').val();
+            usuarios.usuario.direcccion = $('#txtdirecccionPersonas').val();
+            usuarios.usuario.correo = $('#txtcorreoPersonas').val();
+            usuarios.usuario.fechaNacimiento = $('#txtfechaNacimientoPersonas').val();
+            usuarios.usuario.fechaExpedicionCedula = $('#txtfechaExpedicionCedulaPersonas').val();
+            usuarios.modificaPerfil = tipoModificacionPerfil;
+
+            var url = "/WebMethods/usuario.aspx/editar";
+            enviarComoParametros(url, usuarios, OnSuccesSaveUsuarios);
+
+        }
+
+        confirmPerfil(heading, question, okButtonSinPerfilTxt ,okButtonAddPerfilTxt, okButtonReplacePerfilTxt, cancelButtonTxt , callback);
+
+        
     }
 }
 

@@ -66,6 +66,59 @@ function confirm(heading, question, cancelButtonTxt, okButtonTxt, callback)
 };  
 /* END Generic Confirm func */
 
+/* Generic Confirm func */
+function confirmPerfil(heading, question, okButtonSinPerfilTxt, okButtonAddPerfilTxt, okButtonReplacePerfilTxt, cancelButtonTxt, callback) {
+    var confirmModal =
+      $('<div class="modal fade">' +
+          '<div class="modal-dialog">' +
+          '<div class="modal-content">' +
+          '<div class="modal-header">' +
+            '<a class="close" data-dismiss="modal" >&times;</a>' +
+            '<h3>' + heading + '</h3>' +
+          '</div>' +
+
+          '<div class="modal-body">' +
+            '<p>' + question + '</p>' +
+          '</div>' +
+
+          '<div class="modal-footer">' +
+           '<a href="#!" id="okButtonSinPerfil" class="btn btn-primary">' +
+              okButtonSinPerfilTxt +
+            '</a>' +
+             '<a href="#!" id="okButtonAddPerfil" class="btn btn-primary">' +
+              okButtonAddPerfilTxt +
+            '</a>' +
+             '<a href="#!" id="okButtonReplacePerfil" class="btn btn-primary">' +
+              okButtonReplacePerfilTxt +
+            '</a>' +
+            '<a href="#!" class="btn" data-dismiss="modal">' +
+              cancelButtonTxt +
+            '</a>' +           
+          '</div>' +
+          '</div>' +
+          '</div>' +
+        '</div>');
+
+    confirmModal.find('#okButtonSinPerfil').click(function (event) {
+        callback('sinPerfil');
+        confirmModal.modal('hide');
+    });
+
+    confirmModal.find('#okButtonAddPerfil').click(function (event) {
+        callback('addPerfil');
+        confirmModal.modal('hide');
+    });
+
+    confirmModal.find('#okButtonReplacePerfil').click(function (event) {
+        callback('replacePerfil');
+        confirmModal.modal('hide');
+    });
+
+
+    confirmModal.modal('show');
+};
+/* END Generic Confirm func */
+
 function loadUrlModal(heading, url, fucntionOnClickCross, scroll) {    
     $('#modalForm').remove();
     var modalUrl =
