@@ -162,7 +162,7 @@ function btnOpenHelpMenu(campoIdReturn, campoReturnView, campoDescripReturn) {
 
 function leaveHelpMenu(campoIdReturn, campoDescripReturn) {
     help.tabla = 'Menus';
-    help.valorBuscar = $("#txtmenuIdPerfilesOperacionesFormulario").val();
+    help.valorBuscar = $("#txtmenuVerPerfilesOperacionesFormulario").val();
     help.campoIdReturn = campoIdReturn;
     help.campoDescripReturn = campoDescripReturn;
     help.prefiltros = [];

@@ -19,7 +19,7 @@ namespace ControlUsuarios.Entity.Controller
         {
 
             var l = from usuariosoperacionesformulario in entity.UsuariosOperacionesFormulario
-                    select new UsuariosOperacionesFormularioViewModel { id = usuariosoperacionesformulario.id, usuarioId = usuariosoperacionesformulario.usuarioId, operacionFormularioId = usuariosoperacionesformulario.operacionFormularioId, usuarioIdApl = usuariosoperacionesformulario.usuarioIdApl };
+                    select new UsuariosOperacionesFormularioViewModel { id = usuariosoperacionesformulario.id, usuarioId = usuariosoperacionesformulario.usuarioId, operacionFormularioId = usuariosoperacionesformulario.operacionFormularioId, usuarioIdApl = usuariosoperacionesformulario.usuarioIdApl, nombreFormulario = usuariosoperacionesformulario.OperacionesFormulario.Formularios.nombreFormulario, nombreOperacion = usuariosoperacionesformulario.OperacionesFormulario.Operaciones.nombreOperacion, nombreUsuario  = usuariosoperacionesformulario.Usuarios.nombreUsuario };
             return l.ToList();
 
         }
@@ -29,7 +29,7 @@ namespace ControlUsuarios.Entity.Controller
 
             var l = from usuariosoperacionesformulario in entity.UsuariosOperacionesFormulario
                     where usuariosoperacionesformulario.usuarioId == usuarioId
-                    select new UsuariosOperacionesFormularioViewModel { id = usuariosoperacionesformulario.id, usuarioId = usuariosoperacionesformulario.usuarioId, operacionFormularioId = usuariosoperacionesformulario.operacionFormularioId, usuarioIdApl = usuariosoperacionesformulario.usuarioIdApl };
+                    select new UsuariosOperacionesFormularioViewModel { id = usuariosoperacionesformulario.id, usuarioId = usuariosoperacionesformulario.usuarioId, operacionFormularioId = usuariosoperacionesformulario.operacionFormularioId, usuarioIdApl = usuariosoperacionesformulario.usuarioIdApl, nombreFormulario = usuariosoperacionesformulario.OperacionesFormulario.Formularios.nombreFormulario, nombreOperacion = usuariosoperacionesformulario.OperacionesFormulario.Operaciones.nombreOperacion, nombreUsuario = usuariosoperacionesformulario.Usuarios.nombreUsuario };
             return l.ToList();
 
         }
@@ -72,7 +72,7 @@ namespace ControlUsuarios.Entity.Controller
 
             var l = from usuariosoperacionesformulario in entity.UsuariosOperacionesFormulario
                     where usuariosoperacionesformulario.usuarioId == usuarioId
-                    select new UsuariosOperacionesFormularioViewModel { id = usuariosoperacionesformulario.id, usuarioId = usuariosoperacionesformulario.usuarioId, operacionFormularioId = usuariosoperacionesformulario.operacionFormularioId, usuarioIdApl = usuariosoperacionesformulario.usuarioIdApl };
+                    select new UsuariosOperacionesFormularioViewModel { id = usuariosoperacionesformulario.id, usuarioId = usuariosoperacionesformulario.usuarioId, operacionFormularioId = usuariosoperacionesformulario.operacionFormularioId, usuarioIdApl = usuariosoperacionesformulario.usuarioIdApl, nombreFormulario = usuariosoperacionesformulario.OperacionesFormulario.Formularios.nombreFormulario, nombreOperacion = usuariosoperacionesformulario.OperacionesFormulario.Operaciones.nombreOperacion, nombreUsuario = usuariosoperacionesformulario.Usuarios.nombreUsuario };
             return l.SingleOrDefault();
 
         }

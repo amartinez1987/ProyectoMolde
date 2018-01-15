@@ -385,7 +385,8 @@ function cargarListaUsuarios() {
                         var etiquetaEditar = "<a onclick='btnUsuarios_Editar(" + lstUsuarios[i].id + ")'  class='fa fa-edit'><a>";
                         var etiquetaInactivar = " <a class='fa fa-minus' onclick='btnUsuarios_Inactivar(" + lstUsuarios[i].id + ")'><a>";
                         var etiquetaActivar = " <a class='fa fa-check' onclick='btnUsuarios_Activar(" + lstUsuarios[i].id + ")'><a>";
-                        out.push(["", etiquetaEditar + etiquetaInactivar + etiquetaActivar, lstUsuarios[i].nombreUsuario, lstUsuarios[i].siglaDocumentoIdentidad, lstUsuarios[i].nombreCompletoPersona, lstUsuarios[i].nombrePerfil, lstUsuarios[i].estado]);
+                        var etiquetaOperacionUsuarios = " <a class='fa fa-gears' onclick='btnUsuarios_Operaciones(" + lstUsuarios[i].id + ",\"" + lstUsuarios[i].nombreUsuario + "\")'><a>";
+                        out.push(["", etiquetaEditar + etiquetaInactivar + etiquetaActivar + etiquetaOperacionUsuarios, lstUsuarios[i].nombreUsuario, lstUsuarios[i].siglaDocumentoIdentidad, lstUsuarios[i].nombreCompletoPersona, lstUsuarios[i].nombrePerfil, lstUsuarios[i].estado]);
                     }
 
                     setTimeout(callback(
@@ -821,4 +822,9 @@ function OnSuccesHelpEstadoCivil(response) {
 
         return;
     }
+}
+
+
+function btnUsuarios_Operaciones(id, nombreUsuario) {
+    loadUrlModal('Operaciones Usuario ' + nombreUsuario, ('frmUsuariosOperacionesFormulario.aspx?id=' + id), croosModalClick, ' style="height: 500px; overflow-y: scroll;" ');
 }

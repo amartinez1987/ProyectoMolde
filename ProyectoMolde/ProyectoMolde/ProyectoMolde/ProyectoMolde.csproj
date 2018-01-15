@@ -163,6 +163,7 @@
     <Content Include="Forms\frmSexos.ascx" />
     <Content Include="Forms\frmSexos_Editar.aspx" />
     <Content Include="Forms\frmSexos_Nuevo.aspx" />
+    <Content Include="Forms\frmUsuariosOperacionesFormulario.aspx" />
     <Content Include="Forms\frmUsuarios_Editar.aspx" />
     <Content Include="Forms\frmUsuarios_Nuevo.aspx" />
     <Content Include="Forms\index.aspx" />
@@ -185,6 +186,7 @@
     <Content Include="Js\Forms\Personas.js" />
     <Content Include="Js\Forms\Sexos.js" />
     <Content Include="Js\Forms\Usuarios.js" />
+    <Content Include="Js\Forms\UsuariosOperacionesFormulario.js" />
     <Content Include="Js\frmHelp.js" />
     <Content Include="Js\funcionesJsGeneral.js" />
     <Content Include="WebMethods\aplicacionesWeb.aspx" />
@@ -206,6 +208,7 @@
     <Content Include="WebMethods\sexos.aspx" />
     <Content Include="WebMethods\usuario.aspx" />
     <Content Include="Forms\frmCrudMaster.Master" />
+    <Content Include="WebMethods\usuariosOperacionesFormulario.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -688,6 +691,13 @@
     <Compile Include="Forms\frmSexos_Nuevo.aspx.designer.cs">
       <DependentUpon>frmSexos_Nuevo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmUsuariosOperacionesFormulario.aspx.cs">
+      <DependentUpon>frmUsuariosOperacionesFormulario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUsuariosOperacionesFormulario.aspx.designer.cs">
+      <DependentUpon>frmUsuariosOperacionesFormulario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmUsuarios_Editar.aspx.cs">
       <DependentUpon>frmUsuarios_Editar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -856,6 +866,13 @@
     </Compile>
     <Compile Include="WebMethods\usuario.aspx.designer.cs">
       <DependentUpon>usuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebMethods\usuariosOperacionesFormulario.aspx.cs">
+      <DependentUpon>usuariosOperacionesFormulario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebMethods\usuariosOperacionesFormulario.aspx.designer.cs">
+      <DependentUpon>usuariosOperacionesFormulario.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
