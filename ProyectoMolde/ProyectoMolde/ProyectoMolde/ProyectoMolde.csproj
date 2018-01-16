@@ -160,6 +160,7 @@
     <Content Include="Forms\frmPerfiles_Editar.aspx" />
     <Content Include="Forms\frmPerfiles_Nuevo.aspx" />
     <Content Include="Forms\frmPersonas.ascx" />
+    <Content Include="Forms\frmPersonas_Editar.aspx" />
     <Content Include="Forms\frmSexos.ascx" />
     <Content Include="Forms\frmSexos_Editar.aspx" />
     <Content Include="Forms\frmSexos_Nuevo.aspx" />
@@ -205,6 +206,7 @@
     <Content Include="WebMethods\operacionesFormulario.aspx" />
     <Content Include="WebMethods\perfiles.aspx" />
     <Content Include="WebMethods\perfilesOperacionesFormulario.aspx" />
+    <Content Include="WebMethods\personas.aspx" />
     <Content Include="WebMethods\sexos.aspx" />
     <Content Include="WebMethods\usuario.aspx" />
     <Content Include="Forms\frmCrudMaster.Master" />
@@ -670,6 +672,12 @@
     <Compile Include="Forms\frmPersonas.ascx.designer.cs">
       <DependentUpon>frmPersonas.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmPersonas_Editar.aspx.cs">
+      <DependentUpon>frmPersonas_Editar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPersonas_Editar.aspx.designer.cs">
+      <DependentUpon>frmPersonas_Editar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSexos.ascx.cs">
       <DependentUpon>frmSexos.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -852,6 +860,13 @@
     </Compile>
     <Compile Include="WebMethods\perfilesOperacionesFormulario.aspx.designer.cs">
       <DependentUpon>perfilesOperacionesFormulario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebMethods\personas.aspx.cs">
+      <DependentUpon>personas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebMethods\personas.aspx.designer.cs">
+      <DependentUpon>personas.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebMethods\sexos.aspx.cs">
       <DependentUpon>sexos.aspx</DependentUpon>
