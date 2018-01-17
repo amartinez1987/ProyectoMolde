@@ -16,3 +16,10 @@ function getDateString(fechaString)
 
     return today = year + "-" + month + "-" + day;
 }
+
+function goProfile()
+{
+   var usuarioId = getLocalStorageNavegator("usuarioId");
+   var redireccion = host + "/Forms/frmPersonasEditar_Profile.aspx?id=" + usuarioId;
+    window.location.replace(redireccion);
+}

@@ -24,14 +24,14 @@ namespace ControlUsuarios.Entity.Controller
 
         }
 
-        public static PersonasViewModel getPersonas()
+        public  PersonasViewModel getPersonas(int id)
         {
-            using (MoldeEntities entity = new MoldeEntities())
-            {
+            
                 var l = from personas in entity.Personas
+                        where personas.id == id
                         select new PersonasViewModel { fechaNacimiento = personas.fechaNacimiento, fechaExpedicionCedula = personas.fechaExpedicionCedula, id = personas.id, documentoIdentidadId = personas.documentoIdentidadId, municipioId = personas.municipioId, grupoSanguineoId = personas.grupoSanguineoId, sexoId = personas.sexoId, municipioExpedicionId = personas.municipioExpedicionId, usuarioId = personas.usuarioId, barrioId = personas.barrioId, estatura = personas.estatura, peso = personas.peso, estadoCivilId = personas.estadoCivilId, telefonoFijo = personas.telefonoFijo, telefonoCelular = personas.telefonoCelular, numeroDocumento = personas.numeroDocumento, primerNombre = personas.primerNombre, segundoNombre = personas.segundoNombre, primerApellido = personas.primerApellido, segundoApellido = personas.segundoApellido, direcccion = personas.direcccion, correo = personas.correo };
                 return l.SingleOrDefault();
-            }
+           
         }
 
         public Result guardarPersonas(Personas registro)

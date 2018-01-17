@@ -160,6 +160,7 @@
     <Content Include="Forms\frmPerfiles_Editar.aspx" />
     <Content Include="Forms\frmPerfiles_Nuevo.aspx" />
     <Content Include="Forms\frmPersonas.ascx" />
+    <Content Include="Forms\frmPersonasEditar_Profile.aspx" />
     <Content Include="Forms\frmPersonas_Editar.aspx" />
     <Content Include="Forms\frmSexos.ascx" />
     <Content Include="Forms\frmSexos_Editar.aspx" />
@@ -672,8 +673,16 @@
     <Compile Include="Forms\frmPersonas.ascx.designer.cs">
       <DependentUpon>frmPersonas.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmPersonasEditar_Profile.aspx.cs">
+      <DependentUpon>frmPersonasEditar_Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPersonasEditar_Profile.aspx.designer.cs">
+      <DependentUpon>frmPersonasEditar_Profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmPersonas_Editar.aspx.cs">
       <DependentUpon>frmPersonas_Editar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\frmPersonas_Editar.aspx.designer.cs">
       <DependentUpon>frmPersonas_Editar.aspx</DependentUpon>

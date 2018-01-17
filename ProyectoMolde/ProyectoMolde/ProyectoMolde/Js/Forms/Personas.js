@@ -1,18 +1,43 @@
 //atributos del objecto personas
 var personas = new Object();
-function cargarDatos(personas) {
-    $('#PanelIDPersonas').show();
-    $('#txtIdPersonas').val(personas.id);
+function cargarDatos(personas)
+{  
+    $('#PanelIDPersonas').show();       
+    $('#txtIdPersonas').val(personas.idPersona);
+
+    //datos persona
+
     $('#txtdocumentoIdentidadIdPersonas').val(personas.documentoIdentidadId);
+    $('#txtdocumentoIdentidadVerPersonas').val(personas.siglaDocumentoIdentidad);
+    $('#txtDescripcionDocumentoIdentidad').val(personas.descripcionDocumentoIdentidad);
+
     $('#txtmunicipioIdPersonas').val(personas.municipioId);
+    $('#txtmunicipioVerPersona').val(personas.codigoDaneDepartamentoMunicipio);
+    $('#txtDescripcionMunicipio').val(personas.nombreDepartamentoMunicipio);
+
     $('#txtgrupoSanguineoIdPersonas').val(personas.grupoSanguineoId);
+    $('#txtgrupoSanguineoVerPersonas').val(personas.siglaGrupoSanguineo);
+    $('#txtDescripcionGrupoSanguineo').val(personas.descripcionGrupoSanguineo);
+
     $('#txtsexoIdPersonas').val(personas.sexoId);
+    $('#txtSexoVerPersonas').val(personas.siglaSexo);
+    $('#txtDescripcionSexo').val(personas.descripcionSexo);
+
     $('#txtmunicipioExpedicionIdPersonas').val(personas.municipioExpedicionId);
-    $('#txtusuarioIdPersonas').val(personas.usuarioId);
+    $('#txtmunicipioExpedicionVerPersonas').val(personas.codigoDaneDepartamentoExpedicion);
+    $('#txtDescripcionMunicipioExpedicion').val(personas.nombreDepartamentoExpedicion);
+
     $('#txtbarrioIdPersonas').val(personas.barrioId);
+    $('#txtbarrioVerPersonas').val(personas.barrioId);
+    $('#txtDescripcionBarrio').val(personas.nombreDepartamentoBarrio);
+
     $('#txtestaturaPersonas').val(personas.estatura);
     $('#txtpesoPersonas').val(personas.peso);
+
     $('#txtestadoCivilIdPersonas').val(personas.estadoCivilId);
+    $('#txtestadoCivilVerPersonas').val(personas.estadoCivilId);
+    $('#txtDescripcioneEstadoCivi').val(personas.nombreEstadoCivil);
+
     $('#txttelefonoFijoPersonas').val(personas.telefonoFijo);
     $('#txttelefonoCelularPersonas').val(personas.telefonoCelular);
     $('#txtnumeroDocumentoPersonas').val(personas.numeroDocumento);
@@ -22,6 +47,9 @@ function cargarDatos(personas) {
     $('#txtsegundoApellidoPersonas').val(personas.segundoApellido);
     $('#txtdirecccionPersonas').val(personas.direcccion);
     $('#txtcorreoPersonas').val(personas.correo);
+    $('#txtfechaNacimientoPersonas').val(getDateString(personas.fechaNacimiento));
+    $('#txtfechaExpedicionCedulaPersonas').val(getDateString(personas.fechaExpedicionCedula));
+  
 }
 
 function croosModalClick() {

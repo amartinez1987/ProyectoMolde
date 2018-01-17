@@ -141,7 +141,7 @@ namespace TestProyect
             };
 
 
-            Result r = ProyectoMolde.WebMethods.usuario.editar(uv);
+            Result r = ProyectoMolde.WebMethods.usuario.editar(uv,"");
         }
 
     }
