@@ -301,7 +301,8 @@ namespace ControlUsuarios.Entity.Controller
                 segundoNombre = usuario.segundoNombre.TrimStart(' ').TrimEnd(' '),
                 sexoId = usuario.sexoId.Value,
                 telefonoCelular = usuario.telefonoCelular.Value,
-                telefonoFijo = usuario.telefonoFijo.Value
+                telefonoFijo = usuario.telefonoFijo.Value, 
+                usuarioId = usuario.usuarioId.Value
             };
 
             Usuarios u = new Usuarios() { clave = usuario.clave, estado = usuario.estado, id = usuario.id, idPersona = usuario.idPersona, nombreUsuario = usuario.nombreUsuario, perfilId = usuario.perfilId, usuarioId = usuario.usuarioId, Personas = p };

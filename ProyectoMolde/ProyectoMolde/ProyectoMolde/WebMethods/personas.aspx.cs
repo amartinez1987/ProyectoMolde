@@ -42,40 +42,20 @@ namespace ProyectoMolde.WebMethods
         }
 
         [WebMethod(EnableSession = true)]
-        public static Result guardar(int id, int documentoIdentidadId, int municipioId, int grupoSanguineoId, int sexoId, int municipioExpedicionId, int? barrioId, int estadoCivilId, int usuarioId, decimal estatura, decimal peso, long telefonoFijo, long telefonoCelular, string numeroDocumento, string primerNombre, string segundoNombre, string primerApellido, string segundoApellido, string direcccion, string correo, DateTime fechaNacimiento, DateTime fechaExpedicionCedula)
+        public static Result guardar(PersonasViewModel persona, int usuarioAsociado)
         {
-            Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
+            Result r = ValidateSession.validarSession(persona.usuarioId, HttpContext.Current.Session["usuarioId"]);
             if (r.error != "")
             {
                 return r;
             }
-            Personas objEntity = new Personas();
-            objEntity.fechaNacimiento = fechaNacimiento;
-            objEntity.fechaExpedicionCedula = fechaExpedicionCedula;
-            objEntity.id = id;
-            objEntity.documentoIdentidadId = documentoIdentidadId;
-            objEntity.municipioId = municipioId;
-            objEntity.grupoSanguineoId = grupoSanguineoId;
-            objEntity.sexoId = sexoId;
-            objEntity.municipioExpedicionId = municipioExpedicionId;
-            objEntity.barrioId = barrioId;
-            objEntity.estadoCivilId = estadoCivilId;
-            objEntity.usuarioId = usuarioId;
-            objEntity.estatura = estatura;
-            objEntity.peso = peso;
-            objEntity.telefonoFijo = telefonoFijo;
-            objEntity.telefonoCelular = telefonoCelular;
-            objEntity.numeroDocumento = numeroDocumento;
-            objEntity.primerNombre = primerNombre;
-            objEntity.segundoNombre = segundoNombre;
-            objEntity.primerApellido = primerApellido;
-            objEntity.segundoApellido = segundoApellido;
-            objEntity.direcccion = direcccion;
-            objEntity.correo = correo;
+
+
             try
             {
                 PersonasController pc = new PersonasController();
-                return pc.guardarPersonas(objEntity);
+                Personas p =  pc.getModel(persona);
+                return pc.guardarPersonas(p, usuarioAsociado);
             }
             catch (Exception ex)
             {

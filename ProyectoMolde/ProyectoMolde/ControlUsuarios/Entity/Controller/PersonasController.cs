@@ -34,7 +34,7 @@ namespace ControlUsuarios.Entity.Controller
            
         }
 
-        public Result guardarPersonas(Personas registro)
+        public Result guardarPersonas(Personas registro, int usuarioAsociado)
         {
             Result result = new Result() { error = "" };
             result = validarAtributos(registro);
@@ -52,16 +52,16 @@ namespace ControlUsuarios.Entity.Controller
                     return result;
                 }
                 int personasId = registro.id;
-                Personas registroEditar = entity.Personas.Where(x => x.id == personasId).SingleOrDefault();
-                entity.Entry(registroEditar).CurrentValues.SetValues(registro);
+                Personas registroEditar = entity.Personas.Where(x => x.id == personasId).SingleOrDefault();                
+                entity.Entry(registroEditar).CurrentValues.SetValues(registro);                
                 try
                 {
                     entity.SaveChanges();
-                    return new Result { error = "" };
+                    return new Result { error = "", id = registro.id };
                 }
                 catch (Exception e)
                 {
-                    return new Result { error = e.Message, id = 0, tipoAlerta = "warning" };
+                    return new Result { error = e.Message, id = registro.id, tipoAlerta = "warning" };
                 }
             }
             else
@@ -70,7 +70,9 @@ namespace ControlUsuarios.Entity.Controller
                 if (result.error != null && result.error != "")
                 {
                     return result;
-                }
+                } 
+                Usuarios u = entity.Usuarios.Where(x => x.id == usuarioAsociado).SingleOrDefault();
+                u.idPersona = registro.id;
                 entity.Personas.Add(registro);
                 try
                 {
@@ -79,7 +81,7 @@ namespace ControlUsuarios.Entity.Controller
                 }
                 catch (Exception e)
                 {
-                    return new Result { error = e.Message, id = 0, tipoAlerta = "warning" };
+                    return new Result { error = e.Message, id = registro.id, tipoAlerta = "warning" };
                 }
             }
 
@@ -122,6 +124,54 @@ namespace ControlUsuarios.Entity.Controller
 
             }
             return new Result { error = "" };
+        }
+
+        public Personas getModel(PersonasViewModel persona)
+        {
+            DateTime f = new DateTime(1800, 01, 01);
+
+            if (persona.fechaExpedicionCedula == null) { persona.fechaExpedicionCedula = f; }
+            if (persona.fechaNacimiento == null) { persona.fechaNacimiento = f; }
+            if (persona.peso == null) { persona.peso = 0; }
+            if (persona.barrioId == null) { persona.barrioId = 0; }
+            if (persona.documentoIdentidadId == null) { persona.documentoIdentidadId = 0; }
+            if (persona.estadoCivilId == null) { persona.estadoCivilId = 0; }
+            if (persona.estatura == null) { persona.estatura = 0; }
+            if (persona.grupoSanguineoId == null) { persona.grupoSanguineoId = 0; }
+            if (persona.municipioExpedicionId == null) { persona.municipioExpedicionId = 0; }
+            if (persona.municipioId == null) { persona.municipioId = 0; }
+            if (persona.sexoId == null) { persona.sexoId = 0; }
+            if (persona.telefonoCelular == null) { persona.telefonoCelular = 0; }
+            if (persona.telefonoFijo == null) { persona.telefonoFijo = 0; }
+            if (persona.id == null) { persona.id = 0; }
+
+            Personas p = new Personas()
+            {
+                barrioId = persona.barrioId.Value,
+                correo = persona.correo,
+                direcccion = persona.correo,
+                documentoIdentidadId = persona.documentoIdentidadId.Value,
+                estadoCivilId = persona.estadoCivilId.Value,
+                estatura = persona.estatura.Value,
+                fechaExpedicionCedula = persona.fechaExpedicionCedula.Value,
+                fechaNacimiento = persona.fechaNacimiento.Value,
+                grupoSanguineoId = persona.grupoSanguineoId.Value,
+                id = persona.id.Value,
+                municipioExpedicionId = persona.municipioExpedicionId.Value,
+                municipioId = persona.municipioId.Value,
+                numeroDocumento = persona.numeroDocumento,
+                peso = persona.peso.Value,
+                primerApellido = persona.primerApellido.TrimStart(' ').TrimEnd(' '),
+                primerNombre = persona.primerNombre.TrimStart(' ').TrimEnd(' '),
+                segundoApellido = persona.segundoApellido.TrimStart(' ').TrimEnd(' '),
+                segundoNombre = persona.segundoNombre.TrimStart(' ').TrimEnd(' '),
+                sexoId = persona.sexoId.Value,
+                telefonoCelular = persona.telefonoCelular.Value,
+                telefonoFijo = persona.telefonoFijo.Value
+                , usuarioId = persona.usuarioId
+            };
+
+            return p;
         }
     }
 }
