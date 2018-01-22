@@ -45,7 +45,7 @@ namespace ProyectoMolde.WebMethods
                 return new Result() { error = "Nombre de usuario Invalido.", tipoAlerta = "warning" };
             }
 
-            u.clave = clave;
+            
 
             if (u.estado == "Nuevo")
             {
@@ -53,6 +53,8 @@ namespace ProyectoMolde.WebMethods
                 {
                     return new Result() { error = "La clave no coincide con la del correo.", tipoAlerta = "warning" };
                 }
+
+                u.clave = clave;
 
                 Result r = IFACTORY.createUsuarios(u.estado).Activar(ref u);
                 if (r.error == "") { HttpContext.Current.Session["usuarioId"] = r.id; }
