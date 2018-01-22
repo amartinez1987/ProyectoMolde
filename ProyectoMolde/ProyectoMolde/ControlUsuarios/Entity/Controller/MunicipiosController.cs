@@ -25,13 +25,13 @@ namespace ControlUsuarios.Entity.Controller
                     var l = from municipios in entity.Municipios
                             select new MunicipiosViewModel { id = municipios.id, nombre = municipios.nombre, codigoDane = municipios.codigoDane, departamentoId = municipios.departamentoId, usuarioId = municipios.usuarioId,codigoDaneDepartamento=municipios.Departamentos.codigoDane,nombreDepartamento=municipios.Departamentos.nombre};
                     return l.ToList();
-                    break;
+                    
                 default:
                     var lf = from municipios in entity.Municipios
                              where municipios.nombre.Contains(ValorBuscado)|| municipios.codigoDane.Contains(ValorBuscado)||municipios.Departamentos.codigoDane.Contains(ValorBuscado)||municipios.Departamentos.nombre.Contains(ValorBuscado)
                              select new MunicipiosViewModel { id = municipios.id, nombre = municipios.nombre, codigoDane = municipios.codigoDane, departamentoId = municipios.departamentoId, usuarioId = municipios.usuarioId, codigoDaneDepartamento = municipios.Departamentos.codigoDane, nombreDepartamento = municipios.Departamentos.nombre };
                     return lf.ToList();
-                    break;
+                    
             }
         }
 

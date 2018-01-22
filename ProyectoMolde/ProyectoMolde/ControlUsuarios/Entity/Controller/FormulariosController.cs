@@ -23,13 +23,13 @@ namespace ControlUsuarios.Entity.Controller
                     var l = from formularios in entity.Formularios
                             select new FormulariosViewModel { id = formularios.id, menuId = formularios.menuId, nombreMenu = formularios.Menus.nombreMenu, usuarioId = formularios.usuarioId, indexVisibilidad = formularios.indexVisibilidad, esVisible = formularios.esVisible, nombreFormulario = formularios.nombreFormulario, urlFormulario = formularios.urlFormulario, nombreMostrar = formularios.nombreMostrar, estados = formularios.estados, iconOpcion = formularios.iconOpcion };
                     return l.ToList();
-                    break;
+                    
                 default:
                     var lf = from formularios in entity.Formularios
                             where formularios.nombreFormulario.Contains(valorBuscado) || formularios.Menus.nombreMenu.Contains(valorBuscado) || formularios.estados.Contains(valorBuscado)
                             select new FormulariosViewModel { id = formularios.id, menuId = formularios.menuId, nombreMenu = formularios.Menus.nombreMenu, usuarioId = formularios.usuarioId, indexVisibilidad = formularios.indexVisibilidad, esVisible = formularios.esVisible, nombreFormulario = formularios.nombreFormulario, urlFormulario = formularios.urlFormulario, nombreMostrar = formularios.nombreMostrar, estados = formularios.estados, iconOpcion = formularios.iconOpcion };
                     return lf.ToList();
-                    break;
+                    
 
             }
            

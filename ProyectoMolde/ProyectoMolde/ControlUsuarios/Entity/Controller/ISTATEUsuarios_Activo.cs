@@ -88,16 +88,16 @@ namespace ControlUsuarios.Entity.Controller
 
                         uofc.guardarUsuariosOperacionesFormulario(lstUopf.ToArray(), usuarioId);
                         break;
-                    default:                        
+                    default:
                         registro.perfilId = perfilId;
                         break;
                 }
                 PersonasController pc = new PersonasController();
                 if (pc.existeRegistro(registro.idPersona.Value))
                 {
-                    entity.Entry(registroEditar.Personas).CurrentValues.SetValues(registro.Personas); 
+                    entity.Entry(registroEditar.Personas).CurrentValues.SetValues(registro.Personas);
                 }
-                else { registroEditar.Personas = registro.Personas; }                
+                else { registroEditar.Personas = registro.Personas; }
 
                 try
                 {
@@ -390,6 +390,35 @@ namespace ControlUsuarios.Entity.Controller
                 if (entity.Usuarios.Where(x => x.id == usuarioId).Count() > 0)
                     return true;
                 return false;
+            }
+        }
+
+        public Result actualizarClave(UsuariosViewModel registro, int usuarioId)
+        {
+            Result resul = new Result();
+
+            resul = ValidateSession.validarOperacionesForm("Usuarios", "CambiarClave", usuarioId);
+
+            if (resul.error != null && resul.error != "")
+            {
+                return resul;
+            }
+
+            using (MoldeEntities entity = new MoldeEntities())
+            {
+                Usuarios registroEditar = entity.Usuarios.Where(x => x.id == registro.id).SingleOrDefault();
+                registro.clave = Encriptado.EncriptarCadena(registro.clave);
+                entity.Entry(registroEditar).CurrentValues.SetValues(registro);
+
+                try
+                {
+                    entity.SaveChanges();
+                    return new Result { error = "", id = registro.id, tipoAlerta = "success" };
+                }
+                catch (Exception e)
+                {
+                    return new Result { error = e.Message, id = 0, tipoAlerta = "warning" };
+                }
             }
         }
     }

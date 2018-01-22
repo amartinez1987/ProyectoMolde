@@ -82,6 +82,14 @@ namespace ControlUsuarios.Entity.Controller
             return resul;
         }
 
-   
+        public Result actualizarClave(UsuariosViewModel registro, int usuarioId)
+        {
+            Result resul = new Result();
+            resul.error = "No se puede realizar esta operación en el estado actual del registro";
+            resul.tipoAlerta = "Info";
+            return resul;
+        }
+
+
     }
 }

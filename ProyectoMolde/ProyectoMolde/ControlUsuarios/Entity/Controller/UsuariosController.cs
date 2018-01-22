@@ -74,7 +74,7 @@ namespace ControlUsuarios.Entity.Controller
 
                             };
                     return l.ToList();
-                    break;
+                    
                 default: var lu = from usuarios in entity.Usuarios
                                   where usuarios.nombreUsuario.Contains(valorBuscado) || usuarios.Personas.primerNombre.Contains(valorBuscado) || usuarios.Personas.segundoNombre.Contains(valorBuscado) || usuarios.Personas.primerApellido.Contains(valorBuscado) || usuarios.Personas.segundoApellido.Contains(valorBuscado) || usuarios.Personas.numeroDocumento.Contains(valorBuscado)
                                   select new UsuariosViewModel
@@ -128,7 +128,7 @@ namespace ControlUsuarios.Entity.Controller
 
                                   };
                     return lu.ToList();
-                    break;
+                    
             }
 
         }

@@ -47,7 +47,7 @@ namespace ProyectoMolde.WebMethods
             {
                 return r;
             }
-            int totalRegistros = 0;
+            
             List<OperacionesViewModel> lst = new List<OperacionesViewModel>();
             try
             {

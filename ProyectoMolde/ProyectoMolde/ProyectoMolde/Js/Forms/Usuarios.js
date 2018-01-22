@@ -238,6 +238,49 @@ function OnSuccesActivarUsuarios(response) {
     }
 }
 
+
+function btnUsuarios_Operaciones(id, nombreUsuario) {
+    loadUrlModal('Operaciones Usuario ' + nombreUsuario, ('frmUsuariosOperacionesFormulario.aspx?id=' + id), croosModalClick, ' style="height: 500px; overflow-y: scroll;" ');
+}
+
+function btnUsuarios_CambiarClave(id, nombreUsuario) {
+    loadUrlModal('Cambiar Clave Usuario ' + nombreUsuario, ('frmUsuariosCambioClave.aspx?id=' + id), croosModalClick, ' style="height: 500px; overflow-y: scroll;" ');
+}
+var pMsg = "";
+function btnUsuariosActualizarClave_Click(panelMensaje) {
+    pMsg = panelMensaje;
+    var heading = 'Cambiar Clave';
+    var question = '¿Esta seguro de cambiar su clave?.';
+    var cancelButtonTxt = 'No';
+    var okButtonTxt = 'Yes';
+
+    var callback = function () {
+        usuario = new Object();
+        usuario.id = usuarios.id;
+        usuario.clave = $('#txtclaveUsuarios').val();
+        usuario.confirmarClave = $('#txtConfirmarclaveUsuarios').val();
+        usuario.usuarioId = getLocalStorageNavegator("usuarioId");
+
+        var url = "/WebMethods/usuario.aspx/actualizarClave";
+        enviarComoParametros(url, usuario, OnSuccesCambioClaveUsuarios);
+    }
+
+    confirm(heading, question, cancelButtonTxt, okButtonTxt, callback);
+}
+
+function OnSuccesCambioClaveUsuarios(response) {
+    console.log(pMsg);
+    if ((response.error == null ? "" : response.error) != "") {
+        tipoAlerta(response.error, response.tipoAlerta, pMsg);
+        return;
+    }
+
+    if (response.error == '') {
+        tipoAlerta('Contraseña actualizada.', 'success', pMsg);
+        return;
+    }
+}
+
 function getListaUsuarios(valorBuscado, registroPartida, totalAExtraer, callbackFucntion) {
     usuarios.valorBuscado = valorBuscado;
     usuarios.registroPartida = registroPartida;
@@ -386,7 +429,8 @@ function cargarListaUsuarios() {
                         var etiquetaInactivar = " <a class='fa fa-minus' onclick='btnUsuarios_Inactivar(" + lstUsuarios[i].id + ")'><a>";
                         var etiquetaActivar = " <a class='fa fa-check' onclick='btnUsuarios_Activar(" + lstUsuarios[i].id + ")'><a>";
                         var etiquetaOperacionUsuarios = " <a class='fa fa-gears' onclick='btnUsuarios_Operaciones(" + lstUsuarios[i].id + ",\"" + lstUsuarios[i].nombreUsuario + "\")'><a>";
-                        out.push(["", etiquetaEditar + etiquetaInactivar + etiquetaActivar + etiquetaOperacionUsuarios, lstUsuarios[i].nombreUsuario, lstUsuarios[i].siglaDocumentoIdentidad, lstUsuarios[i].nombreCompletoPersona, lstUsuarios[i].nombrePerfil, lstUsuarios[i].estado]);
+                        var etiquetaCambiarClaveUsuarios = " <a class='fa fa-key' onclick='btnUsuarios_CambiarClave(" + lstUsuarios[i].id + ",\"" + lstUsuarios[i].nombreUsuario + "\")'><a>";
+                        out.push(["", etiquetaEditar + etiquetaInactivar + etiquetaActivar + etiquetaOperacionUsuarios + etiquetaCambiarClaveUsuarios, lstUsuarios[i].nombreUsuario, lstUsuarios[i].siglaDocumentoIdentidad, lstUsuarios[i].nombreCompletoPersona, lstUsuarios[i].nombrePerfil, lstUsuarios[i].estado]);
                     }
 
                     setTimeout(callback(
@@ -824,7 +868,3 @@ function OnSuccesHelpEstadoCivil(response) {
     }
 }
 
-
-function btnUsuarios_Operaciones(id, nombreUsuario) {
-    loadUrlModal('Operaciones Usuario ' + nombreUsuario, ('frmUsuariosOperacionesFormulario.aspx?id=' + id), croosModalClick, ' style="height: 500px; overflow-y: scroll;" ');
-}

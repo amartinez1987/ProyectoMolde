@@ -117,7 +117,7 @@
                         <ul class="dropdown-menu dropdown-user">
                             <li><a id="btnPerfil" onclick="goProfile()"><i class="fa fa-user fa-fw"></i>User Profile</a>
                             </li>
-                            <li><a id="btnConfiguracion"><i class="fa fa-gear fa-fw"></i>Settings</a>
+                            <li><a id="btnConfiguracion" onclick="goChangePassword()"><i class="fa fa-gear fa-fw"></i>Cambiar Contraseña</a>
                             </li>
                             <li class="divider"></li>
                             <li><a id="btnLogOut"><i class="fa fa-sign-out fa-fw"></i>Logout</a>

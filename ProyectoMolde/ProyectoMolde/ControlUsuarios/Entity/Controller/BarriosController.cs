@@ -24,13 +24,13 @@ namespace ControlUsuarios.Entity.Controller
                     var l = from barrios in entity.Barrios
                             select new BarriosViewModel { id = barrios.id, municipioId = barrios.municipioId, usuarioId = barrios.usuarioId, nombre = barrios.nombre, codigoDaneDepartamento = barrios.Municipios.Departamentos.codigoDane, codigoDaneMunicipio = barrios.Municipios.codigoDane, nombreDepartamento = barrios.Municipios.Departamentos.nombre, nombreMunicipio = barrios.Municipios.nombre };
                     return l.ToList();
-                    break;
+                    
                 default:
                     var lb = from barrios in entity.Barrios
                             where (barrios.Municipios.Departamentos.nombre+ " " + barrios.Municipios.nombre).Contains(valorBuscado) || (barrios.Municipios.Departamentos.codigoDane+barrios.Municipios.codigoDane).Contains(valorBuscado) || barrios.nombre.Contains(valorBuscado)
                             select new BarriosViewModel { id = barrios.id, municipioId = barrios.municipioId, usuarioId = barrios.usuarioId, nombre = barrios.nombre, codigoDaneDepartamento = barrios.Municipios.Departamentos.codigoDane, codigoDaneMunicipio = barrios.Municipios.codigoDane, nombreDepartamento = barrios.Municipios.Departamentos.nombre, nombreMunicipio = barrios.Municipios.nombre };
                     return lb.ToList();
-                    break;
+                    
             }
 
         }

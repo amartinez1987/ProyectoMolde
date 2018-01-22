@@ -119,5 +119,22 @@ namespace ProyectoMolde.WebMethods
             r = IFACTORY.createUsuarios(u.estado).Activar(id, usuarioId);
             return r;
         }
+
+        [WebMethod]
+        public static Result actualizarClave(int id, string clave, string confirmarClave, int usuarioId)
+        {
+            Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
+
+            if (clave != confirmarClave)
+            {
+                return new Result() { id = 0, error = "Las claves no coinciden.", tipoAlerta = "warning" };
+            }
+
+            UsuariosViewModel u = new UsuariosController().getUsuariosId(id);
+            u.clave = clave;
+            r = IFACTORY.createUsuarios(u.estado).actualizarClave(u, usuarioId);
+            return r;
+
+        }
     }
 }

@@ -23,3 +23,10 @@ function goProfile()
    var redireccion = host + "/Forms/frmPersonasEditar_Profile.aspx?id=" + usuarioId;
     window.location.replace(redireccion);
 }
+
+function goChangePassword()
+{
+    var usuarioId = getLocalStorageNavegator("usuarioId");
+    var redireccion = host + "/Forms/frmCambioContraseña.aspx?id=" + usuarioId;
+    window.location.replace(redireccion);
+}

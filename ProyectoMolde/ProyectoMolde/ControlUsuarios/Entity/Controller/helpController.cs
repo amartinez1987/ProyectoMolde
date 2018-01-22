@@ -28,11 +28,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new DepartamentosViewModel { id = departamentos.id, usuarioId = departamentos.usuarioId, nombre = departamentos.nombre, codigoDane = departamentos.codigoDane };
                         return l.ToList();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new List<DepartamentosViewModel>();
                     }
-                    break;
+                    
                 case "AplicacionesWeb":
                     try
                     {
@@ -41,11 +41,11 @@ namespace ControlUsuarios.Entity.Controller
                                  select new AplicacionesWebViewModel { id = aplicacionesweb.id, nombre = aplicacionesweb.nombre, descripcion = aplicacionesweb.descripcion };
                         return la.ToList();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new List<AplicacionesWebViewModel>();
                     }
-                    break;
+                    
                 case "Formularios":
                     try
                     {
@@ -53,11 +53,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new FormulariosViewModel { id = formularios.id, menuId = formularios.menuId, nombreMenu = formularios.Menus.nombreMenu, usuarioId = formularios.usuarioId, indexVisibilidad = formularios.indexVisibilidad, esVisible = formularios.esVisible, nombreFormulario = formularios.nombreFormulario, urlFormulario = formularios.urlFormulario, nombreMostrar = formularios.nombreMostrar, estados = formularios.estados, iconOpcion = formularios.iconOpcion };
                         return l.ToList();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new List<FormulariosViewModel>();
                     }
-                    break;
+                    
                 case "Menus":
                     try
                     {
@@ -65,11 +65,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new MenusViewModel { id = menus.id, aplicacionWebId = menus.aplicacionWebId, nombreAplicacionWeb = menus.AplicacionesWeb.nombre, usuarioId = menus.usuarioId, indexVisibilidad = menus.indexVisibilidad, nombreMenu = menus.nombreMenu, estado = menus.estado, icon = menus.icon };
                         return l.ToList();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new List<MenusViewModel>();
                     }
-                    break;
+                    
                 case "Municipios":
                     try
                     {
@@ -78,11 +78,11 @@ namespace ControlUsuarios.Entity.Controller
                                  select new MunicipiosViewModel { id = municipios.id, nombre = municipios.nombre, codigoDane = municipios.codigoDane, departamentoId = municipios.departamentoId, usuarioId = municipios.usuarioId, codigoDaneDepartamento = municipios.Departamentos.codigoDane, nombreDepartamento = municipios.Departamentos.nombre };
                         return lf.ToList();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new List<MunicipiosViewModel>();
                     }
-                    break;
+                    
                 case "Perfiles":
                     try
                     {
@@ -91,11 +91,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new PerfilesViewModel { id = perfiles.id, usuarioId = perfiles.usuarioId, nombrePerfil = perfiles.nombrePerfil, descripcion = perfiles.descripcion, estado = perfiles.estado };
                         return l.ToList();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new List<PerfilesViewModel>();
                     }
-                    break;
+                    
                 case "DocumentosIdentidad":
                     try
                     {
@@ -104,11 +104,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new DocumentosIdentidadViewModel { id = documentosidentidad.id, usuarioId = documentosidentidad.usuarioId, sigla = documentosidentidad.sigla, descripcion = documentosidentidad.descripcion };
                         return l.ToList();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new List<DocumentosIdentidadViewModel>();
                     }
-                    break;
+                    
                 case "Sexos":
                     try
                     {
@@ -117,11 +117,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new SexosViewModel { id = sexos.id, usuarioId = sexos.usuarioId, sigla = sexos.sigla, descripcion = sexos.descripcion };
                         return l.ToList();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new List<SexosViewModel>();
                     }
-                    break;
+                    
                 case "GruposSanguineo":
                     try
                     {
@@ -130,11 +130,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new GruposSanguineoViewModel { id = grupossanguineo.id, usuarioId = grupossanguineo.usuarioId, sigla = grupossanguineo.sigla, descripcion = grupossanguineo.descripcion };
                         return l.ToList();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new List<GruposSanguineoViewModel>();
                     }
-                    break;
+                    
                 case "Barrios":
                     try
                     {
@@ -144,11 +144,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new BarriosViewModel { id = barrios.id, municipioId = barrios.municipioId, usuarioId = barrios.usuarioId, nombre = barrios.nombre, codigoDaneDepartamento = barrios.Municipios.Departamentos.codigoDane, codigoDaneMunicipio = barrios.Municipios.codigoDane, nombreDepartamento = barrios.Municipios.Departamentos.nombre, nombreMunicipio = barrios.Municipios.nombre };
                         return l.ToList();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new List<BarriosViewModel>();
                     }
-                    break;
+                    
                 case "EstadosCivil":
                     try
                     {
@@ -157,11 +157,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new EstadosCivilViewModel { id = estadoscivil.id, usuarioId = estadoscivil.usuarioId, sigla = estadoscivil.sigla, descripcion = estadoscivil.descripcion };
                         return l.ToList();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new List<BarriosViewModel>();
                     }
-                    break;
+                    
 
             }
             return new List<string>();
@@ -182,11 +182,11 @@ namespace ControlUsuarios.Entity.Controller
                                  select new DepartamentosViewModel { id = departamentos.id, usuarioId = departamentos.usuarioId, nombre = departamentos.nombre, codigoDane = departamentos.codigoDane };
                         return ld.FirstOrDefault();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new DepartamentosViewModel();
                     }
-                    break;
+                    
                 case "AplicacionesWeb":
                     try
                     {
@@ -195,11 +195,11 @@ namespace ControlUsuarios.Entity.Controller
                                  select new AplicacionesWebViewModel { id = aplicacionesweb.id, nombre = aplicacionesweb.nombre, descripcion = aplicacionesweb.descripcion };
                         return la.FirstOrDefault();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new AplicacionesWebViewModel();
                     }
-                    break;
+                    
                 case "Formularios":
                     try
                     {
@@ -208,11 +208,11 @@ namespace ControlUsuarios.Entity.Controller
                                  select new FormulariosViewModel { id = formularios.id, menuId = formularios.menuId, nombreMenu = formularios.Menus.nombreMenu, usuarioId = formularios.usuarioId, indexVisibilidad = formularios.indexVisibilidad, esVisible = formularios.esVisible, nombreFormulario = formularios.nombreFormulario, urlFormulario = formularios.urlFormulario, nombreMostrar = formularios.nombreMostrar, estados = formularios.estados, iconOpcion = formularios.iconOpcion };
                         return lf.SingleOrDefault();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new FormulariosViewModel();
                     }
-                    break;
+                   
                 case "Menus":
                     try
                     {
@@ -221,11 +221,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new MenusViewModel { id = menus.id, aplicacionWebId = menus.aplicacionWebId, nombreAplicacionWeb = menus.AplicacionesWeb.nombre, usuarioId = menus.usuarioId, indexVisibilidad = menus.indexVisibilidad, nombreMenu = menus.nombreMenu, estado = menus.estado, icon = menus.icon };
                         return l.SingleOrDefault();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new MenusViewModel();
                     }
-                    break;
+                    
                 case "Municipios":
                     try
                     {
@@ -234,11 +234,11 @@ namespace ControlUsuarios.Entity.Controller
                                  select new MunicipiosViewModel { id = municipios.id, nombre = municipios.nombre, codigoDane = municipios.codigoDane, departamentoId = municipios.departamentoId, usuarioId = municipios.usuarioId, codigoDaneDepartamento = municipios.Departamentos.codigoDane, nombreDepartamento = municipios.Departamentos.nombre };
                         return lf.SingleOrDefault();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new MunicipiosViewModel();
                     }
-                    break;
+                    
                 case "Perfiles":
                     try
                     {
@@ -247,11 +247,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new PerfilesViewModel { id = perfiles.id, usuarioId = perfiles.usuarioId, nombrePerfil = perfiles.nombrePerfil, descripcion = perfiles.descripcion, estado = perfiles.estado };
                         return l.SingleOrDefault();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new PerfilesViewModel();
                     }
-                    break;
+                    
                 case "DocumentosIdentidad":
                     try
                     {
@@ -260,11 +260,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new DocumentosIdentidadViewModel { id = documentosidentidad.id, usuarioId = documentosidentidad.usuarioId, sigla = documentosidentidad.sigla, descripcion = documentosidentidad.descripcion };
                         return l.SingleOrDefault();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new DocumentosIdentidadViewModel();
                     }
-                    break;
+                   
                 case "Sexos":
                     try
                     {
@@ -273,11 +273,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new SexosViewModel { id = sexos.id, usuarioId = sexos.usuarioId, sigla = sexos.sigla, descripcion = sexos.descripcion };
                         return l.SingleOrDefault();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new SexosViewModel();
                     }
-                    break;
+                    
                 case "GruposSanguineo":
                     try
                     {
@@ -286,11 +286,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new GruposSanguineoViewModel { id = grupossanguineo.id, usuarioId = grupossanguineo.usuarioId, sigla = grupossanguineo.sigla, descripcion = grupossanguineo.descripcion };
                         return l.SingleOrDefault();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new GruposSanguineoViewModel();
                     }
-                    break;
+                    
                 case "Barrios":
                     try
                     {
@@ -300,11 +300,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new BarriosViewModel { id = barrios.id, municipioId = barrios.municipioId, usuarioId = barrios.usuarioId, nombre = barrios.nombre, codigoDaneDepartamento = barrios.Municipios.Departamentos.codigoDane, codigoDaneMunicipio = barrios.Municipios.codigoDane, nombreDepartamento = barrios.Municipios.Departamentos.nombre, nombreMunicipio = barrios.Municipios.nombre };
                         return l.SingleOrDefault();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new BarriosViewModel();
                     }
-                    break;
+                    
                 case "EstadosCivil":
                     try
                     {
@@ -313,11 +313,11 @@ namespace ControlUsuarios.Entity.Controller
                                 select new EstadosCivilViewModel { id = estadoscivil.id, usuarioId = estadoscivil.usuarioId, sigla = estadoscivil.sigla, descripcion = estadoscivil.descripcion };
                         return l.SingleOrDefault();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
                         return new BarriosViewModel();
                     }
-                    break;
+                   
 
             }
             return new List<string>();

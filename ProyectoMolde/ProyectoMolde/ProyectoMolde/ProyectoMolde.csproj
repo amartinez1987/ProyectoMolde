@@ -118,6 +118,8 @@
     <Content Include="Forms\frmBarrios.ascx" />
     <Content Include="Forms\frmBarrios_Editar.aspx" />
     <Content Include="Forms\frmBarrios_Nuevo.aspx" />
+    <Content Include="Forms\frmCambioContraseña.ascx" />
+    <Content Include="Forms\frmCambioContraseña.aspx" />
     <Content Include="Forms\frmDepartamentos.ascx" />
     <Content Include="Forms\frmDepartamentos_Editar.aspx" />
     <Content Include="Forms\frmDepartamentos_Nuevo.aspx" />
@@ -165,6 +167,7 @@
     <Content Include="Forms\frmSexos.ascx" />
     <Content Include="Forms\frmSexos_Editar.aspx" />
     <Content Include="Forms\frmSexos_Nuevo.aspx" />
+    <Content Include="Forms\frmUsuariosCambioClave.aspx" />
     <Content Include="Forms\frmUsuariosOperacionesFormulario.aspx" />
     <Content Include="Forms\frmUsuarios_Editar.aspx" />
     <Content Include="Forms\frmUsuarios_Nuevo.aspx" />
@@ -364,6 +367,20 @@
     </Compile>
     <Compile Include="Forms\frmBarrios_Nuevo.aspx.designer.cs">
       <DependentUpon>frmBarrios_Nuevo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCambioContraseña.ascx.cs">
+      <DependentUpon>frmCambioContraseña.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCambioContraseña.ascx.designer.cs">
+      <DependentUpon>frmCambioContraseña.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCambioContraseña.aspx.cs">
+      <DependentUpon>frmCambioContraseña.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCambioContraseña.aspx.designer.cs">
+      <DependentUpon>frmCambioContraseña.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmCrudMaster.Master.cs">
       <DependentUpon>frmCrudMaster.Master</DependentUpon>
@@ -707,6 +724,13 @@
     </Compile>
     <Compile Include="Forms\frmSexos_Nuevo.aspx.designer.cs">
       <DependentUpon>frmSexos_Nuevo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUsuariosCambioClave.aspx.cs">
+      <DependentUpon>frmUsuariosCambioClave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUsuariosCambioClave.aspx.designer.cs">
+      <DependentUpon>frmUsuariosCambioClave.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmUsuariosOperacionesFormulario.aspx.cs">
       <DependentUpon>frmUsuariosOperacionesFormulario.aspx</DependentUpon>
