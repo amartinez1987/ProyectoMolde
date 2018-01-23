@@ -63,6 +63,7 @@ namespace ProyectoMolde.WebMethods
             }
             else
             {
+                u.clave = clave;
                 Result r = IFACTORY.createUsuarios(u.estado).ValidarUsuario(ref u);
                 if (r.error == "") { HttpContext.Current.Session["usuarioId"] = r.id; }
                 return r;

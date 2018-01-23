@@ -242,7 +242,7 @@ namespace ControlUsuarios.Entity.Controller
                             if (u.UsuariosOperacionesFormulario.Where(x => x.OperacionesFormulario.formularioId == f.id && x.OperacionesFormulario.Formularios.estados == "Activo" && x.OperacionesFormulario.Formularios.esVisible == true).Count() != 0)
                             {
                                 listaMenu += "<li>";
-                                listaMenu += string.Format("<a href=\"{0}\">{1}</a>", f.urlFormulario, f.nombreMostrar);
+                                listaMenu += string.Format("<a href=\"{0}\"><i class=\"{2}\"></i>{1}</a>", f.urlFormulario, f.nombreMostrar, f.iconOpcion);
                                 listaMenu += "</li>";
                             }
                         }

@@ -147,7 +147,7 @@ namespace ControlUsuarios.Entity.Controller
 
             foreach (UsuariosOperacionesFormulario PopfR in lstPopF)
             {
-                result.error += eliminarUsuariosOperacionesFormulario(PopfR.id, usuarioId).error;
+                result.error += eliminarUsuariosOperacionesFormulario(PopfR.id, usuarioApliId).error;
             }
 
             if (result.error != null && result.error != "")
