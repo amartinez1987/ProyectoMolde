@@ -26,7 +26,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>nombre</th>
+                                <th>Nombre</th>
                                 <th>Nombre departamento y municipio asociado</th>
                                 <th>Código Dane departamento municipio asociado</th>
                             </tr>

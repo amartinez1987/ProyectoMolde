@@ -27,8 +27,8 @@ namespace ControlUsuarios.Entity.Model
         public int usuarioId { get; set; }
         public string codigoDane { get; set; }
     
-        public virtual Departamentos Departamentos { get; set; }
         public virtual ICollection<Barrios> Barrios { get; set; }
+        public virtual Departamentos Departamentos { get; set; }
         public virtual ICollection<Personas> Personas { get; set; }
         public virtual ICollection<Personas> Personas1 { get; set; }
     }

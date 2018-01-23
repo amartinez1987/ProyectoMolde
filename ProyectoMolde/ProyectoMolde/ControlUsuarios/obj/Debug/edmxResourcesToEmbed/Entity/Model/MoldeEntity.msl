@@ -1,6 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="MoldeModelStoreContainer" CdmEntityContainer="MoldeEntities">
+    <EntitySetMapping Name="AplicacionesWeb">
+      <EntityTypeMapping TypeName="MoldeModel.AplicacionesWeb">
+        <MappingFragment StoreEntitySet="AplicacionesWeb">
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Barrios">
+      <EntityTypeMapping TypeName="MoldeModel.Barrios">
+        <MappingFragment StoreEntitySet="Barrios">
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+          <ScalarProperty Name="municipioId" ColumnName="municipioId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ControlAplicacion">
       <EntityTypeMapping TypeName="MoldeModel.ControlAplicacion">
         <MappingFragment StoreEntitySet="ControlAplicacion">
@@ -9,6 +29,16 @@
           <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
           <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
           <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamentos">
+      <EntityTypeMapping TypeName="MoldeModel.Departamentos">
+        <MappingFragment StoreEntitySet="Departamentos">
+          <ScalarProperty Name="codigoDane" ColumnName="codigoDane" />
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -72,9 +102,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Municipios">
+      <EntityTypeMapping TypeName="MoldeModel.Municipios">
+        <MappingFragment StoreEntitySet="Municipios">
+          <ScalarProperty Name="codigoDane" ColumnName="codigoDane" />
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+          <ScalarProperty Name="departamentoId" ColumnName="departamentoId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Operaciones">
       <EntityTypeMapping TypeName="MoldeModel.Operaciones">
         <MappingFragment StoreEntitySet="Operaciones">
+          <ScalarProperty Name="visualizaFormularioMenu" ColumnName="visualizaFormularioMenu" />
           <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
           <ScalarProperty Name="nombreOperacion" ColumnName="nombreOperacion" />
           <ScalarProperty Name="id" ColumnName="id" />
@@ -113,80 +155,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Usuarios">
-      <EntityTypeMapping TypeName="MoldeModel.Usuarios">
-        <MappingFragment StoreEntitySet="Usuarios">
-          <ScalarProperty Name="perfilId" ColumnName="perfilId" />
-          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
-          <ScalarProperty Name="estado" ColumnName="estado" />
-          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
-          <ScalarProperty Name="clave" ColumnName="clave" />
-          <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="UsuariosOperacionesFormulario">
-      <EntityTypeMapping TypeName="MoldeModel.UsuariosOperacionesFormulario">
-        <MappingFragment StoreEntitySet="UsuariosOperacionesFormulario">
-          <ScalarProperty Name="usuarioIdApl" ColumnName="usuarioIdApl" />
-          <ScalarProperty Name="operacionFormularioId" ColumnName="operacionFormularioId" />
-          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AplicacionesWeb">
-      <EntityTypeMapping TypeName="MoldeModel.AplicacionesWeb">
-        <MappingFragment StoreEntitySet="AplicacionesWeb">
-          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Sexos">
-      <EntityTypeMapping TypeName="MoldeModel.Sexos">
-        <MappingFragment StoreEntitySet="Sexos">
-          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
-          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="sigla" ColumnName="sigla" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Departamentos">
-      <EntityTypeMapping TypeName="MoldeModel.Departamentos">
-        <MappingFragment StoreEntitySet="Departamentos">
-          <ScalarProperty Name="codigoDane" ColumnName="codigoDane" />
-          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Municipios">
-      <EntityTypeMapping TypeName="MoldeModel.Municipios">
-        <MappingFragment StoreEntitySet="Municipios">
-          <ScalarProperty Name="codigoDane" ColumnName="codigoDane" />
-          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
-          <ScalarProperty Name="departamentoId" ColumnName="departamentoId" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Barrios">
-      <EntityTypeMapping TypeName="MoldeModel.Barrios">
-        <MappingFragment StoreEntitySet="Barrios">
-          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
-          <ScalarProperty Name="municipioId" ColumnName="municipioId" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Personas">
       <EntityTypeMapping TypeName="MoldeModel.Personas">
         <MappingFragment StoreEntitySet="Personas">
@@ -211,6 +179,39 @@
           <ScalarProperty Name="primerNombre" ColumnName="primerNombre" />
           <ScalarProperty Name="documentoIdentidadId" ColumnName="documentoIdentidadId" />
           <ScalarProperty Name="numeroDocumento" ColumnName="numeroDocumento" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sexos">
+      <EntityTypeMapping TypeName="MoldeModel.Sexos">
+        <MappingFragment StoreEntitySet="Sexos">
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="sigla" ColumnName="sigla" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="MoldeModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="perfilId" ColumnName="perfilId" />
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuariosOperacionesFormulario">
+      <EntityTypeMapping TypeName="MoldeModel.UsuariosOperacionesFormulario">
+        <MappingFragment StoreEntitySet="UsuariosOperacionesFormulario">
+          <ScalarProperty Name="usuarioIdApl" ColumnName="usuarioIdApl" />
+          <ScalarProperty Name="operacionFormularioId" ColumnName="operacionFormularioId" />
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -22,6 +22,7 @@ namespace ControlUsuarios.Entity.Model
         public int id { get; set; }
         public string nombreOperacion { get; set; }
         public int usuarioId { get; set; }
+        public bool visualizaFormularioMenu { get; set; }
     
         public virtual ICollection<OperacionesFormulario> OperacionesFormulario { get; set; }
     }

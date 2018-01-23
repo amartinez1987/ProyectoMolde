@@ -206,11 +206,7 @@ namespace ControlUsuarios.Entity.Controller
             {
                 return new Result() { error = "Digite un correo valido.", tipoAlerta = "warning" };
             }
-
-            if (!new Mail().IsValidEmail(registro.nombreUsuario))
-            {
-                return new Result() { error = "Digite un correo valido.", tipoAlerta = "warning" };
-            }
+          
 
             if (registro.clave == "")
             {

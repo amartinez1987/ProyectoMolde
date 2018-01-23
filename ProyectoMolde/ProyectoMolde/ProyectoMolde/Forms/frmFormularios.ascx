@@ -11,7 +11,7 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <label id="lblnombreFormularioFormularios">nombreFormulario</label>
+        <label id="lblnombreFormularioFormularios">Nombre Formulario</label>
         <input id="txtnombreFormularioFormularios" class="form-control">
     </div>
 </div>
@@ -19,7 +19,7 @@
 <div class="row">
     <div class="col-sm-6">
         <br />
-        <label id="lblmenuIdFormularios">menuId</label>
+        <label id="lblmenuIdFormularios">Menú</label>
         <div class="form-group input-group">
             <input id="txtmenuVerFormularios" onblur="leaveHelp('#txtmenuIdFormularios','#txtDescripcionMenus')" type="text" class="form-control">
             <input id="txtmenuIdFormularios" hidden="hidden" type="text">
@@ -40,19 +40,19 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <label id="lblnombreMostrarFormularios">nombreMostrar</label>
+        <label id="lblnombreMostrarFormularios">Nombre Mostrar</label>
         <input id="txtnombreMostrarFormularios" class="form-control">
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <label id="lblurlFormularioFormularios">urlFormulario</label>
+        <label id="lblurlFormularioFormularios">Url Formulario</label>
         <input id="txturlFormularioFormularios" class="form-control">
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <label id="lblindexVisibilidadFormularios">indexVisibilidad</label>
+        <label id="lblindexVisibilidadFormularios">Index Visibilidad</label>
         <input id="txtindexVisibilidadFormularios" type="number" class="form-control">
     </div>
 </div>
@@ -62,7 +62,7 @@
         <br />
         <label>
             <input id="chesVisibleFormularios" type="checkbox" value="" />
-            esVisible
+            ¿Es Visible?
         </label>
     </div>
 </div>
@@ -70,14 +70,14 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <label id="lbliconOpcionFormularios">iconOpcion</label>
+        <label id="lbliconOpcionFormularios">Icono de Opción</label>
         <input id="txticonOpcionFormularios" class="form-control">
     </div>
 </div>
 <div class="row">
     <div id="PanelEstadoFormularios" hidden="hidden">
         <div class="col-sm-12">
-            <label id="lblestadosFormularios">estados</label>
+            <label id="lblestadosFormularios">Estado</label>
             <input id="txtestadosFormularios" disabled class="form-control">
         </div>
     </div>

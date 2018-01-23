@@ -22,7 +22,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>                                
-                                <th>nombreOperacion</th>
+                                <th>Nombre Operación</th>
+                                <th>Visualiza Formulario Menu</th>
                             </tr>
                         </thead>
                     </table>

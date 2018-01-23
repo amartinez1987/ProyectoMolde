@@ -9,14 +9,14 @@
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <label id="lblnombreBarrios">nombre</label>
+        <label id="lblnombreBarrios">Nombre</label>
         <input id="txtnombreBarrios" class="form-control">
     </div>
 </div>
 <div class="row">
     <div class="col-sm-6">
         <br />
-        <label id="lblmunicipioIdBarrios">municipioId</label>
+        <label id="lblmunicipioIdBarrios">Municipio</label>
         <div class="form-group input-group">
             <input id="txtMunicipiosVerBarrios" onblur="leaveHelp('#txtmunicipioIdBarrios','#txtDescripcionMunicipios')" type="text" class="form-control">
             <input id="txtmunicipioIdBarrios" hidden="hidden" type="text" >

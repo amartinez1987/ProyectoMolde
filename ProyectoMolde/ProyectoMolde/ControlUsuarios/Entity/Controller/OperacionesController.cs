@@ -14,7 +14,7 @@ namespace ControlUsuarios.Entity.Controller
             using (MoldeEntities entity = new MoldeEntities())
             {
                 var l = from operaciones in entity.Operaciones
-                        select new OperacionesViewModel { id = operaciones.id, usuarioId = operaciones.usuarioId, nombreOperacion = operaciones.nombreOperacion };
+                        select new OperacionesViewModel { id = operaciones.id, usuarioId = operaciones.usuarioId, nombreOperacion = operaciones.nombreOperacion, visualizaFormularioMenu = operaciones.visualizaFormularioMenu };
                 return l.ToList();
             }
         }
@@ -27,7 +27,7 @@ namespace ControlUsuarios.Entity.Controller
             {
                 var l = from operaciones in entity.Operaciones
                         where operaciones.id == id
-                        select new OperacionesViewModel { id = operaciones.id, usuarioId = operaciones.usuarioId, nombreOperacion = operaciones.nombreOperacion };
+                        select new OperacionesViewModel { id = operaciones.id, usuarioId = operaciones.usuarioId, nombreOperacion = operaciones.nombreOperacion, visualizaFormularioMenu = operaciones.visualizaFormularioMenu };
                 return l.SingleOrDefault();
             }
         }

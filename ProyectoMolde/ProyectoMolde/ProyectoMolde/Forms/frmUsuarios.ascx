@@ -13,7 +13,7 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <label id="lblnombreUsuarioUsuarios">nombreUsuario</label>
+        <label id="lblnombreUsuarioUsuarios">Nombre Usuario</label>
         <input id="txtnombreUsuarioUsuarios" class="form-control">
     </div>
 </div>

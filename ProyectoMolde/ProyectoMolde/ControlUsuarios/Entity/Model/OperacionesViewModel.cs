@@ -11,6 +11,7 @@ namespace ControlUsuarios.Entity.Model
         public int id { get; set; }
         public int usuarioId { get; set; }
         public string nombreOperacion { get; set; }
+        public bool visualizaFormularioMenu { get; set; }
 
     }
 }

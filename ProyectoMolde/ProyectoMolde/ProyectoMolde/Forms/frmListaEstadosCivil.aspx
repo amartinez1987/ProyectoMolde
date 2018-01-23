@@ -7,7 +7,7 @@
     <div class="row">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                Listado EstadosCivil
+                Listado Estados Civil
             </div>
             <div class="panel-body">
                 <div class="col-sm-5 col-md-5 col-lg-1">

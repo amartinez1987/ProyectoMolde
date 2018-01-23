@@ -9,13 +9,13 @@
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <label id="lblnombreMunicipios">nombre</label>
+        <label id="lblnombreMunicipios">Nombre</label>
         <input id="txtnombreMunicipios" class="form-control">
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <label id="lblcodigoDaneMunicipios">codigoDane</label>
+        <label id="lblcodigoDaneMunicipios">Código Dane</label>
         <input id="txtcodigoDaneMunicipios" class="form-control">
     </div>
 </div>
@@ -23,7 +23,7 @@
 <div class="row">
     <div class="col-sm-6">
         <br />
-        <label id="lbldepartamentoIdMunicipios">departamento</label>
+        <label id="lbldepartamentoIdMunicipios">Departamento</label>
         <div class="form-group input-group ">
             <input id="txtdepartamentosVerMunicipios" onblur="leaveHelp('#txtdepartamentosIdMunicipios','#txtDescripcionDepartamentos')" type="text" class=" form-control">
             <input id="txtdepartamentosIdMunicipios" hidden="hidden" type="text">

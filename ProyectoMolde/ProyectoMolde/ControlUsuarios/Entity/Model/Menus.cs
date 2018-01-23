@@ -27,7 +27,7 @@ namespace ControlUsuarios.Entity.Model
         public string icon { get; set; }
         public int indexVisibilidad { get; set; }
     
-        public virtual ICollection<Formularios> Formularios { get; set; }
         public virtual AplicacionesWeb AplicacionesWeb { get; set; }
+        public virtual ICollection<Formularios> Formularios { get; set; }
     }
 }

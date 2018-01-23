@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-sm-12">
 
-            <label id="lblConfirmarClaveUsuarios">Confirmar Clave</label>
+            <label id="lblConfirmarClaveUsuarios">Confirmar Contraseña</label>
             <input id="txtConfirmarclaveUsuarios" type="password" class="form-control" />
 
         </div>

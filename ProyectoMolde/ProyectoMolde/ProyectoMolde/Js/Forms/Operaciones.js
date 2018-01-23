@@ -1,9 +1,11 @@
 //atributos del objecto operaciones
 var operaciones = new Object();
-function cargarDatos(operaciones) {
+function cargarDatos(operaciones)
+{
     $('#PanelIDOperaciones').show();
     $('#txtIdOperaciones').val(operaciones.id);  
-    $('#txtnombreOperacionOperaciones').val(operaciones.nombreOperacion);
+    $('#txtnombreOperacionOperaciones').val(operaciones.nombreOperacion);    
+    $('#chvisualizaFormularioMenuOperaciones').prop({ checked: operaciones.visualizaFormularioMenu });
 }
 
 function croosModalClick() {
@@ -15,10 +17,12 @@ function btnOperaciones_NuevoClick() {
 }
 
 function btnOperaciones_GuardarClick() {
-    if (validarCampos()) {
+    if (validarCampos())
+    {
         operaciones.id = 0;
         operaciones.usuarioId = getLocalStorageNavegator("usuarioId");
         operaciones.nombreOperacion = $('#txtnombreOperacionOperaciones').val();
+        operaciones.visualizaFormularioMenu = $('#chvisualizaFormularioMenuOperaciones').is(":checked");        
         var url = "/WebMethods/operaciones.aspx/guardar";
         enviarComoParametros(url, operaciones, OnSuccesSaveOperaciones);
     }
@@ -29,6 +33,7 @@ function btnOperaciones_EditarClick() {
         operaciones.id = $('#txtIdOperaciones').val();
         operaciones.usuarioId = getLocalStorageNavegator("usuarioId");
         operaciones.nombreOperacion = $('#txtnombreOperacionOperaciones').val();
+        operaciones.visualizaFormularioMenu = $('#chvisualizaFormularioMenuOperaciones').is(":checked");
         var url = "/WebMethods/operaciones.aspx/guardar";
         enviarComoParametros(url, operaciones, OnSuccesSaveOperaciones);
     }
@@ -123,12 +128,13 @@ function cargarListaOperaciones() {
 
                 if (response.error == '') {
                     lstOperaciones = eval("(" + response.getCadena + ")");
+                    console.log(lstOperaciones);
                     totalRegistros = response.totalRegistros;
                     totalRegistrosFiltrados = response.totalRegistrosFiltrados;
                     for (var i = 0; i < lstOperaciones.length; i++) {
                         var etiquetaEditar = "<a onclick='btnOperaciones_Editar(" + lstOperaciones[i].id + ")'  class='fa fa-edit'><a>";
                         var etiquetaEliminar = " <a class='fa fa-minus' onclick='btnOperaciones_Eliminar(" + lstOperaciones[i].id + ")'><a>";
-                        out.push([etiquetaEditar + etiquetaEliminar, lstOperaciones[i].nombreOperacion]);
+                        out.push([etiquetaEditar + etiquetaEliminar, lstOperaciones[i].nombreOperacion, lstOperaciones[i].visualizaFormularioMenu]);
                     }
 
                     setTimeout(callback(

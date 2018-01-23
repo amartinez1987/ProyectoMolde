@@ -33,7 +33,7 @@
                                 <th>Nombre Mostrar</th>
                                 <th>Menu Asociado</th>
                                 <th>Url Formulario</th>
-                                <th>Es Visible</th>
+                                <th>¿Es Visible?</th>
                                 <th>Estados</th>
                             </tr>
                         </thead>

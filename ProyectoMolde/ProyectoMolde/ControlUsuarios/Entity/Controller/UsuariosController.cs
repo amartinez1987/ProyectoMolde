@@ -225,7 +225,8 @@ namespace ControlUsuarios.Entity.Controller
                     List<Menus> lM = (from luofe in u.UsuariosOperacionesFormulario
                                       where luofe.OperacionesFormulario.Formularios.Menus.AplicacionesWeb.nombre == aplicacion &&
                                             luofe.OperacionesFormulario.Formularios.esVisible == true &&
-                                            luofe.OperacionesFormulario.Formularios.Menus.estado == "Activo"
+                                            luofe.OperacionesFormulario.Formularios.Menus.estado == "Activo" &&
+                                            luofe.OperacionesFormulario.Operaciones.visualizaFormularioMenu == true
 
                                       orderby luofe.OperacionesFormulario.Formularios.Menus.indexVisibilidad
                                       group luofe by new { luofe.OperacionesFormulario.Formularios.Menus } into gF

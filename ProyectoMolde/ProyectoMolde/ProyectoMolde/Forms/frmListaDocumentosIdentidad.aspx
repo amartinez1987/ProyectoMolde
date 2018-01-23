@@ -7,7 +7,7 @@
     <div class="row">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                Listado DocumentosIdentidad
+                Listado Documentos Identidad
             </div>
             <div class="panel-body">
                 <div class="col-sm-5 col-md-5 col-lg-1">

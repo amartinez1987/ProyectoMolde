@@ -109,6 +109,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombreOperacion" Type="varchar" MaxLength="1000" Nullable="false" />
     <Property Name="usuarioId" Type="int" Nullable="false" />
+    <Property Name="visualizaFormularioMenu" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="OperacionesFormulario">
     <Key>
@@ -285,7 +286,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PerfilesOperacionesFormulario_OperacionesFormulario">
-    <End Role="OperacionesFormulario" Type="Self.OperacionesFormulario" Multiplicity="0..1" />
+    <End Role="OperacionesFormulario" Type="Self.OperacionesFormulario" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="PerfilesOperacionesFormulario" Type="Self.PerfilesOperacionesFormulario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="OperacionesFormulario">

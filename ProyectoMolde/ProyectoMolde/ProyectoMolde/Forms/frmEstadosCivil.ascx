@@ -9,13 +9,13 @@
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <label id="lblsiglaEstadosCivil">sigla</label>
+        <label id="lblsiglaEstadosCivil">Sigla</label>
         <input id="txtsiglaEstadosCivil" class="form-control">
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <label id="lbldescripcionEstadosCivil">descripcion</label>
+        <label id="lbldescripcionEstadosCivil">Descripción</label>
         <input id="txtdescripcionEstadosCivil" class="form-control">
     </div>
 </div>
