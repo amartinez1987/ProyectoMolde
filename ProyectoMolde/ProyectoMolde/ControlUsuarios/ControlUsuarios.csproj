@@ -112,9 +112,11 @@
     <Compile Include="Entity\Controller\ISTATEUsuarios_Bloqueado.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios_Inactivo.cs" />
     <Compile Include="Entity\Controller\ISTATEUsuarios_Nuevo.cs" />
+    <Compile Include="Entity\Controller\MaestroAnexosController.cs" />
     <Compile Include="Entity\Controller\MenusController.cs" />
     <Compile Include="Entity\Controller\MoldeTrasabilidad.cs" />
     <Compile Include="Entity\Controller\MunicipiosController.cs" />
+    <Compile Include="Entity\Controller\OpcionesMaestroAnexosController.cs" />
     <Compile Include="Entity\Controller\OperacionesController.cs" />
     <Compile Include="Entity\Controller\OperacionesFormularioController.cs" />
     <Compile Include="Entity\Controller\PerfilesOperacionesFormularioController.cs" />
@@ -123,6 +125,9 @@
     <Compile Include="Entity\Controller\UsuariosController.cs" />
     <Compile Include="Entity\Controller\UsuariosOperacionesFormularioController.cs" />
     <Compile Include="Entity\Controller\ValidateSession.cs" />
+    <Compile Include="Entity\Model\Anexos.cs">
+      <DependentUpon>MoldeEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Model\AplicacionesWeb.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
@@ -131,6 +136,9 @@
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Model\BarriosViewModel.cs" />
+    <Compile Include="Entity\Model\ConsecutivosTemporales.cs">
+      <DependentUpon>MoldeEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Model\ControlAplicacion.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
@@ -154,6 +162,10 @@
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Model\GruposSanguineoViewModel.cs" />
+    <Compile Include="Entity\Model\MaestroAnexos.cs">
+      <DependentUpon>MoldeEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Model\MaestroAnexosViewModel.cs" />
     <Compile Include="Entity\Model\Menus.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
@@ -176,6 +188,10 @@
     <Compile Include="Entity\Model\Municipios.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Model\OpcionesMaestroAnexos.cs">
+      <DependentUpon>MoldeEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Model\OpcionesMaestroAnexosViewModel.cs" />
     <Compile Include="Entity\Model\Operaciones.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>

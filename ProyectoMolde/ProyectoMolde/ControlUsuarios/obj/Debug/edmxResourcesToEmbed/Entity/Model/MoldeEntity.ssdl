@@ -1,5 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="MoldeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Anexos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="opcionMaestroAnexoId" Type="int" Nullable="false" />
+    <Property Name="registroTablaId" Type="int" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+    <Property Name="anexo" Type="image" Nullable="false" />
+    <Property Name="consecutivosTemporal" Type="varchar" MaxLength="1000" Nullable="false" />
+  </EntityType>
   <EntityType Name="AplicacionesWeb">
     <Key>
       <PropertyRef Name="id" />
@@ -17,6 +28,14 @@
     <Property Name="nombre" Type="varchar" MaxLength="100" />
     <Property Name="municipioId" Type="int" />
     <Property Name="usuarioId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConsecutivosTemporales">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="tabla" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="consecutivo" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="ControlAplicacion">
     <Key>
@@ -80,6 +99,14 @@
     <Property Name="descripcion" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="usuarioId" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="MaestroAnexos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tabla" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Menus">
     <Key>
       <PropertyRef Name="id" />
@@ -101,6 +128,15 @@
     <Property Name="departamentoId" Type="int" Nullable="false" />
     <Property Name="usuarioId" Type="int" Nullable="false" />
     <Property Name="codigoDane" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OpcionesMaestroAnexos">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreOpcion" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="maestroAnexosId" Type="int" Nullable="false" />
+    <Property Name="usuarioId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Operaciones">
     <Key>
@@ -197,6 +233,18 @@
     <Property Name="operacionFormularioId" Type="int" Nullable="false" />
     <Property Name="usuarioIdApl" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK_Anexos_OpcionesMaestroAnexos">
+    <End Role="OpcionesMaestroAnexos" Type="Self.OpcionesMaestroAnexos" Multiplicity="1" />
+    <End Role="Anexos" Type="Self.Anexos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OpcionesMaestroAnexos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Anexos">
+        <PropertyRef Name="opcionMaestroAnexoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Barrios_Municipios">
     <End Role="Municipios" Type="Self.Municipios" Multiplicity="0..1" />
     <End Role="Barrios" Type="Self.Barrios" Multiplicity="*" />
@@ -254,6 +302,18 @@
       </Principal>
       <Dependent Role="Municipios">
         <PropertyRef Name="departamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OpcionesMaestroAnexos_MaestroAnexos">
+    <End Role="MaestroAnexos" Type="Self.MaestroAnexos" Multiplicity="1" />
+    <End Role="OpcionesMaestroAnexos" Type="Self.OpcionesMaestroAnexos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaestroAnexos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="OpcionesMaestroAnexos">
+        <PropertyRef Name="maestroAnexosId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -434,16 +494,20 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="MoldeModelStoreContainer">
+    <EntitySet Name="Anexos" EntityType="Self.Anexos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AplicacionesWeb" EntityType="Self.AplicacionesWeb" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Barrios" EntityType="Self.Barrios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConsecutivosTemporales" EntityType="Self.ConsecutivosTemporales" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ControlAplicacion" EntityType="Self.ControlAplicacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DocumentosIdentidad" EntityType="Self.DocumentosIdentidad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EstadosCivil" EntityType="Self.EstadosCivil" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Formularios" EntityType="Self.Formularios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="GruposSanguineo" EntityType="Self.GruposSanguineo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaestroAnexos" EntityType="Self.MaestroAnexos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Municipios" EntityType="Self.Municipios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OpcionesMaestroAnexos" EntityType="Self.OpcionesMaestroAnexos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Operaciones" EntityType="Self.Operaciones" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OperacionesFormulario" EntityType="Self.OperacionesFormulario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Perfiles" EntityType="Self.Perfiles" Schema="dbo" store:Type="Tables" />
@@ -452,6 +516,10 @@
     <EntitySet Name="Sexos" EntityType="Self.Sexos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UsuariosOperacionesFormulario" EntityType="Self.UsuariosOperacionesFormulario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Anexos_OpcionesMaestroAnexos" Association="Self.FK_Anexos_OpcionesMaestroAnexos">
+      <End Role="OpcionesMaestroAnexos" EntitySet="OpcionesMaestroAnexos" />
+      <End Role="Anexos" EntitySet="Anexos" />
+    </AssociationSet>
     <AssociationSet Name="FK_Barrios_Municipios" Association="Self.FK_Barrios_Municipios">
       <End Role="Municipios" EntitySet="Municipios" />
       <End Role="Barrios" EntitySet="Barrios" />
@@ -471,6 +539,10 @@
     <AssociationSet Name="FK_Municipios_Departamentos2" Association="Self.FK_Municipios_Departamentos2">
       <End Role="Departamentos" EntitySet="Departamentos" />
       <End Role="Municipios" EntitySet="Municipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OpcionesMaestroAnexos_MaestroAnexos" Association="Self.FK_OpcionesMaestroAnexos_MaestroAnexos">
+      <End Role="MaestroAnexos" EntitySet="MaestroAnexos" />
+      <End Role="OpcionesMaestroAnexos" EntitySet="OpcionesMaestroAnexos" />
     </AssociationSet>
     <AssociationSet Name="FK_OperacionesFormulario_Formularios" Association="Self.FK_OperacionesFormulario_Formularios">
       <End Role="Formularios" EntitySet="Formularios" />

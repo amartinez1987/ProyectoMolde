@@ -216,5 +216,45 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ConsecutivosTemporales">
+      <EntityTypeMapping TypeName="MoldeModel.ConsecutivosTemporales">
+        <MappingFragment StoreEntitySet="ConsecutivosTemporales">
+          <ScalarProperty Name="consecutivo" ColumnName="consecutivo" />
+          <ScalarProperty Name="tabla" ColumnName="tabla" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Anexos">
+      <EntityTypeMapping TypeName="MoldeModel.Anexos">
+        <MappingFragment StoreEntitySet="Anexos">
+          <ScalarProperty Name="consecutivosTemporal" ColumnName="consecutivosTemporal" />
+          <ScalarProperty Name="anexo" ColumnName="anexo" />
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+          <ScalarProperty Name="registroTablaId" ColumnName="registroTablaId" />
+          <ScalarProperty Name="opcionMaestroAnexoId" ColumnName="opcionMaestroAnexoId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OpcionesMaestroAnexos">
+      <EntityTypeMapping TypeName="MoldeModel.OpcionesMaestroAnexos">
+        <MappingFragment StoreEntitySet="OpcionesMaestroAnexos">
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+          <ScalarProperty Name="maestroAnexosId" ColumnName="maestroAnexosId" />
+          <ScalarProperty Name="nombreOpcion" ColumnName="nombreOpcion" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaestroAnexos">
+      <EntityTypeMapping TypeName="MoldeModel.MaestroAnexos">
+        <MappingFragment StoreEntitySet="MaestroAnexos">
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+          <ScalarProperty Name="tabla" ColumnName="tabla" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

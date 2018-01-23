@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="01ea6939dee24bb784c6c0ac0a415d0f" Name="Diagram1" ZoomLevel="94">
+      <Diagram DiagramId="01ea6939dee24bb784c6c0ac0a415d0f" Name="Diagram1" ZoomLevel="93">
         <EntityTypeShape EntityType="MoldeModel.AplicacionesWeb" Width="1.5" PointX="3" PointY="21.875" />
         <EntityTypeShape EntityType="MoldeModel.Barrios" Width="1.5" PointX="5.25" PointY="3.5" />
         <EntityTypeShape EntityType="MoldeModel.ControlAplicacion" Width="1.5" PointX="0.75" PointY="6.75" />
@@ -42,6 +42,12 @@
         <AssociationConnector Association="MoldeModel.FK_dbo_Personas_Sexo" />
         <AssociationConnector Association="MoldeModel.FK_Usuarios_Personas" />
         <AssociationConnector Association="MoldeModel.FK_UsuariosOperacionesFormulario_Usuarios" />
+        <EntityTypeShape EntityType="MoldeModel.ConsecutivosTemporales" Width="2.625" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MoldeModel.Anexos" Width="1.5" PointX="14.875" PointY="8" />
+        <EntityTypeShape EntityType="MoldeModel.OpcionesMaestroAnexos" Width="1.5" PointX="12.625" PointY="8" />
+        <AssociationConnector Association="MoldeModel.FK_Anexos_OpcionesMaestroAnexos" />
+        <EntityTypeShape EntityType="MoldeModel.MaestroAnexos" Width="1.5" PointX="10.375" PointY="8.25" />
+        <AssociationConnector Association="MoldeModel.FK_OpcionesMaestroAnexos_MaestroAnexos" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
