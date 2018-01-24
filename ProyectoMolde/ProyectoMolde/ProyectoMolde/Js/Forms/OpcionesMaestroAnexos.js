@@ -2,10 +2,7 @@
 var opcionesMaestroAnexos = new Object();
 function cargarDatos(opcionesMaestroAnexos) {
     $('#PanelIDOpcionesMaestroAnexos').show();
-    $('#txtIdOpcionesMaestroAnexos').val(opcionesMaestroAnexos.id);
-    $('#txtmaestroAnexosIdOpcionesMaestroAnexos').val(opcionesMaestroAnexos.maestroAnexosId);
-    $('#txtmaestroAnexosVerOpcionesMaestroAnexos').val(opcionesMaestroAnexos.maestroAnexosId);
-    $('#txtDescripcionMaestroAnexos').val(opcionesMaestroAnexos.tabla);
+    $('#txtIdOpcionesMaestroAnexos').val(opcionesMaestroAnexos.id);    
     $('#txtnombreOpcionOpcionesMaestroAnexos').val(opcionesMaestroAnexos.nombreOpcion);
 }
 
@@ -28,7 +25,7 @@ function btnOpcionesMaestroAnexos_CancelarClick()
 function btnOpcionesMaestroAnexos_GuardarClick() {
     if (validarCampos()) {
         opcionesMaestroAnexos.id = 0;
-        opcionesMaestroAnexos.maestroAnexosId = $('#txtmaestroAnexosIdOpcionesMaestroAnexos').val();
+        opcionesMaestroAnexos.maestroAnexosId = maestroAnexos.id;
         opcionesMaestroAnexos.usuarioId = getLocalStorageNavegator("usuarioId");
         opcionesMaestroAnexos.nombreOpcion = $('#txtnombreOpcionOpcionesMaestroAnexos').val();
         var url = "/WebMethods/opcionesMaestroAnexos.aspx/guardar";
@@ -39,7 +36,7 @@ function btnOpcionesMaestroAnexos_GuardarClick() {
 function btnOpcionesMaestroAnexos_EditarClick() {
     if (validarCampos()) {
         opcionesMaestroAnexos.id = $('#txtIdOpcionesMaestroAnexos').val();
-        opcionesMaestroAnexos.maestroAnexosId = $('#txtmaestroAnexosIdOpcionesMaestroAnexos').val();
+        opcionesMaestroAnexos.maestroAnexosId = maestroAnexos.id;
         opcionesMaestroAnexos.usuarioId = getLocalStorageNavegator("usuarioId");
         opcionesMaestroAnexos.nombreOpcion = $('#txtnombreOpcionOpcionesMaestroAnexos').val();
         var url = "/WebMethods/opcionesMaestroAnexos.aspx/guardar";
@@ -59,7 +56,8 @@ function OnSuccesSaveOpcionesMaestroAnexos(response) {
 }
 
 function btnOpcionesMaestroAnexos_Editar(id) {
-    loadUrlModal('Editar OpcionesMaestroAnexos', ('frmOpcionesMaestroAnexos_Editar.aspx?id=' + id), croosModalClick);
+    var modalUrl = $('#modalForm');
+    modalUrl.find('.modal-body').load('frmOpcionesMaestroAnexos_Editar.aspx?id=' + id);    
 }
 
 function btnOpcionesMaestroAnexos_Eliminar(id) {
@@ -79,34 +77,26 @@ function btnOpcionesMaestroAnexos_Eliminar(id) {
 
 function OnSuccesDeleteOpcionesMaestroAnexos(response) {
     if ((response.error == null ? "" : response.error) != "") {
-        tipoAlerta(response.error, response.tipoAlerta, "#boxMessages");
+        tipoAlerta(response.error, response.tipoAlerta, "#boxMessagesCrud");
         return;
     }
     if (response.error == '') {
-        tipoAlerta('Registro Eliminado con Exito.', 'success', "#boxMessages");
-        cargarListaOpcionesMaestroAnexos();
+        tipoAlerta('Registro Eliminado con Exito.', 'success', "#boxMessagesCrud");
+        cargarListaOpcionesMaestroAnexos(maestroAnexos.id);
         return;
     }
 }
 
-function getListaOpcionesMaestroAnexos(registroPartida, totalAExtraer, callbackFucntion) {
+function getListaOpcionesMaestroAnexos(maestroAnexoId, registroPartida, totalAExtraer, callbackFucntion) {
+    opcionesMaestroAnexos.maestroAnexoId = maestroAnexoId;
     opcionesMaestroAnexos.registroPartida = registroPartida;
     opcionesMaestroAnexos.totalAExtraer = totalAExtraer;
     opcionesMaestroAnexos.usuarioId = getLocalStorageNavegator("usuarioId");
     var url = "/WebMethods/opcionesMaestroAnexos.aspx/getListaOpcionesMaestroAnexos";
     enviarComoParametros(url, opcionesMaestroAnexos, callbackFucntion);
 }
-function validarCampos() {
 
-    if ($('#txtIdopcionesMaestroAnexos').val() == 0) {
-        tipoAlerta('El campo id no puede ir vacío.', 'warning', "#boxMessagesCrud");
-        return false;
-    };
-
-    if ($('#txtmaestroAnexosIdOpcionesMaestroAnexos').val() == 0) {
-        tipoAlerta('El campo maestroAnexosId no puede ir vacío.', 'warning', "#boxMessagesCrud");
-        return false;
-    };
+function validarCampos() {   
 
     if ($('#txtnombreOpcionOpcionesMaestroAnexos').val() == 0) {
         tipoAlerta('El campo nombreOpcion no puede ir vacío.', 'warning', "#boxMessagesCrud");
@@ -138,7 +128,7 @@ function cargarListaOpcionesMaestroAnexos(maestroAnexoId) {
             var totalRegistros = 0;
             var totalRegistrosFiltrados = 0;
 
-            getListaOpcionesMaestroAnexos(data.start, data.length, function (response) {
+            getListaOpcionesMaestroAnexos(maestroAnexoId, data.start, data.length, function (response) {
                 if ((response.error == null ? "" : response.error) != "") {
                     tipoAlerta(response.error, response.tipoAlerta, "#boxMessages");
                     return;
@@ -151,7 +141,7 @@ function cargarListaOpcionesMaestroAnexos(maestroAnexoId) {
                     for (var i = 0; i < lstOpcionesMaestroAnexos.length; i++) {
                         var etiquetaEditar = "<a onclick='btnOpcionesMaestroAnexos_Editar(" + lstOpcionesMaestroAnexos[i].id + ")'  class='fa fa-edit'><a>";
                         var etiquetaEliminar = " <a class='fa fa-minus' onclick='btnOpcionesMaestroAnexos_Eliminar(" + lstOpcionesMaestroAnexos[i].id + ")'><a>";
-                        out.push([etiquetaEditar + etiquetaEliminar, lstOpcionesMaestroAnexos[i].nombre, lstOpcionesMaestroAnexos[i].descripcion]);
+                        out.push([etiquetaEditar + etiquetaEliminar, lstOpcionesMaestroAnexos[i].nombreMaestroAnexo, lstOpcionesMaestroAnexos[i].nombreOpcion]);
                     }
 
                     setTimeout(callback(

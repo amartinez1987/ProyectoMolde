@@ -15,11 +15,21 @@ namespace ControlUsuarios.Entity.Controller
             return entity;
         }
 
+        public List<OpcionesMaestroAnexosViewModel> getListaOpcionesMaestroAnexosPorMaestroAnexoId(int maestroAnexoId)
+        {
+
+            var l = from opcionesmaestroanexos in entity.OpcionesMaestroAnexos
+                    where opcionesmaestroanexos.maestroAnexosId == maestroAnexoId
+                    select new OpcionesMaestroAnexosViewModel { id = opcionesmaestroanexos.id, maestroAnexosId = opcionesmaestroanexos.maestroAnexosId, usuarioId = opcionesmaestroanexos.usuarioId, nombreOpcion = opcionesmaestroanexos.nombreOpcion, nombreMaestroAnexo = opcionesmaestroanexos.MaestroAnexos.tabla };
+            return l.ToList();
+
+        }
+
         public List<OpcionesMaestroAnexosViewModel> getListaOpcionesMaestroAnexos()
         {
 
             var l = from opcionesmaestroanexos in entity.OpcionesMaestroAnexos
-                    select new OpcionesMaestroAnexosViewModel { id = opcionesmaestroanexos.id, maestroAnexosId = opcionesmaestroanexos.maestroAnexosId, usuarioId = opcionesmaestroanexos.usuarioId, nombreOpcion = opcionesmaestroanexos.nombreOpcion };
+                    select new OpcionesMaestroAnexosViewModel { id = opcionesmaestroanexos.id, maestroAnexosId = opcionesmaestroanexos.maestroAnexosId, usuarioId = opcionesmaestroanexos.usuarioId, nombreOpcion = opcionesmaestroanexos.nombreOpcion, nombreMaestroAnexo = opcionesmaestroanexos.MaestroAnexos.tabla };
             return l.ToList();
 
         }
@@ -28,7 +38,7 @@ namespace ControlUsuarios.Entity.Controller
         {
             var l = from opcionesmaestroanexos in entity.OpcionesMaestroAnexos
                     where opcionesmaestroanexos.id == id
-                    select new OpcionesMaestroAnexosViewModel { id = opcionesmaestroanexos.id, maestroAnexosId = opcionesmaestroanexos.maestroAnexosId, usuarioId = opcionesmaestroanexos.usuarioId, nombreOpcion = opcionesmaestroanexos.nombreOpcion };
+                    select new OpcionesMaestroAnexosViewModel { id = opcionesmaestroanexos.id, maestroAnexosId = opcionesmaestroanexos.maestroAnexosId, usuarioId = opcionesmaestroanexos.usuarioId, nombreOpcion = opcionesmaestroanexos.nombreOpcion, nombreMaestroAnexo = opcionesmaestroanexos.MaestroAnexos.tabla };
             return l.SingleOrDefault();
         }
 

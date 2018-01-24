@@ -7,14 +7,21 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenPlaceDocument" runat="server">
     <uc1:frmOpcionesMaestroAnexos runat="server" ID="frmOpcionesMaestroAnexos" />
     <br />
-    <a id="btnOpcionesMaestroAnexos_Editar" onclick="btnOpcionesMaestroAnexos_EditarClick()" class="btn btn-success">Editar</a>
+    <div class="row">
+        <div class="col-sm-6">
+            <a id="btnOpcionesMaestroAnexos_Editar" onclick="btnOpcionesMaestroAnexos_EditarClick()" class="btn btn-success">Editar</a>
+        </div>
+        <div class="col-sm-6">
+            <a id="btnOpcionesMaestroAnexos_Cancelar" onclick="btnOpcionesMaestroAnexos_CancelarClick()" class="btn btn-warning ">Regresar</a>
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceFoot" runat="server">
     <script>
 <% string opcionesMaestroAnexosIdString = Request.QueryString["id"];
-   int opcionesMaestroAnexosId = 0;
-   int.TryParse(opcionesMaestroAnexosIdString, out opcionesMaestroAnexosId);
-   string jsonOpcionesMaestroAnexos = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(new ControlUsuarios.Entity.Controller.OpcionesMaestroAnexosController().getOpcionesMaestroAnexos(opcionesMaestroAnexosId)); %>
+        int opcionesMaestroAnexosId = 0;
+        int.TryParse(opcionesMaestroAnexosIdString, out opcionesMaestroAnexosId);
+        string jsonOpcionesMaestroAnexos = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(new ControlUsuarios.Entity.Controller.OpcionesMaestroAnexosController().getOpcionesMaestroAnexos(opcionesMaestroAnexosId)); %>
         opcionesMaestroAnexos = <%= jsonOpcionesMaestroAnexos %>
         console.log(opcionesMaestroAnexos);
         cargarDatos(opcionesMaestroAnexos);

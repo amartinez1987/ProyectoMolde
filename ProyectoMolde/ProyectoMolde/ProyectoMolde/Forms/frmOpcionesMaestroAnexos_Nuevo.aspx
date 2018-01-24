@@ -12,7 +12,7 @@
             <a id="btnOpcionesMaestroAnexos_Guardar" onclick="btnOpcionesMaestroAnexos_GuardarClick()" class="btn btn-success">Guardar</a>
         </div>
         <div class="col-sm-6">
-            <a id="btnOpcionesMaestroAnexos_Cancelar" onclick="btnOpcionesMaestroAnexos_CancelarClick()" class="btn btn-success">Cancelar</a>
+            <a id="btnOpcionesMaestroAnexos_Cancelar" onclick="btnOpcionesMaestroAnexos_CancelarClick()" class="btn btn-warning ">Regresar</a>
         </div>
     </div>
     

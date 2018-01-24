@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using ControlUsuarios.Entity.Model;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data.Entity.Core;
+using System.Data.Entity.Infrastructure;
 
 namespace ControlUsuarios.Entity.Controller
 {
@@ -117,6 +120,21 @@ namespace ControlUsuarios.Entity.Controller
                 {
                     entity.SaveChanges();
                     return new Result { error = result.error, id = maestroanexosId };
+                }
+                catch (DbUpdateException enEx)
+                {
+                    var sqlex = enEx.InnerException.InnerException as SqlException;
+
+                    if (sqlex != null)
+                    {
+                        switch (sqlex.Number)
+                        {
+                            case 547:
+                                return new Result { error = "No se puede eliminar el registro debido a que tiene elementos asociados.", id = 0, tipoAlerta = "warning" };                            
+
+                            default: return new Result { error = enEx.Message, id = 0, tipoAlerta = "warning" };
+                        }
+                    }
                 }
                 catch (Exception e)
                 {

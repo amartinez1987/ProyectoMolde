@@ -10,6 +10,7 @@ namespace ControlUsuarios.Entity.Model
     {
         public int id { get; set; }
         public int maestroAnexosId { get; set; }
+        public string nombreMaestroAnexo { get; set; }
         public int usuarioId { get; set; }
         public string nombreOpcion { get; set; }
     }

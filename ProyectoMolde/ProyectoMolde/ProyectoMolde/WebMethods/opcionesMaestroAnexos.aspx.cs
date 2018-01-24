@@ -18,7 +18,7 @@ namespace ProyectoMolde.WebMethods
         }
 
         [WebMethod]
-        public static Result getListaOpcionesMaestroAnexos(int registroPartida, int totalAExtraer, int usuarioId)
+        public static Result getListaOpcionesMaestroAnexos(int maestroAnexoId, int registroPartida, int totalAExtraer, int usuarioId)
         {
             Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
             if (r.error != "")
@@ -30,7 +30,7 @@ namespace ProyectoMolde.WebMethods
             try
             {
                 OpcionesMaestroAnexosController omac = new OpcionesMaestroAnexosController();
-                lst = omac.getListaOpcionesMaestroAnexos();
+                lst = omac.getListaOpcionesMaestroAnexosPorMaestroAnexoId(maestroAnexoId );
 
                 totalRegistros = lst.Count();
                 totalAExtraer = (lst.Count() - registroPartida) < totalAExtraer ? (lst.Count() - registroPartida) : totalAExtraer;
