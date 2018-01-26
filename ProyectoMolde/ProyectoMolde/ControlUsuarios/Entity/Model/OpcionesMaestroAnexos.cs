@@ -24,7 +24,7 @@ namespace ControlUsuarios.Entity.Model
         public int maestroAnexosId { get; set; }
         public int usuarioId { get; set; }
     
-        public virtual ICollection<Anexos> Anexos { get; set; }
         public virtual MaestroAnexos MaestroAnexos { get; set; }
+        public virtual ICollection<Anexos> Anexos { get; set; }
     }
 }

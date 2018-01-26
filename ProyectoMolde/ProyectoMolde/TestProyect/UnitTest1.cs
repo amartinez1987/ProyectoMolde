@@ -144,5 +144,12 @@ namespace TestProyect
             Result r = ProyectoMolde.WebMethods.usuario.editar(uv,"");
         }
 
+
+        [Fact]
+        public void TestMethod2()
+        {
+           
+        }
+
     }
 }

@@ -43,9 +43,8 @@ namespace ControlUsuarios.Entity.Model
         public virtual DbSet<Sexos> Sexos { get; set; }
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<UsuariosOperacionesFormulario> UsuariosOperacionesFormulario { get; set; }
-        public virtual DbSet<ConsecutivosTemporales> ConsecutivosTemporales { get; set; }
-        public virtual DbSet<Anexos> Anexos { get; set; }
         public virtual DbSet<OpcionesMaestroAnexos> OpcionesMaestroAnexos { get; set; }
         public virtual DbSet<MaestroAnexos> MaestroAnexos { get; set; }
+        public virtual DbSet<Anexos> Anexos { get; set; }
     }
 }

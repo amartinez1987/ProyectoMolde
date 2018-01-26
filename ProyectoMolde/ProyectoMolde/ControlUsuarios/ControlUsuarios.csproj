@@ -98,6 +98,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Controller\AnexoController.cs" />
     <Compile Include="Entity\Controller\AplicacionesWebController.cs" />
     <Compile Include="Entity\Controller\BarriosController.cs" />
     <Compile Include="Entity\Controller\DepartamentosController.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Entity\Model\Anexos.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\Model\AnexosViewModel.cs" />
     <Compile Include="Entity\Model\AplicacionesWeb.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
@@ -136,9 +138,6 @@
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Model\BarriosViewModel.cs" />
-    <Compile Include="Entity\Model\ConsecutivosTemporales.cs">
-      <DependentUpon>MoldeEntity.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entity\Model\ControlAplicacion.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>

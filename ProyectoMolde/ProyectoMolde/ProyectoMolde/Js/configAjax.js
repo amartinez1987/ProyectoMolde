@@ -33,13 +33,15 @@ function getParamsValues(objeto)
     var arrayParams = "";
     arrayParams = "{";
     var arrayParams = "{";
+
     for (var atributo in objeto)
     {
         if (objeto.hasOwnProperty(atributo))
-        {
-            arrayParams += atributo + ':' + JSON.stringify(objeto[atributo]) + ',';
+        {           
+            arrayParams += atributo + ':' + JSON.stringify(objeto[atributo]) + ',';            
         }
     }
+
     arrayParams = arrayParams.substring(0, arrayParams.length - 1);
     arrayParams += "}";
 

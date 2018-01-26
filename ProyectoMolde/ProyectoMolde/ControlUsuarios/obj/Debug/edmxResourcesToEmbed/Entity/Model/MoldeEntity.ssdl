@@ -8,8 +8,7 @@
     <Property Name="opcionMaestroAnexoId" Type="int" Nullable="false" />
     <Property Name="registroTablaId" Type="int" />
     <Property Name="usuarioId" Type="int" Nullable="false" />
-    <Property Name="anexo" Type="image" Nullable="false" />
-    <Property Name="consecutivosTemporal" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="anexo" Type="varbinary(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="AplicacionesWeb">
     <Key>
@@ -28,14 +27,6 @@
     <Property Name="nombre" Type="varchar" MaxLength="100" />
     <Property Name="municipioId" Type="int" />
     <Property Name="usuarioId" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ConsecutivosTemporales">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" Nullable="false" />
-    <Property Name="tabla" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="consecutivo" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="ControlAplicacion">
     <Key>
@@ -497,7 +488,6 @@
     <EntitySet Name="Anexos" EntityType="Self.Anexos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AplicacionesWeb" EntityType="Self.AplicacionesWeb" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Barrios" EntityType="Self.Barrios" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ConsecutivosTemporales" EntityType="Self.ConsecutivosTemporales" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ControlAplicacion" EntityType="Self.ControlAplicacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DocumentosIdentidad" EntityType="Self.DocumentosIdentidad" Schema="dbo" store:Type="Tables" />
