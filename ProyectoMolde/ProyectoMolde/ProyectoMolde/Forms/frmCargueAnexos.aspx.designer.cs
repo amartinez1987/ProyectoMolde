@@ -13,6 +13,24 @@ namespace ProyectoMolde.Forms {
     public partial class frmCargueAnexos {
         
         /// <summary>
+        /// Control HiddenField1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+        
+        /// <summary>
+        /// Control cmbTipoAnexo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cmbTipoAnexo;
+        
+        /// <summary>
         /// Control File1.
         /// </summary>
         /// <remarks>
@@ -22,12 +40,12 @@ namespace ProyectoMolde.Forms {
         protected global::System.Web.UI.HtmlControls.HtmlInputFile File1;
         
         /// <summary>
-        /// Control Submit1.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputSubmit Submit1;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

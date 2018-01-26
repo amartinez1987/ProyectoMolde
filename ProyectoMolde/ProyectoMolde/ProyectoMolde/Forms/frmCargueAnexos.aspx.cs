@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Collections;
 
 namespace ProyectoMolde.Forms
 {
@@ -11,19 +13,28 @@ namespace ProyectoMolde.Forms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            HiddenField1.Value = "2";// Request.QueryString[""];
         }
 
         private void Submit1_ServerClick(object sender, System.EventArgs e)
         {
+          
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
             if ((File1.PostedFile != null) && (File1.PostedFile.ContentLength > 0))
             {
                 string fn = System.IO.Path.GetFileName(File1.PostedFile.FileName);
-                string SaveLocation = Server.MapPath("Data") + "\\" + fn;
+                string valueTipoAnexo = cmbTipoAnexo.SelectedValue;
+                string val = HiddenField1.Value;
                 try
                 {
-                    File1.PostedFile.SaveAs(SaveLocation);
-                    Response.Write("The file has been uploaded.");
+                    byte[] fileData = null;
+                    using (var binaryReader = new BinaryReader(File1.PostedFile.InputStream))
+                    {
+                        fileData = binaryReader.ReadBytes(File1.PostedFile.ContentLength);
+                    }
                 }
                 catch (Exception ex)
                 {
