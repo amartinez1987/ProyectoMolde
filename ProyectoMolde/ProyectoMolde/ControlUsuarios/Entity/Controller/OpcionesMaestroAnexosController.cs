@@ -25,6 +25,16 @@ namespace ControlUsuarios.Entity.Controller
 
         }
 
+        public List<OpcionesMaestroAnexosViewModel> getListaOpcionesMaestroAnexosPorMaestroNombreTabla(string tabla)
+        {
+
+            var l = from opcionesmaestroanexos in entity.OpcionesMaestroAnexos
+                    where opcionesmaestroanexos.MaestroAnexos.tabla == tabla
+                    select new OpcionesMaestroAnexosViewModel { id = opcionesmaestroanexos.id, maestroAnexosId = opcionesmaestroanexos.maestroAnexosId, usuarioId = opcionesmaestroanexos.usuarioId, nombreOpcion = opcionesmaestroanexos.nombreOpcion, nombreMaestroAnexo = opcionesmaestroanexos.MaestroAnexos.tabla };
+            return l.ToList();
+
+        }
+
         public List<OpcionesMaestroAnexosViewModel> getListaOpcionesMaestroAnexos()
         {
 
@@ -38,7 +48,7 @@ namespace ControlUsuarios.Entity.Controller
         {
             var l = from opcionesmaestroanexos in entity.OpcionesMaestroAnexos
                     where opcionesmaestroanexos.id == id
-                    select new OpcionesMaestroAnexosViewModel { id = opcionesmaestroanexos.id, maestroAnexosId = opcionesmaestroanexos.maestroAnexosId, usuarioId = opcionesmaestroanexos.usuarioId, nombreOpcion = opcionesmaestroanexos.nombreOpcion, nombreMaestroAnexo = opcionesmaestroanexos.MaestroAnexos.tabla };
+                    select new OpcionesMaestroAnexosViewModel { id = opcionesmaestroanexos.id, maestroAnexosId = opcionesmaestroanexos.maestroAnexosId, usuarioId = opcionesmaestroanexos.usuarioId, nombreOpcion = opcionesmaestroanexos.nombreOpcion, nombreMaestroAnexo = opcionesmaestroanexos.MaestroAnexos.tabla  };
             return l.SingleOrDefault();
         }
 

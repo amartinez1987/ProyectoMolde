@@ -229,8 +229,18 @@
     <EntitySetMapping Name="MaestroAnexos">
       <EntityTypeMapping TypeName="MoldeModel.MaestroAnexos">
         <MappingFragment StoreEntitySet="MaestroAnexos">
+          <ScalarProperty Name="aplicacionId" ColumnName="aplicacionId" />
           <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
           <ScalarProperty Name="tabla" ColumnName="tabla" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsecutivosTemporales">
+      <EntityTypeMapping TypeName="MoldeModel.ConsecutivosTemporales">
+        <MappingFragment StoreEntitySet="ConsecutivosTemporales">
+          <ScalarProperty Name="maestroAnexoId" ColumnName="maestroAnexoId" />
+          <ScalarProperty Name="consecutivo" ColumnName="consecutivo" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -238,6 +248,8 @@
     <EntitySetMapping Name="Anexos">
       <EntityTypeMapping TypeName="MoldeModel.Anexos">
         <MappingFragment StoreEntitySet="Anexos">
+          <ScalarProperty Name="consecutivoTemporal" ColumnName="consecutivoTemporal" />
+          <ScalarProperty Name="nombreAnexo" ColumnName="nombreAnexo" />
           <ScalarProperty Name="anexo" ColumnName="anexo" />
           <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
           <ScalarProperty Name="registroTablaId" ColumnName="registroTablaId" />

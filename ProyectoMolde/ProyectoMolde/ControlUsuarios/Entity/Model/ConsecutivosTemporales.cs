@@ -12,20 +12,12 @@ namespace ControlUsuarios.Entity.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class AplicacionesWeb
+    public partial class ConsecutivosTemporales
     {
-        public AplicacionesWeb()
-        {
-            this.Menus = new HashSet<Menus>();
-            this.MaestroAnexos = new HashSet<MaestroAnexos>();
-        }
-    
         public int id { get; set; }
-        public string nombre { get; set; }
-        public string descripcion { get; set; }
-        public int usuarioId { get; set; }
+        public long consecutivo { get; set; }
+        public int maestroAnexoId { get; set; }
     
-        public virtual ICollection<Menus> Menus { get; set; }
-        public virtual ICollection<MaestroAnexos> MaestroAnexos { get; set; }
+        public virtual MaestroAnexos MaestroAnexos { get; set; }
     }
 }

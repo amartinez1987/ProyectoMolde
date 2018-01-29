@@ -17,12 +17,16 @@ namespace ControlUsuarios.Entity.Model
         public MaestroAnexos()
         {
             this.OpcionesMaestroAnexos = new HashSet<OpcionesMaestroAnexos>();
+            this.ConsecutivosTemporales = new HashSet<ConsecutivosTemporales>();
         }
     
         public int id { get; set; }
         public string tabla { get; set; }
         public int usuarioId { get; set; }
+        public int aplicacionId { get; set; }
     
         public virtual ICollection<OpcionesMaestroAnexos> OpcionesMaestroAnexos { get; set; }
+        public virtual ICollection<ConsecutivosTemporales> ConsecutivosTemporales { get; set; }
+        public virtual AplicacionesWeb AplicacionesWeb { get; set; }
     }
 }

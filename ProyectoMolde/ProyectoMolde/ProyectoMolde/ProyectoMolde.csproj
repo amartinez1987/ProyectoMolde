@@ -124,6 +124,7 @@
     <Content Include="Forms\frmDepartamentos.ascx" />
     <Content Include="Forms\frmDepartamentos_Editar.aspx" />
     <Content Include="Forms\frmDepartamentos_Nuevo.aspx" />
+    <Content Include="Forms\frmDescargueArchivos.aspx" />
     <Content Include="Forms\frmDocumentosIdentidad.ascx" />
     <Content Include="Forms\frmDocumentosIdentidad_Editar.aspx" />
     <Content Include="Forms\frmDocumentosIdentidad_Nuevo.aspx" />
@@ -432,6 +433,13 @@
     </Compile>
     <Compile Include="Forms\frmDepartamentos_Nuevo.aspx.designer.cs">
       <DependentUpon>frmDepartamentos_Nuevo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDescargueArchivos.aspx.cs">
+      <DependentUpon>frmDescargueArchivos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDescargueArchivos.aspx.designer.cs">
+      <DependentUpon>frmDescargueArchivos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmDocumentosIdentidad.ascx.cs">
       <DependentUpon>frmDocumentosIdentidad.ascx</DependentUpon>

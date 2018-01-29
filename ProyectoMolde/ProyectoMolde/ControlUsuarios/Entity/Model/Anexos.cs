@@ -19,6 +19,8 @@ namespace ControlUsuarios.Entity.Model
         public Nullable<int> registroTablaId { get; set; }
         public int usuarioId { get; set; }
         public byte[] anexo { get; set; }
+        public string nombreAnexo { get; set; }
+        public string consecutivoTemporal { get; set; }
     
         public virtual OpcionesMaestroAnexos OpcionesMaestroAnexos { get; set; }
     }

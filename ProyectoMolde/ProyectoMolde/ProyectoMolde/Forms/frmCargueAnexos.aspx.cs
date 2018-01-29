@@ -6,6 +6,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections;
+using ControlUsuarios.Entity.Controller;
+using ControlUsuarios.Entity.Model;
+using System.Runtime.InteropServices;
 
 namespace ProyectoMolde.Forms
 {
@@ -13,12 +16,35 @@ namespace ProyectoMolde.Forms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            HiddenField1.Value = "2";// Request.QueryString[""];
-        }
+            int maestroAnexoId = 0;
+            if (!IsPostBack)
+            {
 
-        private void Submit1_ServerClick(object sender, System.EventArgs e)
-        {
-          
+               
+                string tabla = Request.QueryString["tabla"];                
+                hRegistro.Value = Request.QueryString["registroId"];
+
+                OpcionesMaestroAnexosController omc = new OpcionesMaestroAnexosController();
+                List<OpcionesMaestroAnexosViewModel> lstOMA = omc.getListaOpcionesMaestroAnexosPorMaestroNombreTabla(tabla);                
+
+                foreach (OpcionesMaestroAnexosViewModel omavm in lstOMA)
+                {
+                    maestroAnexoId = omavm.maestroAnexosId;
+                    cmbTipoAnexo.Items.Add(new ListItem() { Text = omavm.nombreOpcion, Value = omavm.id.ToString() });
+                }
+
+                try
+                {
+                    hConsecutivo.Value = ConsecutivosTemporalesController.getConsecutivo(maestroAnexoId);
+                    Button1.Enabled = true;
+                }
+                catch (Exception)
+                {
+                    Button1.Enabled = false;
+                }
+            }
+
+        
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -27,7 +53,7 @@ namespace ProyectoMolde.Forms
             {
                 string fn = System.IO.Path.GetFileName(File1.PostedFile.FileName);
                 string valueTipoAnexo = cmbTipoAnexo.SelectedValue;
-                string val = HiddenField1.Value;
+                string val = hRegistro.Value;
                 try
                 {
                     byte[] fileData = null;
@@ -35,6 +61,29 @@ namespace ProyectoMolde.Forms
                     {
                         fileData = binaryReader.ReadBytes(File1.PostedFile.ContentLength);
                     }
+
+                    AnexoController ac = new AnexoController();
+                    Anexos a = new Anexos();
+                    a.anexo = fileData;
+                    a.consecutivoTemporal = hConsecutivo.Value;
+                    a.id = 0;
+                    a.opcionMaestroAnexoId = int.Parse( valueTipoAnexo );
+                    a.nombreAnexo = fn;
+                    try
+                    {
+                        a.registroTablaId = int.Parse(hRegistro.Value.ToString());
+                    }
+                    catch (Exception)
+                    {}
+                    a.usuarioId = int.Parse( Session["usuarioId"].ToString());
+                    
+                   Result r = ac.guardarAnexos(a);
+
+                   if (r.error != "")
+                   {
+                       Response.Write("<h1> Error: " + r.error + "</h1>");
+                   }
+
                 }
                 catch (Exception ex)
                 {

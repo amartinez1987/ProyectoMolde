@@ -21,7 +21,7 @@ namespace ControlUsuarios.Entity.Controller
         public List<MaestroAnexosViewModel> getListaMaestroAnexos()
         {
             var l = from maestroanexos in entity.MaestroAnexos
-                    select new MaestroAnexosViewModel { id = maestroanexos.id, tabla = maestroanexos.tabla, usuarioId = maestroanexos.usuarioId };
+                    select new MaestroAnexosViewModel { id = maestroanexos.id, tabla = maestroanexos.tabla, usuarioId = maestroanexos.usuarioId, aplicacionId = maestroanexos.aplicacionId };
             return l.ToList();
         }
 
@@ -29,7 +29,15 @@ namespace ControlUsuarios.Entity.Controller
         {
             var l = from maestroanexos in entity.MaestroAnexos
                     where maestroanexos.id == id
-                    select new MaestroAnexosViewModel { id = maestroanexos.id, tabla = maestroanexos.tabla, usuarioId = maestroanexos.usuarioId };
+                    select new MaestroAnexosViewModel { id = maestroanexos.id, tabla = maestroanexos.tabla, usuarioId = maestroanexos.usuarioId, aplicacionId = maestroanexos.aplicacionId };
+            return l.SingleOrDefault();
+        }
+
+        public MaestroAnexosViewModel getMaestroAnexosTabla(string nombreTabla)
+        {
+            var l = from maestroanexos in entity.MaestroAnexos
+                    where maestroanexos.tabla == nombreTabla
+                    select new MaestroAnexosViewModel { id = maestroanexos.id, tabla = maestroanexos.tabla, usuarioId = maestroanexos.usuarioId, aplicacionId  = maestroanexos.aplicacionId };
             return l.SingleOrDefault();
         }
 
@@ -70,7 +78,12 @@ namespace ControlUsuarios.Entity.Controller
                 {
                     return result;
                 }
+
+                ConsecutivosTemporales newConsecutivosTemporales = new ConsecutivosTemporales() { consecutivo = 0, MaestroAnexos = registro, id = 0 };
+                registro.ConsecutivosTemporales.Add(newConsecutivosTemporales);
                 entity.MaestroAnexos.Add(registro);
+                
+
                 try
                 {
                     entity.SaveChanges();

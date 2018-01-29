@@ -13,13 +13,22 @@ namespace ProyectoMolde.Forms {
     public partial class frmCargueAnexos {
         
         /// <summary>
-        /// Control HiddenField1.
+        /// Control hRegistro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+        protected global::System.Web.UI.WebControls.HiddenField hRegistro;
+        
+        /// <summary>
+        /// Control hConsecutivo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hConsecutivo;
         
         /// <summary>
         /// Control cmbTipoAnexo.

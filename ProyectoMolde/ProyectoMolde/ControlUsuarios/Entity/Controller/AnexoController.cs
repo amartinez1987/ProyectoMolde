@@ -14,10 +14,17 @@ namespace ControlUsuarios.Entity.Controller
         {
             return entity;
         }
-        public List<AnexosViewModel> getListaPersonas()
+        public List<AnexosViewModel> getListaAnexos()
         {
             var l = from anexos in entity.Anexos
-                    select new AnexosViewModel { anexo = anexos.anexo, id = anexos.id, opcionMaestroAnexoId = anexos.opcionMaestroAnexoId, registroTablaId = anexos.registroTablaId, usuarioId = anexos.usuarioId  };
+                    select new AnexosViewModel { anexo = anexos.anexo, id = anexos.id, opcionMaestroAnexoId = anexos.opcionMaestroAnexoId, registroTablaId = anexos.registroTablaId, usuarioId = anexos.usuarioId  , consecutivosTemporal = anexos.consecutivoTemporal, nombreOpcionMaestroAnexo = anexos.OpcionesMaestroAnexos.nombreOpcion, nombreAnexo = anexos.nombreAnexo};
+            return l.ToList();
+        }
+        public List<AnexosViewModel> getListaAnexosPorConsecutivoTemporal(string consecutivoTemporal)
+        {
+            var l = from anexos in entity.Anexos
+                    where anexos.consecutivoTemporal == consecutivoTemporal
+                    select new AnexosViewModel { anexo = anexos.anexo, id = anexos.id, opcionMaestroAnexoId = anexos.opcionMaestroAnexoId, registroTablaId = anexos.registroTablaId, usuarioId = anexos.usuarioId, consecutivosTemporal = anexos.consecutivoTemporal, nombreOpcionMaestroAnexo = anexos.OpcionesMaestroAnexos.nombreOpcion, nombreAnexo = anexos.nombreAnexo };
             return l.ToList();
         }
 
@@ -25,7 +32,7 @@ namespace ControlUsuarios.Entity.Controller
         {
             var l = from anexos in entity.Anexos
                     where anexos.id == id
-                    select new AnexosViewModel { anexo = anexos.anexo, id = anexos.id, opcionMaestroAnexoId = anexos.opcionMaestroAnexoId, registroTablaId = anexos.registroTablaId, usuarioId = anexos.usuarioId };
+                    select new AnexosViewModel { anexo = anexos.anexo, id = anexos.id, opcionMaestroAnexoId = anexos.opcionMaestroAnexoId, registroTablaId = anexos.registroTablaId, usuarioId = anexos.usuarioId, consecutivosTemporal = anexos.consecutivoTemporal, nombreOpcionMaestroAnexo = anexos.OpcionesMaestroAnexos.nombreOpcion, nombreAnexo = anexos.nombreAnexo };
             return l.FirstOrDefault();
         }
 

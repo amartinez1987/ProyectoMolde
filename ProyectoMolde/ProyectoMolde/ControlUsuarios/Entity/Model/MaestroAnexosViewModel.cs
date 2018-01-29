@@ -11,5 +11,6 @@ namespace ControlUsuarios.Entity.Model
         public int id { get; set; }
         public String tabla { get; set; }
         public int usuarioId { get; set; }
+        public int aplicacionId { get; set; }
     }
 }

@@ -101,6 +101,7 @@
     <Compile Include="Entity\Controller\AnexoController.cs" />
     <Compile Include="Entity\Controller\AplicacionesWebController.cs" />
     <Compile Include="Entity\Controller\BarriosController.cs" />
+    <Compile Include="Entity\Controller\ConsecutivosTemporalesController.cs" />
     <Compile Include="Entity\Controller\DepartamentosController.cs" />
     <Compile Include="Entity\Controller\DocumentosIdentidadController.cs" />
     <Compile Include="Entity\Controller\EstadosCivilController.cs" />
@@ -138,6 +139,9 @@
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Model\BarriosViewModel.cs" />
+    <Compile Include="Entity\Model\ConsecutivosTemporales.cs">
+      <DependentUpon>MoldeEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\Model\ControlAplicacion.cs">
       <DependentUpon>MoldeEntity.tt</DependentUpon>
     </Compile>

@@ -101,10 +101,19 @@
       <End Role="MaestroAnexos" EntitySet="MaestroAnexos" />
       <End Role="OpcionesMaestroAnexos" EntitySet="OpcionesMaestroAnexos" />
     </AssociationSet>
+    <EntitySet Name="ConsecutivosTemporales" EntityType="MoldeModel.ConsecutivosTemporales" />
+    <AssociationSet Name="FK_ConsecutivosTemporales_MaestroAnexos" Association="MoldeModel.FK_ConsecutivosTemporales_MaestroAnexos">
+      <End Role="MaestroAnexos" EntitySet="MaestroAnexos" />
+      <End Role="ConsecutivosTemporales" EntitySet="ConsecutivosTemporales" />
+    </AssociationSet>
     <EntitySet Name="Anexos" EntityType="MoldeModel.Anexos" />
     <AssociationSet Name="FK_Anexos_OpcionesMaestroAnexos" Association="MoldeModel.FK_Anexos_OpcionesMaestroAnexos">
       <End Role="OpcionesMaestroAnexos" EntitySet="OpcionesMaestroAnexos" />
       <End Role="Anexos" EntitySet="Anexos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MaestroAnexos_AplicacionesWeb" Association="MoldeModel.FK_MaestroAnexos_AplicacionesWeb">
+      <End Role="AplicacionesWeb" EntitySet="AplicacionesWeb" />
+      <End Role="MaestroAnexos" EntitySet="MaestroAnexos" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="AplicacionesWeb">
@@ -116,6 +125,7 @@
     <Property Name="descripcion" Type="String" Nullable="false" MaxLength="800" FixedLength="false" Unicode="false" />
     <Property Name="usuarioId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Menus" Relationship="MoldeModel.FK_Menus_AplicacionesWeb" FromRole="AplicacionesWeb" ToRole="Menus" />
+    <NavigationProperty Name="MaestroAnexos" Relationship="MoldeModel.FK_MaestroAnexos_AplicacionesWeb" FromRole="AplicacionesWeb" ToRole="MaestroAnexos" />
   </EntityType>
   <EntityType Name="Barrios">
     <Key>
@@ -597,6 +607,9 @@
     <Property Name="tabla" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
     <Property Name="usuarioId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="OpcionesMaestroAnexos" Relationship="MoldeModel.FK_OpcionesMaestroAnexos_MaestroAnexos" FromRole="MaestroAnexos" ToRole="OpcionesMaestroAnexos" />
+    <NavigationProperty Name="ConsecutivosTemporales" Relationship="MoldeModel.FK_ConsecutivosTemporales_MaestroAnexos" FromRole="MaestroAnexos" ToRole="ConsecutivosTemporales" />
+    <Property Name="aplicacionId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AplicacionesWeb" Relationship="MoldeModel.FK_MaestroAnexos_AplicacionesWeb" FromRole="MaestroAnexos" ToRole="AplicacionesWeb" />
   </EntityType>
   <Association Name="FK_OpcionesMaestroAnexos_MaestroAnexos">
     <End Type="MoldeModel.MaestroAnexos" Role="MaestroAnexos" Multiplicity="1" />
@@ -610,6 +623,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="ConsecutivosTemporales">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="consecutivo" Type="Int64" Nullable="false" />
+    <Property Name="maestroAnexoId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MaestroAnexos" Relationship="MoldeModel.FK_ConsecutivosTemporales_MaestroAnexos" FromRole="ConsecutivosTemporales" ToRole="MaestroAnexos" />
+  </EntityType>
+  <Association Name="FK_ConsecutivosTemporales_MaestroAnexos">
+    <End Type="MoldeModel.MaestroAnexos" Role="MaestroAnexos" Multiplicity="1" />
+    <End Type="MoldeModel.ConsecutivosTemporales" Role="ConsecutivosTemporales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MaestroAnexos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ConsecutivosTemporales">
+        <PropertyRef Name="maestroAnexoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityType Name="Anexos">
     <Key>
       <PropertyRef Name="id" />
@@ -619,6 +653,8 @@
     <Property Name="registroTablaId" Type="Int32" />
     <Property Name="usuarioId" Type="Int32" Nullable="false" />
     <Property Name="anexo" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="nombreAnexo" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="consecutivoTemporal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="OpcionesMaestroAnexos" Relationship="MoldeModel.FK_Anexos_OpcionesMaestroAnexos" FromRole="Anexos" ToRole="OpcionesMaestroAnexos" />
   </EntityType>
   <Association Name="FK_Anexos_OpcionesMaestroAnexos">
@@ -630,6 +666,18 @@
       </Principal>
       <Dependent Role="Anexos">
         <PropertyRef Name="opcionMaestroAnexoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MaestroAnexos_AplicacionesWeb">
+    <End Type="MoldeModel.AplicacionesWeb" Role="AplicacionesWeb" Multiplicity="1" />
+    <End Type="MoldeModel.MaestroAnexos" Role="MaestroAnexos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AplicacionesWeb">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MaestroAnexos">
+        <PropertyRef Name="aplicacionId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -42,7 +42,7 @@ namespace ProyectoMolde.WebMethods
         }
 
         [WebMethod(EnableSession = true)]
-        public static Result guardar(int id, int usuarioId, string tabla)
+        public static Result guardar(int id, int usuarioId, string tabla, int aplicacionId)
         {
             Result r = ValidateSession.validarSession(usuarioId, HttpContext.Current.Session["usuarioId"]);
             if (r.error != "")
@@ -53,6 +53,7 @@ namespace ProyectoMolde.WebMethods
             objEntity.id = id;
             objEntity.usuarioId = usuarioId;
             objEntity.tabla = tabla;
+            objEntity.aplicacionId = aplicacionId;
 
             try
             {
