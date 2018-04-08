@@ -65,7 +65,7 @@ namespace ProyectoMolde.WebMethods
         [WebMethod]
         public static Result nuevo(UsuariosViewModel usuario)
         {
-            Result r = ValidateSession.validarSession(usuario.id, HttpContext.Current.Session["usuarioId"]);
+            Result r = ValidateSession.validarSession(usuario.usuarioId.Value, HttpContext.Current.Session["usuarioId"]);
             if (r.error != "")
             {
                 return r;
